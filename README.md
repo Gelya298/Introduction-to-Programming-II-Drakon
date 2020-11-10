@@ -2,26 +2,43 @@
 Drakon Language Course
 
 i1	Begin icon
+
 i2	End icon
+
 i3	Action icon
+
 i4	If icon (Question icon)
+
 i5	Select icon
+
 i6	Case icon
+
 i7	Branch name icon
+
 i8	Address icon
+
 i9	Insertion icon
+
 i10	Shelf icon
+
 i11	Formal parameters icon
+
 i12	Begin for icon
+
 i13	End for icon
+
 i14	Output icon
+
 i15	Input icon
+
 i16	Pause icon
 
 
 
 Module
+
 Procedure
+
 functions
 
 
