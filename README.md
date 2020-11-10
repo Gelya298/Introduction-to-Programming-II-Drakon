@@ -79,11 +79,17 @@ Operands
 BOOLEAN, CHAR, INTEGER, REAL, LONGREAL, SET
 
 BOOLEAN 	Boolean values ​​TRUE and FALSE
+
 CHAR 		Characters of the extended set of UTF-8
+
 INTEGER 	Integer in the range -231 and 230
+
 REAL 		Reals (IEEE Standard, 32 bits)
+
 LONGREAL 	Long Reals (IEEE Standard, 64 bits)
+
 SET 		Set of integers in the range from 0 to 31
+
 
 StructType = ArrayType | RecordType | PointerType | ProcedureType | SignalType
 
