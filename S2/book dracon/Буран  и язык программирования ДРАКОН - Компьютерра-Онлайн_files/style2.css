@@ -1,0 +1,235 @@
+body {
+    font: 14px Helvetica, Arial, sans-serif; 
+    line-height: 18px;
+    width: 990px;        
+    margin: 0 auto;
+    padding: 0 5px;
+    text-align: center;
+}
+
+p, blockquote, table {
+    margin: 0px;
+    margin-bottom: 1em;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px; padding: 0px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    line-height: 1em;
+}
+h1 { font-size: 22px; }
+h2 { font-size: 16px; margin-bottom: .2em; }
+h3 { font-size: 14px; float: left; line-height: 18px; margin-right: .5em; }
+
+a { color: #3072B0; }
+a img { border: none ; }
+
+#top { 
+    position: relative;
+}
+
+#top #logo {
+    width: 472px;
+} 
+
+#search {
+/*    position: absolute;*/
+    bottom: 0; right: 0;
+}
+
+#date {
+/*    position: absolute;*/
+    bottom: 0px; left: 500px;
+    font-size: 11px;
+    text-transform: uppercase;
+}        
+
+/* ----- */    
+
+.menu {  
+    position: relative;
+    border-top: 3px solid #3072B0; margin-top: 7px; 
+}
+.menu ul { 
+    margin: 7px 0; padding: 0; 
+    line-height: 1em;
+}
+.menu li { 
+    display: inline; 
+    padding-right: 14px;
+}    
+.menu a {
+    color: #3072B0;
+    text-decoration: none;
+}
+.menu .green a {
+    color: #00aa00 !important;
+    text-decoration: none;
+}
+.menu a:hover { 
+    border-bottom: 2px solid #3072B0;        
+}
+
+.menu .green a:hover { 
+    border-bottom: 2px solid #00aa00;        
+}
+
+.menu .menu-right {
+    position: absolute; 
+    top:0; left: 740px;       
+    text-align: right; 
+    width: 250px;
+}
+        
+.cat, .cat a {
+    font: bold 11px Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none; 
+    color: #3072B0; 
+}
+    
+.cat a:hover { 
+    border-bottom: 2px solid #3072B0;        
+    text-decoration: none; 
+}
+
+.cat a:visited { 
+    color: #3072B0; 
+}
+/* ---- */
+
+#mid {
+    position: relative;
+}
+
+#content {
+    width: 550px;
+/*    margin-left: 180px; */
+    margin-top: 30px;
+    overflow: hidden;
+    font: 14px Helvetica, Arial, sans-serif; 
+    line-height: 18px;
+}
+
+#content p {
+    font: 14px Helvetica, Arial, sans-serif; 
+    line-height: 18px;
+}
+
+#content .info, #content .info a, #content .info a:visited {
+    font: italic 12px Georgia, Times, serif;
+    color: #888;
+}
+
+#content .sub {
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+#content a:visited { color: #808; }
+
+#fin {
+    font-size: 12px;
+    padding-bottom: 2em;
+    padding-top: 1em;
+}
+#fin ul {
+    border-top: 1px solid #3072B0;    
+    border-bottom: 1px solid #3072B0;
+    padding: 5px 0;
+    margin-bottom: 2em;
+}
+#fin li {
+    display: inline;
+    padding-right: 14px;
+}
+
+#fin a:visited { color: #3072B0; }
+
+/* ----- */
+
+.pic, .pic a, .pic a:visited {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    line-height: 1em;
+}
+.pic img {
+    border: none;
+    margin-bottom: 5px;
+}
+
+.left {
+    margin-right: 10px;
+    margin-bottom: 4px;
+    float: left;
+}    
+.right {
+    margin-left: 10px;
+    margin-bottom: 4px;
+    float: right;
+}    
+
+#content blockquote {
+    padding-left: 2em;
+}
+
+#content .note {
+    background: #e2e2e2;
+    padding: 10px;
+    margin-bottom: 1em;
+}
+
+/* ----- */
+
+#sidebar-left {
+/*    position: absolute; 
+    top: 0px; left: 0px;  
+    margin-top: 30px;
+    width: 160px;*/
+    font-size: 12px;
+}
+
+#sidebar-right {
+/*    position: absolute;    
+    top: 0px; left: 750px;
+    margin-top: 30px;
+    width: 240px;*/
+}
+
+.sidehead {
+    font: bold 11px Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+/* ------ */
+
+#bottom {
+    font-size: 12px;
+    color: #888;
+}
+
+#bottom .info a, #bottom .info a:hover {
+    text-decoration: underline;
+    color: #888;
+    border: none; 
+}
+
+#IDCommentsHead h3 { display: none; }
+
+.uhi { width: 100%; }
+.uhi td { font-size: 10pt; width: 17%; /* font: 10pt Arial, Helvetica, sans-serif; */ font: 12px Tahoma, Helvetica, sans-serif; line-height: normal; }
+.uho { position: relative; margin-bottom: 20px; }
+.uho a { display: block; width: 150px; margin-top: 4px; color: black; }
+.uhi img { border: solid 1px #e2e2e2; }
+.from {
+     line-height: 18px;
+    position: absolute;
+    left: 1px; top: 1px;
+    background: black;
+    color: white;
+    font-size: 8px; font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0px 5px;
+} 

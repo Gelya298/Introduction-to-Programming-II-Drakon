@@ -1,0 +1,1528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0064)http://code.google.com/appengine/docs/whatisgoogleappengine.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<title>What Is Google App Engine? - Google App Engine - Google Code</title>
+<script src="./What Is Google App Engine  - Google App Engine - Google Code_files/saved_resource" async=""></script><script type="text/javascript"><!--
+(function(){function a(){this.t={};this.tick=function(c){this.t[c]=(new Date).getTime()};this.tick("start")}var b=new a;window.jstiming={Timer:a,load:b};if(window.external&&window.external.pageT)window.jstiming.pt=window.external.pageT;})();
+
+var _tocPath_ = '/appengine/docs/_toc.ezt';
+var codesite_token = 'PfzdCq0HXStFzNDzZx5EhigDIOk:1328170279513';
+var logged_in_user_email = 'ignat99@gmail.com';
+//--></script>
+<link href="./What Is Google App Engine  - Google App Engine - Google Code_files/codesite.pack.04102009.css" type="text/css" rel="stylesheet">
+<script src="./What Is Google App Engine  - Google App Engine - Google Code_files/codesite_head.pack.04102009.js" type="text/javascript"></script>
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('bhs');</script>
+<link rel="search" type="application/opensearchdescription+xml" title="Google Code" href="http://code.google.com/osd.xml">
+
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/iehacks.css"><![endif]-->
+
+    <link href="./What Is Google App Engine  - Google App Engine - Google Code_files/semantic_headers.css" rel="stylesheet" type="text/css">
+    <link href="./What Is Google App Engine  - Google App Engine - Google Code_files/local_extensions.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" async="" src="./What Is Google App Engine  - Google App Engine - Google Code_files/ga.js"></script></head>
+
+  <body class="gc-documentation">
+
+    
+    
+    <script type="text/javascript">
+var _gaq = _gaq || [];
+
+var cookiePath = '/appengine/';
+if (cookiePath.lastIndexOf('.html') > cookiePath.lastIndexOf('/')) {
+  cookiePath = cookiePath.substring(0, cookiePath.lastIndexOf('/') + 1);
+};
+
+_gaq.push(
+
+
+    ['siteTracker._setAccount', 'UA-18071-1'],
+    ['siteTracker._setDomainName', 'code.google.com'],
+    ['siteTracker._trackPageview']
+);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  (document.getElementsByTagName('head')[0] ||
+   document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+</script>
+
+
+<div id="gb">
+ <span>
+  
+   
+    <b>ignat99@gmail.com</b>
+    |
+   
+    <a href="http://code.google.com/u/ignat99/" id="projects-dropdown" onclick="return false;"><span style="text-decoration:underline">My favorites</span> <span style="font-size:.75em;">▼</span></a>
+    |
+  
+    <a id="lang-dropdown" href="http://code.google.com/" onclick="return false;"><span style="text-decoration:underline">English</span> <span style="font-size:.75em;">▼</span></a>
+  
+   
+    | <a href="http://www.google.com/accounts/Logout?continue=http%3A%2F%2Fcode.google.com%2Fappengine%2Fdocs%2Fwhatisgoogleappengine.html" onclick="CODESITE_click(&#39;/gb/sc/signout&#39;);"><span style="text-decoration:underline">Sign out</span></a>
+   
+  
+ </span>
+</div>
+
+<div class="gbh" style="left:0px;"></div>
+<div class="gbh" style="right:0px;"></div>
+
+
+<div id="gc-container">
+<a id="top"></a>
+<div id="skipto">
+  <a href="http://code.google.com/appengine/docs/whatisgoogleappengine.html#gc-pagecontent">Skip to page content</a>
+  <a href="http://code.google.com/appengine/docs/whatisgoogleappengine.html#gc-toc">Skip to main navigation</a>
+</div>
+
+<div id="gc-header">
+  <div id="logo"><a href="http://code.google.com/">
+  
+     <img src="./What Is Google App Engine  - Google App Engine - Google Code_files/code_logo.gif" height="40" width="167" alt="Google Code" style="border:0;margin:3px 0 0 0;">
+  
+  </a></div>
+  <div id="search">
+    <div id="searchForm">
+      <form id="cse" action="http://www.google.com/cse" accept-charset="utf-8" onsubmit="executeGSearch(document.getElementById(&#39;gsearchInput&#39;).value); return false;">
+      <noscript></noscript>
+      <div id="gsc-search-box">
+        <input id="gsearchInput" type="text" name="q" maxlength="2048" class="gsc-input" autocomplete="off" title="Google Code Search" style="width:345px">
+        <div id="cs-searchresults" onclick="event.cancelBubble = true;"></div>
+        <input title="Search" id="gsearchButton" class="gsc-search-button" name="sa" value="Search" type="submit">
+        <div class="greytext">e.g. "templates" or "datastore"</div>
+      </div>
+      </form>
+    </div> <!-- end searchForm -->
+  </div> <!-- end search -->
+
+
+
+
+</div> <!-- end gc-header -->
+
+
+<div id="codesiteContent">
+
+<a id="gc-topnav-anchor"></a>
+<div id="gc-topnav"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/star_off.gif" width="15" height="15" id="gc-star">
+  <h1 class="default">Google App Engine</h1>
+  <ul id="docs" class="gc-topnav-tabs">
+
+    <li id="home_link">
+      <a href="http://code.google.com/appengine/" title="Google App Engine home page">Home</a>
+    </li>
+  
+    <li id="docs_link">
+      <a href="http://code.google.com/appengine/docs/" class="selected" title="Official Google App Engine documentation">Docs</a>
+    </li>
+  
+    <li id="faq_link">
+      <a href="http://code.google.com/appengine/kb/" title="Answers to frequently asked questions about Google App Engine">FAQ</a>
+    </li>
+  
+    <li id="articles_link">
+      <a href="http://code.google.com/appengine/articles/" title="Focused articles and tutorials for Google App Engine developers">Articles</a>
+    </li>
+  
+    <li>
+      <a href="http://googleappengine.blogspot.com/" title="Official Google App Engine blog">Blog</a>
+    </li>
+  
+    <li>
+      <a href="http://code.google.com/appengine/community.html" title="Community home for Google App Engine">Community</a>
+    </li>
+  
+    <li>
+      <a href="http://code.google.com/appengine/terms.html" title="Google App Engine terms of service">Terms</a>
+    </li>
+  
+    <li>
+      <a href="http://code.google.com/appengine/downloads.html" title="Download Google App Engine">Download</a>
+    </li>
+  
+
+  
+  
+  
+  
+  <li><div id="___plusone_0" style="height: 15px; width: 24px; display: inline-block; text-indent: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial; "><iframe allowtransparency="true" frameborder="0" hspace="0" id="I1_1328173936004" marginheight="0" marginwidth="0" name="I1_1328173936004" scrolling="no" src="./What Is Google App Engine  - Google App Engine - Google Code_files/fastbutton.html" style="width: 24px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; height: 15px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="-1" vspace="0" width="100%" title="+1"></iframe></div>&nbsp;</li>
+</ul>
+</div> <!-- end gc-topnav -->
+
+
+    <div class="g-section g-tpl-170">
+
+      <div class="g-unit g-first" id="gc-toc">
+        <ul class="treelist tlw-nested-only tlw-processed tlw-instance-0">
+  <li><a href="http://code.google.com/appengine/downloads.html">Downloads</a></li>
+  <li><a href="http://code.google.com/appengine/tools_tips.html">Tools and Tips</a></li>
+  <li><a href="http://code.google.com/appengine/docs/glossary.html">Glossary</a></li>
+  <li><a href="https://appengine.google.com/">Admin Console</a></li>
+  <li><a href="http://code.google.com/status/appengine">System Status</a></li>
+  <li><a href="http://code.google.com/p/googleappengine/issues/list">Issue Tracker</a></li>
+</ul>
+<div class="line"></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-1">
+  <li><h2 class="tlw-ignore">Getting Started</h2>
+    <ul>
+      <li class="selected"><a href="./What Is Google App Engine  - Google App Engine - Google Code_files/What Is Google App Engine  - Google App Engine - Google Code.html">What Is Google App Engine?</a></li>
+      <li style="padding-top: 0px; padding-bottom: 0px; ">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Java"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Java" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/gettingstarted/">Java</a></div><ul id="1-sub-0" style="display: none; ">
+              <li><a href="http://code.google.com/appengine/docs/java/gettingstarted/introduction.html">Introduction</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/gettingstarted/installing.html">Installing the Java SDK</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/gettingstarted/creating.html">Creating a Project</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/gettingstarted/usingusers.html">Using the Users Service</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/gettingstarted/usingjsps.html">Using JSPs</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/gettingstarted/usingdatastore.html">Using the Datastore</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/gettingstarted/staticfiles.html">Using Static Files</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/gettingstarted/uploading.html">Uploading Your Application</a></li>
+    <li><a href="http://googcloudlabs.appspot.com/">Codelabs for Getting Started in Java</a></li>
+
+        </ul>
+      </li>
+      <li style="padding-top: 0px; padding-bottom: 0px; ">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Python 2.5"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Python 2.5" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/gettingstarted/">Python 2.5</a></div><ul id="1-sub-1" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/gettingstarted/introduction.html">Introduction</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstarted/devenvironment.html">The Development Environment</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstarted/helloworld.html">Hello, World!</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstarted/usingwebapp.html">Using the webapp Framework</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstarted/usingusers.html">Using the Users Service</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstarted/handlingforms.html">Handling Forms With webapp</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstarted/usingdatastore.html">Using the Datastore</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstarted/templates.html">Using Templates</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstarted/staticfiles.html">Using Static Files</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstarted/uploading.html">Uploading Your Application</a></li>
+
+        </ul>
+      </li>
+      <li style="padding-top: 0px; padding-bottom: 0px; ">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Python 2.7"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Python 2.7" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/">Python 2.7</a></div><ul id="1-sub-2" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/introduction.html">Introduction</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/devenvironment.html">The Development Environment</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/helloworld.html">Hello, World!</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/usingwebapp.html">Explaining the webapp2 Framework</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/usingusers.html">Using the Users Service</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/handlingforms.html">Handling Forms With webapp</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/usingdatastore.html">Using the Datastore</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/templates.html">Using Templates</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/staticfiles.html">Using Static Files</a></li>
+  <li><a href="http://code.google.com/appengine/docs/python/gettingstartedpython27/uploading.html">Uploading Your Application</a></li>
+
+        </ul>
+      </li>
+      <li style="padding-top: 0px; padding-bottom: 0px; ">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Go"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Go" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/gettingstarted/">Go</a></div><ul id="1-sub-3" style="display: none; ">
+          <li><span class="exp-feat">Experimental!</span></li>
+            <li><a href="http://code.google.com/appengine/docs/go/gettingstarted/introduction.html">Introduction</a></li>
+  <li><a href="http://code.google.com/appengine/docs/go/gettingstarted/devenvironment.html">The Development Environment</a></li>
+  <li><a href="http://code.google.com/appengine/docs/go/gettingstarted/helloworld.html">Hello, World!</a></li>
+  <li><a href="http://code.google.com/appengine/docs/go/gettingstarted/usingusers.html">Using the Users Service</a></li>
+  <li><a href="http://code.google.com/appengine/docs/go/gettingstarted/handlingforms.html">Handling Forms</a></li>
+  <li><a href="http://code.google.com/appengine/docs/go/gettingstarted/usingdatastore.html">Using the Datastore</a></li>
+  <li><a href="http://code.google.com/appengine/docs/go/gettingstarted/uploading.html">Uploading Your Application</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-2">
+  <li><h2 class="tlw-ignore">Java</h2>
+    <ul>
+          <li><a href="http://code.google.com/appengine/docs/java/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/runtime.html">Servlet Environment</a></li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Backends"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Backends" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/backends/">Backends</a></div><ul id="2-sub-0" style="display: none; ">
+        <li><a href="http://code.google.com/appengine/docs/java/backends/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/backends/package-summary.html">Javadoc Reference</a></li>
+
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Storing Data"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Storing Data" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/datastore/">Storing Data</a></div><ul id="2-sub-1" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/datastore/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/entities.html">Entities</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/queries.html">Queries</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/transactions.html">Transactions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/hr/">Choosing a Datastore</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/hr/overview.html">Using the High Replication Datastore</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/metadataqueries.html">Metadata Queries</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/stats.html">Statistics</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/async.html">Async API</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/callbacks.html">Callbacks</a></li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand JDO"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand JDO" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/datastore/jdo/">JDO</a></div><ul id="2-sub-2" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/datastore/jdo/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/jdo/dataclasses.html">Defining Data Classes with JDO</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/jdo/creatinggettinganddeletingdata.html">Creating, Getting, and Deleting Data in JDO</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/jdo/relationships.html">Entity Relationships in JDO</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/datastore/jdo/queries.html">Queries in JDO</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand JPA"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand JPA" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/datastore/jpa/">JPA</a></div><ul id="2-sub-3" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/datastore/jpa/overview.html">Overview</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Google Cloud Storage"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Google Cloud Storage" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/googlestorage/">Google Cloud Storage</a></div><ul id="2-sub-4" style="display: none; ">
+        <li><a href="http://code.google.com/appengine/docs/java/googlestorage/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/files/package-summary.html">API Reference</a></li>
+    
+
+
+      </ul>
+    </li>
+    <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/datastore/package-summary.html">Javadoc Reference</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Services"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Services" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/apis.html">Services</a></div><ul id="2-sub-5" style="display: none; ">
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand App Identity"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand App Identity" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/appidentity/">App Identity</a></div><ul id="2-sub-6" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/appidentity/overview.html">Overview</a></li>
+
+<li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/appidentity/package-summary.html">Low-level API</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Blobstore"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Blobstore" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/blobstore/">Blobstore</a></div><ul id="2-sub-7" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/blobstore/overview.html">Overview</a></li>
+<li style="padding-top: 0px; padding-bottom: 0px; ">
+  <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="2-sub-8" style="display: block; ">
+    <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/blobstore/package-summary.html">API Reference</a></li>
+  </ul>
+</li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Google Cloud Storage"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Google Cloud Storage" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/googlestorage/">Google Cloud Storage</a></div><ul id="2-sub-9" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/googlestorage/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/files/package-summary.html">API Reference</a></li>
+    
+
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Capabilities"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Capabilities" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/capabilities/">Capabilities</a></div><ul id="2-sub-10" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/capabilities/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/capabilities/package-summary.html">Javadoc Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Conversion"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Conversion" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/conversion/">Conversion</a></div><ul id="2-sub-11" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/conversion/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/conversion/package-summary.html">Javadoc Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Channel"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Channel" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/channel/">Channel</a></div><ul id="2-sub-12" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/channel/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/channel/package-summary.html">Javadoc Reference</a></li>
+<li><a href="http://code.google.com/appengine/docs/java/channel/javascript.html">JavaScript Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Images"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Images" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/images/">Images</a></div><ul id="2-sub-13" style="display: none; ">
+                <li><a href="http://code.google.com/appengine/docs/java/images/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/images/package-summary.html">API Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Mail"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Mail" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/mail/">Mail</a></div><ul id="2-sub-14" style="display: none; ">
+                <li><a href="http://code.google.com/appengine/docs/java/mail/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/mail/usingjavamail.html">Using JavaMail to Send Mail</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/mail/receiving.html">Receiving Mail</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/mail/package-summary.html">Low-level API</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Memcache"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Memcache" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/memcache/">Memcache</a></div><ul id="2-sub-15" style="display: none; ">
+                <li><a href="http://code.google.com/appengine/docs/java/memcache/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/memcache/usingjcache.html">Using JCache</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/memcache/package-summary.html">Low-level API</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Multitenancy"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Multitenancy" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/multitenancy/">Multitenancy</a></div><ul id="2-sub-16" style="display: none; ">
+                  <li><a href="http://code.google.com/appengine/docs/java/multitenancy/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/multitenancy/multitenancy.html">Multitenancy with Namespaces</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/multitenancy/namespaces.html">Other Uses for Namespaces</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/NamespaceManager.html">API Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand OAuth"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand OAuth" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/oauth/">OAuth</a></div><ul id="2-sub-17" style="display: none; ">
+                <li><a href="http://code.google.com/appengine/docs/java/oauth/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/oauth/package-summary.html">API Reference</a></li>
+
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Prospective Search"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Prospective Search" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/prospectivesearch/">Prospective Search</a></div><ul id="2-sub-18" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/prospectivesearch/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/prospectivesearch/package-summary.html">Javadoc Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Task Queues"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Task Queues" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/taskqueue/">Task Queues</a></div><ul id="2-sub-19" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/java/taskqueue/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/java/taskqueue/overview-push.html">Using Push Queues</a></li>
+     <li><a href="http://code.google.com/appengine/docs/java/taskqueue/overview-pull.html">Using Pull Queues</a><sup class="new">New!</sup></li>
+     <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/taskqueue/package-summary.html">Javadoc Reference</a></li>
+     <li><a href="http://code.google.com/appengine/docs/java/taskqueue/rest.html">REST reference</a> <span class="exp-feat">(Experimental)</span></li>
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand URL Fetch"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand URL Fetch" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/urlfetch/">URL Fetch</a></div><ul id="2-sub-20" style="display: none; ">
+                <li><a href="http://code.google.com/appengine/docs/java/urlfetch/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/urlfetch/usingjavanet.html">Using java.net</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/urlfetch/package-summary.html">Low-level API</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Users"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Users" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/users/">Users</a></div><ul id="2-sub-21" style="display: none; ">
+                <li><a href="http://code.google.com/appengine/docs/java/users/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/users/package-summary.html">API Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand XMPP"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand XMPP" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/xmpp/">XMPP</a></div><ul id="2-sub-22" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/java/xmpp/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/xmpp/package-summary.html">API Reference</a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="http://code.google.com/appengine/docs/java/javadoc/">Services Javadoc</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/jrewhitelist.html">JRE Class White List</a></li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Configuration"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Configuration" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/config/">Configuration</a></div><ul id="2-sub-23" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/config/webxml.html">Deployment Descriptor</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/config/appconfig.html">App Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/config/backends.html">Backends Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/config/indexconfig.html">Index Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/config/cron.html">Scheduled Tasks</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/config/queue.html">Task Queue Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/config/dos.html">DoS Protection Config</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand YAML Configuration"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand YAML Configuration" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/configyaml/">YAML Configuration</a></div><ul id="2-sub-24" style="display: none; ">
+                <li><a href="http://code.google.com/appengine/docs/java/configyaml/appconfig_yaml.html">YAML App Config</a></li>
+        <li><a href="http://code.google.com/appengine/docs/java/configyaml/backends.html">Backends Config</a></li>
+        <li><a href="http://code.google.com/appengine/docs/java/configyaml/indexconfig.html">Index Config</a></li>
+        <li><a href="http://code.google.com/appengine/docs/java/configyaml/cron.html">Scheduled Tasks</a></li>
+        <li><a href="http://code.google.com/appengine/docs/java/configyaml/queue.html">Task Queue Config</a></li>
+        <li><a href="http://code.google.com/appengine/docs/java/configyaml/dos.html">DoS Protection Config</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Tools"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Tools" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/tools/">Tools</a></div><ul id="2-sub-25" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/tools/devserver.html">Development Server</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/tools/uploadinganapp.html">Uploading and Managing an App</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/tools/eclipse.html">Google Plugin for Eclipse</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/tools/ant.html">Using Apache Ant</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/tools/capabilities.html">Capabilities Service Test Configuration</a>
+    </li><li style="padding-top: 0px; padding-bottom: 0px; ">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Local Unit Testing"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Local Unit Testing" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/tools/localunittesting.html">Local Unit Testing</a></div><ul id="2-sub-26" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/java/tools/localunittesting/javadoc/">Testing Javadoc</a></li>
+        </ul>
+    </li>
+    <li><a href="http://code.google.com/appengine/docs/java/tools/appstats.html">Appstats</a></li>
+    <li><a href="http://code.google.com/appengine/docs/java/tools/remoteapi.html">Remote API</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand How-To"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand How-To" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/java/howto/">How-To</a></div><ul id="2-sub-27" style="display: none; ">
+              <li><a href="http://code.google.com/appengine/docs/java/howto/maintenance.html">Handling Scheduled Maintenance Periods</a></li>
+
+      </ul>
+    </li>
+
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-3">
+  <li><h2 class="tlw-ignore">Python</h2>
+    <ul>
+          <li><a href="http://code.google.com/appengine/docs/python/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/runtime.html">Runtime Environment</a></li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Python 2.7"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Python 2.7" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/python27/">Python 2.7</a></div><ul id="3-sub-0" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/python27/newin27.html">What's New in Python 2.7</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/python27/using27.html">Using Python 2.7</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Backends"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Backends" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/backends/">Backends</a></div><ul id="3-sub-1" style="display: none; ">
+        <li><a href="http://code.google.com/appengine/docs/python/backends/overview.html">Overview</a></li>
+<li style="padding-top: 0px; padding-bottom: 0px; ">
+  <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-2" style="display: block; ">
+    <li><a href="http://code.google.com/appengine/docs/python/backends/functions.html">Backends API Functions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/backends/exceptions.html">Backends API Exceptions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/backends/runtimeapi.html">Runtime API</a></li>
+  </ul>
+</li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Storing Data"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Storing Data" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/datastore/">Storing Data</a></div><ul id="3-sub-3" style="display: none; ">
+              <li><a href="http://code.google.com/appengine/docs/python/datastore/overview.html">Datastore Overview</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/datastore/entities.html">Entities</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/datastore/queries.html">Queries</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/datastore/transactions.html">Transactions</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/datastore/datamodeling.html">Data Modeling</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/datastore/gqlreference.html">GQL Reference</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/datastore/hr/">Choosing a Datastore</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/datastore/hr/overview.html">Using the High Replication Datastore</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/datastore/metadataqueries.html">Metadata Queries</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/datastore/stats.html">Statistics</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/datastore/async.html">Async API</a></li>
+      <li style="padding-top: 0px; padding-bottom: 0px; ">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Google Cloud Storage"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Google Cloud Storage" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/googlestorage/">Google Cloud Storage</a></div><ul id="3-sub-4" style="display: none; ">
+          <li><a href="http://code.google.com/appengine/docs/python/googlestorage/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/python/googlestorage/functions.html">Functions</a></li>
+<li><a href="http://code.google.com/appengine/docs/python/googlestorage/exceptions.html">Exceptions</a></li>
+    
+
+
+        </ul>
+      </li>
+      <li style="padding-top: 0px; padding-bottom: 0px; ">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-5" style="display: block; ">
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/typesandpropertyclasses.html">Types and Property Classes</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/gqlreference.html">GQL Reference</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/modelclass.html">Model</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/expandoclass.html">Expando</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/polymodelclass.html">PolyModel</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/propertyclass.html">Property</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/queryclass.html">Query</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/gqlqueryclass.html">GqlQuery</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/metadataqueryclass.html">Metadata Query</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/keyclass.html">Key</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/functions.html">Functions</a></li>
+          <li><a href="http://code.google.com/appengine/docs/python/datastore/exceptions.html">Exceptions</a></li>
+        </ul>
+      </li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Data Processing"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Data Processing" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/dataprocessing/">Data Processing</a></div><ul id="3-sub-6" style="display: none; ">
+             <li><a href="http://code.google.com/appengine/docs/python/dataprocessing/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/dataprocessing/helloworld.html">Hello World</a></li>
+     <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-7" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/dataprocessing/mapreducepipelineclass.html">Mapreduce Pipeline</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/dataprocessing/readers_writers.html">Standard Input Readers and Output Writers</a></li>
+       </ul>
+     </li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Services"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Services" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/apis.html">Services</a></div><ul id="3-sub-8" style="display: none; ">
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand App Identity"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand App Identity" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/appidentity/">App Identity</a></div><ul id="3-sub-9" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/appidentity/overview.html">Overview</a></li>
+<li style="padding-top: 0px; padding-bottom: 0px; ">
+  <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-10" style="display: block; ">
+    <li><a href="http://code.google.com/appengine/docs/python/appidentity/functions.html">Functions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/appidentity/exceptions.html">Exceptions</a></li>
+  </ul>
+</li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Blobstore"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Blobstore" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/blobstore/">Blobstore</a></div><ul id="3-sub-11" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/blobstore/overview.html">Overview</a></li>
+<li style="padding-top: 0px; padding-bottom: 0px; ">
+  <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-12" style="display: block; ">
+    <li><code><a href="http://code.google.com/appengine/docs/python/blobstore/blobinfoclass.html">BlobInfo</a></code></li>
+    <li><code><a href="http://code.google.com/appengine/docs/python/blobstore/blobkeyclass.html">BlobKey</a></code></li>
+    <li><code><a href="http://code.google.com/appengine/docs/python/blobstore/blobreaderclass.html">BlobReader</a></code></li>
+    <li><a href="http://code.google.com/appengine/docs/python/blobstore/rpcclass.html">Blobstore RPC</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/blobstore/functions.html">Functions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/blobstore/exceptions.html">Exceptions</a></li>
+  </ul>
+</li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Capabilities"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Capabilities" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/capabilities/">Capabilities</a></div><ul id="3-sub-13" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/capabilities/overview.html">Overview</a></li>
+<li style="padding-top: 0px; padding-bottom: 0px; ">
+  <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-14" style="display: block; ">
+    <li><a href="http://code.google.com/appengine/docs/python/capabilities/capabilitysetclass.html">CapabilitySet</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/capabilities/exceptions.html">Exceptions</a></li>
+  </ul>
+</li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Conversion"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Conversion" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/conversion/">Conversion</a></div><ul id="3-sub-15" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/conversion/overview.html">Overview</a></li>
+<li style="padding-top: 0px; padding-bottom: 0px; ">
+  <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-16" style="display: block; ">
+    <li><a href="http://code.google.com/appengine/docs/python/conversion/conversionclass.html">Conversion Class</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/conversion/propertyclasses.html">Property Classes</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/conversion/functions.html">Functions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/conversion/exceptions.html">Exceptions</a></li>
+  </ul>
+</li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Channel"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Channel" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/channel/">Channel</a></div><ul id="3-sub-17" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/channel/overview.html">Overview</a></li>
+<li style="padding-top: 0px; padding-bottom: 0px; ">
+  <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-18" style="display: block; ">
+    <li><a href="http://code.google.com/appengine/docs/python/channel/functions.html">Functions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/channel/exceptions.html">Exceptions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/channel/javascript.html">Client Javascript Reference</a></li>
+  </ul>
+</li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Images"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Images" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/images/">Images</a></div><ul id="3-sub-19" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/python/images/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/images/installingPIL.html">Installing PIL</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/images/usingimages.html">Using the Images API</a></li>
+     <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-20" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/images/imageclass.html">Image</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/images/functions.html">Functions</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/images/exceptions.html">Exceptions</a></li>
+       </ul>
+     </li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand LogService"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand LogService" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/logservice/">LogService</a></div><ul id="3-sub-21" style="display: none; ">
+                 <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-22" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/logservice/applogclass.html">AppLog</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/logservice/requestlogclass.html">RequestLog</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/logservice/functions.html">Functions</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/logservice/exceptions.html">Exceptions</a></li>
+       </ul>
+     </li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Mail"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Mail" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/mail/">Mail</a></div><ul id="3-sub-23" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/python/mail/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/mail/sendingmail.html">Sending Mail</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/mail/receivingmail.html">Receiving Mail</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/mail/attachments.html">Attachments</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/mail/headers.html">Headers</a></li>
+     <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-24" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/mail/emailmessageclass.html">EmailMessage</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/mail/emailmessagefields.html">Message Fields</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/mail/functions.html">Functions</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/mail/exceptions.html">Exceptions</a></li>
+       </ul>
+     </li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Memcache"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Memcache" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/memcache/">Memcache</a></div><ul id="3-sub-25" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/python/memcache/overview.html">Overview</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/memcache/usingmemcache.html">Using Memcache</a></li>
+     <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-26" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/memcache/clientclass.html">Client</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/memcache/functions.html">Functions</a></li>
+       </ul>
+     </li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Multitenancy"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Multitenancy" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/multitenancy/">Multitenancy</a></div><ul id="3-sub-27" style="display: none; ">
+                  <li><a href="http://code.google.com/appengine/docs/python/multitenancy/overview.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/multitenancy/multitenancy.html">Multitenancy with Namespaces</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/multitenancy/namespaces.html">Other Uses for Namespaces</a></li>
+    <li>Reference
+      <ul>
+        <li><a href="http://code.google.com/appengine/docs/python/multitenancy/functions.html">Functions</a></li>
+        <li><a href="http://code.google.com/appengine/docs/python/multitenancy/exceptions.html">Exceptions</a></li>
+      </ul>
+    </li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand OAuth"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand OAuth" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/oauth/">OAuth</a></div><ul id="3-sub-28" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/python/oauth/overview.html">Overview</a></li>
+     <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-29" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/oauth/functions.html">Functions</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/oauth/exceptions.html">Exceptions</a></li>
+       </ul>
+     </li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Prospective Search"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Prospective Search" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/prospectivesearch/">Prospective Search</a></div><ul id="3-sub-30" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/prospectivesearch/overview.html">Overview</a></li>
+<li style="padding-top: 0px; padding-bottom: 0px; ">
+  <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-31" style="display: block; ">
+    <li><a href="http://code.google.com/appengine/docs/python/prospectivesearch/functions.html">Functions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/prospectivesearch/exceptions.html">Exceptions</a></li>
+  </ul>
+</li> 
+
+          </ul> 
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Task Queues"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Task Queues" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/taskqueue/">Task Queues</a></div><ul id="3-sub-32" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/python/taskqueue/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/taskqueue/overview-push.html">Using Push Queues</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/taskqueue/overview-pull.html">Using Pull Queues</a><sup class="new">New!</sup></li>
+     <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-33" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/taskqueue/tasks.html">Task Class</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/taskqueue/taskretryoptions.html">TaskRetryOptions Class</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/taskqueue/queues.html">Queue Class</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/taskqueue/rest.html">REST</a>  <span class="exp-feat">(Experimental)</span></li>
+         <li><a href="http://code.google.com/appengine/docs/python/taskqueue/functions.html">Functions</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/taskqueue/exceptions.html">Exceptions</a></li>
+       </ul>
+     </li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand URL Fetch"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand URL Fetch" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/urlfetch/">URL Fetch</a></div><ul id="3-sub-34" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/python/urlfetch/overview.html">Overview</a></li>
+     <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-35" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/urlfetch/fetchfunction.html">The fetch Function</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/urlfetch/asynchronousrequests.html">Asynchronous Requests</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/urlfetch/responseobjects.html">Response Objects</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/urlfetch/exceptions.html">Exceptions</a></li>
+       </ul>
+     </li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Users"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Users" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/users/">Users</a></div><ul id="3-sub-36" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/python/users/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/users/userobjects.html">User Objects</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/users/loginurls.html">Login URLs</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/users/adminusers.html">Admin Users</a></li>
+
+     <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-37" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/users/userclass.html">User</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/users/functions.html">Functions</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/users/exceptions.html">Exceptions</a></li>
+       </ul>
+     </li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand XMPP"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand XMPP" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/xmpp/">XMPP</a></div><ul id="3-sub-38" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/python/xmpp/overview.html">Overview</a></li>
+     <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-39" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/xmpp/functions.html">Functions</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/xmpp/messageclass.html">Message</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/xmpp/exceptions.html">Exceptions</a></li>
+       </ul>
+     </li>
+
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Configuration"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Configuration" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/config/">Configuration</a></div><ul id="3-sub-40" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/config/appconfig.html">App Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/config/backends.html">Backends Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/config/indexconfig.html">Index Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/config/cron.html">Scheduled Tasks</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/config/queue.html">Task Queue Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/config/dos.html">DoS Protection Config</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Tools"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Tools" class="tlw-control tlw-plus"></a><span class="tlw-title"><a href="http://code.google.com/appengine/docs/python/tools/">Tools</a></span></div><ul id="3-sub-41" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/python/tools/devserver.html">Development Server</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/uploadinganapp.html">Uploading and Managing an App</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/uploadingdata.html">Uploading and Downloading Data</a></li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand ProtoRPC"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand ProtoRPC" class="tlw-control tlw-plus"></a><span class="tlw-title"><a href="http://code.google.com/appengine/docs/python/tools/protorpc/">ProtoRPC</a></span></div><ul id="3-sub-42" style="display: none; ">
+        <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/definition-functions.html">Definition Module</a></li>
+<li>Descriptor Module
+  <ul>
+        <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/descriptor/descriptorlibrary.html">DescriptorLibrary Functions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/descriptor/functions.html">Functions</a></li>
+
+  </ul>
+</li>
+<li>Messages Module
+  <ul>
+        <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/messages/enumclass.html">Enum</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/messages/enumfieldclass.html">EnumField</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/messages/fieldclass.html">Field</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/messages/fieldclasses.html">Message Field Classes</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/messages/messageclass.html">Message</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/messages/messagefieldclass.html">MessageField</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/messages/variantclass.html">Variant</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/messages/functions.html">Functions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/messages/exceptions.html">Exceptions</a></li>
+  </ul>
+</li>
+<li>Remote Service Library
+  <ul>
+        <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/remote/index.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/remote/httprequeststateclass.html">HttpRequestState Class</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/remote/requeststateclass.html">RequestState Class</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/remote/rpcstatusclass.html">RpcStatus Class</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/remote/serviceclass.html">Service Class</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/remote/functions.html">Functions</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/remote/exceptions.html">Exceptions</a></li>
+
+  </ul>
+</li>
+<li>Transport Library
+  <ul>
+        <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/transport/httptransport.html">HttpTransport Class</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/transport/transport.html">Transport Class</a></li>
+
+  </ul>
+</li>
+<li>WebApp Service Handlers
+  <ul>
+        <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/webapp/index.html">Overview</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/protorpc/webapp/functions.html">WebApp Service Handlers</a></li>
+
+  </ul>
+</li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand webapp Framework"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand webapp Framework" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/tools/webapp/">webapp Framework</a></div><ul id="3-sub-43" style="display: none; ">
+             <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/running.html">Running the Application</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/requesthandlers.html">Request Handlers</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/requestdata.html">Request Data</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/buildingtheresponse.html">Building the Response</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/redirects.html">Redirects, Headers and Status Codes</a></li>
+     <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/blobstorehandlers.html">Blobstore Handlers</a></li>
+
+     <li style="padding-top: 0px; padding-bottom: 0px; ">
+       <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></a><span class="tlw-title tlw-expanded">Reference</span></div><ul id="3-sub-44" style="display: block; ">
+         <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/requestclass.html">Request</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/responseclass.html">Response</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/requesthandlerclass.html">RequestHandler</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/wsgiapplicationclass.html">WSGIApplication</a></li>
+         <li><a href="http://code.google.com/appengine/docs/python/tools/webapp/utilmodule.html">Utility Functions</a></li>
+         
+       </ul>
+     </li>
+
+      </ul>
+    </li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/localunittesting.html">Local Unit Testing</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/appstats.html">Appstats</a></li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/libraries.html">Included Libraries </a>(Python 2.5)</li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/libraries27.html">Included Libraries</a>(Python 2.7)</li>
+    <li><a href="http://code.google.com/appengine/docs/python/tools/appengineconfig.html">Python Module Configuration</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand How-To"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand How-To" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/python/howto/">How-To</a></div><ul id="3-sub-45" style="display: none; ">
+              <li><a href="http://code.google.com/appengine/docs/python/howto/usinggdataservices.html">Google Data Services</a></li>
+      <li><a href="http://code.google.com/appengine/docs/python/howto/maintenance.html">Handling Scheduled Maintenance Periods</a></li>
+
+      </ul>
+    </li>
+
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-4">
+  <li><h2>Go</h2> <span class="exp-feat">Experimental!</span>
+    <ul>
+          <li><a href="http://code.google.com/appengine/docs/go/overview.html">Overview</a></li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Runtime Environment"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Runtime Environment" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/runtime.html">Runtime Environment</a></div><ul id="4-sub-0" style="display: none; ">
+        <li><a href="http://code.google.com/appengine/docs/go/reference.html">Reference</a></li>
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Backends"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Backends" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/backends/">Backends</a></div><ul id="4-sub-1" style="display: none; ">
+        <li><a href="http://code.google.com/appengine/docs/go/backends/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/go/backends/runtime.html">Runtime package</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Storing Data"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Storing Data" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/datastore/">Storing Data</a></div><ul id="4-sub-2" style="display: none; ">
+             <li><a href="http://code.google.com/appengine/docs/go/datastore/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/go/datastore/transactions.html">Transactions</a></li>
+     <li><a href="http://code.google.com/appengine/docs/go/datastore/reference.html">Reference</a></li>
+
+      </ul>
+    </li>
+    <li style="padding-top: 0px; padding-bottom: 0px; ">
+      <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Services"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Services" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/apis.html">Services</a></div><ul id="4-sub-3" style="display: none; ">
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Blobstore"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Blobstore" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/blobstore/">Blobstore</a></div><ul id="4-sub-4" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/go/blobstore/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/go/blobstore/reference.html">Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Capabilities"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Capabilities" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/capabilities/">Capabilities</a></div><ul id="4-sub-5" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/go/capabilities/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/go/capabilities/reference.html">Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Channel"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Channel" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/channel/">Channel</a></div><ul id="4-sub-6" style="display: none; ">
+            <li><a href="http://code.google.com/appengine/docs/go/channel/overview.html">Overview</a></li>
+<li><a href="http://code.google.com/appengine/docs/go/channel/reference.html">Reference</a></li>
+<li><a href="http://code.google.com/appengine/docs/go/channel/javascript.html">Client Javascript Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Mail"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Mail" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/mail/">Mail</a></div><ul id="4-sub-7" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/go/mail/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/go/mail/reference.html">Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Memcache"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Memcache" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/memcache/">Memcache</a></div><ul id="4-sub-8" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/go/memcache/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/go/memcache/reference.html">Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Task Queues"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Task Queues" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/taskqueue/">Task Queues</a></div><ul id="4-sub-9" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/go/taskqueue/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/go/taskqueue/reference.html">Reference</a></li>
+     <li><a href="http://code.google.com/appengine/docs/go/taskqueue/delay.html">Delay package</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand URL Fetch"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand URL Fetch" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/urlfetch/">URL Fetch</a></div><ul id="4-sub-10" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/go/urlfetch/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/go/urlfetch/reference.html">Reference</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Users"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Users" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/users/">Users</a></div><ul id="4-sub-11" style="display: none; ">
+                 <li><a href="http://code.google.com/appengine/docs/go/users/overview.html">Overview</a></li>
+     <li><a href="http://code.google.com/appengine/docs/go/users/reference.html">Reference</a></li>
+
+          </ul>
+        </li>
+      </ul>
+        </li><li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Configuration"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Configuration" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/config/">Configuration</a></div><ul id="4-sub-12" style="display: none; ">
+                <li><a href="http://code.google.com/appengine/docs/go/config/appconfig.html">App Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/go/config/backends.html">Backends Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/go/config/indexconfig.html">Index Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/go/config/cron.html">Scheduled Tasks</a></li>
+    <li><a href="http://code.google.com/appengine/docs/go/config/queue.html">Task Queue Config</a></li>
+    <li><a href="http://code.google.com/appengine/docs/go/config/dos.html">DoS Protection Config</a></li>
+
+          </ul>
+        </li>
+        <li style="padding-top: 0px; padding-bottom: 0px; ">
+          <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Tools"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Tools" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/go/tools/">Tools</a></div><ul id="4-sub-13" style="display: none; ">
+                <li><a href="http://code.google.com/appengine/docs/go/tools/devserver.html">Development Server</a></li>
+    <li><a href="http://code.google.com/appengine/docs/go/tools/uploadinganapp.html">Uploading and Managing an App</a></li>
+
+          </ul>
+        </li>
+    
+
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-5">
+  <li><h2 class="tlw-ignore">Managing Your App</h2>
+    <ul>
+      <li style="padding-top: 0px; padding-bottom: 0px; ">
+        <div class="tlw-title tlw-branch"><a href="javascript:void(0)" class="tlw-control" title="Expand Admin Console"><img src="./What Is Google App Engine  - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Admin Console" class="tlw-control tlw-plus"></a><a href="http://code.google.com/appengine/docs/adminconsole/index.html">Admin Console</a></div><ul id="5-sub-0" style="display: none; ">
+          <li><a href="http://code.google.com/appengine/docs/adminconsole/instances.html">Instances</a></li>
+<li><a href="http://code.google.com/appengine/docs/adminconsole/roles.html">Roles</a></li>
+<li><a href="http://code.google.com/appengine/docs/adminconsole/applicationsettings.html">Application Settings</a></li>
+<li><a href="http://code.google.com/appengine/docs/adminconsole/datastoreadmin.html">Datastore</a></li>
+<li><a href="http://code.google.com/appengine/docs/adminconsole/performancesettings.html">Performance Settings</a></li>
+
+        </ul>
+      </li>
+      <li><a href="http://code.google.com/appengine/docs/quotas.html">Quotas</a></li>
+      <li><a href="http://code.google.com/appengine/docs/billing.html">Billing</a></li>
+      <li><a href="http://code.google.com/appengine/docs/premier/index.html">Premier Accounts</a></li>
+      <li><a href="http://code.google.com/appengine/docs/domain.html">Using a Custom Domain</a></li>
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-6">
+  <li><h2 class="tlw-ignore">Resources</h2>
+    <ul>
+      <li><a href="http://code.google.com/appengine/kb/">FAQ</a></li>
+      <li><a href="http://code.google.com/appengine/articles/">Articles</a></li>
+      <li><a href="http://code.google.com/appengine/docs/features.html">Feature List</a></li>
+      <li><a href="http://code.google.com/appengine/docs/videoresources.html">Video Resources</a></li>
+      <li><a href="http://code.google.com/p/googleappengine/">SDK Code</a></li>
+      <li><a href="http://code.google.com/p/datanucleus-appengine/">JDO/JPA Code</a></li>
+      <li><a href="http://code.google.com/p/google-app-engine-samples/">Sample Apps Code</a></li>
+      <li>Launcher Code
+        <ul>
+          <li><a href="http://code.google.com/p/google-appengine-mac-launcher/">Mac</a></li>
+          <li><a href="http://code.google.com/p/google-appengine-wx-launcher/">Windows/wx</a></li>
+        </ul>
+      </li>
+      <li><a href="http://code.google.com/appengine/community.html">Discussion Groups</a></li>
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul class="treelist tlw-nested-only tlw-processed tlw-instance-7">
+  <li><a href="http://code.google.com/appengine/docs/roadmap.html">Product Roadmap</a></li>
+  <li><a href="http://code.google.com/p/googleappengine/wiki/SdkReleaseNotes">Release Notes: Python</a></li>
+  <li><a href="http://code.google.com/p/googleappengine/wiki/SdkForJavaReleaseNotes">Release Notes: Java</a></li>
+  <li><a href="http://code.google.com/appengine/docs/revision_history.html">Revision History</a></li>
+</ul>
+
+        <a class="hidden" href="http://code.google.com/appengine/docs/whatisgoogleappengine.html#gc-topnav-anchor">More Google App Engine resource links</a>
+      </div>
+
+      <div class="g-unit" id="gc-pagecontent" style="position: relative; ">
+        <h1 class="page_title">What Is Google App Engine?</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Google App Engine lets you run web applications on Google's infrastructure. App Engine applications are easy to build, easy to maintain, and easy to scale as your traffic and data storage needs grow. With App Engine, there are no servers to maintain: You just upload your application, and it's ready to serve your users.</p>
+
+<p>You can serve your app from your own domain name (such as <code>http://www.example.com/</code>) using <a href="http://www.google.com/a/">Google Apps</a>. Or, you can serve your app using a free name on the <code>appspot.com</code> domain. You can share your application with the world, or limit access to members of your organization.</p>
+
+<p>Google App Engine supports apps written in several programming languages. With App Engine's <a href="http://code.google.com/appengine/docs/java/runtime.html">Java runtime environment</a>, you can build your app using standard Java technologies, including the JVM, Java servlets, and the Java programming language—or any other language using a JVM-based interpreter or compiler, such as JavaScript or Ruby. App Engine also features two dedicated <a href="http://code.google.com/appengine/docs/python/runtime.html">Python runtime environments</a>, each of which includes a fast Python interpreter and the Python standard library. Finally, App Engine provides a <a href="http://code.google.com/appengine/docs/go/runtime.html">Go runtime environment</a> that runs natively compiled Go code. These runtime environments are built to ensure that your application runs quickly, securely, and without interference from other apps on the system.</p>
+
+<p>With App Engine, you only pay for what you use. There are no set-up costs and no recurring fees. The resources your application uses, such as storage and bandwidth, are measured by the gigabyte, and billed at competitive rates. You control the maximum amounts of resources your app can consume, so it always stays within your budget.</p>
+
+<p>App Engine costs nothing to get started. All applications can use up to 1 GB of storage and enough CPU and bandwidth to support an efficient app serving around 5 million page views a month, absolutely free. When you enable billing for your application, your free limits are raised, and you only pay for resources you use above the free levels.</p>
+
+
+<h2 id="The_Application_Environment">The Application Environment</h2>
+
+<p>Google App Engine makes it easy to build an application that runs reliably, even under heavy load and with large amounts of data. App Engine includes the following features:</p>
+
+<ul>
+  <li>dynamic web serving, with full support for common web technologies</li>
+  <li>persistent storage with queries, sorting and transactions</li>
+  <li>automatic scaling and load balancing</li>
+  <li>APIs for authenticating users and sending email using Google Accounts</li>
+  <li>a fully featured local development environment that simulates Google App Engine on your computer</li>
+  <li>task queues for performing work outside of the scope of a web request</li>
+  <li>scheduled tasks for triggering events at specified times and regular intervals</li>
+</ul>
+
+<p>Your application can run in one of three runtime environments: the <a href="http://golang.org/">Go</a> environment, the <a href="http://java.sun.com/">Java</a> environment, and the <a href="http://www.python.org/">Python</a> environment, which gives you a choice of Python 2.5 or the experimental <a href="http://code.google.com/appengine/docs/python/python27/">Python 2.7</a>. Each environment provides standard protocols and common technologies for web application development.</p>
+
+
+<h3>The Sandbox</h3>
+
+<p>Applications run in a secure environment that provides limited access to the underlying operating system. These limitations allow App Engine to distribute web requests for the application across multiple servers, and start and stop servers to meet traffic demands. The sandbox isolates your application in its own secure, reliable environment that is independent of the hardware, operating system and physical location of the web server.</p>  
+
+<p>Examples of the limitations of the secure sandbox environment include:</p><p>
+
+</p><ul>
+  <li>An application can only access other computers on the Internet through the provided URL fetch and email services. Other computers can only connect to the application by making HTTP (or HTTPS) requests on the standard ports.</li>
+  <li>Applications cannot write to the file system in any of the runtime environments. An application can read files, but only files uploaded with the application code. The app must use the App Engine datastore, memcache or other services for all data that persists between requests. The Python 2.7 environment allows bytecode to be read, written, and modified.</li>
+  <li>Application code only runs in response to a web request, a queued task, or a scheduled task, and must return response data within 60 seconds in any case. A request handler cannot spawn a sub-process or execute code after the response has been sent.</li>
+</ul>
+
+
+<h3>The Go Runtime Environment</h3>
+
+<p>App Engine's Go runtime environment provides a convenient way to implement and deploy web applications written in the <a href="http://golang.org/">Go Programming Language</a>.</p>
+
+<p>The Go runtime environment uses Go <a href="http://golang.org/doc/devel/release.html#r60">release r60.3</a>. The SDK includes the Go compiler and standard library, so it has no additional dependencies. As with the Java and Python environments, not all the standard library's functionality is available inside the sandbox. For example, attempts to open a socket or write to a file will return an <code>os.EINVAL</code> error.</p>
+
+<p>The SDK includes an automated build service to compile your app, so you'll never need to invoke the compiler yourself. And—as with the Python SDK—your app will be automatically re-built whenever you change the source. This keeps you productive by making the edit-compile-run cycle refreshingly short.</p>
+
+<p>The Go environment provides idiomatic <a href="http://code.google.com/appengine/docs/go/apis.html">Go APIs</a> for most of the App Engine services.</p>
+
+<p>You can upload other third-party libraries with your application, as long as they are implmented in pure Go.</p>
+
+<p>For more information about the Go runtime environment, see <a href="http://code.google.com/appengine/docs/go/runtime.html">The Go Runtime Environment</a>.</p>
+
+
+<h3>The Java Runtime Environment</h3>
+
+<p>You can develop your application for the Java runtime environment using common Java web development tools and API standards. Your app interacts with the environment using <a href="http://java.sun.com/products/servlet/">the Java Servlet standard</a>, and can use common web application technologies such as <a href="http://java.sun.com/products/jsp/">JavaServer Pages</a> (JSPs).</p>
+
+<p>The Java runtime environment uses Java 6. The App Engine Java SDK supports developing apps using either Java 5 or 6.</p>
+
+<p>The environment includes the <a href="http://java.sun.com/javase/technologies/index.jsp">Java SE Runtime Environment (JRE) 6 platform</a> and libraries. The restrictions of the sandbox environment are implemented in the JVM. An app can use any JVM bytecode or library feature, as long as it does not exceed the sandbox restrictions. For instance, bytecode that attempts to open a socket or write to a file will throw a runtime exception.</p>
+
+<p>Your app accesses most App Engine services using Java standard APIs. For the App Engine datastore, the Java SDK includes implementations of the <a href="http://java.sun.com/jdo/index.jsp">Java Data Objects</a> (JDO) and <a href="http://java.sun.com/developer/technicalArticles/J2EE/jpa/">Java Persistence API</a> (JPA) interfaces. Your app can use <a href="http://java.sun.com/products/javamail/">the JavaMail API</a> to send email messages with the App Engine Mail service. The <code>java.net</code> HTTP APIs access the App Engine URL fetch service. App Engine also includes low-level APIs for its services to implement additional adapters, or to use directly from the application. See the documentation for <a href="http://code.google.com/appengine/docs/java/datastore/">the datastore</a>, <a href="http://code.google.com/appengine/docs/java/memcache/">memcache</a>, <a href="http://code.google.com/appengine/docs/java/urlfetch/">URL fetch</a>, <a href="http://code.google.com/appengine/docs/java/mail/">mail</a>, <a href="http://code.google.com/appengine/docs/java/images/">images</a> and <a href="http://code.google.com/appengine/docs/java/users/">Google Accounts</a> APIs.</p>
+
+<p>Typically, Java developers use the Java programming language and APIs to implement web applications for the JVM. With the use of JVM-compatible compilers or interpreters, you can also use other languages to develop web applications, such as JavaScript, Ruby, or Scala.</p>
+
+<p>For more information about the Java runtime environment, see <a href="http://code.google.com/appengine/docs/java/runtime.html">The Java Runtime Environment</a>.</p>
+
+
+<h3>The Python Runtime Environment</h3>
+
+<p>With App Engine's Python runtime environment, you can implement your app using the Python programming language, and run it on an optimized Python interpreter. App Engine includes rich APIs and tools for Python web application development, including a feature rich data modeling API, an easy-to-use web application framework, and tools for managing and accessing your app's data. You can also take advantage of a wide variety of mature libraries and frameworks for Python web application development, such as <a href="http://www.djangoproject.com/">Django</a>.</p>
+
+<p>The Python runtime environment uses Python version 2.5.2 by default. You can also choose the experimental Python 2.7.2 runtime.</p>
+
+<p>The Python environment includes the Python standard library. Of course, not all of the library's features can run in the sandbox environment. For instance, a call to a method that attempts to open a socket or write to a file will raise an exception. For convenience, several modules in the standard library whose core features are not supported by the runtime environment have been disabled, and code that imports them will raise an error.</p>
+
+<p>Application code written for the Python environment must be written exclusively in Python. Extensions written in the C language are not supported.</p>
+
+<p>The Python environment provides rich Python APIs for <a href="http://code.google.com/appengine/docs/python/datastore/">the datastore</a>, <a href="http://code.google.com/appengine/docs/python/users/">Google Accounts</a>, <a href="http://code.google.com/appengine/docs/python/urlfetch/">URL fetch</a>, and <a href="http://code.google.com/appengine/docs/python/mail/">email</a> services. App Engine also provides a simple Python web application framework called <a href="http://code.google.com/appengine/docs/python/tools/webapp/">webapp</a> to make it easy to start building applications.</p>
+
+<p>You can upload other third-party libraries with your application, as long as they are implemented in pure Python and do not require any unsupported standard library modules.</p>
+
+<p>For more information about the Python runtime environment, see <a href="http://code.google.com/appengine/docs/python/runtime.html">The Python Runtime Environment</a>.</p>
+
+
+<h3>The Datastore</h3>
+
+<p>App Engine provides a distributed data storage service that features a query engine and transactions. Just as the distributed web server grows with your traffic, the distributed datastore grows with your data. You have the choice between <a href="http://code.google.com/appengine/docs/java/datastore/hr/">two different data storage options</a> differentiated by their availability and consistency guarantees. </p>
+
+<p>The App Engine datastore is not like a traditional relational database. Data objects, or "entities," have a kind and a set of properties. Queries can retrieve entities of a given kind filtered and sorted by the values of the properties. Property values can be of any of the supported <a href="http://code.google.com/appengine/docs/python/datastore/typesandpropertyclasses.html">property value types</a>.</p>
+
+<p>Datastore entities are "schemaless."  The structure of data entities is provided by and enforced by your application code. The Java JDO/JPA interfaces and the Python datastore interface include features for applying and enforcing structure within your app. Your app can also access the datastore directly to apply as much or as little structure as it needs.</p>
+
+<p>The datastore is strongly <a href="http://en.wikipedia.org/wiki/Consistency_model">consistent</a> and uses <a href="http://en.wikipedia.org/wiki/Optimistic_concurrency_control">optimistic concurrency control</a>. An update of a entity occurs in a transaction that is retried a fixed number of times if other processes are trying to update the same entity simultaneously. Your application can execute multiple datastore operations in a single transaction which either all succeed or all fail, ensuring the integrity of your data.</p>
+
+<p>The datastore implements transactions across its distributed network using "entity groups." A transaction manipulates entities within a single group. Entities of the same group are stored together for efficient execution of transactions. Your application can assign entities to groups when the entities are created.</p>
+
+
+<h3>Google Accounts</h3>
+
+<p>App Engine supports integrating an app with Google Accounts for user authentication. Your application can allow a user to sign in with a Google account, and access the email address and displayable name associated with the account. Using Google Accounts lets the user start using your application faster, because the user may not need to create a new account. It also saves you the effort of implementing a user account system just for your application.</p>
+
+<p>If your application is running under Google Apps, it can use the same features with members of your organization and Google Apps accounts.</p>
+
+<p>The Users API can also tell the application whether the current user is a registered administrator for the application. This makes it easy to implement admin-only areas of your site.</p>
+
+<p>For more information about integrating with Google Accounts, see <a href="http://code.google.com/appengine/docs/python/users/">the Users API reference</a>.</p>
+
+
+<h3>App Engine Services</h3>
+
+<p>App Engine provides a variety of services that enable you to perform common operations when managing your application. The following APIs are provided to access these services:</p>
+
+<h4>URL Fetch</h4>
+<p>Applications can access resources on the Internet, such as web services or other data, using App Engine's URL fetch service. The URL fetch service retrieves web resources using the same high-speed Google infrastructure that retrieves web pages for many other Google products.</p>
+
+<h4>Mail</h4>
+<p>Applications can send email messages using App Engine's mail service. The mail service uses Google infrastructure to send email messages.</p>
+
+<h4>Memcache</h4>
+<p>The Memcache service provides your application with a high performance in-memory key-value cache that is accessible by multiple instances of your application. Memcache is useful for data that does not need the persistence and transactional features of the datastore, such as temporary data or data copied from the datastore to the cache for high speed access.</p>
+
+<h4>Image Manipulation</h4>
+<p>The Image service lets your application manipulate images. With this API, you can resize, crop, rotate and flip images in JPEG and PNG formats.</p>
+
+
+<h3>Scheduled Tasks and Task Queues</h3>
+
+<p>An application can perform tasks outside of responding to web requests. Your application can perform these tasks on a schedule that you configure, such as on a daily or hourly basis. Or, the application can perform tasks added to a queue by the application itself, such as a background task created while handling a request.</p>
+
+<p>Scheduled tasks are also known as "cron jobs," handled by the Cron service. For more information on using the Cron service, see the <a href="http://code.google.com/appengine/docs/python/config/cron.html">Python</a> or <a href="http://code.google.com/appengine/docs/java/config/cron.html">Java</a> cron documentation.</p>
+
+<p>Task queues are currently released as an experimental feature. The Python, Java, and Go runtime environments can use task queues. For information about the task queue service, see <a href="http://code.google.com/appengine/docs/python/taskqueue/">the Python API documentation</a>,  <a href="http://code.google.com/appengine/docs/java/taskqueue/">the Java API documentation</a> or the <a href="http://code.google.com/appengine/docs/go/taskqueue/">the Go API documentation</a>.</p>
+
+
+<h2>Development Workflow</h2>
+
+<p><a href="http://code.google.com/appengine/downloads.html">The App Engine software development kits</a> (SDKs) for Java, Python, and Go each include a web server application that emulates all of the App Engine services on your local computer. Each SDK includes all of the APIs and libraries available on App Engine. The web server also simulates the secure sandbox environment, including checks for attempts to access system resources disallowed in the App Engine runtime environment.</p>
+
+<p>Each SDK also includes a tool to upload your application to App Engine. Once you have created your application's code, static files and configuration files, you run the tool to upload the data. The tool prompts you for your Google account email address and password.</p>
+
+<p>When you build a new major release of an application that is already running on App Engine, you can upload the new release as a new version. The old version will continue to serve users until you switch to the new version. You can test the new version on App Engine while the old version is still running.</p>
+
+<p>The Java SDK runs on any platform with Java 5 or Java 6. The SDK is available as a Zip file. If you use the Eclipse development environment, you can use the <a href="http://code.google.com/appengine/docs/java/tools/eclipse.html">Google Plugin for Eclipse</a> to create, test and upload App Engine applications. The SDK also includes command-line tools for running the development server and uploading your app.</p>
+
+<p>The Python SDK is implemented in pure Python, and runs on any platform with Python 2.5, including Windows, Mac OS X and Linux. The SDK is available as a Zip file, and installers are available for Windows and Mac OS X.</p>
+
+<p>The Go SDK features an idiomatic, native Go API for using the App Engine services, and uses the same tools as the Python SDK (with some additional machinery for automatically compiling your Go apps). The Go SDK is stand-alone—you do not need to install Go separately—and is available as a Zip file for both Mac OS X and Linux (a Windows version will be available soon).</p>
+
+<p><a href="http://code.google.com/appengine/docs/adminconsole/index.html">The Administration Console</a> is the web-based interface for managing your applications running on App Engine.  You can use it to create new applications, configure domain names, change which version of your application is live, examine access and error logs, and browse an application's datastore.</p>
+
+
+<h2>Quotas and Limits</h2>
+
+<p>Not only is creating an App Engine application easy, it's free!  You can create an account and publish an application that people can use right away at no charge, and with no obligation. An application on a free account can use up to 1 GB of storage and up to 5 million page views a month. When you are ready for more, you can enable billing, set a maximum daily budget, and allocate your budget for each resource according to your needs.</p>
+
+<p>You can register up to 10 applications per developer account.</p>
+
+<p>Each app is allocated resources within limits, or "quotas."  A quota determines how much of a given resource an app can use during a calendar day. In the near future, you will be able to adjust some of these quotas by purchasing additional resources.</p>
+
+<p>Some features impose limits unrelated to quotas to protect the stability of the system. For example, when an application is called to serve a web request, it must issue a response within 60 seconds. If the application takes too long, the process is terminated and the server returns an error code to the user. The request timeout is dynamic, and may be shortened if a request handler reaches its timeout frequently to conserve resources.</p>
+
+<p>Attempts to subvert or abuse quotas, such as by operating applications on multiple accounts that work in tandem, are a violation of the <a href="http://code.google.com/appengine/terms.html">Terms of Service</a>, and could result in apps being disabled or accounts being closed.</p>
+
+<p>For a list of quotas and an explanation of the quota system, including which quotas can be increased by enabling billing, see <a href="http://code.google.com/appengine/docs/quotas.html">Quotas</a>.</p>
+
+
+<h2>For More Information...</h2>
+
+<p>For more information about Google App Engine:</p>
+
+<ul>
+  <li><a href="http://www.youtube.com/watch?v=3Ztr-HhWX1c">Watch the Campfire One video</a> or <a href="http://code.google.com/appengine/articles/cf1-text.html">read the transcript</a>.</li>
+  <li><a href="http://www.youtube.com/watch?v=bfgO-LXGpTM">Watch the App Engine demo video</a>.</li>
+  <li><a href="http://code.google.com/appengine/downloads.html">Download the SDK</a>, <a href="https://appengine.google.com/">sign up for an account</a>, then read the <a href="http://code.google.com/appengine/docs/python/gettingstarted/">Getting Started Guide</a> and do the tutorial.</li>
+  <li>Check out <a href="http://code.google.com/appengine/docs/">the rest of the App Engine documentation</a>.</li>
+</ul>
+
+<p>Welcome to Google App Engine!</p>
+
+
+
+      <div id="gc-collapsible" style="height: 3865px; " class=""></div></div><!-- end gc-pagecontent -->
+   </div><!-- end gooey wrapper -->
+
+    </div> <!-- end codesite content -->
+
+
+<div id="gc-footer" dir="ltr">
+  <div class="text">
+    
+      <div class="notice"><div id="notice" style="text-align: center; border: 1em 0em 1em 0em">
+  Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+  the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+  Attribution 3.0 License</a>, and code samples are licensed under the
+  <a rel="license" href="http://www.apache.org/licenses/LICENSE-2.0">Apache
+  2.0 License</a>.
+<!-- <rdf:RDF xmlns="http://web.resource.org/cc/" 
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <Work rdf:about="">
+    <license rdf:resource="http://creativecommons.org/licenses/by/3.0/" />
+  </Work>
+  <License rdf:about="http://creativecommons.org/licenses/by/3.0/">
+    <permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+    <permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+    <requires rdf:resource="http://web.resource.org/cc/Notice"/>
+    <requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+    <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+  </License>
+</rdf:RDF> -->
+</div>
+Java is a registered trademark of Oracle Corporation and/or its affiliates</div>
+    
+    ©2012 Google -
+    <a href="http://code.google.com/">Code Home</a> -
+    <a href="http://code.google.com/terms.html">Site Terms of Service</a> -
+    <a href="http://code.google.com/privacy.html">Privacy Policy</a> -
+    <a href="http://code.google.com/more/">Site Directory</a>
+    <br> <br>
+    Google Code offered in:
+    <a href="http://code.google.com/intl/en/">English</a> -
+    <a href="http://code.google.com/intl/es/">Español</a> -
+    <a href="http://code.google.com/intl/ja/">日本語</a> -
+    <a href="http://code.google.com/intl/ko/">한국어</a> -
+    <a href="http://code.google.com/intl/pt-BR/">Português</a> -
+    <a href="http://code.google.com/intl/ru/">Pусский</a> -
+    <a href="http://code.google.com/intl/zh-CN/">中文(简体)</a> -
+    <a href="http://code.google.com/intl/zh-TW/">中文(繁體)</a>
+  </div>
+</div><!-- end gc-footer -->
+
+</div><!-- end gc-container -->
+
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('ats');</script>
+<script src="./What Is Google App Engine  - Google App Engine - Google Code_files/codesite_tail.pack.04102009.js" type="text/javascript"></script>
+<script type="text/javascript" src="./What Is Google App Engine  - Google App Engine - Google Code_files/plusone.js" gapi_processed="true"></script>
+
+
+
+
+
+  
+
+
+
+
+
+<div class="menuDiv instance0" id="menuDiv-projects-dropdown" style="position: absolute; display: none; top: 21px; left: 1033px; "><b class="categoryTitle projects" style="display: block; ">Projects</b><div class="menuCategory projects first"><a class="menuItem" style="display: block; " href="http://code.google.com/p/pravda/">pravda</a></div><div class="menuCategory controls"><hr class="menuSeparator"><a class="menuItem" style="display: block; " href="http://code.google.com/more/">Find developer products...</a><a class="menuItem" style="display: block; " href="http://code.google.com/hosting/">Find open source projects...</a></div></div><div class="menuDiv instance1" id="menuDiv-lang-dropdown" style="position: absolute; display: none; top: 21px; left: 1127px; width: 175px; "><div class="menuCategory default first"><a class="menuItem" style="display: block; " href="http://code.google.com/intl/en/appengine/docs/whatisgoogleappengine.html">English</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/es/appengine/docs/whatisgoogleappengine.html">Español</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/fr/appengine/docs/whatisgoogleappengine.html">Français</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/ja/appengine/docs/whatisgoogleappengine.html">日本語</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/ko/appengine/docs/whatisgoogleappengine.html">한국어</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/pt-BR/appengine/docs/whatisgoogleappengine.html">Português (Brasil)</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/ru/appengine/docs/whatisgoogleappengine.html">Pусский</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/zh-CN/appengine/docs/whatisgoogleappengine.html">中文 (简体)</a><a class="menuItem" style="display: block; " href="http://code.google.com/intl/zh-TW/appengine/docs/whatisgoogleappengine.html">中文 (繁體)</a></div></div><div id="gc-collapsible-arrow" class="" style="left: 181px; top: 348px; display: none; "></div><div id="cs-searchresults" style="left: 181px; top: 74px; width: 345px; "><div id="cs-recommended">Suggestions</div><div id="searchResult1"></div><div id="searchResult2"></div><div id="searchResult3"></div><div id="searchResult4"></div><div id="searchResult5"></div><div id="searchResult6"></div><div id="searchResult7"></div></div></body></html>

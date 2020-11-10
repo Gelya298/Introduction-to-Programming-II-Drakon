@@ -1,0 +1,1733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0040)http://habrahabr.ru/blogs/python/135857/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>Python, scipy.weave и openMP — разгоняем код / Python / Хабрахабр</title>
+		
+		
+		
+			<link href="http://habrahabr.ru/styles/1327996491/all.css" rel="stylesheet" media="all">
+		
+    
+		
+  <link href="http://habrahabr.ru/styles/1327996491/_parts/posts.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1327996491/_parts/comments.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1327996491/posts/all.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1327996491/forms.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1327996491/highlight.css" rel="stylesheet" media="all">
+
+
+		
+		
+			<script type="text/javascript" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/all.js"></script>
+		
+		
+			
+		
+  <script type="text/javascript" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/jquery.form.js"></script>
+  <script type="text/javascript" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/jquery.cookie.js"></script>
+  <script type="text/javascript" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/swfobject.js"></script>
+  <script type="text/javascript" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/wysiwyg.js"></script>
+  <script type="text/javascript" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/highlight.js"></script>
+  <script type="text/javascript" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/posts.js"></script>
+  <script type="text/javascript" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/comments.js"></script>
+  <script type="text/javascript" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/all(1).js"></script>
+
+		
+		<script type="text/javascript" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/adriver.core.2.js"></script>
+		
+		
+		
+		<link title="Хабрахабр / Комментарии к публикации &laquo;Python, scipy.weave и openMP &mdash; разгоняем код&raquo; в блоге &laquo;Python&raquo;" type="application/rss+xml" rel="alternate" href="http://habrahabr.ru/rss/post/135857/">
+		
+	<script async="true" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/ga.js"></script></head>
+
+	<body>
+	  
+
+
+	<div id="topline" title=""><div style="position: relative; height: 90px; "><table width="100%" height="90" cellspacing="0" cellpadding="0" border="0" style="line-height: 100%; margin: 0; padding: 0;"><tbody><tr><td style="width: 50%; line-height: 100%; margin: 0; padding: 0;"><a target="_blank" href="http://ad.adriver.ru/cgi-bin/click.cgi?sid=176776&ad=299620&bid=1487001&bt=52&bn=1&pz=0&ref=http:%2f%2fhabrahabr.ru%2fblogs%2fpython%2f135857%2f&custom=&rleurl="><img width="100%" vspace="0" hspace="0" height="90" border="0" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/cc1_90.jpg"></a></td><td width="1000" style="background-image:url(&#39;http://masterh5.adriver.ru/images/0001487/0001487001/0/cc1_90.jpg&#39;); line-height: 100%; margin: 0; padding: 0;"><a href="http://ad.adriver.ru/cgi-bin/click.cgi?sid=176776&ad=299620&bid=1487001&bt=52&bn=1&pz=0&ref=http:%2f%2fhabrahabr.ru%2fblogs%2fpython%2f135857%2f&custom=&rleurl=" target="_blank"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/cc.jpg" border="0" width="1000" height="90"></a></td><td style="width: 50%; line-height: 100%; margin: 0; padding: 0;"><a target="_blank" href="http://ad.adriver.ru/cgi-bin/click.cgi?sid=176776&ad=299620&bid=1487001&bt=52&bn=1&pz=0&ref=http:%2f%2fhabrahabr.ru%2fblogs%2fpython%2f135857%2f&custom=&rleurl="><img width="100%" vspace="0" hspace="0" height="90" border="0" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/cc1_90.jpg"></a></td></tr></tbody></table></div></div>
+	<script type="text/javascript">
+	new adriver("topline", {sid:176776, bt:52, bn:1});
+	</script>
+
+
+
+
+
+		<div id="layout">	    
+		  <div id="header">
+  <div class="userpanel silver">
+    
+    
+      <a href="http://habrahabr.ru/login/" class="login">войти</a> <a href="http://habrahabr.ru/register/">зарегистрироваться</a>
+    
+  </div>
+  <a class="logo" href="http://habrahabr.ru/" title="На главную страницу"></a>
+  <div class="search">
+    <form id="search_form" name="search" method="get" action="http://habrahabr.ru/search/">
+      <input type="text" name="q" value="поиск по сайту" onfocus="this.value = (this.value == &#39;поиск по сайту&#39;) ? &#39;&#39; : this.value" onblur="this.value = (this.value == &#39;&#39;) ? &#39;поиск по сайту&#39; : this.value" autocomplete="off">
+      <input type="submit" value="">
+    </form>
+  </div>
+  
+
+	<div class="main_menu">
+		<a href="http://habrahabr.ru/" class="active">посты</a><a href="http://habrahabr.ru/qa/">q&amp;a</a><a href="http://habrahabr.ru/bloglist/">блоги</a><a href="http://habrahabr.ru/events/coming/">события</a><a href="http://habrahabr.ru/companies/">компании</a>
+		<div class="banner_special">
+
+	 
+
+	 
+
+	
+	
+		<!--  AdRiver code START. Type:135x35 Site: habrahabr PZ: 0 BN: 0 -->
+		<script language="javascript" type="text/javascript"><!--
+		var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+		var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+		document.write(
+		'<iframe src="http://ad.adriver.ru/cgi-bin/erle.cgi?'
+		+ 'sid=176776&target=top&w=135&h=35&bt=25&pz=0&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail
+		+ '" frameborder=0 vspace=0 hspace=0 width=135 height=35 marginwidth=0'
+		+ ' marginheight=0 scrolling=no></iframe>');
+		//--></script><iframe src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/erle(3).html" frameborder="0" vspace="0" hspace="0" width="135" height="35" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+		<noscript></noscript>
+
+		<!--  AdRiver code END  -->
+	
+	
+
+</div>
+	</div>
+
+
+</div>
+
+
+	
+		  
+	  
+		  
+
+	<div class="blog_header">
+  <h2>
+    <a href="http://habrahabr.ru/blogs/python/" class="blog_title">Python</a>
+    <span class="profiled_blog" title="Профильный блог"></span>
+
+    
+  				
+	</h2>
+	<div class="blog-index">
+	 <div class="label">индекс</div>
+	 <div class="value">249,45</div>
+	</div>
+</div>
+  <div class="content_left">
+
+	
+
+
+	
+
+
+
+	
+		<div class="add_post"><a href="http://habrahabr.ru/add/topic/" title="Добавить пост"></a></div>
+	
+	
+
+
+<table class="menu">
+  <tbody><tr>
+    
+      <td class="item ">
+        <a href="http://habrahabr.ru/blogs/python/">Захабренные </a>      
+      </td>
+    
+      <td class="item ">
+        <a href="http://habrahabr.ru/blogs/python/new/">Новые (<span class="count">2)</span></a>      
+      </td>
+    
+      <td class="item ">
+        <a href="http://habrahabr.ru/blogs/python/unhabred/">Отхабренные </a>      
+      </td>
+    
+  </tr>  
+</tbody></table>
+<div class="submenu ">
+
+</div>
+<div class="clear"></div>
+
+
+  
+
+	<div class="company_post">
+
+	
+
+		
+  <div class="post" id="post_135857">
+    <h2 class="title">
+      
+    	
+	      
+	    
+	    
+	      
+      
+        <span class="post_title">Python, scipy.weave и openMP — разгоняем код</span>
+      
+      
+      
+
+      
+  	</h2>
+  	<div class="content">
+  	Здравствуйте %username%, данная статья посвящена проблеме увеличения скорости математических вычислений на основе языка <i>python</i> с использованием <a href="http://www.scipy.org/Weave">scipy.weave</a> и <a href="http://openmp.org/wp/">openMP</a>. <br>
+<a name="habracut"></a><br>
+Многие могут задаться вопросом: «Зачем вообще использовать python для математических вычислений?», но мы не будем отвечать на «вечные» вопросы, как и не будем рассматривать множество других решений данной проблемы, таких как, например, <a href="http://psyco.sourceforge.net/">psyco</a>.<br>
+<br>
+<h3>Инструменты</h3><br>
+Как описано выше, наш инструмент — это библиотека <i>scipy.weave</i>, а также библиотека <i>openMP</i>. <br>
+<b>scipy</b> — набор библиотек для вычислений в прикладной математике и науке. <b>openMP</b> — открытый стандарт для распараллеливания программ на языках Си, Си++ и Фортран.<br>
+<br>
+<h4>Установка пакетов</h4><br>
+В Debian-подобных Linux системах необходимо выполнить:<br>
+<pre>apt-get install python-scipy
+apt-get install libgomp1</pre><br>
+<h3>Метод</h3><br>
+Для увеличения скорости вычислений необходимо реализовать «узкую» часть python кода (обычно это цикл, в котором происходят какие-либо действия с матрицей) на C и добавить директивы <i>openMP</i> для распараллеливания. <br>
+<br>
+<h3>Пример</h3><br>
+Думаю, что нет ничего лучше, чем убедиться в этом способе на примере решения следующей задачи:<br>
+<ul>
+<li>есть матрица размера n на n, вектор размера n и целое число;</li>
+<li>необходимо вычесть из каждой строки матрицы вектор, умноженный на целое число (из симплекс метода).</li>
+</ul><h4>Python реализация</h4><br>
+В <i>python</i> c использование <a href="http://numpy.scipy.org/">numpy</a> данная задача, не учитывая различных подготовительных операций, как генерация матрицы и прочего, решает в пару строк кода:<br>
+<blockquote><ol>
+<li><font color="#339900">#&nbsp;цикл&nbsp;по&nbsp;строкам&nbsp;матрицы,&nbsp;где&nbsp;i&nbsp;-&nbsp;номер&nbsp;строки</font></li>
+<li><font color="#339900">#&nbsp;с&nbsp;-&nbsp;целое&nbsp;число,&nbsp;randRow&nbsp;-&nbsp;случайный&nbsp;вектор</font></li>
+<li><font color="#0000ff">for</font>&nbsp;i&nbsp;in&nbsp;xrange<font color="#008000">(</font>N<font color="#008000">)</font><font color="#008080">:</font></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;matrix<font color="#008000">[</font>i,<font color="#008080">:</font><font color="#008000">]</font>&nbsp;<font color="#000040">-</font><font color="#000080">=</font>&nbsp;c<font color="#000040">*</font>randRow</li>
+<li>&nbsp;</li>
+</ol></blockquote>Генерация случайной матрицы x на y, в нашем случае x=y:<br>
+<blockquote><ol>
+<li><font color="#339900">#&nbsp;генерация&nbsp;случайной&nbsp;матрицы&nbsp;x&nbsp;на&nbsp;y</font></li>
+<li><font color="#339900">#&nbsp;элементы&nbsp;матрицы&nbsp;-&nbsp;случайные&nbsp;числа&nbsp;от&nbsp;0&nbsp;до&nbsp;99&nbsp;включ.</font></li>
+<li>def&nbsp;randMat<font color="#008000">(</font>x,y<font color="#008000">)</font><font color="#008080">:</font>&nbsp;&nbsp;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;randRaw&nbsp;<font color="#000080">=</font>&nbsp;lambda&nbsp;a<font color="#008080">:</font>&nbsp;&nbsp;<font color="#008000">[</font>&nbsp;randint<font color="#008000">(</font><font color="#0000dd">0</font>,&nbsp;<font color="#0000dd">100</font><font color="#008000">)</font>&nbsp;<font color="#0000ff">for</font>&nbsp;i&nbsp;in&nbsp;xrange<font color="#008000">(</font><font color="#0000dd">0</font>,a<font color="#008000">)</font>&nbsp;<font color="#008000">]</font></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;randConst&nbsp;<font color="#000080">=</font>&nbsp;lambda&nbsp;x,&nbsp;y<font color="#008080">:</font>&nbsp;<font color="#008000">[</font>&nbsp;randRaw<font color="#008000">(</font>x<font color="#008000">)</font>&nbsp;<font color="#0000ff">for</font>&nbsp;e&nbsp;in&nbsp;xrange<font color="#008000">(</font><font color="#0000dd">0</font>,y<font color="#008000">)</font><font color="#008000">]</font></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font>&nbsp;array<font color="#008000">(</font>randConst<font color="#008000">(</font>x,&nbsp;y<font color="#008000">)</font><font color="#008000">)</font></li>
+<li>&nbsp;</li>
+</ol></blockquote><h4>Реализация scipy.weave без openMP</h4><br>
+<b>scipy.weave</b> — часть библиотеки scipy, которая позволяет использовать C/C++ код внутри кода <i>python</i>.<br>
+Происходит это следующим образом:<br>
+<blockquote><ol>
+<li><font color="#339900">#&nbsp;C&nbsp;код</font></li>
+<li>codeC&nbsp;<font color="#000080">=</font>&nbsp;</li>
+<li><font color="#FF0000">""</font><font color="#FF0000">"</font></li>
+<li><font color="#FF0000">int&nbsp;i&nbsp;=&nbsp;0;</font></li>
+<li>&nbsp;</li>
+<li><font color="#FF0000">for(i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;N*M;&nbsp;i++)&nbsp;{</font></li>
+<li><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;matrix[0,i]&nbsp;=&nbsp;matrix[0,i]&nbsp;-&nbsp;(c&nbsp;*&nbsp;randRow[i%M]);</font></li>
+<li><font color="#FF0000">}</font></li>
+<li><font color="#FF0000">"</font><font color="#FF0000">""</font></li>
+<li>weave.<font color="#0000ff">inline</font><font color="#008000">(</font>codeC,&nbsp;<font color="#008000">[</font><font color="#FF0000">'matrix'</font>,<font color="#FF0000">'c'</font>,&nbsp;<font color="#FF0000">'randRow'</font>,<font color="#FF0000">'N'</font>,&nbsp;<font color="#FF0000">'M'</font><font color="#008000">]</font>,&nbsp;compiler&nbsp;<font color="#000080">=</font>&nbsp;<font color="#FF0000">'gcc'</font><font color="#008000">)</font></li>
+</ol></blockquote><br>
+т.е. сам С код хранится в виде <i>multiline string</i>, а переменные <i>python</i> кода, передаются в С списком, где элементы — одноименные текстовые константы. Также <i>numpy</i> массивы передаются в C не в виде матрицы, а в виде вектора, именно поэтому в коде один цикл, а не два.<br>
+<br>
+Кстати, получившийся С код можно поискать в /tmp/%user%/python2x_intermediate/compiler_x<br>
+<br>
+<h4>Реализация scipy.weave с openMP</h4><br>
+Теперь уже к добавленной версии необходимо добавить директивы <i>openMP</i> и в вызове <i>inline</i> добавить недостающие параметры, а именно:<br>
+<blockquote><ol>
+<li><font color="#339900">#&nbsp;C&nbsp;и&nbsp;openMP&nbsp;код</font></li>
+<li>codeOpenMP&nbsp;<font color="#000080">=</font>&nbsp;</li>
+<li><font color="#FF0000">""</font><font color="#FF0000">"</font></li>
+<li><font color="#FF0000">int&nbsp;i&nbsp;=&nbsp;0;</font></li>
+<li>&nbsp;</li>
+<li><font color="#FF0000">omp_set_num_threads(2);</font></li>
+<li><font color="#FF0000">#pragma&nbsp;omp&nbsp;parallel&nbsp;shared(matrix,&nbsp;randRow,&nbsp;c)&nbsp;private(i)</font></li>
+<li><font color="#FF0000">{</font></li>
+<li><font color="#FF0000">#pragma&nbsp;omp&nbsp;for&nbsp;</font></li>
+<li><font color="#FF0000">for(i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;N*M;&nbsp;i++)&nbsp;{</font></li>
+<li><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;matrix[0,i]&nbsp;=&nbsp;matrix[0,i]&nbsp;-&nbsp;(c&nbsp;*&nbsp;randRow[i%M]);</font></li>
+<li><font color="#FF0000">}</font></li>
+<li><font color="#FF0000">}</font></li>
+<li><font color="#FF0000">"</font><font color="#FF0000">""</font></li>
+<li>&nbsp;</li>
+<li>...</li>
+<li>&nbsp;</li>
+<li><font color="#007788">weave</font>.<font color="#0000ff">inline</font><font color="#008000">(</font>codeOpenMP,&nbsp;<font color="#008000">[</font><font color="#FF0000">'matrix'</font>,<font color="#FF0000">'c'</font>,&nbsp;<font color="#FF0000">'randRow'</font>,<font color="#FF0000">'N'</font>,&nbsp;<font color="#FF0000">'M'</font><font color="#008000">]</font>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;extra_compile_args&nbsp;<font color="#000080">=</font><font color="#008000">[</font><font color="#FF0000">'-O3&nbsp;-fopenmp'</font><font color="#008000">]</font>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;compiler&nbsp;<font color="#000080">=</font>&nbsp;<font color="#FF0000">'gcc'</font>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;libraries<font color="#000080">=</font><font color="#008000">[</font><font color="#FF0000">'gomp'</font><font color="#008000">]</font>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;headers<font color="#000080">=</font><font color="#008000">[</font><font color="#FF0000">'&lt;omp.h&gt;'</font><font color="#008000">]</font><font color="#008000">)</font></li>
+</ol></blockquote>Полный исходный код со всеми реализациями можно скачать <a href="http://pastebin.com/dA1aGHZA">здесь</a><br>
+<br>
+<h4>Сравнение результатов</h4><br>
+Выше изложенный исходный код можно запустить и убедиться в том, что <i>scipy.weave</i> действительно даёт прирост в скорости:<br>
+<pre>Test on size: 100x100
+	Pure python:  0.0725984573364
+	Pure C: 0.303888320923
+	C plus OpenMP: 0.109100341797
+	Test - ok
+
+Test on size: 1000x1000
+	Pure python:  1.00839138031
+	Pure C: 0.506997108459
+	C plus OpenMP: 0.333213806152
+	Test - ok
+
+Test on size: 2000x2000
+	Pure python:  3.24151515961
+	Pure C: 2.10800170898
+	C plus OpenMP: 1.17690563202
+	Test - ok
+
+Test on size: 3000x3000
+	Pure python:  5.54490089417
+	Pure C: 4.61800098419
+	C plus OpenMP: 2.56960391998
+	Test - ok
+</pre><br>
+<h3>Литература</h3><br>
+В написании кода использовались следующие ресурсы:<br>
+<ul>
+<li><a href="http://www.scipy.org/Weave">Документация по scipy.weave</a></li>
+<li><a href="http://openmp.org/wp/">Сайт openMP</a></li>
+</ul> 
+  	<div class="clear"></div> 	
+  	</div>
+    
+<ul class="tags">
+	<li><a href="http://habrahabr.ru/tag/python/" rel="tag">python</a></li><li>, <a href="http://habrahabr.ru/tag/scipy/" rel="tag">scipy</a></li><li>, <a href="http://habrahabr.ru/tag/openmp/" rel="tag">openmp</a></li>
+</ul>
+
+    <div class="infopanel" id="infopanel_post_135857">
+	
+        
+	
+	<div class="voting   ">
+
+		  				  
+		
+		<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+		<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+		
+
+		<div class="mark">
+			
+			
+			
+			
+			<span class="score" title="Результат голосования виден только авторизованным пользователям">—</span>
+			
+			  					  
+		</div>  
+
+	</div>
+	
+	
+
+	
+
+	<div class="published">31 января 2012, 00:04</div>
+
+	<div class="favorite">
+		
+		
+		<a class="guest" href="http://habrahabr.ru/blogs/python/135857/#" onclick="return false;" title="Только зарегистрированные пользователи могут добавлять посты в избранное"></a>
+		
+	</div>
+
+	<div class="favs_count" title="Количество пользователей, добавивших пост в избранное">37</div>
+
+	
+	<div class="twitter">
+		<a href="http://twitter.com/intent/tweet?text=http://habr.ru/p/135857/+Python%2C+scipy.weave+%D0%B8+openMP+%E2%80%94+%D1%80%D0%B0%D0%B7%D0%B3%D0%BE%D0%BD%D1%8F%D0%B5%D0%BC+%D0%BA%D0%BE%D0%B4+%23habr" title="Опубликовать ссылку в Twitter" target="_blank"></a>
+	</div>
+	<div class="vkontakte"> 
+		<a href="http://vkontakte.ru/share.php?url=http://habr.ru/p/135857/" title="Опубликовать ссылку во ВКонтакте" onclick="window.open(this.href, &#39;Опубликовать ссылку во Вконтакте&#39;, &#39;width=800,height=300&#39;); return false"></a>
+	</div>
+	<div class="facebook">
+		<a href="http://www.facebook.com/sharer.php?u=http://habr.ru/p/135857/" title="Опубликовать ссылку в Facebook" onclick="window.open(this.href, &#39;Опубликовать ссылку в Facebook&#39;, &#39;width=800,height=300&#39;); return false"></a>
+	</div>
+	
+
+	
+
+	
+
+	
+	
+
+	
+	
+	<div class="author">
+		<a title="Автор текста" href="http://habrahabr.ru/users/arxell/">arxell</a>
+	</div>
+	
+	
+
+	
+
+</div>
+<div class="clear"></div>    
+    
+	</div>
+
+		
+		
+<div class="comments_list " id="comments">
+
+  <h2 class="title ">комментарии (<span id="comments_count">13</span>)
+    
+  </h2>
+
+   
+    
+<div class="comment_item" id="comment_4572905">
+	
+	
+		<div class="info  	" rel="4572905">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4572905" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Akson87/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Akson87/" class="username">Akson87</a>
+			<time datetime="2012-01-31T05:44:20+04:00">31 января 2012, 05:44</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572905" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Спасибо, я и не знал о weave.<br>
+<br>
+Несколько вопросов:<br>
+0) В данном случае получается, что Си соревнуется с Numpy, которая вроде тоже на Си или я не прав?<br>
+1) А что за тестовая машина? 2 ядра?<br>
+2) В 100х100 Питон обходит Си? Сказываются накладные расходы на передачу данных в Си?<br>
+3) Что значит Pure C? это Си вызванный из Питона или отдельное приложение? 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4572905">
+	 
+		
+<div class="comment_item" id="comment_4572989">
+	
+	
+		<div class="info  	" rel="4572989">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4572989" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/arxell/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/arxell/" class="username">arxell</a>
+			<time datetime="2012-01-31T08:46:43+04:00">31 января 2012, 08:46</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572989" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572905" data-id="4572989" data-parent_id="4572905" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			1) Да, но иначе, я думаю, python бы проигрывал еще больше;<br>
+2) thinkpad 420 c core i5;<br>
+3) да, вызов weave достаточно тормозной;<br>
+4) Pure C — это weave без openMP. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4572989">
+	 
+		
+<div class="comment_item" id="comment_4573138">
+	
+	
+		<div class="info  	" rel="4573138">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4573138" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/xanep/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/43877_24x24.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/xanep/" class="username">xanep</a>
+			<time datetime="2012-01-31T10:53:19+04:00">31 января 2012, 10:53</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4573138" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572989" data-id="4573138" data-parent_id="4572989" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			&gt; 4) Pure C — это weave без openMP.<br>
+<br>
+Так и пишите «python with weave». Потому что когда вижу, что Pure C медленнее, чем питон, сразу не верю всем вашим результатам. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4573138">
+	 
+		
+<div class="comment_item" id="comment_4573142">
+	
+	
+		<div class="info  	" rel="4573142">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4573142" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/arxell/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/arxell/" class="username">arxell</a>
+			<time datetime="2012-01-31T10:55:16+04:00">31 января 2012, 10:55</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4573142" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/python/135857/#comment_4573138" data-id="4573142" data-parent_id="4573138" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Согласен, не самая лучшая формулировка 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4573142">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4572933">
+	
+	
+		<div class="info  	" rel="4572933">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4572933" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/zloy_alu/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/21716_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/zloy_alu/" class="username">zloy_alu</a>
+			<time datetime="2012-01-31T07:10:29+04:00">31 января 2012, 07:10</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572933" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			<code>Test on size: 100x100<br>
+<b>Pure python: 0.0725984573364</b><br>
+Pure C: 0.303888320923<br>
+<b>C plus OpenMP: 0.109100341797</b><br>
+ Test - ok<br>
+</code><br>
+<br>
+«Прирост в скорости»? Интересно, с чем это связано.<br>
+<br>
+ 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4572933">
+	 
+		
+<div class="comment_item" id="comment_4572969">
+	
+	
+		<div class="info  	" rel="4572969">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4572969" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/arxell/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/arxell/" class="username">arxell</a>
+			<time datetime="2012-01-31T08:22:20+04:00">31 января 2012, 08:22</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572969" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572933" data-id="4572969" data-parent_id="4572933" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Конечно же на малом размере матрицы прироста не будет, поскольку существенный объем времени тратится на вызов weave. <br>
+Если посмотреть сгенерированный исходник на С, то можно слегка ужаснуться от его объема! 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4572969">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4572960">
+	
+	
+		<div class="info  	" rel="4572960">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4572960" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/sergeypid/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/46868_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/sergeypid/" class="username">sergeypid</a>
+			<time datetime="2012-01-31T08:07:00+04:00">31 января 2012, 08:07</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572960" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			А почему столбец вычитаете в цикле?<br>
+<br>
+<code>import time<br>
+import numpy<br>
+t0=time.time()<br>
+N=1000<br>
+c=100.0<br>
+matrix=numpy.random.random((N, N))<br>
+randArray=numpy.random.random((N, N))<br>
+matrix=matrix-randArray*c<br>
+print time.time()-t0<br>
+</code><br>
+<br>
+При N=1000 время 0.11 сек<br>
+При N=2000 время 0.44 сек<br>
+При N=3000 время 0.98 сек<br>
+<br>
+Тестировалось на Core 2 Duo 2 GHz.<br>
+<br>
+Но за описание scipy.weave и openMP спасибо! 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4572960">
+	 
+		
+<div class="comment_item" id="comment_4572977">
+	
+	
+		<div class="info  	" rel="4572977">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4572977" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/arxell/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/arxell/" class="username">arxell</a>
+			<time datetime="2012-01-31T08:36:02+04:00">31 января 2012, 08:36</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572977" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572960" data-id="4572977" data-parent_id="4572960" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			<i>Также numpy массивы передаются в C не в виде матрицы, а в виде вектора, именно поэтому в коде один цикл, а не два.</i> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4572977">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4572987">
+	
+	
+		<div class="info  	" rel="4572987">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4572987" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/arxell/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/arxell/" class="username">arxell</a>
+			<time datetime="2012-01-31T08:44:10+04:00">31 января 2012, 08:44</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572987" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572960" data-id="4572987" data-parent_id="4572960" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Ой, неверно вас понял, верхний комментарий — бред. <br>
+Цикл для того, чтобы код на С и на python были конструктивно похожи. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4572987">
+	 
+		
+<div class="comment_item" id="comment_4572996">
+	
+	
+		<div class="info  	" rel="4572996">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4572996" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/sergeypid/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/46868_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/sergeypid/" class="username">sergeypid</a>
+			<time datetime="2012-01-31T08:55:34+04:00">31 января 2012, 08:55</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572996" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572987" data-id="4572996" data-parent_id="4572987" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Получается, что реализация в numpy если полностью векторизовать (или векторизировать) код, то есть вместо циклов использовать матричные операции, работает при N=1000 в пять раз быстрее, чем pure C. На практике получается, что даже какие-то нерегулярные вычисления, например вычитания из элементов, расположенных вблизи диагонали матрицы (но не только на диагонали) при соблюдении каких-то логических условий (if в цикле) выгоднее делать через матричные операции numpy.<br>
+<br>
+Но еще раз повторюсь, я не знал о scipy.weave и мне очень понравилось. Надо только придумать пример, когда матричные операции неприменимы, а на С можно решить, и тогда точно будет быстрее на больших размерностях. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4572996">
+	 
+		
+<div class="comment_item" id="comment_4573094">
+	
+	
+		<div class="info  	" rel="4573094">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4573094" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/arxell/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/arxell/" class="username">arxell</a>
+			<time datetime="2012-01-31T10:27:11+04:00">31 января 2012, 10:27</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4573094" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572996" data-id="4573094" data-parent_id="4572996" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Получается, что да. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4573094">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4572966">
+	
+	
+		<div class="info  	" rel="4572966">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4572966" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/vostryakov/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/29610_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/vostryakov/" class="username">vostryakov</a>
+			<time datetime="2012-01-31T08:21:39+04:00">31 января 2012, 08:21</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572966" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Судя по этим тестам прирост скорости 2-3 кратный. По крайней мере для 2-х ядерного процессора. Для 4-х думаю не сильно больше будет. В перспективе можно будет использовать NumPyPy который уже сейчас дает двухкратный прирост скорости по сравнению с NumPy: <a href="http://morepypy.blogspot.com/2012/01/numpypy-status-update.html">morepypy.blogspot.com/2012/01/numpypy-status-update.html</a> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4572966">
+	 
+		
+<div class="comment_item" id="comment_4572978">
+	
+	
+		<div class="info  	" rel="4572978">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4572978" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/arxell/" class="avatar"><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/arxell/" class="username">arxell</a>
+			<time datetime="2012-01-31T08:37:11+04:00">31 января 2012, 08:37</time>
+			<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572978" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/python/135857/#comment_4572966" data-id="4572978" data-parent_id="4572966" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Не знал о NumPyPy, спасибо! 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4572978">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+  
+</div>
+		
+  <p class="for_users_only_msg">Только зарегистрированные пользователи могут оставлять комментарии. <a href="http://habrahabr.ru/login/">Войдите</a>, пожалуйста.</p>
+
+
+		<div id="edit_tags_form" class="hidden">
+<form action="http://habrahabr.ru/blogs/python/135857/#" method="post">
+  <input type="hidden" name="action" value="add">
+  <input type="hidden" name="ti" value="0">
+  <input type="hidden" name="tt" value="0">
+  <label>Пометьте топик понятными вам метками, если хотите</label>
+  <input type="text" name="tags_string" class="tags_string" autocomplete="off" style="">
+  <div class="description">Метки лучше разделять запятой. Например: <i>общение, социальные сети, myspace.com, подростки, мердок</i></div>
+  <input type="submit" value="Сохранить" class="submit"> или <a href="http://habrahabr.ru/blogs/python/135857/#" class="close" onclick="return close_edit_tags()">закрыть</a>
+</form>
+</div>
+	
+	
+
+    </div>
+  </div>
+  <div class="sidebar_right">
+    
+	
+<div class="block blog_info">
+  <h1>Информация о блоге</h1>
+  <div class="info">
+  
+    <div class="stats">
+      <div class="members_count" id="members_count">15083 читателя</div>
+      <div class="posts_count">361 пост</div>
+    </div>
+    
+    
+		
+  </div>
+</div>
+
+	
+
+
+	<div class="banner_240x400">
+		
+<!--  AdRiver code START. Type:240x400 Site: habrahabr PZ: 0 BN: 0 -->
+<script language="javascript" type="text/javascript"><!--
+var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+document.write(
+'<iframe src="http://ad.adriver.ru/cgi-bin/erle.cgi?'
++ 'sid=176776&target=top&bt=22&pz=0&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail
++ '" frameborder=0 vspace=0 hspace=0 width=240 height=400 marginwidth=0'
++ ' marginheight=0 scrolling=no></iframe>');
+//--></script><iframe src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/erle(2).html" frameborder="0" vspace="0" hspace="0" width="240" height="400" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<noscript></noscript>
+
+<!--  AdRiver code END  -->
+
+	</div>
+
+
+
+
+
+
+	
+
+<div class="block daily_best_posts">
+  <h1>Лучшее <sup>за 24 часа</sup> ↓ </h1>
+  <div class="posts_list">
+    
+      <div class="post_item">
+        
+		
+		
+		
+		<!--<a href="http://habrahabr.ru/company/toster/blog/131694/#toster_tickets">--><img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/toster.gif" alt="Toster" style="vertical-align:top;float:left;display:block;margin-right:10px;margin-top:4px;" class="help-tip"><!--</a>-->
+        <a href="http://habrahabr.ru/blogs/energy/" class="blog_name">Энергия и элементы питания</a> →
+        <a href="http://habrahabr.ru/blogs/energy/137276/" class="post_name">Ближайшее будущее аккумуляторных батарей</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/study/" class="blog_name">Учебный процесс в IT</a> →
+        <a href="http://habrahabr.ru/blogs/study/137305/" class="post_name">Изучение иностранных языков: живые учителя или интернет?</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/company/kaspersky/blog/" class="blog_name">Блог компании «Лаборатория Касперского»</a> →
+        <a href="http://habrahabr.ru/company/kaspersky/blog/137304/" class="post_name">Батники против эксплойтов</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/DIY/" class="blog_name">DIY или Сделай Сам</a> →
+        <a href="http://habrahabr.ru/blogs/DIY/137257/" class="post_name">Викторианский лабораторный трансформатор</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/php/" class="blog_name">PHP</a> →
+        <a href="http://habrahabr.ru/blogs/php/137296/" class="post_name">Улучшения в htmlspecialchars() в версии 5.4</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/android_development/" class="blog_name">Разработка под Android</a> →
+        <a href="http://habrahabr.ru/blogs/android_development/137294/" class="post_name">Перемещение картинки вдоль произвольной кривой</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/client_side_optimization/" class="blog_name">Клиентская оптимизация</a> →
+        <a href="http://habrahabr.ru/blogs/client_side_optimization/137318/" class="post_name">JavaScript. Оптимизация: опыт, проверенный временем</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/copyright/" class="blog_name">Копирайт</a> →
+        <a href="http://habrahabr.ru/blogs/copyright/137282/" class="post_name">«Вконтакте» оштрафован за пиратский контент на 220 тыс. руб</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/study/" class="blog_name">Учебный процесс в IT</a> →
+        <a href="http://habrahabr.ru/blogs/study/137287/" class="post_name">Аспирантура в Швейцарии, собственный опыт и наблюдения</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/django/" class="blog_name">Django Framework</a> →
+        <a href="http://habrahabr.ru/blogs/django/137324/" class="post_name">Шпаргалка для Django 1.3</a>
+      </div>      
+    
+  </div>
+  <div class="all">« <a href="http://habrahabr.ru/top/">все лучшие</a></div>
+</div>
+
+	
+
+
+<div class="block similar_posts">
+
+	<h1>Похожие посты ↓ </h1>
+  <div class="posts_list">
+  	
+    	<div class="post_item">
+    				<span class="when">28.01.2012</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/python/">Python</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/python/137206/">Уроки Python от компании Google</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">27.01.2012</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/python/">Python</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/python/137089/">Обычная (или не совсем обычная) транслитерация на Python</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">20.01.2012</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/python/">Python</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/python/136668/">Настройка emacs для разработки на python или поиск «идеального» редактора</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">12.01.2012</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/python/">Python</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/python/135863/">Как написать дополнение для GIMP на языке Python</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">09.01.2012</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/android_development/">Разработка под Android</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/android_development/135902/">Упаковка Python-программы в формат APK</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">07.01.2012</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/python/">Python</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/python/135822/">Скрипт для Notepad++ на Python</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">30.12.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/python/">Python</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/python/135541/">Централизованный сбор конфигураций с MikroTik'ов средствами Python</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">28.12.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/python/">Python</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/python/135408/">Python на примере демона уведомления о новых коммитах Git</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">17.12.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/python/">Python</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/python/134787/">Как в python снаружи проверить значения, переданные в функцию</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">14.12.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/cpp/">C++</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/cpp/134547/">Ускоряем OpenMP в Visual C++ 2010</a>
+      </div>
+  	
+  </div>			
+</div>
+
+
+
+
+	
+
+
+<div class="block live_broadcast_activity">
+  <h1>Прямой эфир ↓ </h1>
+  <div class="posts_list">
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/Terion/" class="user_name">Terion</a> →
+      <a href="http://habrahabr.ru/blogs/client_side_optimization/137239/#comment_4573530" class="post_name">Топ-10 советов о том, как увеличить скорость загрузки страницы</a>
+      <span class="count">57</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/ainu/" class="user_name">ainu</a> →
+      <a href="http://habrahabr.ru/blogs/php/137328/#comment_4573529" class="post_name">Template Hypertext Preprocessor — язык программирования, презентация open source проекта</a>
+      <span class="count">31</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/IkaR49/" class="user_name">IkaR49</a> →
+      <a href="http://habrahabr.ru/blogs/windows_mobile/136946/#comment_4573528" class="post_name">31 неделя Metro-дизайна для Windows Phone | #1 Принципы Metro-дизайна и язык Metro-дизайна</a>
+      <span class="count">27</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/nill/" class="user_name">nill</a> →
+      <a href="http://habrahabr.ru/blogs/php/137337/#comment_4573526" class="post_name">Правильный запуск PHP-скриптов в бекграунде</a>
+      <span class="count">5</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/Ekstazi/" class="user_name">Ekstazi</a> →
+      <a href="http://habrahabr.ru/blogs/compilers/137336/#comment_4573525" class="post_name">Транслятор из Delphi в javascript</a>
+      <span class="count">5</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/Dyr/" class="user_name">Dyr</a> →
+      <a href="http://habrahabr.ru/blogs/copyright/137282/#comment_4573523" class="post_name">«Вконтакте» оштрафован за пиратский контент на 220 тыс. руб</a>
+      <span class="count">155</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/pkondaurov/" class="user_name">pkondaurov</a> →
+      <a href="http://habrahabr.ru/blogs/e_gov/137308/#comment_4573519" class="post_name">Пришло ли время для usability в гос. секторе?</a>
+      <span class="count">49</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/seriyPS/" class="user_name">seriyPS</a> →
+      <a href="http://habrahabr.ru/blogs/open_source/137252/#comment_4573518" class="post_name">Тюнингуем eclipse — TOP 7 plugins</a>
+      <span class="count">43</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/Lexx918/" class="user_name">Lexx918</a> →
+      <a href="http://habrahabr.ru/blogs/DIY/137272/#comment_4573514" class="post_name">Как из домашнего компьютера сделать «два в одном» – домашний кинотеатр + персональный компьютер</a>
+      <span class="count">97</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/Ekstazi/" class="user_name">Ekstazi</a> →
+      <a href="http://habrahabr.ru/blogs/client_side_optimization/137318/#comment_4573511" class="post_name">JavaScript. Оптимизация: опыт, проверенный временем</a>
+      <span class="count">44</span>
+    </div>
+
+  </div>
+  <!--div class="all">&laquo; <a href="/live/">весь прямой эфир</a></div-->
+  
+</div>
+
+
+
+  
+	
+	
+
+<div class="block best_company">
+
+		<h1>Компания дня <img src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/bg_cicle_help.png" class="help-tip"></h1>
+
+		<div class="company_info">
+			<div class="name">
+			 <img class="favicon" src="./Python, scipy.weave и openMP — разгоняем код   Python   Хабрахабр_files/favicon_981.ico" alt="LinguaLeo" height="16" width="16">
+			 <a href="http://habrahabr.ru/company/lingualeo/" class="title">LinguaLeo</a>
+			</div>
+
+			<p>Последний пост:
+				<a href="http://habrahabr.ru/company/lingualeo/blog/137151/">iPhone-приложение LinguaLeo опубликовали в AppStore</a>
+			</p>
+
+			<div class="like">
+  			<div id="fans_count">289 поклонников</div>
+  			
+			</div>
+		</div>
+
+	</div>
+
+
+	
+
+<div class="block qa_activity">
+  <h1>Q&amp;A ↓ </h1>
+  <div class="posts_list">
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/taliban/" class="user_name">taliban</a> →
+      <a href="http://habrahabr.ru/qa/15910/#comment_77735" class="post_name">Какая фигура лишняя?</a>
+      <span class="count">24</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/pnick/" class="user_name">pnick</a> →
+      <a href="http://habrahabr.ru/qa/15934/#comment_77734" class="post_name">"Два интернета" на одном компьютере</a>
+      <span class="count">4</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/taliban/" class="user_name">taliban</a> →
+      <a href="http://habrahabr.ru/qa/15924/#comment_77733" class="post_name">Очередной баг в опере?</a>
+      <span class="count">4</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/taliban/" class="user_name">taliban</a> →
+      <a href="http://habrahabr.ru/qa/15930/#answer_66197" class="post_name">Какую технологию применить для разработки браузерной игры?</a>
+      <span class="count">3</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/alexk24/" class="user_name">alexk24</a> →
+      <a href="http://habrahabr.ru/qa/15918/#comment_77732" class="post_name">Облачный хостинг с оплатой за потребленные ресурсы</a>
+      <span class="count">5</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/dkalmykov/" class="user_name">dkalmykov</a> →
+      <a href="http://habrahabr.ru/qa/15920/#comment_77730" class="post_name">Описание транзакции PayPal</a>
+      <span class="count">2</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/rinx/" class="user_name">rinx</a> →
+      <a href="http://habrahabr.ru/qa/15914/#comment_77724" class="post_name">Нужен совет по выбору Arduino и его модулей</a>
+      <span class="count">2</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/1010101001000100110100111/" class="user_name">1010101001000100110100111</a> →
+      <a href="http://habrahabr.ru/qa/15633/#comment_77723" class="post_name">Хабрачерновик: Конфигурирование GPRS-канала без лишних телодвижений</a>
+      <span class="count">1</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/PaGrom/" class="user_name">PaGrom</a> →
+      <a href="http://habrahabr.ru/qa/15923/#comment_77721" class="post_name">Проблема с автозагрузкой python-скрипта</a>
+      <span class="count">4</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/opium/" class="user_name">opium</a> →
+      <a href="http://habrahabr.ru/qa/15931/#comment_77720" class="post_name">Как запустить все виртуалки в xen server из консоли?</a>
+      <span class="count">2</span>
+    </div>
+
+  </div>
+  <div class="all">« <a href="http://habrahabr.ru/qa/">все вопросы</a></div>
+  
+</div>
+
+	
+
+<div class="block new_vacanies">
+  <h1>О, работа! ↓ </h1>
+  <div class="vacancies">
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7765-veduschiy-python-razrabotchik">Ведущий Python-разработчик</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7764-ischem-javascript-programmista-udalennaya-rabota">Ищем javascript-программиста. (удаленная работа)</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7763-analitik-tehnicheskiy-pisatel">Аналитик, технический писатель</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7760-php-programmist">PHP программист</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7762-ux-dizayner">UX-Дизайнер</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7761-web-programmist">Web-программист</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7737-junior-veb-razrabotchik-na-drupal">Junior веб-разработчик на Drupal</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7759-java-programmist-dlya-udalennoy-postoyannoy-raboty">Java программист для удаленной постоянной работы</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7758-kompleksnoe-prodvizhenie">Комплексное продвижение</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7755-spetsialist-po-kontekstnoy-reklame">Специалист по контекстной рекламе</a>
+		</div>
+		
+  </div>
+  <div class="all">« <a href="http://hantim.ru/">все вакансии</a></div>
+
+	</div>
+      
+	
+	
+	
+	<div class="block category_blogs">
+		<h1>Языки программирования ↓</h1>
+		
+		<div class="blogs_list">
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/asm/">Assembler</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/javascript/">JavaScript</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/cpp/">C++</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/php/">PHP</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/java/">JAVA</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/ruby/">Ruby</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/Haskell/">Haskell</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/net/">.NET</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/lisp/">Lisp</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/perl/">Perl</a>
+				  </div>
+		
+			  </div>
+			
+		</div>
+		<div class="all">« <a href="http://habrahabr.ru/bloglist/program-langs/">все  блоги</a></div>
+  </div>
+	
+
+
+	
+
+
+<div class="block similar_events">
+  <h1>Ближайшие события</h1>
+  <div class="events">
+    
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_3"></div>
+				<div class="day">01</div>
+				<div class="month">февраля</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/393/">1С-Битрикс: Корпоративный портал 11.0» - управление идеями, проектами и социальными коммуникациями.</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_4"></div>
+				<div class="day">02</div>
+				<div class="month">февраля</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/385/">Использование технологий Windows Azure в качестве бэкэнда для разработки под основные мобильные платформы</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_5"></div>
+				<div class="day">03</div>
+				<div class="month">февраля</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/403/">Лекция Санберга: интерактив в телевидении</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_6"></div>
+				<div class="day">04</div>
+				<div class="month">февраля</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/378/">Мастер-класс по разработке приложений для Android</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_1"></div>
+				<div class="day">06</div>
+				<div class="month">февраля</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/394/">QML тренинг в Петрозаводске</a>			 
+			</div>
+		</div>
+		
+  </div>
+  <div class="all">« <a href="http://habrahabr.ru/events/">все события</a></div>
+</div>
+
+
+    
+  </div>
+  <div class="clear"></div>
+
+		  <div id="footer">
+      
+			
+			<dl>
+				<dd><a href="http://habrahabr.ru/login/">Войти</a></dd>
+				<dd><a href="http://habrahabr.ru/register/">Регистрация</a></dd>
+			</dl>
+			
+			<dl>
+				<dt>Разделы</dt>
+			  
+				<dd><a href="http://habrahabr.ru/qa/">Q&amp;A</a></dd>
+				<dd><a href="http://habrahabr.ru/events/">События</a></dd>
+				<!--dd><a href="http://habrahabr.ru/links/">Ссылки</a></dd-->
+				<dd><a href="http://habrahabr.ru/job/">Работа</a></dd>
+				<dd><a href="http://habrahabr.ru/bloglist/">Блоги</a></dd>
+				<dd><a href="http://habrahabr.ru/companies/">Компании</a></dd>
+				<dd><a href="http://habrahabr.ru/people/">Люди</a></dd>
+				<dd><a href="http://habrahabr.ru/top/">Лучшие</a></dd>
+			</dl>
+			<dl>
+				<dt>Блоги</dt>
+				<dd><a href="http://habrahabr.ru/">Все</a></dd>
+				<dd><a href="http://habrahabr.ru/blogs/">Тематические</a></dd>
+				<dd><a href="http://habrahabr.ru/corporative/">Корпоративные</a></dd>
+				<!--dd><a href="http://habrahabr.ru/personal/">Личные</a></dd-->
+				<dd><a href="http://habrahabr.ru/sandbox/">Песочница</a></dd>
+			</dl>
+			<dl>
+				<dt>Инфо</dt>
+				<dd><a href="http://habrahabr.ru/info/about/">О сайте</a></dd>
+				<dd><a href="http://habrahabr.ru/info/help/rules/">Правила</a></dd>
+				<dd><a href="http://habrahabr.ru/info/help/">Помощь</a></dd>
+				<dd><a href="http://habrahabr.ru/info/agreement/">Соглашение</a></dd>
+				<dd><a href="http://habrahabr.ru/info/stats/">Статистика</a></dd>
+			</dl>
+			<dl>
+				<dt>Услуги</dt>
+				<dd><a href="http://habrahabr.ru/info/advertising/">Реклама</a></dd>
+				<dd><a href="http://habrahabr.ru/info/advertising/corporate/">Корпоративные пакеты</a></dd>
+				<dd><a href="http://habrahabr.ru/info/advertising/workshops/">Семинары</a></dd>
+			</dl>
+      <div class="copyright">
+    		<a class="footer_logo" href="http://thematicmedia.ru/">Тематические Медиа</a>
+    		<div class="about">
+    			© 2006–2012<br>
+    			«<a href="http://www.thematicmedia.ru/">Тематические Медиа</a>»
+    		  <br><br>	
+  				Служба поддержки:<br>
+  				<a href="mailto:support@habrahabr.ru" title="адрес службы поддержки пользователей">support@habrahabr.ru</a><br><br><br>
+  				<a href="http://m.habrahabr.ru/">Мобильная версия</a>
+  			
+			  </div>
+      </div>
+	
+</div>
+		</div>
+	 	
+		
+    
+		
+    <script type="text/javascript">
+      $(document).ready(function(){
+        // test gggg
+        // настройки всплывающих уведомлений
+        $.jGrowl.defaults.closerTemplate = '<div>Закрыть все уведомления</div>';         
+        
+        // настройки тултипов
+        $(".help-tip").tipTip({maxWidth: "auto", edgeOffset: 10});  
+        
+      });
+      // global vars
+      var g_base_url = 'habrahabr.ru';
+      var g_show_xpanel = false;
+      var g_base_fullurl = 'http://habrahabr.ru/';
+      var g_is_guest = false;
+       
+    </script>
+    
+    
+<script type="text/javascript">
+	/*<![CDATA[*/
+	var ga = document.createElement('script');
+		ga.setAttribute('async', 'true');
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	/* ]]>*/
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(
+	    ['_setAccount', 'UA-726094-1'],
+	    ['_setDomainName', '.habrahabr.ru'],
+	    ["_addOrganic", "mail.ru", "q"],
+	    ["_addOrganic","rambler.ru", "words"],
+	    ["_addOrganic","nigma.ru", "s"],
+	    ["_addOrganic","blogs.yandex.ru", "text"],
+	    ["_addOrganic","webalta.ru", "q"],
+	    ["_addOrganic","aport.ru", "r"],
+	    ["_addOrganic","akavita.by", "z"],
+	    ["_addOrganic","meta.ua", "q"],
+	    ["_addOrganic","bigmir.net", "q"],
+	    ["_addOrganic","tut.by", "query"],
+	    ["_addOrganic","all.by", "query"],
+	    ["_addOrganic","i.ua", "q"],
+	    ["_addOrganic","online.ua", "q"],
+	    ["_addOrganic","a.ua", "s"],
+	    ["_addOrganic","ukr.net", "search_query"],
+	    ["_addOrganic","search.com.ua", "q"],
+	    ["_addOrganic","search.ua", "query"],
+	    ["_addOrganic","poisk.ru", "text"],
+	    ["_addOrganic","km.ru", "sq"],
+	    ["_addOrganic","liveinternet.ru", "ask"],
+	    ["_addOrganic","gogo.ru", "q"],
+	    ["_addOrganic","gde.ru", "keywords"],
+	    ["_addOrganic","quintura.ru", "request"],
+	    ['_trackPageview']
+	);
+	document.documentElement.firstChild.appendChild(ga);
+</script>	
+		
+		
+	
+
+<div id="AutocompleteContainter_1f80d" style="position: absolute; top: 51px; left: 958px; z-index: 9999; "><div class="autocomplete-w1"><div class="autocomplete" id="Autocomplete_1f80d" style="display: none; max-height: 400px; width: 300px; "></div></div></div><div id="AutocompleteContainter_76e89" style="position: absolute; top: 0px; left: 0px; z-index: 9999; "><div class="autocomplete-w1"><div class="autocomplete" id="Autocomplete_76e89" style="display: none; max-height: 400px; width: 300px; "></div></div></div><div id="tiptip_holder" style="max-width:auto;"><div id="tiptip_arrow"><div id="tiptip_arrow_inner"></div></div><div id="tiptip_content"></div></div></body></html>

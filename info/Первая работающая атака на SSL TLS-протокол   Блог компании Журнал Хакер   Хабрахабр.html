@@ -1,0 +1,2088 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://habrahabr.ru/company/xakep/blog/132344/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+	<title>Первая работающая атака на SSL/TLS-протокол / Блог компании Журнал Хакер / Хабрахабр</title>
+	
+	
+		<link href="http://habrahabr.ru/css/1330680696/all.css" rel="stylesheet" media="all">
+	
+	
+
+<!-- ie9 -->
+    <meta name="application-name" content="Хабрахабр"> 
+    <meta name="msapplication-tooltip" content="Хабрахабр"> 
+    <meta name="msapplication-starturl" content="http://habrahabr.ru/"> 
+
+    <meta name="msapplication-task" content="name=посты;action-uri=http://habrahabr.ru/;icon-uri=http://habrahabr.ru/favicon.ico">
+    <meta name="msapplication-task" content="name=q&amp;a;action-uri=http://habrahabr.ru/qa/;icon-uri=http://habrahabr.ru/favicon.ico">
+    <meta name="msapplication-task" content="name=блоги;action-uri=http://habrahabr.ru/bloglist/;icon-uri=http://habrahabr.ru/favicon.ico">
+    <meta name="msapplication-task" content="name=люди;action-uri=http://habrahabr.ru/people/;icon-uri=http://habrahabr.ru/favicon.ico">
+    <meta name="msapplication-task" content="name=компании;action-uri=http://habrahabr.ru/companies/;icon-uri=http://habrahabr.ru/favicon.ico">
+<!-- /ie9 -->
+
+	
+	<link rel="shortcut icon" href="http://habrahabr.ru/i/favicon.ico">
+	<link rel="image_src" href="http://habrahabr.ru/i/logo.gif">
+	
+	
+	<link title="" type="application/rss+xml" rel="alternate" href="">
+
+	<!--[if IE 6]><link rel="stylesheet" href="http://habrahabr.ru/css/1330680696/ie6.css" media="all" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="http://habrahabr.ru/css/1330680696/ie7.css" media="all" /><![endif]-->
+	<!--[if IE ]><link rel="stylesheet" href="http://habrahabr.ru/css/1330680696/ie.css" media="all" /><![endif]-->
+	
+	
+	<link href="http://habrahabr.ru/css/1330680696/karma.css" rel="stylesheet" media="all">
+	<link href="http://habrahabr.ru/css/1330680696/profile.css" rel="stylesheet" media="all">
+	<link href="http://habrahabr.ru/css/1330680696/corpoadmin.css" rel="stylesheet" media="all">
+
+	<link rel="help" href="http://habrahabr.ru/info/help/">
+	<link rel="search" href="http://habrahabr.ru/search/">
+	<link rel="home" href="http://habrahabr.ru/">
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/mootools-1.2-core-yc.js"></script>
+  <!--<script type="text/javascript" src="http://habrahabr.ru/js/1330680696/mootools-core-1.3.2-full-compat-yc.js"></script>//-->
+  
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/system.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/init.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/common.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/global.js"></script>
+	
+	<!--script type="text/javascript" src="http://habrahabr.ru/js/1330680696/old-stuff-v-1.js"></script-->
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/all.js"></script>
+	
+		
+
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/validation.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/xmlhandler.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/control.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/favourites_add.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/button.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/form.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/autosuggest.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/highlight.js"></script>
+	
+
+	
+	
+	
+	
+	<script type="text/javascript">
+	/*<![CDATA[*/
+	var ya = document.createElement('script');
+		ya.src = 'http://an.yandex.ru/system/context.js';
+	/* ]]>*/
+	</script>
+	<script type="text/javascript">
+	/*<![CDATA[*/
+	var ga = document.createElement('script');
+		ga.setAttribute('async', 'true');
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	/* ]]>*/
+	</script>
+	
+	<script type="text/javascript">
+	/*<![CDATA[*/
+		var temp=temp||{};
+		window.temp=temp;
+		temp.base = (window.base_full_url = 'http://habrahabr.ru/');
+		temp.base_short = 'habrahabr.ru';
+		hljs.initHighlightingOnLoad();
+	/* ]]>*/
+	</script> 
+	
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/commentForm.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/voting.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/friending.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/swfobject.js"></script>
+	
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/habraWYG.js"></script>
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/profile-actions.js"></script>
+
+		
+	
+	<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/adriver.core.2.js"></script>
+<script async="true" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/ga.js"></script></head>
+
+<body id="main-page" class="company guest" lang="ru">
+		
+
+
+
+<div class="header">
+	
+		<dl class="panel-personal">
+	<dt><!-- Мы впишем сюда твой %username% --></dt>
+	<dd><a href="http://habrahabr.ru/login/">войти</a> <a href="http://habrahabr.ru/register/">зарегистрироваться</a></dd>
+</dl>
+	
+	 
+	<div class="panel-tools">
+		 
+		<form class="panel-search js-autosuggest-holder " action="http://habrahabr.ru/search/" method="get" accept-charset="utf-8">
+			<p>
+				<label class="panel-search-label input-placeholding" for="search">
+					<input id="search" class="in-text js-autosuggest-field " title="поиск по сайту" type="text" name="q" value="" autocomplete="off"> 
+					<span>поиск по сайту</span>
+				</label>
+				<input class="in-submit" type="submit" id="do" value="" title="Enter!">
+			</p>
+			<div class="js-autosuggest-output-container"><div class="js-autosuggest-output hidden"></div></div>
+		</form>
+	</div>
+	<a class="logo " href="http://habrahabr.ru/" title="На главную страницу"></a>
+	
+
+	<ul class="panel-nav-top">
+	
+		
+		
+		
+			<li><a href="http://habrahabr.ru/">Посты</a></li>
+		
+	
+		
+		
+		
+			<li><a href="http://habrahabr.ru/qa/">Q&amp;A</a></li>
+		
+	
+		
+		
+		
+			<li><a href="http://habrahabr.ru/bloglist/">Блоги</a></li>
+		
+	
+		
+		
+		
+			<li><a href="http://habrahabr.ru/events/">События</a></li>
+		
+	
+		
+			
+			
+				<li class="current"><a href="http://habrahabr.ru/companies/">Компании</a></li>
+			
+		
+		
+		
+	
+	
+	
+	
+	</ul>
+
+</div>
+
+
+<div id="wrapper">
+<div id="inner">
+
+
+	<div id="main-content">
+	  
+	  <script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/mootools.slide.js"></script>
+		
+	  
+		
+
+	
+<div class="profile-header company-header">
+	
+	<h1><img class="favicon" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/favicon_1210.ico" alt="Журнал Хакер" height="16" width="16"></h1>
+	
+	<dl class="profile-actions">
+		<dt>
+			
+			<a class="habrauser silentlink" href="http://habrahabr.ru/company/xakep/">Журнал Хакер</a>
+			
+		</dt>
+	</dl>
+	
+	<div id="company1210" class="profile-karma-holder">
+	 	<dl class="habraindex">
+			<dt>хабраиндекс</dt>
+			<dd id="js-companyRating" class="number">76,83</dd>
+		</dl>
+	</div>
+	
+	
+</div>
+<!-- Горизонтальное меню над постами -->
+
+<div class="page-navigation">
+	<table class="page-menu">
+		<tbody><tr>
+			
+				
+				
+					<td class="profile"><div><a href="http://habrahabr.ru/company/xakep/" title="">Профиль</a></div></td>
+				
+			
+				
+					<td class="blog current"><div><a href="http://habrahabr.ru/company/xakep/blog/" title="">Блог </a></div></td>
+				
+				
+			
+				
+				
+					<td class="questions"><div><a href="http://habrahabr.ru/company/xakep/questions/" title="">Вопросы</a></div></td>
+				
+			
+				
+				
+					<td class="vacancies"><div><a href="http://habrahabr.ru/company/xakep/vacancies/" title="">Вакансии</a></div></td>
+				
+			
+				
+				
+					<td class="fans"><div><a href="http://habrahabr.ru/company/xakep/fans/" title="">Поклонники</a></div></td>
+				
+			
+		</tr>
+	</tbody></table>
+	
+		<div class="page-submenu ">
+			<ul>
+				
+					
+					
+						<li><a href="http://habrahabr.ru/company/xakep/blog/" title="">Захабренные</a></li>
+					
+				
+					
+					
+						<li><a href="http://habrahabr.ru/company/xakep/blog/new/" title="">Новые</a></li>
+					
+				
+					
+					
+						<li><a href="http://habrahabr.ru/company/xakep/blog/unhabred/" title="">Отхабренные</a></li>
+					
+				
+			</ul>
+		</div>
+	
+</div>
+
+<!-- // Горизонтальное меню над постами -->
+	
+
+
+	
+	
+
+
+
+
+	
+
+	
+		<div class="hentry ">
+
+		  
+				
+			
+			
+			<h2 class="entry-title single-entry-title">
+				
+				
+				
+				
+
+				
+
+				
+					
+					
+						<span title="http://habrahabr.ru/company/xakep/blog/132344/" class="topic">Первая работающая атака на SSL/TLS-протокол</span>
+					
+				
+
+				
+				
+				
+
+				
+				
+			</h2>
+
+			
+
+<div class="content">
+	Передаваемые по SSL-соединению данные можно расшифровать! Для этого Джулиану Риццо и Тай Дуонгу удалось использовать недоработки в самом протоколе SSL. И пусть речь пока не идет о полной дешифровке трафика, разработанная ими утилита BEAST может извлечь из зашифрованного потока то, что представляет собой наибольший интерес, — секретные кукисы с идентификатором сессии пользователя.<br>
+<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/46025019.png"><br>
+<a name="habracut"></a><br>
+<br>
+<h3>Что такое BEAST?</h3><br>
+Всего 103 секунды потребовалось утилите BEAST (Browser Exploit Against SSL/TLS), чтобы расшифровать секретную кукису для входа в аккаунт PayPal. Посмотреть видеокаст можно на <a href="http://bit.ly/omqAsQ">Youtube</a>. Это не фейк. Живая демонстрация утилиты прошла в рамках конференции Ekoparty в Буэнос-Айросе, где исследователи выступили с докладом и показали работающий proof-of-concept. Используемая уязвимость действительно позволяет незаметно перехватывать данные, передаваемые между веб-сервером и браузером пользователя. По иронии судьбы атака эксплуатирует не какую-то новую найденную в протоколе брешь, а уязвимость SSL/TLS десятилетней давности, долгое время считавшуюся чисто теоретической. Но, как говорится, раз в год и палка стреляет, так что уж за десять лет уязвимость точно может перейти из разряда теоретических во вполне себе практическую.<br>
+Исследователи пока не публикуют утилиту, но делятся whitepaper'ом <a href="http://bit.ly/oBLWHX">о проделанной работе</a>. Программа состоит из двух элементов: снифера, который анализирует HTTPS-трафик, и специального агента, написанного на JavaScript и Java, который должен быть подгружен в браузере жертвы (для этого, к примеру, необходимо заставить пользователя открыть страницу с нужным кодом). Агент нужен для того, чтобы особым образом внедрять данные в тот же безопасный канал связи, который используется для передачи секретных кукисов. Как это позволяет дешифровать данные? Вот здесь вступает давно известная уязвимость SSL 3.0/TLS 1.0, на которой мы остановимся подробнее.<br>
+<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/6c587c53.png"><br>
+<h4>Проблема режима простой замены</h4><br>
+<br>
+<h3>Особенности шифрования SSL 1.0</h3><br>
+Протокол SSL 1.0/TLS 3.0 позволяет использовать шифрование симметричным ключом, используя либо блочные, либо потоковые шифры. На практике, однако, обычно используется блочные шифры, и описываемая нами атака применима именно для них. Чтобы вникнуть в суть, нужно хорошо представлять себе базовые понятия. <br>
+Принцип работы блочного шифра заключается в отображении блоков открытого текста в зашифрованные блоки того же размера. Проще всего представить блочный шифр в виде гигантской таблицы, содержащей 2^128 записей, каждая из которых содержит блок текста М и соответствующий ему зашифрованный блок С. Соответственно, для каждого ключа шифрования будет отдельная такая таблица. Далее мы будем обозначать шифрование в виде функции: <br>
+C = E(Key, M), где M — исходные данные, Key — ключ шифрования, а C — полученные зашифрованные данные.<br>
+Блоки имеют небольшой размер (как правило, 16 байт). Поэтому возникает вопрос: как зашифровать длинное сообщение? Можно разбить сообщение на блоки одинаковой длины (те же самые 16 байт) и зашифровать каждый блок в отдельности. Такой подход называется режимом простой замены (ECB, Electronic codebook), но используется редко. На то есть причина: если мы будем шифровать два одинаковых по содержимому блока, то в результате и на выходе получим два одинаковых зашифрованных блока. Это влечет за собой проблему сохранения статистических особенностей исходного текста, которая хорошо продемонстрирована на иллюстрации. Для избегания такого эффекта был разработан режим сцепления блоков шифротекста (СВС, Cipher-block chaining), в котором каждый следующий блок открытого текста XOR'ится с предыдущим результатом шифрования:<br>
+<br>
+<code>Ci = E(Key, Mi xor Ci-1)</code><br>
+<br>
+Во время шифрования первого блока исходный текст XOR’ится некоторым вектором инициализации (Initialization Vector, IV), который заменяет результат предыдущего шифрования, которого по понятной причине нет. Как видишь, все довольно просто. Однако эта теория описывает ситуацию для одного большого объекта, такого, например, как файл, который легко разбивается на блоки. В свою очередь, SSL/TLS является криптографическим протоколом — ему необходимо шифровать не отдельный файл, а серию пакетов. SSL/TLS-соединение может быть использовано для отправки серии HTTPS-запросов, каждый из которых может быть разбит на один или более пакетов, которые, в свою очередь, могут быть отправлены в течение как нескольких секунд, так и нескольких минут. В данной ситуации есть два способа использовать режим CBC:<br>
+<ol>
+<li>обрабатывать каждое сообщение как отдельный объект, генерировать новый вектор инициализации и шифровать по описанной схеме.</li>
+<li>обрабатывать все сообщения как будто они объединены в один большой объект, сохраняя CBC-режим между ними. Этого можно достичь, используя в качестве вектора инициализации для сообщения n последний блок шифрования предыдущего сообщения (n-1).</li>
+</ol>Внимание, важный момент. Протокол SSL 3.0/TLS 1.0 использует второй вариант, и именно в этом кроется возможность для проведения атаки.<br>
+<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/94597142.png"><br>
+<h4>Принцип действия CBC-шифра</h4><br>
+<br>
+<h3>Предсказуемый вектор инициализации</h3><br>
+Атака строится на нескольких допущениях, но опыт создателей BEAST показал, что их вполне реально реализовать в реальной жизни. Первое допущение: злоумышленник должен иметь возможность снифать трафик, который передает браузер. Второе допущение: плохой парень каким-то образом должен заставить жертву передавать данные по тому же самому безопасному каналу связи. Зачем это нужно? Рассмотрим случай, когда между компьютерами Боба и Элис установлено безопасное соединение. К нам попадает сообщение, i-блок которого, как мы предполагаем, содержит, пароль Элис (или секретную кукису — неважно). Обозначим зашифрованный блок как Ci, соответственно Mi — ее пароль. Напомню, что Ci = E (Key, Mi xor Ci-1). Теперь предположим, что ее пароль — это Р. Главная идея в том, что мы можем проверить правильность нашего предположения!<br>
+Итак, мы знаем (так как смогли перехватить) вектор инициализации, который будет использоваться для шифрования первого блока следующего сообщения. Это, соответственно, последний блок предыдущего сообщения (в зашифрованном виде) — обозначим его IV. Мы также перехватили и знаем значение блока, идущего перед Ci — обозначим его Ci-1. Эти данные нам очень нужны. С их помощью мы особым образом формируем сообщение так, чтобы первый блок был равен следующему:<br>
+<br>
+<code>M1 = Ci-1 xor IV xor P</code><br>
+<br>
+Если сообщение удалось передать по тому же защищенному каналу связи, то первый блок нового сообщения после шифрования будет выглядеть следующим образом:<br>
+<br>
+<code>C1 = E(Key, M1 xor IV) = <br>
+ = E(Key, (Ci-1 xor IV xor P) xor IV)<br>
+ = E(Key, (Ci-1 xor P))<br>
+ = Сi</code><br>
+<br>
+Все, что я сделал, — это использовал полную форму записи M1, после чего упростил формулу, используя тот факт, что (IV xor IV) уничтожится (замечательное свойство XOR'а). Получается, что если наше предположение относительно пароля Элис верное (то есть M действительно равен P), то первый зашифрованный блок нового сообщения C1 будет равен ранее перехваченному Ci! И наоборот: если предположение неверное, равенства не будет. Так мы можем проверять наши предположения.<br>
+<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/ccd6f5cc.jpg"><br>
+<h4>Передача запроса на сервер для реализации атаки на SSL</h4><br>
+<br>
+<h3>Особенности перебора</h3><br>
+Если предположить, что у нас есть кучу времени и множество попыток, мы можем повторять эту технику вновь и вновь, пока не найдем верное значение M. Однако на практике блок M — 16 байтов в длину. Даже если мы знаем значение всех байт кроме двух, на то, чтобы отгадать оставшиеся байты, нам понадобится 2^15 (32 768) попыток. А если мы не знаем вообще ничего? Короче говоря, техника может сработать лишь в единственном случае — если у тебя есть некоторое ограниченное количество предположений относительно значения M. Еще точнее: мы должны знать большую часть содержимого этого блока — это единственный способ использовать описанную уязвимость. Тут есть одна хитрость. <br>
+Предположим, что злоумышленник может контролировать, каким образом данные будут располагаться в шифруемом блоке. Вернемся опять к примеру с Элис. Допустим, мы знаем, что длина ее пароля — 8 символов. Если злоумышленник может расположить пароль таким образом, чтобы в первый блок попал только один символ, а оставшиеся семь попали в следующий. Идея в том, чтобы передать в первых 15 байтах первого блока заведомо известные данные — тогда можно будет подобрать только последний байт, являющийся первым символом пароля. Например, допустим, что нужно отправить строку вида: «user: alice password: ********», где "********" — непосредственно сам пароль. Если злоумышленнику удастся передать строку так, чтобы она была разбита на следующие блоки "[lice password: *] [*******.........]", то подбор первого символа пароля уже не кажется невыполнимой задачей. Напротив, в худшем случае нам понадобится жалкие 256 попыток. А в случае особой удачи и вовсе одна :)! Подобрав первый байт, можно сдвинуть границу разбиения на один символ: то есть передавать в первом сообщении 14 заранее известных байт. Блок теперь будет заканчиваться двумя первыми байтами пароля, первый из которых мы уже подобрали. И опять: получаем 256 необходимых попыток для того, чтобы угадать второй его байт. Процесс можно повторять до тех пор, пока пароль не будет подобран. Этот принцип используется и в BEAST для подбора секретной кукисы, а в качестве известных данных используются модифицированные заголовки запроса. Подбор ускоряется за счет сужения возможных символов (в запросе можно использовать далеко не все), а также за счет предположений имени кукисы. <br>
+<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/46025019.png"><br>
+<h4>Всего 103 секунды потребовалось для расшифровки секретной кукисы PayPal</h4><br>
+<br>
+<h3>Реализация атаки</h3><br>
+Впрочем, сама уязвимость и оптимизированный способ для выполнения дешифрования описаны уже давно. Что действительно удалось разработчикам BEAST, так это реализовать все необходимые условия для выполнения атаки:<br>
+<ol>
+<li>атакующий должен иметь возможность прослушивать сетевые соединения, инициированные браузером жертвы;</li>
+<li>у атакующего должна быть возможность внедрить агент в браузер жертвы;</li>
+<li>агент должен иметь возможность отправлять произвольные (более-менее) HTTPS-запросы;</li>
+</ol>В самом начале материала я уже говорил, что важной частью BEAST является так называемый агент, который сможет передавать нужные злоумышленнику запросы на сервер (по защищенному протоколу). Исследователи составили список различных технологий и браузерных плагинов, который могут выполнить это условие. Как оказалось, их довольно много: Javascript XMLHttpRequest API, HTML5 WebSocket API, Flash URLRequest API, Java Applet URLConnection API, и Silverlight WebClient API. Однако в первом приближении некоторые из них оказались непригодны из-за наличия ограничений, препятствующих реализации атак. В результате остались только HTML5 WebSocket API, Java URLConnection API, и Silverlight WebClient API. В момент, когда исследователи сообщили о своем баге вендорам, у них на руках был работающий агент на базе HTML5 WebSockets. Но технология эта постоянно развивается, а сам протокол постоянно меняется. В результате работающий агент банально перестал работать. Текущая версия BEAST, которую парни представили общественности, состоит из агента, написанного на Javascript/Java, и сетевого снифера. <br>
+Незаметно внедрить апплет или JavaScript пользователю на самом деле не является такой уж сложной задачей. Но остается небольшой нюанс — для того, чтобы скрипт или апплет могли отправлять данные по установленному жертвой соединению, необходимо обойти еще и ограничения SOP (same-origin policy, правило ограничения домена). Это важная концепция безопасности для некоторых языков программирования на стороне клиента, таких как JavaScript. Политика разрешает сценариям, находящимся на страницах одного сайта, доступ к методам и свойствам друг друга без ограничений, но предотвращает доступ к большинству методов и свойств для страниц на разных сайтах. Проще говоря, запущенный на одной странице клиент не сможет делать запросы к нужному сайту (скажем, Paypal.com). Чтобы обойти политику SOP, авторы нашли в виртуальной машине Java 0day-уязвимость и написали для нее работающий сплоит. Только не думай, что это позволяет читать существующие кукисы. Если бы это было так, тогда зачем нужен был весь этот сыр-бор с зашифрованным трафиком? Используя сплоит для обхода SOP, можно отправлять запросы и читать ответы сервера (в том числе ответы с новыми кукисами), но нельзя считывать существующие кукисы, которые сохранены в браузере. Разработчики делятся целой историей о создании агента в <a href="http://bit.ly/q6AebB">своем блоге</a>. <br>
+<br>
+<h3>Respect</h3><br>
+В заключение хочется отметить огромный труд исследователей, которые не только сумели использовать уязвимость, забытую всеми десять лет назад, но также приложили много труда для того, чтобы заставить свою утилиту работать. В рамках этого материала мы довольно сильно упростили описания используемых техник, пытаясь передать основную идею. Но мы получили истинное удовольствие от прочтения детального документа от исследователей, в которых они в деталях рассказывают о реализованной атаке. Good job!<br>
+<br>
+<hr><h4>Масштабы проблемы</h4><br>
+Итак, каковы же масштабы бедствия? Или иными словами — кто уязвим? Практически любой сайт, использующий TLS1.0, который является наиболее распространенным протоколом безопасности. Забавно, что после всей этой шумихи с BEAST, многие стали проявлять интерес к более новым версиям протокола — TLS 1.1 и выше. Но многие ли сайты уже сейчас поддерживают эти протоколы? Да практически никто! Посмотри на иллюстрацию. Даже несмотря на то, что TLS 1.1 уже пять лет, его используют единицы!<br>
+<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/9a311672.png"><br>
+Другой вопрос: как обезопасить себя? На самом деле, паниковать нет смысла — уязвимость уже исправлена в большинстве браузеров. Но если паранойя берет верх, можешь попробовать отключить небезопасные протоколы в браузере (TLS 1.0 и SSL 3.0), а заодно и Java. Правда, не стоит в этом случае сильно удивляться, что многие сайты перестанут работать.<hr><br>
+<br>
+<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/154.jpg" alt="image"><br>
+<i>Журнал Хакер, <a href="http://www.xakep.ru/articles/magazine/default.asp">Ноябрь (11) 154</a><br>
+Коллективный разум</i>.
+
+	
+
+	
+
+	
+</div>
+
+
+
+
+			
+<ul class="tags" title="Теги к записи">
+	<li><a href="http://habrahabr.ru/tag/beast/" rel="tag">beast</a></li><li>, <a href="http://habrahabr.ru/tag/ssl/" rel="tag">ssl</a></li><li>, <a href="http://habrahabr.ru/tag/tls/" rel="tag">tls</a></li><li>, <a href="http://habrahabr.ru/tag/%D0%B2%D0%B7%D0%BB%D0%BE%D0%BC/" rel="tag">взлом</a></li>
+</ul>
+
+			
+<div class="entry-info vote_holder" id="infopanel132344">
+
+		<!--  Закруглённые уголки -->
+
+		<div class="corner tl"></div><div class="corner tr"></div>
+
+		<div class="entry-info-wrap">
+			
+			
+				<div class="voting positive  no_auth expired">
+					<div class="can-vote"><a title="Нравится" href="http://habrahabr.ru/company/xakep/blog/132344/#" class="vote_plus" onclick="return Voter.vote(event, this, &#39;post&#39;, &#39;plus&#39;);"></a></div>
+					<div class="cannot-vote"><span title="Нравится" class="vote_plus"></span></div>
+					<div class="mark"><span title="Всего 84 голоса: &uarr;77 и &darr;7">+70</span></div>
+					<div class="can-vote"><a title="Не нравится" href="http://habrahabr.ru/company/xakep/blog/132344/#" class="vote_minus" onclick="return Voter.vote(event, this, &#39;post&#39;, &#39;minus&#39;);"></a></div>
+					<div class="cannot-vote"><span class="vote_minus"></span></div>
+				</div>
+			
+			<div class="published"><!-- Дата в формате ISO пихается в title -->
+				<span>10 ноября 2011, 14:55</span>
+			</div>
+
+			
+			<div class="fav_added js-to_favs_holder">
+				<a class="js-to_favs_remove" href="http://habrahabr.ru/company/xakep/blog/132344/#" style="cursor: default" onclick="return false;"></a>
+			</div>
+			
+			
+			<div class="favs_count" title="Количество пользователей, добавивших пост в избранное">83</div>
+			
+			<div class="twitter">
+				<a href="http://twitter.com/intent/tweet?text=http://habr.ru/p/132344/+%D0%9F%D0%B5%D1%80%D0%B2%D0%B0%D1%8F+%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D1%8E%D1%89%D0%B0%D1%8F+%D0%B0%D1%82%D0%B0%D0%BA%D0%B0+%D0%BD%D0%B0+SSL/TLS-%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB+%23habr" title="Опубликовать ссылку на пост в Twitter" target="_blank"></a>
+			</div>
+			<div class="vkontakte">
+				<a href="http://vkontakte.ru/share.php?url=http://habrahabr.ru/company/xakep/blog/132344/" title="Опубликовать ссылку на пост в ВКонтакте" onclick="window.open(this.href, &#39;Опубликовать ссылку на пост в Вконтакте&#39;, &#39;width=800,height=300&#39;); return false"></a>
+			</div>
+			<div class="facebook">
+				<a href="http://www.facebook.com/sharer.php?u=http://habrahabr.ru/company/xakep/blog/132344/" title="Опубликовать ссылку на пост в Facebook" onclick="window.open(this.href, &#39;Опубликовать ссылку на пост в Facebook&#39;, &#39;width=800,height=300&#39;); return false"></a>
+			</div>
+			
+			
+			
+
+			
+			
+
+			
+
+			
+			
+				<div class="vcard author full">
+					<a title="Автор текста" href="http://habrahabr.ru/users/gorl/" class="fn nickname url"><span>gorl</span></a>
+				</div>
+			
+			
+
+			
+
+			
+
+
+		</div>
+
+		<div class="corner bl"></div><div class="corner br"></div>
+</div>
+
+
+
+			<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/saved_resource"></script>
+		</div>
+	
+
+
+
+
+
+
+
+
+	
+		
+		<div id="comments">
+			<h2 class="comments-header">комментарии (<span class="js-comments-count">21</span>)
+			 
+			</h2>
+			
+				<ul class="hentry">
+	
+		<li id="comment_4393081" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/kekekeks/" title="kekekeks">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/52508_24x24.jpg" alt="kekekeks">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/kekekeks/" class="url">kekekeks</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T15:09:25+04:00">10 ноября 2011, 15:09</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393081" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393081">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+8</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393081" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393081" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    <blockquote>Даже несмотря на то, что TLS 1.1 уже пять лет, его используют единицы!</blockquote>Дык в OpenSSL поддержки нет, вот и не используют.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393081" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4393433" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/timukas/" title="timukas">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="timukas">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/timukas/" class="url">timukas</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T16:52:17+04:00">10 ноября 2011, 16:52</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393433" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393081">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4393081'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393433">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393433" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393433" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    В снапшотах версии openssl-1.0.1-stable поддержка TLS1.1 и 1.2 уже имеется.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393433" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4393479" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/kekekeks/" title="kekekeks">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/52508_24x24.jpg" alt="kekekeks">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/kekekeks/" class="url">kekekeks</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T17:09:42+04:00">10 ноября 2011, 17:09</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393479" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393433">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4393433'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393479">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+1</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393479" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393479" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    В репах повсеместно 1.0.0 пока что. Будет доступна 1.0.1, начнут и серваки держать.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393479" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4393102" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/2be/" title="2be">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/57975_24x24.png" alt="2be">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/2be/" class="url">2be</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T15:15:56+04:00">10 ноября 2011, 15:15</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393102" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393102">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393102" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393102" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Версии протоколов SSL и TLS перепутаны в некоторых местах, надеюсь это только здесь, на бумаге все норм.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393102" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4393256" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/eigrad/" title="eigrad">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/46305_24x24.jpg" alt="eigrad">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/eigrad/" class="url">eigrad</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T15:59:59+04:00">10 ноября 2011, 15:59</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393256" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393256">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+2</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393256" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393256" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    &gt; На практике, однако, обычно используется блочные шифры, и описываемая нами атака применима именно для них.<br>
+<br>
+На большинстве сайтов с https, которыми я регулярно пользуюсь:<br>
+<br>
+<blockquote>Для аутентификации сообщений используется AES_256_CBC c SHA1, для обмена ключами используется DHE_RSA.</blockquote>Который хоть и является блочным, не должен быть подвержен уязвимости если я правильно понимаю её характер.<br>
+<br>
+&gt; у атакующего должна быть возможность внедрить агент в браузер жертвы<br>
+<br>
+Почему бы ему тогда не стырить куку через этот агент?
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393256" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4393284" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/JustLuckyGuy/" title="JustLuckyGuy">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/55793_24x24.png" alt="JustLuckyGuy">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/JustLuckyGuy/" class="url">JustLuckyGuy</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T16:04:39+04:00">10 ноября 2011, 16:04</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393284" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393256">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4393256'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393284">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+2</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393284" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393284" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Я так понял, что агент может быть с другого сайта. А прочитать чужую куку нельзя.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393284" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4393321" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/eigrad/" title="eigrad">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/46305_24x24.jpg" alt="eigrad">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/eigrad/" class="url">eigrad</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T16:15:01+04:00">10 ноября 2011, 16:15</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393321" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393284">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4393284'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393321">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+3</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393321" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393321" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    <blockquote>Но остается небольшой нюанс — для того, чтобы скрипт или апплет могли отправлять данные по установленному жертвой соединению, необходимо обойти еще и ограничения SOP (same-origin policy, правило ограничения домена). Это важная концепция безопасности для некоторых языков программирования на стороне клиента, таких как JavaScript. Политика разрешает сценариям, находящимся на страницах одного сайта, доступ к методам и свойствам друг друга без ограничений, но предотвращает доступ к большинству методов и свойств для страниц на разных сайтах. Проще говоря, запущенный на одной странице клиент не сможет делать запросы к нужному сайту (скажем, Paypal.com). Чтобы обойти политику SOP, авторы нашли в виртуальной машине Java 0day-уязвимость и написали для нее работающий сплоит. Только не думай, что это позволяет читать существующие кукисы. Если бы это было так, тогда зачем нужен был весь этот сыр-бор с зашифрованным трафиком? Используя сплоит для обхода SOP, можно отправлять запросы и читать ответы сервера (в том числе ответы с новыми кукисами), но нельзя считывать существующие кукисы, которые сохранены в браузере.</blockquote><br>
+Вообще через Java-аплеты и без всяких уязвимостей много лишнего делать можно. Если нашли одну уязвимость на установку кук, могли бы найти и другую на чтение… :-)
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393321" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4393443" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/grokinn/" title="grokinn">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/23957_24x24.jpg" alt="grokinn">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/grokinn/" class="url">grokinn</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T16:56:38+04:00">10 ноября 2011, 16:56</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393443" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393443">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+5</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393443" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393443" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Скажите, если в браузере уже есть агент злоумышленника, что ему мешает просто скопировать куки?
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393443" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4393481" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/bondbig/" title="bondbig">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/37697_24x24.jpg" alt="bondbig">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/bondbig/" class="url">bondbig</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T17:10:12+04:00">10 ноября 2011, 17:10</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393481" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393443">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4393443'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393481">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+13</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393481" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393481" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    тссс… 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393481" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4393511" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/gorl/" title="gorl">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/39878_24x24.jpg" alt="gorl">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/gorl/" class="url">gorl</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T17:15:23+04:00">10 ноября 2011, 17:15</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393511" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393443">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4393443'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393511">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+8</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393511" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393511" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Подразумевается, что агент внедряется не с атакуемого сайта и что у него нет доступа к чужим кукисам.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393511" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4393697" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/headkrab/" title="headkrab">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/27845_24x24.jpg" alt="headkrab">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/headkrab/" class="url">headkrab</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T18:08:20+04:00">10 ноября 2011, 18:08</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393697" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393697">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393697" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393697" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Интересно что Paypal принимает регистрацию с мыльником на mailinator. Спасибо за статью, respect to Juliano and Thai. 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393697" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4393958" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Nikelandjelo/" title="Nikelandjelo">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/29379_24x24.gif" alt="Nikelandjelo">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Nikelandjelo/" class="url">Nikelandjelo</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T19:28:46+04:00">10 ноября 2011, 19:28</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4393958" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4393958">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+13</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4393958" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4393958" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Порадовало, что для того, чтобы обойти ограничения same-origin policy исследователи заодно нашли уязвимость в java машине и использовали её. Действительно, если уж находить уязвимости, то пачкой. Молодцы исследователи. 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4393958" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4394498" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/lashtal/" title="lashtal">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/21981_24x24.png" alt="lashtal">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/lashtal/" class="url">lashtal</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-10T23:40:21+04:00">10 ноября 2011, 23:40</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4394498" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4394498">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting negative no_auth expired">
+								<li class="mark"><span>–2</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4394498" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4394498" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only bad2">
+					    «— …и специального агента, написанного на JavaScript и Java, который должен быть подгружен в браузере жертвы…»<br>
+<br>
+Дальше не читал, сделайте это первой строкой текста, а то, дойдя до того места, я почти поверил.<br>
+(ладно, читал я дальше, читал)<br>
+С таким же успехом можно найти еще уязвимость в java или где-нибудь еще с запуском кода произвольного на жертве и скопировать что надо, так хоть с шифрованием возиться не надо.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4394498" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4394782" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/rPman/" title="rPman">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="rPman">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/rPman/" class="url">rPman</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-11T02:12:09+04:00">11 ноября 2011, 02:12</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4394782" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4394498">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4394498'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4394782">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+3</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4394782" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4394782" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    в одно вкладке у вас открыт вконтактик с iframe приложением, в другой вы открыли paypal чтобы купить подарок девушке, с которой общаетесь в первой вкладке… нэ?
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4394782" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4395525" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/J_o_k_e_R/" title="J_o_k_e_R">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="J_o_k_e_R">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/J_o_k_e_R/" class="url">J_o_k_e_R</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-11T13:33:04+04:00">11 ноября 2011, 13:33</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4395525" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4394782">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4394782'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4395525">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4395525" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4395525" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    lashtal все правильно сказал. Внедренный левый яваскрипт тем более с явой — уже пропущенная уязвимость. Открыв «вконтактик с iframe приложением» Вы фактически доверили все куки (читай акк) от вконтактика создателям iframe приложения. А данная уязвимость просто расширяет зону доверия.<br>
+<br>
+Чтоб защититься от данной уязвимости совсем не обязательно ждать openssl 1.0.1. Достаточно:<br>
+1) FF+noscript+request policy<br>
+2) Юзайте платежные сайты (я.деньги, вебмани, пейпал и т.п.) в отдельном профиле броузера\отдельном броузере.<br>
+3) <s>Не юзайте вконтактик</s>На левые сайты лазайте из-под другого отдельного профиля броузера. Т.е.: один профиль основной, один — «платежный», один — «левак».<br>
+<br>
+Да-да, это сложно для рядового пользователя. Что ж, каждый сам себе злобный буратино. Но не стоит преувеличивать масштабы уязвимости.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4395525" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4394850" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/egorinsk/" title="egorinsk">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="egorinsk">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/egorinsk/" class="url">egorinsk</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-11T03:41:02+04:00">11 ноября 2011, 03:41</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4394850" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4394850">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+4</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4394850" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4394850" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Не знаю как у вас, у меня давно во всех браузерах запрещена java. Я не знаю ни одного сайта, где она нужна, но зато знаю, что в ней куча дыр. К сожалению, аморальные маркетологи из сан/оракл впаривают свое решето всем пользователям без спроса при установке явы или явосодержащих программ. Вот кто они такие после этого?<br>
+<br>
+
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4394850" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4394924" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/TolTol/" title="TolTol">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="TolTol">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/TolTol/" class="url">TolTol</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-11T06:58:07+04:00">11 ноября 2011, 06:58</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4394924" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4394850">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4394850'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4394924">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+1</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4394924" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4394924" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    &gt; но зато знаю, что в ней куча дыр<br>
+<br>
+Думаю, дыр не больше, чем в каком-нибудь Firefox…
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4394924" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4395116" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/mark_ablov/" title="mark_ablov">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/43709_24x24.jpg" alt="mark_ablov">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/mark_ablov/" class="url">mark_ablov</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-11T10:20:13+04:00">11 ноября 2011, 10:20</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4395116" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4394850">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4394850'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4395116">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+1</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4395116" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4395116" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Например интернет-банки подписывают ЭЦП документы из браузера с помощью джавы.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4395116" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4395653" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/plr/" title="plr">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/41702_24x24.jpg" alt="plr">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/plr/" class="url">plr</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-11T14:18:13+04:00">11 ноября 2011, 14:18</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4395653" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4395116">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4395116'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4395653">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4395653" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4395653" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Не так. Клиент-банки многих банков реализованы как java-апплеты. Ключи хранятся на е-токенах. Но популярный метод взлома — это формирование поручений в рамках клиента как клиент, прятать их от клиента и давать возможным проводить банку. Вопрос в том, что встроиться в систему.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4395653" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4405361" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/philpirj/" title="philpirj">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/40620_24x24.jpg" alt="philpirj">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/philpirj/" class="url">philpirj</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-16T13:02:42+04:00">16 ноября 2011, 13:02</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4405361" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4395116">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4395116'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4405361">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4405361" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4405361" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    А иначе практически никак. Служба кртиптографии должна общаться с токеном и браузером. На стороне браузера это либо Java Applet, который вызывает методы этой службы и пользуется ЭЦП (который должен бы быть на usb-токене), либо как-то так же с ActiveX. Браузер передаёт документ на подпись, подписанный документ отправляется на сервер.<br>
+Можно было бы рассмотреть вариант с плагином для браузера, но там потенционально не меньше дыр.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4405361" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4395417" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/philpirj/" title="philpirj">
+								<img src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/40620_24x24.jpg" alt="philpirj">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/philpirj/" class="url">philpirj</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-11-11T12:48:26+04:00">11 ноября 2011, 12:48</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4395417" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#comment_4394850">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/132344/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4394850'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4395417">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting negative no_auth expired">
+								<li class="mark"><span>–1</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4395417" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4395417" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only bad1">
+					    А у меня мало того, что запрещена, так если даже разрешить — всё равно не работает ни на одном компе. IE8, Firefox 3.6, Firefox 5, Opera 11, Epiphany 3.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4395417" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+</ul>
+
+			
+			
+
+			
+
+			
+				<div class="info-text">Только зарегистрированные пользователи могут оставлять комментарии. <a href="http://habrahabr.ru/login/">Войдите</a>, пожалуйста.</div>
+			
+		</div>
+	
+	
+
+
+
+	
+
+	</div>
+
+	<div id="sidebar">
+	   
+
+	  
+	  
+		
+
+		
+  	
+	
+
+	
+
+	<!-- // Widgets -->
+	<div>
+	
+	</div>
+	<!-- // Widgets -->
+
+
+	
+	
+<div class="live help">
+	<div class="bg-bott-r"><div class="bg-bott-l">
+		<div class="side-side">
+			<h3>Блог ↓</h3>
+			<ul>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/139138/">Разработка своего PE-упаковщика</a> <small> 1 марта 2012, 09:43</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/136354/">Интервью с создателем NGINX Игорем Сысоевым</a> <small>18 января 2012, 12:48</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/134488/">3D-сканер за $30</a> <small>14 декабря 2011, 12:23</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/134473/">Конкурс по расследованию IT-инцидентов</a> <small>13 декабря 2011, 09:55</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/133249/">Вопросы Дмитрию Склярову</a> <small>23 ноября 2011, 15:44</small></li>
+				
+				<li><a href="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр.html">Первая работающая атака на SSL/TLS-протокол</a> <small>10 ноября 2011, 14:55</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/130792/">Как закрывают ботнеты</a> <small>20 октября 2011, 15:09</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/128741/">Прячем, обфусцируем и криптуем клиентскую часть веб-приложений</a> <small>20 сентября 2011, 14:40</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/127384/">Посторонним вход воспрещен</a> <small>30 августа 2011, 20:11</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/125768/">Вторая жизнь DNS Rebinding. Свежий подход к реализации атак Anti DNS pinning</a> <small> 8 августа 2011, 14:25</small></li>
+				
+			</ul>
+		</div>
+		<br>
+	</div></div><!-- // for bottom rounded corners -->
+
+</div>
+
+	
+	
+
+
+	</div>
+
+</div>
+</div>
+
+<div id="footer">
+	<div class="footer-conttent">
+		<div class="bottom_menu">
+			
+			
+			<dl>
+				<dd><a href="http://habrahabr.ru/login/">Войти</a></dd>
+				<dd><a href="http://habrahabr.ru/register/">Регистрация</a></dd>
+			</dl>
+			
+			<dl class="sections">
+				<dt>Разделы</dt>
+				
+				<dd><a href="http://habrahabr.ru/qa/">Q&amp;A</a></dd>
+				<dd><a href="http://habrahabr.ru/events/">События</a></dd>
+				<!--dd><a href="http://habrahabr.ru/links/">Ссылки</a></dd-->
+				<dd><a href="http://habrahabr.ru/job/">Работа</a></dd>
+				<dd><a href="http://habrahabr.ru/bloglist/">Блоги</a></dd>
+				<dd><a href="http://habrahabr.ru/companies/">Компании</a></dd>
+				<dd><a href="http://habrahabr.ru/people/">Люди</a></dd>
+				<dd><a href="http://habrahabr.ru/top/">Лучшие</a></dd>
+			</dl>
+			<dl>
+				<dt>Блоги</dt>
+				<dd><a href="http://habrahabr.ru/">Все</a></dd>
+				<dd><a href="http://habrahabr.ru/blogs/">Тематические</a></dd>
+				<dd><a href="http://habrahabr.ru/corporative/">Корпоративные</a></dd>
+				<!--dd><a href="http://habrahabr.ru/personal/">Личные</a></dd-->
+				<dd><a href="http://habrahabr.ru/sandbox/">Песочница</a></dd>
+			</dl>
+			<dl>
+				<dt>Инфо</dt>
+				<dd><a href="http://habrahabr.ru/info/about/">О сайте</a></dd>
+				<dd><a href="http://habrahabr.ru/info/help/rules/">Правила</a></dd>
+				<dd><a href="http://habrahabr.ru/info/help/">Помощь</a></dd>
+				<dd><a href="http://habrahabr.ru/info/agreement/">Соглашение</a></dd>
+				<dd><a href="http://habrahabr.ru/info/stats/">Статистика</a></dd>
+			</dl>
+			<dl>
+				<dt>Услуги</dt>
+				<dd><a href="http://habrahabr.ru/info/advertising/">Реклама</a></dd>
+				<dd><a href="http://habrahabr.ru/info/advertising/corporate/">Корпоративные пакеты</a></dd>
+				<dd><a href="http://habrahabr.ru/info/advertising/workshops/">Семинары</a></dd>
+			</dl>
+		</div>
+
+		<a class="footer_logo" href="http://thematicmedia.ru/">Тематические Медиа</a>
+		<div id="about">
+			<span style="margin-left:4px;">© 2006–2012</span> <br>«<a href="http://www.thematicmedia.ru/">Тематические Медиа</a>»<br>
+			<div style="margin-top: 10px; margin-left:6px;">
+				Служба поддержки:<br>
+				<a href="mailto:support@habrahabr.ru" title="адрес службы поддержки пользователей">support@habrahabr.ru</a><br><br><br>
+				<a href="http://m.habrahabr.ru/">Мобильная версия</a>
+			</div> 
+		</div>
+		
+	</div>
+	
+</div>
+
+
+
+	
+
+
+	
+
+<script type="text/javascript">
+/*<![CDATA[*/
+var _gaq = _gaq || [];
+_gaq.push(
+    ['_setAccount', 'UA-726094-1'],
+    ['_setDomainName', '.habrahabr.ru'],
+    ["_addOrganic", "mail.ru", "q"],
+    ["_addOrganic","rambler.ru", "words"],
+    ["_addOrganic","nigma.ru", "s"],
+    ["_addOrganic","blogs.yandex.ru", "text"],
+    ["_addOrganic","webalta.ru", "q"],
+    ["_addOrganic","aport.ru", "r"],
+    ["_addOrganic","akavita.by", "z"],
+    ["_addOrganic","meta.ua", "q"],
+    ["_addOrganic","bigmir.net", "q"],
+    ["_addOrganic","tut.by", "query"],
+    ["_addOrganic","all.by", "query"],
+    ["_addOrganic","i.ua", "q"],
+    ["_addOrganic","online.ua", "q"],
+    ["_addOrganic","a.ua", "s"],
+    ["_addOrganic","ukr.net", "search_query"],
+    ["_addOrganic","search.com.ua", "q"],
+    ["_addOrganic","search.ua", "query"],
+    ["_addOrganic","poisk.ru", "text"],
+    ["_addOrganic","km.ru", "sq"],
+    ["_addOrganic","liveinternet.ru", "ask"],
+    ["_addOrganic","gogo.ru", "q"],
+    ["_addOrganic","gde.ru", "keywords"],
+    ["_addOrganic","quintura.ru", "request"],
+    ['_trackPageview']
+);
+document.documentElement.firstChild.appendChild(ga);
+/* ]]>*/
+</script>
+
+
+<!-- YaMetrics -->
+<script type="text/javascript"><!--
+var ya_class = 1;
+var ya_cid = 14199;
+//--></script>
+<script type="text/javascript" src="./Первая работающая атака на SSL TLS-протокол   Блог компании Журнал Хакер   Хабрахабр_files/watch.js"></script>
+<noscript></noscript>
+
+
+
+
+
+
+  <div id="help-tip-text" class="">
+		<div id="help-tip-text-content"></div>
+		<div id="help-tip-text-arrow"></div>
+	</div>
+	
+
+
+</body></html>

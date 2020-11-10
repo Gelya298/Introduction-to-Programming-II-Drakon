@@ -1,0 +1,12 @@
+MODULE Hello;
+
+IMPORT
+  Commands;
+
+PROCEDURE World*(context: Commands.Context);
+BEGIN
+  context.out.String("Hello World");
+  context.out.Ln
+END World;
+
+END Hello.

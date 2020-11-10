@@ -1,0 +1,1 @@
+fb_sharepro_render([{"url":"http:\/\/www.computerra.ru\/readitorial\/418507\/","normalized_url":"http:\/\/www.computerra.ru\/readitorial\/418507\/","share_count":1,"like_count":1,"comment_count":0,"total_count":2,"click_count":0,"comments_fbid":null,"commentsbox_count":0}]);

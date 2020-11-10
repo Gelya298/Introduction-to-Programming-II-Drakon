@@ -1,0 +1,2566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://habrahabr.ru/company/xakep/blog/130792/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+	<title>Как закрывают ботнеты / Блог компании Журнал Хакер / Хабрахабр</title>
+	
+	
+		<link href="http://habrahabr.ru/css/1330680696/all.css" rel="stylesheet" media="all">
+	
+	
+
+<!-- ie9 -->
+    <meta name="application-name" content="Хабрахабр"> 
+    <meta name="msapplication-tooltip" content="Хабрахабр"> 
+    <meta name="msapplication-starturl" content="http://habrahabr.ru/"> 
+
+    <meta name="msapplication-task" content="name=посты;action-uri=http://habrahabr.ru/;icon-uri=http://habrahabr.ru/favicon.ico">
+    <meta name="msapplication-task" content="name=q&amp;a;action-uri=http://habrahabr.ru/qa/;icon-uri=http://habrahabr.ru/favicon.ico">
+    <meta name="msapplication-task" content="name=блоги;action-uri=http://habrahabr.ru/bloglist/;icon-uri=http://habrahabr.ru/favicon.ico">
+    <meta name="msapplication-task" content="name=люди;action-uri=http://habrahabr.ru/people/;icon-uri=http://habrahabr.ru/favicon.ico">
+    <meta name="msapplication-task" content="name=компании;action-uri=http://habrahabr.ru/companies/;icon-uri=http://habrahabr.ru/favicon.ico">
+<!-- /ie9 -->
+
+	
+	<link rel="shortcut icon" href="http://habrahabr.ru/i/favicon.ico">
+	<link rel="image_src" href="http://habrahabr.ru/i/logo.gif">
+	
+	
+	<link title="" type="application/rss+xml" rel="alternate" href="">
+
+	<!--[if IE 6]><link rel="stylesheet" href="http://habrahabr.ru/css/1330680696/ie6.css" media="all" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="http://habrahabr.ru/css/1330680696/ie7.css" media="all" /><![endif]-->
+	<!--[if IE ]><link rel="stylesheet" href="http://habrahabr.ru/css/1330680696/ie.css" media="all" /><![endif]-->
+	
+	
+	<link href="http://habrahabr.ru/css/1330680696/karma.css" rel="stylesheet" media="all">
+	<link href="http://habrahabr.ru/css/1330680696/profile.css" rel="stylesheet" media="all">
+	<link href="http://habrahabr.ru/css/1330680696/corpoadmin.css" rel="stylesheet" media="all">
+
+	<link rel="help" href="http://habrahabr.ru/info/help/">
+	<link rel="search" href="http://habrahabr.ru/search/">
+	<link rel="home" href="http://habrahabr.ru/">
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/mootools-1.2-core-yc.js"></script>
+  <!--<script type="text/javascript" src="http://habrahabr.ru/js/1330680696/mootools-core-1.3.2-full-compat-yc.js"></script>//-->
+  
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/system.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/init.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/common.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/global.js"></script>
+	
+	<!--script type="text/javascript" src="http://habrahabr.ru/js/1330680696/old-stuff-v-1.js"></script-->
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/all.js"></script>
+	
+		
+
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/validation.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/xmlhandler.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/control.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/favourites_add.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/button.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/form.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/autosuggest.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/highlight.js"></script>
+	
+
+	
+	
+	
+	
+	<script type="text/javascript">
+	/*<![CDATA[*/
+	var ya = document.createElement('script');
+		ya.src = 'http://an.yandex.ru/system/context.js';
+	/* ]]>*/
+	</script>
+	<script type="text/javascript">
+	/*<![CDATA[*/
+	var ga = document.createElement('script');
+		ga.setAttribute('async', 'true');
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	/* ]]>*/
+	</script>
+	
+	<script type="text/javascript">
+	/*<![CDATA[*/
+		var temp=temp||{};
+		window.temp=temp;
+		temp.base = (window.base_full_url = 'http://habrahabr.ru/');
+		temp.base_short = 'habrahabr.ru';
+		hljs.initHighlightingOnLoad();
+	/* ]]>*/
+	</script> 
+	
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/commentForm.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/voting.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/friending.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/swfobject.js"></script>
+	
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/habraWYG.js"></script>
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/profile-actions.js"></script>
+
+		
+	
+	<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/adriver.core.2.js"></script>
+<script async="true" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/ga.js"></script></head>
+
+<body id="main-page" class="company guest" lang="ru">
+		
+
+
+
+<div class="header">
+	
+		<dl class="panel-personal">
+	<dt><!-- Мы впишем сюда твой %username% --></dt>
+	<dd><a href="http://habrahabr.ru/login/">войти</a> <a href="http://habrahabr.ru/register/">зарегистрироваться</a></dd>
+</dl>
+	
+	 
+	<div class="panel-tools">
+		 
+		<form class="panel-search js-autosuggest-holder " action="http://habrahabr.ru/search/" method="get" accept-charset="utf-8">
+			<p>
+				<label class="panel-search-label input-placeholding" for="search">
+					<input id="search" class="in-text js-autosuggest-field " title="поиск по сайту" type="text" name="q" value="" autocomplete="off"> 
+					<span>поиск по сайту</span>
+				</label>
+				<input class="in-submit" type="submit" id="do" value="" title="Enter!">
+			</p>
+			<div class="js-autosuggest-output-container"><div class="js-autosuggest-output hidden"></div></div>
+		</form>
+	</div>
+	<a class="logo " href="http://habrahabr.ru/" title="На главную страницу"></a>
+	
+
+	<ul class="panel-nav-top">
+	
+		
+		
+		
+			<li><a href="http://habrahabr.ru/">Посты</a></li>
+		
+	
+		
+		
+		
+			<li><a href="http://habrahabr.ru/qa/">Q&amp;A</a></li>
+		
+	
+		
+		
+		
+			<li><a href="http://habrahabr.ru/bloglist/">Блоги</a></li>
+		
+	
+		
+		
+		
+			<li><a href="http://habrahabr.ru/events/">События</a></li>
+		
+	
+		
+			
+			
+				<li class="current"><a href="http://habrahabr.ru/companies/">Компании</a></li>
+			
+		
+		
+		
+	
+	
+	
+	
+	</ul>
+
+</div>
+
+
+<div id="wrapper">
+<div id="inner">
+
+
+	<div id="main-content">
+	  
+	  <script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/mootools.slide.js"></script>
+		
+	  
+		
+
+	
+<div class="profile-header company-header">
+	
+	<h1><img class="favicon" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/favicon_1210.ico" alt="Журнал Хакер" height="16" width="16"></h1>
+	
+	<dl class="profile-actions">
+		<dt>
+			
+			<a class="habrauser silentlink" href="http://habrahabr.ru/company/xakep/">Журнал Хакер</a>
+			
+		</dt>
+	</dl>
+	
+	<div id="company1210" class="profile-karma-holder">
+	 	<dl class="habraindex">
+			<dt>хабраиндекс</dt>
+			<dd id="js-companyRating" class="number">76,83</dd>
+		</dl>
+	</div>
+	
+	
+</div>
+<!-- Горизонтальное меню над постами -->
+
+<div class="page-navigation">
+	<table class="page-menu">
+		<tbody><tr>
+			
+				
+				
+					<td class="profile"><div><a href="http://habrahabr.ru/company/xakep/" title="">Профиль</a></div></td>
+				
+			
+				
+					<td class="blog current"><div><a href="http://habrahabr.ru/company/xakep/blog/" title="">Блог </a></div></td>
+				
+				
+			
+				
+				
+					<td class="questions"><div><a href="http://habrahabr.ru/company/xakep/questions/" title="">Вопросы</a></div></td>
+				
+			
+				
+				
+					<td class="vacancies"><div><a href="http://habrahabr.ru/company/xakep/vacancies/" title="">Вакансии</a></div></td>
+				
+			
+				
+				
+					<td class="fans"><div><a href="http://habrahabr.ru/company/xakep/fans/" title="">Поклонники</a></div></td>
+				
+			
+		</tr>
+	</tbody></table>
+	
+		<div class="page-submenu ">
+			<ul>
+				
+					
+					
+						<li><a href="http://habrahabr.ru/company/xakep/blog/" title="">Захабренные</a></li>
+					
+				
+					
+					
+						<li><a href="http://habrahabr.ru/company/xakep/blog/new/" title="">Новые</a></li>
+					
+				
+					
+					
+						<li><a href="http://habrahabr.ru/company/xakep/blog/unhabred/" title="">Отхабренные</a></li>
+					
+				
+			</ul>
+		</div>
+	
+</div>
+
+<!-- // Горизонтальное меню над постами -->
+	
+
+
+	
+	
+
+
+
+
+	
+
+	
+		<div class="hentry ">
+
+		  
+				
+			
+			
+			<h2 class="entry-title single-entry-title">
+				
+				
+				
+				
+
+				
+
+				
+					
+					
+						<span title="http://habrahabr.ru/company/xakep/blog/130792/" class="topic">Как закрывают ботнеты</span>
+					
+				
+
+				
+				
+				
+
+				
+				
+			</h2>
+
+			
+
+<div class="content">
+	В последнее время о ботнетах в рунете говорят очень много. В основном это связано с DDoS-атаками на известные и посещаемые ресурсы. Ниже мы обсудим опыт крупных компаний в области борьбы с этой напастью.<br>
+<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/17faf0bb.jpg"><br>
+<a name="habracut"></a><br>
+<br>
+<h3>Что такое ботнет?</h3><br>
+Ботнет представляет собой совокупность систем, зараженных вредоносным кодом и управляемых централизованно. Причем устроен он таким образом, что уничтожение или отключение достаточно большого количества узлов не должно влиять на его работоспособность в целом. Ботнеты могут использоваться для таких целей, как рассылка спама, фишинг, DDoS, атаки на другие системы, заражение новых ПК и превращение их в узлы ботнета. Стоит отметить, что в данный момент индустрия киберпреступности довольно сильно сегментирована по специализации и направленности преступлений. Это означает, что каждый занимается своим делом. В результате получается, что создатель ботнета продает ресурсы или услуги ботнета другим злоумышленникам, специализирующимся на тех или иных видах преступлений (типовую бизнес-структуру ты можешь посмотреть на иллюстрации). Стоит отметить, что интерфейс управления ботнетом довольно прост. С ним может справиться человек, обладающий даже очень низкой квалификацией. В соответствии с облачными веяниями, в последнее время появилась услуга Malware as a Service. Если кто-то не может создать и распространять свой зловредный код, всегда найдется провайдер, способный сделать это за определенные деньги. Впрочем, создать ботнет сегодня тоже не бог весть какая сложная задача. На рынке есть множество готовых наборов для изготовления ботнета, таких как Zbot (Zeus), Spyeye, Mariposa, Black Energy, ButterFly, Reptile. Это означает, что современные владельцы ботнетов могут даже не обладать какими-либо особыми технологическими навыками. Впрочем, если говорить о крупных ботнетах, то их создатели — это, безусловно, способные, талантливые люди, бороться с которыми довольно сложно. В рамках этого материала я хотел бы рассказать о практиках, которые используются большими компаниями для борьбы с киберпреступностью и, в частности, ботнетами. Речь, в частности, пойдет об активности компании Microsoft, в которой я и работаю.<br>
+<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/717d8d13.jpg"><br>
+<h4>Стандартный подход к управлению ботнетом</h4><br>
+<br>
+<h3>Microsoft vs. Ботнет</h3><br>
+Возможно, это и заставит кого-то улыбнуться, но в Microsoft в последние несколько лет наблюдается серьезная работа по повышению безопасности продуктов и сервисов. Появились и стали применяться методологии разработки безопасного кода SDL, что ключевым образом повлияло на количество найденных за последнее время уязвимостей (особенно тех, которые можно эксплуатировать). Но речь сегодня пойдет не о превентивных мерах, которые могут предотвратить будущие угрозы, а о борьбе с проблемами, которые актуальны сегодня. Большое количество зараженных машин, работающих под операционной системой Windows, — как раз такая проблема.<br>
+Внутри компании был создан целый ряд подразделений по борьбе с киберпреступлениями. Последние носят разные имена — Digital Crime Unit, Microsoft Security Response Center, Trust worth Computing, — но задачи каждого так или иначе пересекаются с проблемой киберпреступности. Вместе с правоохранительными органами и исследовательскими организациями Microsoft начал операции по уничтожению крупнейших ботнетов. Звучит громко? Возможно, но за год были уничтожены такие ботнеты, как:<br>
+<ul>
+<li>Rustock, рассылавший 80 % мирового спама.</li>
+<li>Coreflood, который служил инструментом для преступлений, принесших более $100 млн убытков.</li>
+<li>Waledac, боты которого отправляли 1,5 млрд спам-сообщений ежедневно.</li>
+</ul><br>
+<h3>Борьба с ботнетами: общие практики</h3><br>
+Для того чтобы понять типовые способы уничтожения ботнета, надо разобраться с его архитектурой и слабыми местами. Чаще всего для управления ботнетом используется один или несколько командных (часто центральных) серверов, называемых Command &amp; Control, или C&amp;C. Они взаимодействуют с конечными узлами ботнета по разным протоколам. Наиболее часто в качестве протокола управления используется IRC. Впрочем, в последнее время резко увеличилось применение P2P-протоколов как более устойчивой, хотя и технологически сложной альтернативы. Интересной экзотикой в последнее время стало использование для управления ботнета файлообменных сетей и передача управляющих команд в теле фотографий, публикуемых на Facebook. Так или иначе, для борьбы с ботнетом можно предпринять несколько конкретных действий:<br>
+<ul>
+<li>Захватить или вывести из строя С&amp;C-узлы.</li>
+<li>DDoS на С&amp;C-узлы.</li>
+<li>Жалобы провайдеру, где хостятся C&amp;C-узлы.</li>
+<li>Захват DNS-имен, используемых C&amp;C.</li>
+<li>Блокирование IP-адресов.</li>
+<li>Арест владельца ботнета.</li>
+<li>Судебный иск.</li>
+</ul>К сожалению, не все из этих способов эффективны, а некоторые и вовсе незаконны. Между тем некоторые из них нам успешно удалось применить. Так, ботнеты Rustock и Coreflood были уничтожены довольно тривиально. Это удалось сделать с помощью захвата С&amp;C-серверов правоохранительными органами (по предварительному решению суда), после которого на все зараженные машины, входящие в ботнет, была передана команда удаления малвари, которая была предусмотрена разработчиком ботнета. Работа по закрытию другого ботнета — Waledac — оказалась еще более интересной, и на этом моменте я хотел бы остановиться подробнее.<br>
+<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/2f885cb2.jpg"><br>
+<h4>Многослойная архитектура управления Waledac</h4><br>
+<br>
+<h3>Waledac: устройство</h3><br>
+Сложность борьбы с Waledac заключалась в децентрализованной схеме работы ботнета. Для его работы было зарезервировано ни много ни мало 277 доменных имен. Это значит, что захватывать сервера нужно было одновременно в нескольких ЦОД, у разных провайдеров хостинга. Кроме того, для управления ботнетом успешно использовался P2P-механизм. Если посмотреть на схему ботнета, то сразу бросается в глаза многослойность управляющих серверов. В процессе заражения системы с помощью Waledac зловредный код определяет, какую роль будет выполнять новый узел. Он становится либо простым узлом, рассылающим спам, если находится за NAT и не принимает входящие соединения на 80-й порт, либо узлом, который повторяет (ретранслирует) команды из центра, — то есть своего рода репитером. Репитеры используются для управления ботнетом. Каждый репитер кроме передачи управляющих команд узлам-спамерам поддерживает также список «соседей», состоящий из 100 узлов, также выполняющих роль ретранслятора, к которым он может подключиться по P2P-протоколу. Со временем любой узел-повторитель регистрирует свое доменное имя в fast flux DNS. Это делается для того, чтобы дать возможность обращаться к себе узлам-спамерам, если ближайший к ним репитер вдруг выйдет из строя и станет недоступен. Таким образом узлы ботнета всегда могут найти ближайший узел-ретранслятор и получать от него команды и обновления исполняемого кода. Ботнет устроен так, что со временем роли узлов могут меняться. Если система, используемая как ретранслятор, к примеру, попадает в корпоративную сеть и лишается возможности принимать подключения на 80 й порт, то она автоматически получает роль спамера. При этом проанализировать топологию ботнета не так просто, потому как еще одной задачей репитера является противодействие исследованию топологии ботнета. Он служит своеобразным прокси и не позволяет узлам-спамерам знать что-либо об управляющих узлах C&amp;C.<br>
+<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/f448743d.jpg"><br>
+<h4>Каждый репитер поддерживает список соседей</h4><br>
+<br>
+<h3>Waledac: уничтожение</h3><br>
+Проанализировав архитектуру ботнета, мы проработали план для атаки на ботнет со следующими конкретными шагами:<br>
+<ol>
+<li>Нарушение peer-to-peer механизмов обмена управляющими командами.</li>
+<li>Нарушение обмена DNS/HTTP-командами.</li>
+<li>Нарушение работы двух верхних слоев C&amp;C-серверов.</li>
+</ol>Первым делом нужно было прервать работу P2P-механизма. В связи с тем, что функция нахождения ближайшего ретранслятора внутри ботнета работала нестабильно, была возможна ситуация, что узлу приходилось перебрать до 20 адресов, находящихся в его списке «соседей», чтобы найти работающий соседний репитер. Благодаря этому нам удалось создать поддельные репитеры, включить их в состав ботнета и начать распространять фальшивые обновления списка репитеров, тем самым нарушив связность системы управления P2P. Это позволило передавать команды узлам-спамерам от специально созданных командных серверов Microsoft.<br>
+В случае неработоспособности P2P-механизма узлы ботнета начинают искать друг друга с помощью механизма fast flux DNS. Поэтому необходимо было разрушить и этот способ управления, чтобы злоумышленник не мог восстановить контроль над ботнетом. Это интересный момент, потому что здесь мы использовали юридический механизм. Типичная процедура отзыва DNS-имени через ICANN с помощью процедуры со страшным названием «Uniform Domain-Name Dispute-Resolution Policy» может занять довольно много времени. Это позволило бы злоумышленникам успеть осознать, что его атакуют, и предпринять меры по регистрации новых DNS-имен, на которые позже перевести управление ботнетом. Поэтому вместо стандартной процедуры ICANN мы воспользовались процедурой «TRO (temporary restraining order)» — возможностью временно приостанавливать действие доменов на 28 дней по решению федерального суда США. На этом этапе еще одной сложностью было то, что часть DNS-имен была зарегистрирована на территории Китая.<br>
+Для того чтобы злоумышленники могли побороться с Microsoft в суде, ежели у них появится желание заявить свои права на ботнет, на сайте было опубликовано исковое заявление. Также в национальных газетах на территории стран, откуда подозреваемые управляли ботнетом, были опубликованы уведомления о вызове в суд. Как и предполагалось, никто не посмел явиться в суд и заявить о своих правах на ботнет. Таким образом Microsoft выиграл суд на территории США и Китая. Подробнее о юридических тонкостях и перипетиях борьбы за ботнет можно почитать <a href="http://bit.ly/rlDUDA">в специальном разделе сайта Microsoft</a>.<br>
+В результате этих юридических действий права на DNS перешли к Microsoft. На данный момент DNS-имена подключены к серверам Microsoft. В случае, если к этим серверам подключается зараженный узел из ботнета, на него подается команда, приказывающая удалить зловредный код бота Waledac.<br>
+<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/b342e5fd.jpg"><br>
+<h4>Регистрация доменного имени</h4><br>
+<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/92c63333.jpg"><br>
+<h4>Подключение серверов Microsoft к Waledac</h4><br>
+<h3>Заключение</h3><br>
+Мы надеемся таким образом постепенно очистить интернет от последних остатков ботнета Waldac. Чтобы злоумышленникам было неповадно в дальнейшем создавать ботнеты, Microsoft продолжает расследование и сбор доказательств. С этой целью мы предложили награду в $250 000 тому, кто сообщит сведения, способствующие аресту преступной группы, стоявшей за <a href="http://bit.ly/oR7x88">Rustock</a>. По нашему опыту, такой подход может сработать. В завершение хочется сказать что Microsoft и в дальнейшем намерен активно бороться с киберпреступлениями, преследуя злоумышленников всеми доступными ему способами.<br>
+<br>
+<hr><h4>Не такие, как все</h4>Опрометчиво считать, что ботнеты состоят только из Windows-машин. Есть ботнеты и на Linux/Unix — Psyb0t, Chuck Norris, насчитывающие сотни тысяч устройств. В основном такие ботнеты создаются из домашних маршрутизаторов, коммутаторов и NAS нижнего ценового диапазона. Уничтожить такой ботнет крайне трудно, так как домашний пользователь в большинстве случаев не обладает знаниями в Linux и навыками обновления прошивки устройства. Производитель устройства заинтересован в быстром устаревании устройства и часто не только не намерен устранять недостатки, но и не имеет механизмов централизованного обновления своих продуктов. По данным исследования от 2009 года, в интернете в любой момент можно найти несколько миллионов домашних устройств с устаревшими прошивками и паролями по умолчанию.<hr><br>
+<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/153.jpg" alt="image"><br>
+<i>Журнал Хакер, <a href="http://www.xakep.ru/articles/magazine/default.asp">Октябрь (10) 153</a><br>
+Андрей Бешков (<a href="http://habrahabr.ru/users/abeshkov/" class="user_link">abeshkov</a>)</i>.
+
+	
+
+	
+
+	
+</div>
+
+
+
+
+			
+<ul class="tags" title="Теги к записи">
+	<li><a href="http://habrahabr.ru/tag/%D0%B1%D0%BE%D1%82%D0%BD%D0%B5%D1%82%D1%8B/" rel="tag">ботнеты</a></li><li>, <a href="http://habrahabr.ru/tag/microsoft/" rel="tag">microsoft</a></li><li>, <a href="http://habrahabr.ru/tag/waledac/" rel="tag">waledac</a></li>
+</ul>
+
+			
+<div class="entry-info vote_holder" id="infopanel130792">
+
+		<!--  Закруглённые уголки -->
+
+		<div class="corner tl"></div><div class="corner tr"></div>
+
+		<div class="entry-info-wrap">
+			
+			
+				<div class="voting positive  no_auth expired">
+					<div class="can-vote"><a title="Нравится" href="http://habrahabr.ru/company/xakep/blog/130792/#" class="vote_plus" onclick="return Voter.vote(event, this, &#39;post&#39;, &#39;plus&#39;);"></a></div>
+					<div class="cannot-vote"><span title="Нравится" class="vote_plus"></span></div>
+					<div class="mark"><span title="Всего 74 голоса: &uarr;65 и &darr;9">+56</span></div>
+					<div class="can-vote"><a title="Не нравится" href="http://habrahabr.ru/company/xakep/blog/130792/#" class="vote_minus" onclick="return Voter.vote(event, this, &#39;post&#39;, &#39;minus&#39;);"></a></div>
+					<div class="cannot-vote"><span class="vote_minus"></span></div>
+				</div>
+			
+			<div class="published"><!-- Дата в формате ISO пихается в title -->
+				<span>20 октября 2011, 15:09</span>
+			</div>
+
+			
+			<div class="fav_added js-to_favs_holder">
+				<a class="js-to_favs_remove" href="http://habrahabr.ru/company/xakep/blog/130792/#" style="cursor: default" onclick="return false;"></a>
+			</div>
+			
+			
+			<div class="favs_count" title="Количество пользователей, добавивших пост в избранное">75</div>
+			
+			<div class="twitter">
+				<a href="http://twitter.com/intent/tweet?text=http://habr.ru/p/130792/+%D0%9A%D0%B0%D0%BA+%D0%B7%D0%B0%D0%BA%D1%80%D1%8B%D0%B2%D0%B0%D1%8E%D1%82+%D0%B1%D0%BE%D1%82%D0%BD%D0%B5%D1%82%D1%8B+%23habr" title="Опубликовать ссылку на пост в Twitter" target="_blank"></a>
+			</div>
+			<div class="vkontakte">
+				<a href="http://vkontakte.ru/share.php?url=http://habrahabr.ru/company/xakep/blog/130792/" title="Опубликовать ссылку на пост в ВКонтакте" onclick="window.open(this.href, &#39;Опубликовать ссылку на пост в Вконтакте&#39;, &#39;width=800,height=300&#39;); return false"></a>
+			</div>
+			<div class="facebook">
+				<a href="http://www.facebook.com/sharer.php?u=http://habrahabr.ru/company/xakep/blog/130792/" title="Опубликовать ссылку на пост в Facebook" onclick="window.open(this.href, &#39;Опубликовать ссылку на пост в Facebook&#39;, &#39;width=800,height=300&#39;); return false"></a>
+			</div>
+			
+			
+			
+
+			
+			
+
+			
+
+			
+			
+				<div class="vcard author full">
+					<a title="Автор текста" href="http://habrahabr.ru/users/gorl/" class="fn nickname url"><span>gorl</span></a>
+				</div>
+			
+			
+
+			
+
+			
+
+
+		</div>
+
+		<div class="corner bl"></div><div class="corner br"></div>
+</div>
+
+
+
+			<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/saved_resource"></script>
+		</div>
+	
+
+
+
+
+
+
+
+
+	
+		
+		<div id="comments">
+			<h2 class="comments-header">комментарии (<span class="js-comments-count">28</span>)
+			 
+			</h2>
+			
+				<ul class="hentry">
+	
+		<li id="comment_4337971" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Sklif/" title="Sklif">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/28648_24x24.png" alt="Sklif">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Sklif/" class="url">Sklif</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T15:57:40+04:00">20 октября 2011, 15:57</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4337971" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4337971">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+7</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4337971" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4337971" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    У меня дежавю или вчера эта статья находилась по другому адресу?<br>
+
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4337971" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4360878" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/abeshkov/" title="abeshkov">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/41892_24x24.jpg" alt="abeshkov">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/abeshkov/" class="url">abeshkov</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-28T14:23:03+04:00">28 октября 2011, 14:23</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4360878" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4337971">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4337971'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4360878">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4360878" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4360878" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Как автор этой статьи могу сказать что она опубликована на Хабре коллегами из Хакера в очень сокращенном виде. В бумажной версии статьи данных в несколько раз больше.<br>
+<br>
+Хочу опубликовать полную версию, но не имею кармы. <br>
+<br>
+Буду рад ответить на ваши вопросы.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4360878" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4338002" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Elegar/" title="Elegar">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/32571_24x24.png" alt="Elegar">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Elegar/" class="url">Elegar</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T16:05:14+04:00">20 октября 2011, 16:05</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338002" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4338002">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+3</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4338002" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4338002" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    «за год были уничтожены такие ботнеты, как:<br>
+*Rustock, рассылавший 80 % мирового спама.»<br>
+<br>
+То есть за этот год спама стало на 80% меньше?<br>
+
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4338002" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4338070" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Lefty/" title="Lefty">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/46053_24x24.jpg" alt="Lefty">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Lefty/" class="url">Lefty</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T16:25:42+04:00">20 октября 2011, 16:25</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338070" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338002">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338002'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4338070">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+9</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4338070" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4338070" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Нет, просто за этот период часть темных сил сменила место своей дислокации и перекрасила знамена.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4338070" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4340482" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/psman/" title="psman">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/42432_24x24.png" alt="psman">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/psman/" class="url">psman</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-21T11:02:06+04:00">21 октября 2011, 11:02</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4340482" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338070">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338070'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4340482">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4340482" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4340482" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    причем стали прикрываться «официальными система рассылок»
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4340482" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4338081" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/k1k/" title="k1k">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/25470_24x24.jpg" alt="k1k">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/k1k/" class="url">k1k</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T16:29:31+04:00">20 октября 2011, 16:29</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338081" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4338081">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting negative no_auth expired">
+								<li class="mark"><span>–2</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4338081" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4338081" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only bad2">
+					    В статье об ЛК нет ни слова… Сколько Вам за это заплатил MS?
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4338081" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4338090" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/gorl/" title="gorl">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/39878_24x24.jpg" alt="gorl">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/gorl/" class="url">gorl</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T16:32:15+04:00">20 октября 2011, 16:32</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338090" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338081">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338081'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4338090">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+1</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4338090" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4338090" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    А причем тут ЛК вообще?
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4338090" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4338157" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/k1k/" title="k1k">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/25470_24x24.jpg" alt="k1k">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/k1k/" class="url">k1k</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T16:49:59+04:00">20 октября 2011, 16:49</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338157" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338090">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338090'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4338157">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+3</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4338157" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4338157" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    При том, что сбор сэмплов, реверс и хостинг при подобных атаках находится на ней. Пример тут <br>
+<a href="http://www.securelist.com/ru/blog/40767/Kak_Laboratoriya_Kasperskogo_otklyuchila_botnet_Hlux_Kelihos.">www.securelist.com/ru/blog/40767/Kak_Laboratoriya_Kasperskogo_otklyuchila_botnet_Hlux_Kelihos.</a> «Не читайте по утрам совецких газет». 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4338157" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4340007" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Masterkey/" title="Masterkey">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="Masterkey">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Masterkey/" class="url">Masterkey</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-21T03:02:51+04:00">21 октября 2011, 03:02</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4340007" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338157">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338157'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4340007">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+1</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4340007" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4340007" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Простите, но это LOL.<br>
+В конце статьи есть опросник, и на момент моего коммента результаты такие:<br>
+<br>
+Что следует «Лаборатории Касперского» делать дальше с ботнетом Hlux/Kelihos Botnet?<br>
+Оставить ботнет в покое<br>
+2911[85%]<br>
+ <br>
+Продолжать текущую практику sinkholing, вести дневник IP-адресов и сообщать о них по соответствующим адресам, чтобы были приняты меры по лечению<br>
+146[4%]<br>
+ <br>
+Продвигать утилиту для лечения от ботнета<br>
+351[10%]
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4340007" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4360962" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/abeshkov/" title="abeshkov">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/41892_24x24.jpg" alt="abeshkov">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/abeshkov/" class="url">abeshkov</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-28T14:37:05+04:00">28 октября 2011, 14:37</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4360962" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338157">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338157'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4360962">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4360962" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4360962" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Статья писалась очень давно и здесь опубликована в крайне урезанном виде. Тогда Kelihos не был захвачен. Со стороны MS мы всегда благодарим партнеров участвующих в благом деле прекращения работы ботнетов. Например пишем об этом в сети и на наших официальных сайтах. <br>
+<br>
+Если мне удастся когда либо опубликовать полную версию статьи то можете быть уверены что ЛК там обязательно будет. <br>
+ 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4360962" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4340339" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/OlegTar/" title="OlegTar">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="OlegTar">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/OlegTar/" class="url">OlegTar</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-21T10:06:41+04:00">21 октября 2011, 10:06</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4340339" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338081">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338081'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4340339">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+1</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4340339" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4340339" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    в статье написано<br>
+<blockquote>Речь, в частности, пойдет об активности компании Microsoft, в которой я и работаю.</blockquote>
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4340339" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4338236" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/ptizza/" title="ptizza">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/21640_24x24.jpg" alt="ptizza">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/ptizza/" class="url">ptizza</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T17:09:30+04:00">20 октября 2011, 17:09</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338236" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4338236">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+3</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4338236" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4338236" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Подскажите контакты того, кто рисовал верхнюю иллюстрацию?
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4338236" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4338310" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/coolmiha/" title="coolmiha">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/29795_24x24.jpg" alt="coolmiha">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/coolmiha/" class="url">coolmiha</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T17:34:17+04:00">20 октября 2011, 17:34</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338310" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338236">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338236'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4338310">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4338310" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4338310" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Я отписал уже автору статьи
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4338310" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4361146" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/abeshkov/" title="abeshkov">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/41892_24x24.jpg" alt="abeshkov">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/abeshkov/" class="url">abeshkov</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-28T15:14:09+04:00">28 октября 2011, 15:14</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4361146" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338236">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338236'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4361146">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4361146" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4361146" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Если у вас есть вопросы по иллюстрации то можете задавать их мне здесь или на abeshkov (at) microsoft (dot) com<br>
+
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4361146" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4338307" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/dmitrye1/" title="dmitrye1">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/5513_24x24.jpg" alt="dmitrye1">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/dmitrye1/" class="url">dmitrye1</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T17:33:23+04:00">20 октября 2011, 17:33</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338307" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4338307">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+6</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4338307" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4338307" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    А если бы в ботнете команды защитили с помощью криптографии от подделок?
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4338307" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4338351" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/k1k/" title="k1k">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/25470_24x24.jpg" alt="k1k">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/k1k/" class="url">k1k</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T17:42:35+04:00">20 октября 2011, 17:42</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338351" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338307">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338307'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4338351">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting negative no_auth expired">
+								<li class="mark"><span>–5</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4338351" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4338351" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only bad5">
+					    Тогда человек, нашедший багу в этой криптографии, получил бы премию. Примеров, где не было бы багов в реализации тех же RSA или AES, мы пока не видели. 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4338351" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4338493" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Lefty/" title="Lefty">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/46053_24x24.jpg" alt="Lefty">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Lefty/" class="url">Lefty</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T18:13:02+04:00">20 октября 2011, 18:13</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338493" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4338351">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4338351'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4338493">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+5</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4338493" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4338493" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Да это глупости какие-то, простите. Расскажите пожалуйсто, какие ошибки Вы находили в реализациях с использованием того или иного DSA (ну хотябы на уровне общей логики). Все управляющие команды банально подписываются и все. Нет закрытого ключа — нет контроля.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4338493" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4339077" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/k1k/" title="k1k">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/25470_24x24.jpg" alt="k1k">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/k1k/" class="url">k1k</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T20:26:54+04:00">20 октября 2011, 20:26</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339077" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4339077">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4339077" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4339077" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Глупости — это когда генерация ключей происходит, например, в зависимости от времени, любезно указанного в PE header'е. Если считаете, что крипта Вас спасёт, то флаг в руки. 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4339077" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4339277" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Lefty/" title="Lefty">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/46053_24x24.jpg" alt="Lefty">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Lefty/" class="url">Lefty</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T21:25:10+04:00">20 октября 2011, 21:25</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339277" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339077">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4339077'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4339277">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+3</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4339277" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4339277" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Вам про Фому, а Вы всё про Ерёму. Причем здесь бинарники то вообще? Я говорю про криптографические аспекты протокола взаимодействия между ботом и оператором и утверждаю, что в случае продуманного подхода со стороны плохих парней взять под контроль ботнет не выйдет, затушить, обрезав каналы связи — да, контролировать — нет. <br>
+<br>
+Кстати, в спасении не нуждаюсь, ибо к киберкриминальным кругам отношения никакого не имею, чту УК — это моя слабость. <br>
+<br>
+И что Вы злой такой в самом деле, резкий, совсем чтоль у Вас там в вирлабах условия плохие?
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4339277" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4339356" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Ajex/" title="Ajex">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="Ajex">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Ajex/" class="url">Ajex</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T21:50:29+04:00">20 октября 2011, 21:50</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339356" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4339356">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+2</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4339356" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4339356" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Думаю следующим шагом будет построение ботнет сети на основе алгоритмов биткоина. К слову, биткоин это не чисто платежная система. Механизм позволяет обмениваться любыми метаданными, которые требуют конфиденциальности (в случае с биткоином, это откуда|куда|сумма, в случае с ботом — комманда|параметры...). В т.ч. данными об управлении ботнетом. При чем система получается полностью децентрализованной. Будучи запущеной единожды, злоумышленникам останется только пополнять сеть новыми нодами. <br>
+Обновление и управляющие команды будут проходить проверку через сеть, так что для подделки парой десятков нод уже не отделаешься, если вообще это будет реально, по сути максимум что можно будет сделать, это приостановить на время обмен данными между нодами половиной мощности сети. <br>
+Более того, отравить сеть уже не получится, если она успеет набрать критическую массу мощности. <br>
+При этом анонимность повышается на порядок, теоретически управляющие команды можно будет отправлять с совершенно любой ноды, тут даже не нужен конкретный центр. <br>
+И вот когда это релизует кто-то, настанет настоящий пушной зверек. 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4339356" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4339406" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Ajex/" title="Ajex">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="Ajex">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Ajex/" class="url">Ajex</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-20T22:06:38+04:00">20 октября 2011, 22:06</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339406" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4339406">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+7</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4339406" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4339406" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    К слову, можно внести и свой маленький вклад в дело борьбы с ботоводством. <br>
+Вот я себе сделал bash скрипт, которому сгружаю raw логи ддос аттак. Он парсит, выявляет айпишники, которые проявляли паразитную активность (число запросов в сек превосходит какие-то нормальные пределы и в разы выше от среднего за аналогичный период), затем через whois выкусывает абузные мыльники, подготавливает материалы (греп из логов по данному ип) и шлет приветы по этим мыльникам (лог + текст шаблонный по типу тогда-то тогда-то наш сервер подвергся ддос аттаке от вашего клиента, вот лог, просим принять меры + пугаю анальными карами). <br>
+Многие даже отвечают. Не знаю сколько ботов я так убиваю (в основном ответы приходят, если ип принадлежит какому-то впс-у под руткитом), но чувствуется свой маленький вклад в хорошее дело. :) <br>
+<br>
+Если все будут поступать также, то думаю можно будет хоть немного напакостить ддосерам. Если наберусь духа переписать скрипты, которые писались в очень неспокойной обстановке, так чтобы их было не стыдно показывать, сделаю статью по этому поводу. 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4339406" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4339975" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Suncheez/" title="Suncheez">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/41769_24x24.jpg" alt="Suncheez">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Suncheez/" class="url">Suncheez</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-21T02:23:39+04:00">21 октября 2011, 02:23</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339975" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339406">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4339406'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4339975">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+3</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4339975" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4339975" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    А как расцветёт ваша карма, когда вы сделаете подробную статью с этим скриптом — вы даже не представляете!
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4339975" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+				<ul class="hentry">
+	
+		<li id="comment_4339990" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/printf/" title="printf">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/25960_24x24.png" alt="printf">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/printf/" class="url">printf</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-21T02:41:58+04:00">21 октября 2011, 02:41</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339990" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339975">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4339975'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4339990">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting positive no_auth expired">
+								<li class="mark"><span>+1</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4339990" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4339990" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Поддерживаю цветение кармы, тоже у себя повсюду развернул бы.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4339990" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4340023" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Ajex/" title="Ajex">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="Ajex">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Ajex/" class="url">Ajex</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-21T03:25:07+04:00">21 октября 2011, 03:25</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4340023" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339975">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4339975'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4340023">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4340023" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4340023" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    По сути у меня все рабочее, только нужно оформить нормально, сами представляете в каком состоянии оно все писалось. Не кармы ради, надеюсь кому-то это реально поможет, ибо знаю что такое сутками сидеть под ддосом. <br>
+К слову это может оказаться неплохим методом борьбы. Ддосеров надо бить по самому больному месту, по ботам. Если ботнет свой, то подыхание ботов тоже придется компенсировать, они не бесплатные, особенно если ру/укр загрузки.<br>
+ Если заказной, то в случае, если ддосер увидит что его боты начали массово вымирать (особенно жирные боты, на хороших каналах с хорошим онлайном, обычно трояненные дедики), то поднимет заказчику цену или вообще откажет. В нормальных ДЦ на абузы реагируют достаточно оперативно. Со знакомыми провайдерами общался, также уверяли меня что скорее всего на подобную жалобу, если она оформлена нормально (с логами, внятно написано), отреагируют (уведомят абонента и посоветуют почистить компьютер от вирусов). 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4340023" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4340013" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Masterkey/" title="Masterkey">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="Masterkey">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Masterkey/" class="url">Masterkey</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-21T03:07:06+04:00">21 октября 2011, 03:07</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4340013" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339406">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4339406'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4340013">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4340013" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4340013" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Если не будет к тому моменту кармы, то пишите статью и в QA с куском текста из статьи, там подкинут.<br>
+Авансом я уже добавил.
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4340013" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4464817" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Ajex/" title="Ajex">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="Ajex">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Ajex/" class="url">Ajex</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-12-12T16:02:32+04:00">12 декабря 2011, 16:02</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4464817" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						<li class="up-to-parent"><a title="Ответ на" onclick="return commentForm.goToParentComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4339406">↑</a></li>
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href='#comment_4339406'>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4464817">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4464817" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4464817" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Вот обещанная статья <a href="http://habrahabr.ru/blogs/infosecurity/134359/"> Наносим удар по ddos ботнету своими силами </a> 
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4464817" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+
+		</li>
+	
+		<li id="comment_4340014" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/Masterkey/" title="Masterkey">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/stub-user-small.gif" alt="Masterkey">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/Masterkey/" class="url">Masterkey</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2011-10-21T03:08:54+04:00">21 октября 2011, 03:08</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4340014" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4340014">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4340014" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4340014" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Очень интересно про ботнеты не из Вин машин, буквально все про них!<br>
+ — заражение<br>
+ — количество<br>
+ — контроль<br>
+…
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4340014" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+		<li id="comment_4542317" class="comment_holder vote_holder">
+			
+				<div class="msg-meta">
+					<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+					<ul class="menu info author hcard">
+						<li class="avatar">
+							<a href="http://habrahabr.ru/users/sandcat/" title="sandcat">
+								<img src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/57409_24x24.jpg" alt="sandcat">
+								<b></b>
+							</a>
+						</li>
+						<li class="fn nickname username">
+							<a href="http://habrahabr.ru/users/sandcat/" class="url">sandcat</a>,
+						</li>
+						<li class="date">
+							<abbr class="published" title="2012-01-18T23:17:04+04:00">18 января 2012, 23:17</abbr>
+						</li>
+						<li class="bookmark">
+							<a href="http://habrahabr.ru/company/xakep/blog/130792/#comment_4542317" title="Ссылка на комментарий" rel="bookmark">#</a>
+						</li>
+						
+						
+						<li class="down-to-child hidden"><a title="Обратно" onclick="return commentForm.goToChildComment(this);" href="http://habrahabr.ru/company/xakep/blog/130792/#">↓</a></li>
+						<!--<li class="single-tree">
+							<a class="js-serv js-single-tree" href=''>ветка</a>
+							<a class="js-serv js-multiplay-tree" href="#comment_4542317">восстановить</a>
+						</li>-->
+						
+						<li>
+							<ul class="vote voting  no_auth expired">
+								<li class="mark"><span>0</span></li>
+								<li class="buttons">
+									<a rev="voter-for-comment:4542317" class="vote_minus vote-for-comment" title="Плохой комментарий"></a>
+									<a rev="voter-for-comment:4542317" class="vote_plus vote-for-comment" title="Хороший комментарий"></a>
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</div>
+
+				<div class="entry-content">
+					<div class="entry-content-only">
+					    Касперский в своем ЖЖ предложил вариант «предварительного просмотра» запросов пользователей и дальнейшего «отведения удара» в «никуда» (на эмитирующий сервер), при этом централизованный сервер защиты «руководит» «руководит операцией по защите» :)<br>
+<br>
+Но это ЛК.<br>
+А как насчет Microsoft? <br>
+Как вариант: почему бы не сделать на атакуемом сервере хотя бы маячковый сервис: <br>
+ — сделать систему распознавания DDos-атак<br>
+ — и при поступлении и обнаружении такой атаки, по резервному калану «сообщить» спец.серверу защиты информацию о зараженном компьютере<br>
+ — спец.сервер «по-своему» связывается с зараженным компьютером и сообщает о заражении (основная проблема таких ПК, что люди не знают что происходит)<br>
+ — зараженный компьютер «отключает сетевые соединения» на определенное количество времени, сообщив при этом владельцу о проделанных операциях (сообщить обязательно!), а так же записи в логи.<br>
+<br>
+ — ни и появляется две возможности: чтобы «заплатку» скачал сам пользователь, или это сделал спец. сервер.<br>
+<br>
+По сути превентивная мера. <br>
+Как вариант.<br>
+
+					</div>
+					
+				</div>
+
+				<div id="reply_form_4542317" class="reply_form">
+
+					
+				</div>
+			
+
+			
+			
+			
+
+			
+
+		</li>
+	
+</ul>
+
+			
+			
+
+			
+
+			
+				<div class="info-text">Только зарегистрированные пользователи могут оставлять комментарии. <a href="http://habrahabr.ru/login/">Войдите</a>, пожалуйста.</div>
+			
+		</div>
+	
+	
+
+
+
+	
+
+	</div>
+
+	<div id="sidebar">
+	   
+
+	  
+	  
+		
+
+		
+  	
+	
+
+	
+
+	<!-- // Widgets -->
+	<div>
+	
+	</div>
+	<!-- // Widgets -->
+
+
+	
+	
+<div class="live help">
+	<div class="bg-bott-r"><div class="bg-bott-l">
+		<div class="side-side">
+			<h3>Блог ↓</h3>
+			<ul>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/139138/">Разработка своего PE-упаковщика</a> <small> 1 марта 2012, 09:43</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/136354/">Интервью с создателем NGINX Игорем Сысоевым</a> <small>18 января 2012, 12:48</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/134488/">3D-сканер за $30</a> <small>14 декабря 2011, 12:23</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/134473/">Конкурс по расследованию IT-инцидентов</a> <small>13 декабря 2011, 09:55</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/133249/">Вопросы Дмитрию Склярову</a> <small>23 ноября 2011, 15:44</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/132344/">Первая работающая атака на SSL/TLS-протокол</a> <small>10 ноября 2011, 14:55</small></li>
+				
+				<li><a href="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр.html">Как закрывают ботнеты</a> <small>20 октября 2011, 15:09</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/128741/">Прячем, обфусцируем и криптуем клиентскую часть веб-приложений</a> <small>20 сентября 2011, 14:40</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/127384/">Посторонним вход воспрещен</a> <small>30 августа 2011, 20:11</small></li>
+				
+				<li><a href="http://habrahabr.ru/company/xakep/blog/125768/">Вторая жизнь DNS Rebinding. Свежий подход к реализации атак Anti DNS pinning</a> <small> 8 августа 2011, 14:25</small></li>
+				
+			</ul>
+		</div>
+		<br>
+	</div></div><!-- // for bottom rounded corners -->
+
+</div>
+
+	
+	
+
+
+	</div>
+
+</div>
+</div>
+
+<div id="footer">
+	<div class="footer-conttent">
+		<div class="bottom_menu">
+			
+			
+			<dl>
+				<dd><a href="http://habrahabr.ru/login/">Войти</a></dd>
+				<dd><a href="http://habrahabr.ru/register/">Регистрация</a></dd>
+			</dl>
+			
+			<dl class="sections">
+				<dt>Разделы</dt>
+				
+				<dd><a href="http://habrahabr.ru/qa/">Q&amp;A</a></dd>
+				<dd><a href="http://habrahabr.ru/events/">События</a></dd>
+				<!--dd><a href="http://habrahabr.ru/links/">Ссылки</a></dd-->
+				<dd><a href="http://habrahabr.ru/job/">Работа</a></dd>
+				<dd><a href="http://habrahabr.ru/bloglist/">Блоги</a></dd>
+				<dd><a href="http://habrahabr.ru/companies/">Компании</a></dd>
+				<dd><a href="http://habrahabr.ru/people/">Люди</a></dd>
+				<dd><a href="http://habrahabr.ru/top/">Лучшие</a></dd>
+			</dl>
+			<dl>
+				<dt>Блоги</dt>
+				<dd><a href="http://habrahabr.ru/">Все</a></dd>
+				<dd><a href="http://habrahabr.ru/blogs/">Тематические</a></dd>
+				<dd><a href="http://habrahabr.ru/corporative/">Корпоративные</a></dd>
+				<!--dd><a href="http://habrahabr.ru/personal/">Личные</a></dd-->
+				<dd><a href="http://habrahabr.ru/sandbox/">Песочница</a></dd>
+			</dl>
+			<dl>
+				<dt>Инфо</dt>
+				<dd><a href="http://habrahabr.ru/info/about/">О сайте</a></dd>
+				<dd><a href="http://habrahabr.ru/info/help/rules/">Правила</a></dd>
+				<dd><a href="http://habrahabr.ru/info/help/">Помощь</a></dd>
+				<dd><a href="http://habrahabr.ru/info/agreement/">Соглашение</a></dd>
+				<dd><a href="http://habrahabr.ru/info/stats/">Статистика</a></dd>
+			</dl>
+			<dl>
+				<dt>Услуги</dt>
+				<dd><a href="http://habrahabr.ru/info/advertising/">Реклама</a></dd>
+				<dd><a href="http://habrahabr.ru/info/advertising/corporate/">Корпоративные пакеты</a></dd>
+				<dd><a href="http://habrahabr.ru/info/advertising/workshops/">Семинары</a></dd>
+			</dl>
+		</div>
+
+		<a class="footer_logo" href="http://thematicmedia.ru/">Тематические Медиа</a>
+		<div id="about">
+			<span style="margin-left:4px;">© 2006–2012</span> <br>«<a href="http://www.thematicmedia.ru/">Тематические Медиа</a>»<br>
+			<div style="margin-top: 10px; margin-left:6px;">
+				Служба поддержки:<br>
+				<a href="mailto:support@habrahabr.ru" title="адрес службы поддержки пользователей">support@habrahabr.ru</a><br><br><br>
+				<a href="http://m.habrahabr.ru/">Мобильная версия</a>
+			</div> 
+		</div>
+		
+	</div>
+	
+</div>
+
+
+
+	
+
+
+	
+
+<script type="text/javascript">
+/*<![CDATA[*/
+var _gaq = _gaq || [];
+_gaq.push(
+    ['_setAccount', 'UA-726094-1'],
+    ['_setDomainName', '.habrahabr.ru'],
+    ["_addOrganic", "mail.ru", "q"],
+    ["_addOrganic","rambler.ru", "words"],
+    ["_addOrganic","nigma.ru", "s"],
+    ["_addOrganic","blogs.yandex.ru", "text"],
+    ["_addOrganic","webalta.ru", "q"],
+    ["_addOrganic","aport.ru", "r"],
+    ["_addOrganic","akavita.by", "z"],
+    ["_addOrganic","meta.ua", "q"],
+    ["_addOrganic","bigmir.net", "q"],
+    ["_addOrganic","tut.by", "query"],
+    ["_addOrganic","all.by", "query"],
+    ["_addOrganic","i.ua", "q"],
+    ["_addOrganic","online.ua", "q"],
+    ["_addOrganic","a.ua", "s"],
+    ["_addOrganic","ukr.net", "search_query"],
+    ["_addOrganic","search.com.ua", "q"],
+    ["_addOrganic","search.ua", "query"],
+    ["_addOrganic","poisk.ru", "text"],
+    ["_addOrganic","km.ru", "sq"],
+    ["_addOrganic","liveinternet.ru", "ask"],
+    ["_addOrganic","gogo.ru", "q"],
+    ["_addOrganic","gde.ru", "keywords"],
+    ["_addOrganic","quintura.ru", "request"],
+    ['_trackPageview']
+);
+document.documentElement.firstChild.appendChild(ga);
+/* ]]>*/
+</script>
+
+
+<!-- YaMetrics -->
+<script type="text/javascript"><!--
+var ya_class = 1;
+var ya_cid = 14199;
+//--></script>
+<script type="text/javascript" src="./Как закрывают ботнеты   Блог компании Журнал Хакер   Хабрахабр_files/watch.js"></script>
+<noscript></noscript>
+
+
+
+
+
+
+  <div id="help-tip-text" class="">
+		<div id="help-tip-text-content"></div>
+		<div id="help-tip-text-arrow"></div>
+	</div>
+	
+
+
+</body></html>

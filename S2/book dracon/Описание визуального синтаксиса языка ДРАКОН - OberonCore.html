@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0106)http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/3846667"></script>
+  
+  <meta http-equiv="content-language" content="ru-ru">
+  <meta name="generator" content="DokuWiki">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-05-05T14:28:17+0400">
+<meta name="keywords" content="wiki,drakon,виз_синтаксис">
+<link rel="search" type="application/opensearchdescription+xml" href="http://oberoncore.ru/lib/exe/opensearch.php" title="OberonCore">
+<link rel="start" href="http://oberoncore.ru/">
+<link rel="contents" href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81?do=index" title="Все страницы">
+<link rel="canonical" href="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/Описание визуального синтаксиса языка ДРАКОН - OberonCore.html">
+<link rel="stylesheet" media="screen" type="text/css" href="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/css.php">
+<link rel="stylesheet" media="all" type="text/css" href="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/css(1).php">
+<link rel="stylesheet" media="print" type="text/css" href="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/css(2).php">
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+var NS='wiki:drakon';var JSINFO = {"id":"wiki:drakon:\u0432\u0438\u0437_\u0441\u0438\u043d\u0442\u0430\u043a\u0441\u0438\u0441","namespace":"wiki:drakon"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/js.php"></script>
+  <meta name="keywords" content="системное программирование, 
+		информатика, программирование, инструментарий, инструментальное ПО, Оберон, Oberon, BlackBox, 
+		Component Pascal, Компонентный Паскаль, среда разработки, система времени выполнения">
+  <title>Описание визуального синтаксиса языка ДРАКОН - OberonCore</title>
+  <link rel="shortcut icon" href="http://oberoncore.ru/lib/tpl/oberoncore/images/favicon.ico">
+</head>
+<body>
+<div id="page">
+		<div id="header">
+		<img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/core5.png" width="191" height="110" title="А орешки не простые, Все скорлупки золотые, Ядра - чистый 	изумруд!" alt=""><a href="http://oberoncore.ru/" class="head"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/core-title.png" alt="OberonCore"></a><br>
+		<div style="margin-left: 20px; border-top: 1px solid #000080; font-size: 9pt">
+			<a href="http://oberoncore.ru/library/">Библиотека</a>
+			&nbsp;&nbsp;<a href="http://oberoncore.ru/wiki/">Wiki</a>
+			&nbsp;&nbsp;<a href="http://forum.oberoncore.ru/">Форум</a>
+			&nbsp;&nbsp;<a href="http://oberoncore.ru/blackbox/environment">BlackBox</a>
+			&nbsp;&nbsp;<a href="http://oberoncore.ru/bbcc/">Компоненты</a>
+			&nbsp;&nbsp;<a href="http://oberoncore.ru/projects/">Проекты</a>
+			&nbsp;&nbsp;&nbsp;<a href="http://www.inr.ac.ru/~info21/">Информатика-21</a>
+		</div>
+	</div>
+	<div id="main">
+			<div class="contentpaneopen">
+						
+<h1 class="sectionedit1"><a name="описание_визуального_синтаксиса_языка_дракон" id="описание_визуального_синтаксиса_языка_дракон">Описание визуального синтаксиса языка ДРАКОН</a></h1>
+<div class="level1">
+
+<p>
+Взято из: Паронджанов В.Д. «Как улучшить работу ума», глава 15.
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="общие_понятия" id="общие_понятия">ОБЩИЕ ПОНЯТИЯ</a></h2>
+<div class="level2">
+
+<p>
+<em><strong>Тезис 1.</strong></em> Иконы — визуальные буквы, образующие визуальный алфавит языка ДРАКОН, представленные на <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_1" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 1</a></span>.
+</p>
+
+<p>
+<em><strong>Тезис 2.</strong></em> Заготовка-примитив и заготовка-силуэт — фигуры, показанные на <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_115" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 115</a></span>.
+</p>
+
+<p>
+<em><strong>Предварительный тезис 3.</strong></em> Примитив — фигура, полученная путем преобразования заготовки-примитив за конечное число шагов с помощью фиксированного набора операций (перечисленных ниже в тезисе 36).
+</p>
+
+<p>
+<em><strong>Предварительный тезис 4.</strong></em> Силуэт — фигура, полученная путем преобразования заготовки-силуэт за конечное число шагов с помощью фиксированного набора операций (перечисленных ниже в тезисе 37).
+</p>
+
+<p>
+<em><strong>Тезис 5.</strong></em> Дракон-схема — общее понятие для обозначения примитива и силуэта.
+</p>
+
+</div>
+
+<h2 class="sectionedit3"><a name="шампур-блок" id="шампур-блок">ШАМПУР-БЛОК</a></h2>
+<div class="level2">
+
+<p>
+<em><strong>Тезис 6.</strong></em>  Шампур-блок — часть дракон-схемы, имеющая один вход сверху и один выход снизу, содержащая одну или несколько икон, причем:
+</p>
+<ul>
+<li class="level1"><div class="li"> вход и выход лежат на одной вертикали, через которую проходит путь от входа к выходу;</div>
+</li>
+<li class="level1"><div class="li"> через каждую икону, входящую в состав шампур-блока, проходит хотя бы один путь от входа к выходу;</div>
+</li>
+<li class="level1"><div class="li"> в состав шампур-блока могут входить любые иконы за исключением следующих: заголовок, конец, формальные параметры, петля силуэта.</div>
+</li>
+</ul>
+
+<p>
+
+<em><strong>Тезис 7.</strong></em>  Главная вертикаль шампур-блока — вертикаль, соединяющая его вход и выход. Остальные вертикали, если они есть, находятся правее главной. Все вертикали шампур-блока ориентированы сверху вниз, кроме цепей, используемых для организации петли цикла.
+</p>
+
+</div>
+
+<h2 class="sectionedit4"><a name="операция_ввод_атома" id="операция_ввод_атома">ОПЕРАЦИЯ “ВВОД АТОМА”</a></h2>
+<div class="level2">
+
+<p>
+<em><strong>Тезис 8.</strong></em> Атомы — фигуры, изображенные на <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_122" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 122</a></span>. Эти фигуры используются в операции “ввод атома”. Любой атом является шампур-блоком.
+</p>
+
+<p>
+<em><strong>Тезис 9.</strong></em>  Валентная точка — точка, принадлежащая заготовке или дракон-схеме, в которой разрешается произвести разрыв соединительной линии, чтобы в место разрыв вставить атом с помощью операции “ввод атома”.
+</p>
+
+<p>
+<em><strong>Тезис 10.</strong></em>  Ввод атома — преобразование заготовки или дракон-схемы, выполняемое следующим образом: производится разрыв соединительной линии в валентной точке и в это место вставляется атом, как показано на <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_116" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 116</a></span>.
+</p>
+
+</div>
+
+<h3 class="sectionedit5"><a name="дополнительные_сведения_об_атомах" id="дополнительные_сведения_об_атомах">Дополнительные сведения об атомах</a></h3>
+<div class="level3">
+
+<p>
+<em><strong>Тезис 11.</strong></em> Атомы делятся на простые и составные. Простой атом состоит из одной иконы, составной содержит не менее двух (<span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_122" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 122</a></span>).
+</p>
+
+<p>
+<em><strong>Тезис 12.</strong></em> Функциональный атом — простой атом, не являющийся пустым оператором. Таковы все простые атомы, кроме комментария.
+</p>
+
+<p>
+<em><strong>Тезис 13.</strong></em>  Составные атомы бывают пустые и непустые. В непустом есть хотя бы один функциональный атом. В пустом нет ни одного.
+</p>
+
+<p>
+<em><strong>Тезис 14.</strong></em>  В полностью законченной дракон-схеме не должно быть ни одного пустого атома (так как последний эквивалентен пустому оператору). Пустые атомы разрешается использовать на всех этапах построения дракон-схемы, кроме заключительного.
+</p>
+
+</div>
+
+<h3 class="sectionedit6"><a name="критические_и_нейтральные_точки" id="критические_и_нейтральные_точки">Критические и нейтральные точки</a></h3>
+<div class="level3">
+
+<p>
+<em><strong>Тезис 15.</strong></em>  Валентные точки делятся на нейтральные и критические.
+</p>
+
+<p>
+<em><strong>Тезис 16.</strong></em>  Точка называется нейтральной, если применение операции “ввод атома” к данной точке является возможным, но не обязательным. В отличие от нее критическая точка требует обязательного ввода атома.
+</p>
+
+<p>
+<em><strong>Тезис 17.</strong></em>  Валентные точки находятся в заготовках и атомах. Они показаны на <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_115" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 115</a></span> и <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_122" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 122</a></span>, где нейтральные точки обозначены светлыми кружками, критические — жирными точками.
+</p>
+
+<p>
+<em><strong>Тезис 18.</strong></em>  Если в фигуре (заготовке или атоме) одна критическая точка, ввод атома обязательно производится именно в нее; при этом крити-ческая точка уничтожается. Если фигура имеет две критические точки, обязательный ввод атома делается только в одну из них; при этом критическая точка, в которую произведен ввод, уничтожается, а другая критическая точка нейтрализуется, т. е. становится нейтральной.
+</p>
+
+<p>
+<em><strong>Тезис 19.</strong></em>  Полная совокупность критических точек охватывает:
+</p>
+<ul>
+<li class="level1"><div class="li"> критические точки в пустых атомах;</div>
+</li>
+<li class="level1"><div class="li"> одну критическую точку в заготовке-примитив;</div>
+</li>
+<li class="level1"><div class="li"> одну критическую точку в заготовке-силуэт.</div>
+</li>
+</ul>
+
+<p>
+
+<em><strong>Тезис 20.</strong></em> Полная совокупность нейтральных точек охватывает:
+</p>
+<ul>
+<li class="level1"><div class="li"> входные и выходные точки атомов;</div>
+</li>
+<li class="level1"><div class="li"> две внутренние точки в атоме “цикл ЖДАТЬ”;</div>
+</li>
+<li class="level1"><div class="li"> одну точку в заготовке-силуэт;</div>
+</li>
+<li class="level1"><div class="li"> точки, полученные в результате нейтрализации критических точек.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit7"><a name="правила_использования_операции_ввод_атома_при_построении_дракон-схемы" id="правила_использования_операции_ввод_атома_при_построении_дракон-схемы">Правила использования операции “ввод атома” при построении дракон-схемы</a></h3>
+<div class="level3">
+
+<p>
+<em><strong>Тезис 21.</strong></em>  Операция “ввод атома” применяется для ввода только про-стых и пустых атомов, а также цикла ЖДАТЬ. Ввод непустого атома осуществляется в два этапа; сначала вводится пустой атом, затем в его критическую точку вводится функциональный атом.
+</p>
+
+<p>
+П о я с н е н и е.  Ввод пустого атома — очень удобный строительный прием. Он позволяет обеспечить богатство и разнообразие создаваемых дракон-схем и используемых в них конфигураций. Среди последних особую роль играет так называемая “матрешка”.
+</p>
+
+<p>
+<em><strong>Тезис 22.</strong></em>  <em>Матрешка</em> — фигура, полученная путем ввода пустого атома в критическую точку пустого атома, а также путем многократного вложения пустых и непустых атомов друг в друга (<span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_123-127" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 123</a></span>).
+</p>
+
+<p>
+<em><strong>Тезис 23.</strong></em>  Матрешка бывает пустой (если все содержащиеся в ней атомы пустые), частично пустой (если в ней есть как пустые, так и непустые атомы) и непустой (если все ее атомы непустые). См. <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_123-127" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 124-126</a></span>.
+</p>
+
+<p>
+П о я с н е н и е.  После того как пользователь эффективно использо-вал пустые атомы для придания дракон-схеме желаемой конфигурации, он должен убрать их из схемы.
+</p>
+
+<p>
+<em><strong>Тезис 24.</strong></em>  Чтобы устранить пустые атомы из дракон-схемы, есть два способа:
+</p>
+<ul>
+<li class="level1"><div class="li"> превратить пустой атом в непустой;</div>
+</li>
+<li class="level1"><div class="li"> преобразовать пустой атом в пустую матрешку, затем превратить ее в непустую.</div>
+</li>
+</ul>
+
+<p>
+
+<em><strong>Тезис 25.</strong></em>  Устранение из дракон-схемы пустых атомов автоматически приводит к уничтожению всех критических точек.
+</p>
+
+</div>
+
+<h2 class="sectionedit8"><a name="операции_с_лианой" id="операции_с_лианой">ОПЕРАЦИИ С ЛИАНОЙ</a></h2>
+<div class="level2">
+
+<p>
+<em><strong>Тезис 26.</strong></em>  Лиана — часть дракон-схемы, имеющая один вход и один выход, именуемые “началом лианы” и “концом лианы” соответственно. Началом лианы может быть любой выход икон “вопрос” и “вариант”, если он (выход) не является петлей цикла. Концом лианы считается точка слияния, в которой нижняя часть лианы соединяется с другой линией (концом лианы не может быть неразветвлённый вход иконы).
+</p>
+
+<p>
+<em><strong>Тезис 27.</strong></em>  Лиана может быть нагруженной (если она содержит иконы) и ненагруженной (если это просто линия).
+</p>
+
+</div>
+
+<h3 class="sectionedit9"><a name="пересадка_лианы" id="пересадка_лианы">Пересадка лианы</a></h3>
+<div class="level3">
+
+<p>
+<em><strong>Тезис 28.</strong></em>  Пересадка лианы — преобразование дракон-схемы, выполняемое за четыре шага.
+</p>
+
+<p>
+<em>Шаг 1.</em>	Производится отрыв конца лианы от точки присоединения (<span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_119" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 119</a></span>).
+</p>
+
+<p>
+<em>Шаг 2.</em>	Конец лианы с помощью вертикальных и горизонтальных линий присоединяется к любой валентной точке, куда лиана может дотянуться без пересечения с другими линиями (<span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_119" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 119</a></span>). При этом запрещается:
+</p>
+<ul>
+<li class="level1"><div class="li"> формировать второй вход в ветку (ошибка “сиамские близнецы” — см. <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_123-127" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 127</a></span>);</div>
+</li>
+<li class="level1"><div class="li"> образовывать новый цикл;</div>
+</li>
+<li class="level1"><div class="li"> создавать второй вход в цикл.</div>
+</li>
+</ul>
+
+<p>
+
+Однако разрешается строить новый путь из середины обычного цикла к единственному входу в этот цикл, создавая визуальный эквивалент оператора continue языка СИ (см. <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_90_7" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 90, пример 7</a></span>, а также <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_40-41" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 41</a></span>).
+</p>
+
+<p>
+<em>Шаг 3.</em>	Производится эквивалентное преобразование топологии дракон-схемы, чтобы лиане не пришлось загибаться наверх (<span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_128-130" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 128</a></span>) и соблюдались правила построения шампур-блока (<span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_128-130" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 129</a></span>).
+</p>
+
+<p>
+<em>Шаг 4.</em>	Устраняются неоправданные изломы линий (<span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_128-130" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 130</a></span>).
+</p>
+
+</div>
+
+<h3 class="sectionedit10"><a name="заземление_лианы" id="заземление_лианы">Заземление лианы</a></h3>
+<div class="level3">
+
+<p>
+<em><strong>Тезис 29.</strong></em>  Заземление лианы — преобразование дракон-схемы, выполняемое за четыре шага.
+</p>
+
+<p>
+<em>Шаг 1.</em>	Производится отрыв конца лианы от точки присоединения (<span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_120" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 120</a></span>).
+</p>
+
+<p>
+<em>Шаг 2.</em>	Конец лианы с помощью вертикальной линии присоединяется к любой точке нижней горизонтальной линии силуэта, куда он может дотянуться, не пересекая другие линии.
+</p>
+
+<p>
+<em>Шаг 3.</em>	Производится разрыв линии в нижней части лианы и в место разрыва вставляется икона “адрес” (<span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_120" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 120</a></span>).
+</p>
+
+<p>
+<em>Шаг 4.</em>	Устраняются неоправданные изломы линий.
+</p>
+
+</div>
+
+<h2 class="sectionedit11"><a name="прочие_операции" id="прочие_операции">ПРОЧИЕ ОПЕРАЦИИ</a></h2>
+<div class="level2">
+
+<p>
+<em><strong>Тезис 30.</strong></em>  Боковое присоединение — преобразование дракон-схемы, с помощью которого в схему добавляются иконы “синхронизатор” или “формальные параметры”.
+</p>
+
+<p>
+Икона “синхронизатор” размещается слева от другой иконы и соединяется с ней горизонтальным отростком. Перечень икон, к которым осуществляется боковое присоединение синхронизатора, показан на <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_2" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 2</a></span> (п. 8-20).
+</p>
+
+<p>
+Икона “формальные параметры” размещается справа от иконы “заголовок” и соединяется с ней горизонтальным отростком, как показано на <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_2" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 2</a></span> (п. 1).
+</p>
+
+<p>
+<em><strong>Тезис 31.</strong></em>  Добавление варианта — преобразование дракон-схемы, с помощью которого в атом “переключатель” добавляется еще одна икона “вариант”. Число добавлений не более 14, так что максимальное число вариантов в переключателе равно 16.
+</p>
+
+<p>
+<em><strong>Тезис 32.</strong></em>  Добавление ветки — преобразование силуэта, в который добавляется еще одна ветка. Число добавлений не более 14, так что максимальное число веток в силуэте равно 16.
+</p>
+
+<p>
+<em><strong>Тезис 33.</strong></em>  Удаление последней ветки — преобразование силуэта, при котором удаляется крайняя правая ветка. Этот прием используется при описании бесконечного параллельного процесса, как показано в примерах на <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_88" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 88</a></span> и <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_89" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 89</a></span>.
+</p>
+
+<p>
+<em><strong>Тезис 34.</strong></em>  Удаление конца примитива — преобразование примитива, при котором удаляется икона “конец”. Это необходимо для описания бесконечного параллельного процесса.
+</p>
+
+<p>
+<em><strong>Тезис 35.</strong></em>  Дополнительный вход — преобразование силуэта, с помощью которого добавляется еще одна икона “заголовок”, которая размещается над любой иконой “имя ветки” (кроме левой) и соединяется с ней вертикальным отростком. При этом на верхней горизонтальной линии силуэта рисуют направленную вправо стрелку, как показано в примере на <span class="curid"><a href="http://oberoncore.ru/wiki/drakon/%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81#рис_84" class="wikilink1" title="wiki:drakon:виз_синтаксис">рис. 84</a></span> справа.
+</p>
+
+<p>
+О г р а н и ч е н и е.  При наличии веточного цикла запрещается присоединять дополнительный заголовок к середине веточного цикла.
+</p>
+
+</div>
+
+<h2 class="sectionedit12"><a name="основные_результаты" id="основные_результаты">ОСНОВНЫЕ РЕЗУЛЬТАТЫ</a></h2>
+<div class="level2">
+
+<p>
+<em><strong>Тезис 36.</strong></em>  Любая правильно построенная дракон-схема “примитив” является результатом преобразования заготовки-примитив с помощью конечного числа операций: ввод атома, пересадка лианы, добавление варианта, боковое присоединение, удаление конца примитива.
+</p>
+
+<p>
+<em><strong>Тезис 37.</strong></em>  Любая правильно построенная дракон-схема “силуэт” является результатом преобразования заготовки-силуэт с помощью конечного числа операций: ввод атома, добавление ветки, пересадка лианы, заземление лианы, добавление варианта, боковое присоединение, удаление последней ветки, дополнительный вход.
+</p>
+
+<p>
+П о я с н е н и е.  Тезисы 36 и 37 могут рассматриваться как окончательные определения понятий “примитив” и “силуэт”.
+</p>
+
+</div>
+
+<h2 class="sectionedit13"><a name="выводы" id="выводы">ВЫВОДЫ</a></h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Изложенные выше 37 тезисов (вместе с рисунками, на которые они ссылаются) дают однозначное описание визуального синтаксиса, которое при желании можно изложить строгим математическим языком.</div>
+</li>
+<li class="level1"><div class="li"> Это описание является достаточным для построения ДРАКОН-редактора, способного решить две задачи. Во-первых, нарисовать (в соответствии с указаниями пользователя) любую абстрактную дракон-схему, принадлежащую множеству правильно построенных (удовлетворяющих требованиям визуального синтаксиса) дракон-схем. Во-вторых, создать в памяти компьютера формальное описание построенной схемы, пригодное (после заполнения икон надлежащими текстовыми операторами) для трансляции в объектные коды или для выполнения программы в режиме интерпретации.</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit14"><a name="рисунки" id="рисунки">Рисунки</a></h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit15"><a name="рис_1" id="рис_1">Рис. 1</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris1.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris1.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris1.png" class="media" alt="" width="536"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit16"><a name="рис_2" id="рис_2">Рис. 2</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris2.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris2.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris2.png" class="media" alt="" width="536"></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit17"><a name="рис_40-41" id="рис_40-41">Рис. 40-41</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris40-41.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris40-41.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris40-41.png" class="media" alt="" width="536"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit18"><a name="рис_84" id="рис_84">Рис. 84</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris84.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris84.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris84.png" class="media" alt="" width="900"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit19"><a name="рис_88" id="рис_88">Рис. 88</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris88.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris88.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris88.png" class="media" alt="" width="900"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit20"><a name="рис_89" id="рис_89">Рис. 89</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris89.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris89.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris89.png" class="media" alt="" width="900"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit21"><a name="рис_90_7" id="рис_90_7">Рис. 90(7)</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris90-7.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris90-7.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris90-7.png" class="media" alt="" width="536"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit22"><a name="рис_115" id="рис_115">Рис. 115</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris115.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris115.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris115.png" class="media" alt="" width="280"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit23"><a name="рис_116" id="рис_116">Рис. 116</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris116.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris116.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris116.png" class="media" alt="" width="536"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit24"><a name="рис_119" id="рис_119">Рис. 119</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris119.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris119.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris119.png" class="media" alt="" width="536"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit25"><a name="рис_122" id="рис_122">Рис. 122</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris122.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris122.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris122.png" class="media" alt="" width="536"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit26"><a name="рис_123-127" id="рис_123-127">Рис. 123-127</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris123-127.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris123-127.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris123-127.png" class="media" alt="" width="536"></a>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit27"><a name="рис_128-130" id="рис_128-130">Рис. 128-130</a></h3>
+<div class="level3">
+
+<p>
+<a href="http://oberoncore.ru/_detail/wiki/drakon/kniga/ris128-130.png?id=wiki%3Adrakon%3A%D0%B2%D0%B8%D0%B7_%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81" class="media" title="wiki:drakon:kniga:ris128-130.png"><img src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/ris128-130.png" class="media" alt="" width="536"></a>
+
+</p>
+
+</div>
+
+					</div>
+		<div style="background-color: #BECDD8; text-align: center; font-size: 8pt">
+			© 2005-2012 <a href="http://oberoncore.ru/contacts">Проект "OberonCore"</a> и коллектив авторов.
+		</div>
+	</div>
+</div>
+<!-- Yandex.Metrika counter -->
+<div style="display:none;"><script type="text/javascript">
+(function(w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter3846667 = new Ya.Metrika(3846667);
+             yaCounter3846667.clickmap(true);
+             yaCounter3846667.trackLinks(true);
+        
+        } catch(e) { }
+    });
+})(window, 'yandex_metrika_callbacks');
+</script></div>
+<script src="./Описание визуального синтаксиса языка ДРАКОН - OberonCore_files/watch.js" type="text/javascript" defer="defer"></script>
+<noscript></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+</body></html>

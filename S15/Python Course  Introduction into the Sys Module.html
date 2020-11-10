@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0042)http://www.python-course.eu/sys_module.php -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+
+<!-- Dieses Tag in den Head-Bereich oder direkt vor dem schlieÃenden Body-Tag einfÃŒgen -->
+<script id="facebook-jssdk" src="./Python Course  Introduction into the Sys Module_files/all.js"></script><script src="./Python Course  Introduction into the Sys Module_files/cb=gapi.loaded0" async=""></script><script type="text/javascript" src="./Python Course  Introduction into the Sys Module_files/plusone.js" gapi_processed="true"></script>
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script><title>Python Course: Introduction into the Sys Module</title>
+<meta http-equiv="content-type" content="Type" con;="" charset="ISO-8859-15&quot;" e="">
+<meta name="Description" content="Introduction into the operating system interfaces of Python: sys module">
+<meta name="Keywords" content="Python, course, system interface, interfaces,sys module, sys">
+
+<link href="http://www.python-course.eu/favicon.ico" rel="shortcut icon">
+
+<link href="./Python Course  Introduction into the Sys Module_files/moderna.css" rel="stylesheet" type="text/css">
+<link href="./Python Course  Introduction into the Sys Module_files/moderna_print.css" media="print" rel="stylesheet" type="text/css">
+
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border-spacing:0;border:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size: 11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size: 24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size: 14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;left:-10000px;overflow:visible;position:absolute;top:-10000px;width:100%
+}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yO/r/_j03izEX40U.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0 0, 0 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size: 12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size: 12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0 0, 0 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size: 16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{position:relative;display:-moz-inline-block;display:inline-block}
+.fb_iframe_widget iframe{position:relative;vertical-align:text-bottom}
+.fb_iframe_widget span{position:relative}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_button_simple,
+.fb_button_simple_rtl{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yH/r/eIpbnVKI9lR.png);background-repeat:no-repeat;cursor:pointer;outline:none;text-decoration:none}
+.fb_button_simple_rtl{background-position:right 0}
+.fb_button_simple .fb_button_text{margin:0 0 0 20px;padding-bottom:1px}
+.fb_button_simple_rtl .fb_button_text{margin:0 10px 0 0}
+a.fb_button_simple:hover .fb_button_text,
+a.fb_button_simple_rtl:hover .fb_button_text,
+.fb_button_simple:hover .fb_button_text,
+.fb_button_simple_rtl:hover .fb_button_text{text-decoration:underline}
+.fb_button,
+.fb_button_rtl{background:#29447e url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);background-repeat:no-repeat;cursor:pointer;display:inline-block;padding:0 0 0 1px;text-decoration:none;outline:none}
+.fb_button .fb_button_text,
+.fb_button_rtl .fb_button_text{background:#5f78ab url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);border-top:solid 1px #879ac0;border-bottom:solid 1px #1a356e;color:#fff;display:block;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-weight:bold;padding:2px 6px 3px 6px;margin:1px 1px 0 21px;text-shadow:none}
+a.fb_button,
+a.fb_button_rtl,
+.fb_button,
+.fb_button_rtl{text-decoration:none}
+a.fb_button:active .fb_button_text,
+a.fb_button_rtl:active .fb_button_text,
+.fb_button:active .fb_button_text,
+.fb_button_rtl:active .fb_button_text{border-bottom:solid 1px #29447e;border-top:solid 1px #45619d;background:#4f6aa3;text-shadow:none}
+.fb_button_xlarge,
+.fb_button_xlarge_rtl{background-position:left -60px;font-size: 24px;line-height:30px}
+.fb_button_xlarge .fb_button_text{padding:3px 8px 3px 12px;margin-left:38px}
+a.fb_button_xlarge:active{background-position:left -99px}
+.fb_button_xlarge_rtl{background-position:right -268px}
+.fb_button_xlarge_rtl .fb_button_text{padding:3px 8px 3px 12px;margin-right:39px}
+a.fb_button_xlarge_rtl:active{background-position:right -307px}
+.fb_button_large,
+.fb_button_large_rtl{background-position:left -138px;font-size: 13px;line-height:16px}
+.fb_button_large .fb_button_text{margin-left:24px;padding:2px 6px 4px 6px}
+a.fb_button_large:active{background-position:left -163px}
+.fb_button_large_rtl{background-position:right -346px}
+.fb_button_large_rtl .fb_button_text{margin-right:25px}
+a.fb_button_large_rtl:active{background-position:right -371px}
+.fb_button_medium,
+.fb_button_medium_rtl{background-position:left -188px;font-size: 11px;line-height:14px}
+a.fb_button_medium:active{background-position:left -210px}
+.fb_button_medium_rtl{background-position:right -396px}
+.fb_button_text_rtl,
+.fb_button_medium_rtl .fb_button_text{padding:2px 6px 3px 6px;margin-right:22px}
+a.fb_button_medium_rtl:active{background-position:right -418px}
+.fb_button_small,
+.fb_button_small_rtl{background-position:left -232px;font-size: 10px;line-height:10px}
+.fb_button_small .fb_button_text{padding:2px 6px 3px;margin-left:17px}
+a.fb_button_small:active,
+.fb_button_small:active{background-position:left -250px}
+.fb_button_small_rtl{background-position:right -440px}
+.fb_button_small_rtl .fb_button_text{padding:2px 6px;margin-right:18px}
+a.fb_button_small_rtl:active{background-position:right -458px}
+.fb_share_count_wrapper{position:relative;float:left}
+.fb_share_count{background:#b0b9ec none repeat scroll 0 0;color:#333;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;text-align:center}
+.fb_share_count_inner{background:#e8ebf2;display:block}
+.fb_share_count_right{margin-left:-1px;display:inline-block}
+.fb_share_count_right .fb_share_count_inner{border-top:solid 1px #e8ebf2;border-bottom:solid 1px #b0b9ec;margin:1px 1px 0 1px;font-size: 10px;line-height:10px;padding:2px 6px 3px;font-weight:bold}
+.fb_share_count_top{display:block;letter-spacing:-1px;line-height:34px;margin-bottom:7px;font-size: 22px;border:solid 1px #b0b9ec}
+.fb_share_count_nub_top{border:none;display:block;position:absolute;left:7px;top:35px;margin:0;padding:0;width:6px;height:7px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yU/r/bSOHtKbCGYI.png)}
+.fb_share_count_nub_right{border:none;display:inline-block;padding:0;width:5px;height:10px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yX/r/i_oIVTKMYsL.png);vertical-align:top;background-position:right 5px;z-index:10;left:2px;margin:0 2px 0 0;position:relative}
+.fb_share_no_count{display:none}
+.fb_share_size_Small .fb_share_count_right .fb_share_count_inner{font-size: 10px}
+.fb_share_size_Medium .fb_share_count_right .fb_share_count_inner{font-size: 11px;padding:2px 6px 3px;letter-spacing:-1px;line-height:14px}
+.fb_share_size_Large .fb_share_count_right .fb_share_count_inner{font-size: 13px;line-height:16px;padding:2px 6px 4px;font-weight:normal;letter-spacing:-1px}
+.fb_share_count_hidden .fb_share_count_nub_top,
+.fb_share_count_hidden .fb_share_count_top,
+.fb_share_count_hidden .fb_share_count_nub_right,
+.fb_share_count_hidden .fb_share_count_right{visibility:hidden}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size: 13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size: 11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+/* @noflip */
+.fbpluginrecommendationsbarleft{left:10px}
+/* @noflip */
+.fbpluginrecommendationsbarright{right:10px}
+</style></head>
+
+<body>
+
+<div id="container">
+
+<div id="banner">
+<!-- <a href="impressum.php">Impressum</a> | <a href="mailto:">contact</a> | --><h1>Python Course</h1>
+
+</div>
+
+	<!-- Begin Top Menu -->
+<ul id="navlist">
+<li><a href="http://www.python-course.eu/index.php">Home</a></li><li><a href="http://www.python-course.eu/course.php">Tutorial</a></li><li class="active"><a id="current" href="http://www.python-course.eu/advanced_topics.php">Advanced Topics</a></li><li><a href="http://www.python-course.eu/python_books.php">Python Books</a></li><li><a href="http://www.python-course.eu/python_tkinter.php">Tkinter Tutorial</a></li><li><a href="http://www.python-course.eu/python3_course.php">Python3 Course</a></li><li><a href="http://www.python-course.eu/contact.php" rel="nofollow">Contact</a></li>                          
+</ul>
+	<!-- End Top Menu -->
+<div id="sidebar-a">
+<img class="border" src="./Python Course  Introduction into the Sys Module_files/system_programming_100.png" alt="box">    <h2>Advanced Topics</h2>
+
+<div class="menu">
+
+<ul>
+<li><a href="./Python Course  Introduction into the Sys Module_files/Python Course  Introduction into the Sys Module.html">Introduction into the sys module</a></li><li><a href="http://www.python-course.eu/os_module_shell.php">Python and the Shell</a></li><li><a href="http://www.python-course.eu/forking.php">Forks and Forking in Python</a></li><li><a href="http://www.python-course.eu/threads.php">Introduction into Threads</a></li><li><a href="http://www.python-course.eu/pipes.php">Pipe, Pipes and "99 Bottles of Beer"</a></li><li><a href="http://www.python-course.eu/finite_state_machine.php">Finite State Machine in Python</a></li><li><a href="http://www.python-course.eu/turing_machine.php">Turing Machine in Python</a></li><li><a href="http://www.python-course.eu/numpy.php">NumPy Module</a></li><li><a href="http://www.python-course.eu/matrix_arithmetic.php">Matrix Arithmetic</a></li><li><a href="http://www.python-course.eu/linear_combinations.php">Linear Combinations</a></li><li><a href="http://www.python-course.eu/text_classification_introduction.php">Introduction into Text Classification using Naive Bayes</a></li><li><a href="http://www.python-course.eu/text_classification_python.php">Python Implementation of Text Classification</a></li><li><a href="http://www.python-course.eu/towers_of_hanoi.php">Towers of Hanoi</a></li><li><a href="http://www.python-course.eu/mastermind.php">Mastermind / Bulls and Cows</a></li></ul>
+
+</div>
+
+<p>
+</p><h3>System Origin</h3>
+System is derived from the Latin word systema, which in turn stems from the Greek.
+System means a "whole compounded of several parts or members"
+A system is a set of interacting or interdependent system components which form
+ an integrated whole.
+
+<h3>CLI</h3>
+A command-line interface (CLI) is a shell or a mechanism for interacting with a 
+computer operating system or softwares. This interface is text-only and commands
+are typed in, in contrast with graphical user interfaces (GUI), where commands are 
+chosen by mouse click. 
+
+<br>
+<hr>
+<br>
+This website is supported by:<br>
+<a href="http://www.bodenseo.com/courses.php"><img style="width: 150px;" alt="Bodenseo,
+Linux, courses and seminars" src="./Python Course  Introduction into the Sys Module_files/linux-kurse-bodenseo.gif"><br>Linux Courses and Seminars</a>
+<hr>
+</div><div id="sidebar-b"><img style="width: 150px;" alt="Python-Logo" src="./Python Course  Introduction into the Sys Module_files/python-logo.png"><!-- Dieses Tag dort einfügen, wo die +1-Schaltfläche dargestellt werden soll -->
+<div id="___plusone_0" style="height: 24px; width: 106px; display: inline-block; text-indent: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial; "><iframe allowtransparency="true" frameborder="0" hspace="0" id="I1_1332852893312" marginheight="0" marginwidth="0" name="I1_1332852893312" scrolling="no" src="./Python Course  Introduction into the Sys Module_files/fastbutton.html" style="width: 106px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; height: 24px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="0" vspace="0" width="100%" title="+1"></iframe></div>
+<br><br>
+
+<div class="fb-like fb_edge_widget_with_comment fb_iframe_widget" data-href="www.python-course.eu" data-send="false" data-layout="button_count" data-width="130" data-show-faces="true" data-action="recommend"><span><iframe id="f12b7a00b8" name="f342cc69a4" scrolling="no" style="border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; height: 21px; width: 130px; " title="Like this content on Facebook." class="fb_ltr" src="http://www.facebook.com/plugins/like.php?action=recommend&channel_url=https%3A%2F%2Fs-static.ak.fbcdn.net%2Fconnect%2Fxd_proxy.php%23cb%3Df21e115dc4%26origin%3Dhttp%253A%252F%252Fwww.python-course.eu%252Ff3e8dec7d8%26relation%3Dparent.parent%26transport%3Dpostmessage&extended_social_context=false&href=www.python-course.eu&layout=button_count&locale=en_GB&node_type=link&sdk=joey&send=false&show_faces=false&width=130"></iframe></span></div>
+
+<br><br>
+This topic in German / Deutsche Version:
+    <a href="http://www.python-kurs.eu/sys_modul.php">Sys-Modul</a> mit Informationen über den Python-Interpreter, die Benutzung von 
+	 Kommandozeilenargumente und Standard-Datenströmen.<h3>Classroom Training Courses</h3>
+<p>
+This website contains a free and extensive online tutorial by Bernd Klein with 
+material from his live <a href="http://www.python-course.eu/python_classes.php">Python courses</a>.
+<br><br>
+If you are interested in an instructor-led classroom training course, you may have a look at the 
+<a href="http://ca.bodenseo.com/courses.php?topic=Python">Python courses
+<br><img style="width: 150px;" alt="Bodenseo, Python courses and seminars" src="./Python Course  Introduction into the Sys Module_files/classroom_training_courses.jpg">
+</a>
+by Bernd Klein at Bodenseo.
+<br>
+<font size="1">© kabliczech - Fotolia.com</font>
+
+
+<br><br>
+</p><h3>Python Tricks</h3>
+<i>
+"Python tricks" is a tough one, cuz the language is so clean. E.g., C makes an art of confusing 
+pointers with arrays and strings, which leads to lotsa neat pointer tricks; APL mistakes 
+everything for an array, leading to neat one-liners; and Perl confuses everything period, 
+making each line a joyous adventure <wink>.
+</wink></i>
+(Tim Peters, Pythoneer who formulated the "Zen of Python")
+<h3>Python compared to Lisp</h3>
+Greenspun's "Tenth Rule of Programming" states:
+<br>
+<i>
+Any sufficiently complicated C or Fortran program contains an ad hoc, informally-specified, 
+bug-ridden, slow implementation of half of Common Lisp.
+</i>
+Sounds complicated? Lisp is complicated. Guido van Rossum compared it - or to be precise 
+Common Lisp and Scheme - to Python with the following words:
+<i>
+"These languages are close to Python in their dynamic semantics, but so different in their approach 
+to syntax that a comparison becomes almost a religious argument: is Lisp's lack of syntax an 
+advantage or a disadvantage? It should be noted that Python has introspective capabilities 
+similar to those of Lisp, and Python programs can construct and execute program fragments on 
+the fly. Usually, real-world properties are decisive: Common Lisp is big (in every sense), 
+and the Scheme world is fragmented between many incompatible versions, where Python has a 
+single, free, compact implementation."
+</i>
+<br>(excerpt from "Comparing Python to Other Languages" by Guido van Rossum)
+
+<h3>Wizards and Magic</h3>
+<i>
+"Things in Python are very clear, but are harder to find than the secrets of wizards. 
+Things in Perl are easy to find, but look like arcane spells to invoke magic."
+</i>
+
+ <p></p>
+
+<p></p></div>
+<div id="content">
+
+<h2>sys-Modul</h2>
+<h3>Information on the Python Interpreter</h3>
+<p>
+<img class="imgright" src="./Python Course  Introduction into the Sys Module_files/system_programming_300.png" alt="sys module and system programming">
+Like all the other modules, the sys module has to be imported with the import statement, i.e.
+<br><br>
+<code>
+import sys
+</code>
+<br><br>
+If there are questions about the import statement, we recommend the introductory chapter of
+our basic course concerning this topic   
+<a href="http://www.python-course.eu/modules_and_modular_programming.php">Modular Programming and Modules</a>
+<br><br>
+The sys module provides information about constants, functions and methods of the Python
+interpreter. dir(system) gives a summary of the available constants, functions and methods.
+Another possibility is the help() function. Using help(sys) provides valuable datail information. 
+<br><br>
+The module sys informs e.g. about the maximal recursion depth 
+(<code>sys.getrecursionlimit() </code>) and provides the possibility to change ist
+(sys.setrecursionlimit())
+<br>The current version number of Python can be accessed as well:
+<br>
+<br>
+</p><pre>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.version
+'2.6.5 (r265:79063, Apr 16 2010, 13:57:41) \n[GCC 4.4.3]'
+&gt;&gt;&gt; sys.version_info
+(2, 6, 5, 'final', 0)
+&gt;&gt;&gt; 
+</pre>
+<br>
+<h3>Command-line arguments</h3>
+Lots of scripts need access to the arguments passed to the script, 
+when the script was started.  <code>argv</code>argv (or to be precise 
+<code>sys.argv</code>) is a list, which 
+contains the command-line arguments passed to the script. 
+The first item of this list contains the name of the script itself. The arguments 
+follow the script name.
+<br>The following script iterates over the <code>sys.argv</code> list :
+<pre>#!/usr/bin/python
+
+import sys
+
+# it's easy to print this list of course:
+print sys.argv
+
+# or it can be iterated via a for loop:
+
+for i in range(len(sys.argv)):
+    if i == 0:
+        print "Function name: %s" % sys.argv[0]
+    else:
+        print "%d. argument: %s" % (i,sys.argv[i])
+</pre>
+We save this script as <code>arguments.py</code>. If we call it, we get the following 
+output::
+<pre>$ python arguments.py arg1 arg2
+['arguments.py', 'arg1', 'arg2']
+Function name: arguments.py
+1. argument: arg1
+2. argument: arg2
+$
+</pre> 
+<br>
+<h3>Changing the output behaviour of the interactive Python shell</h3>
+Python's interactive mode is one of the things which make Python special among other 
+programming languages like Perl or Java. As we have seen in the chapter  
+<a href="http://www.python-course.eu/interactive.php">Interactive mode</a> of our introductory tutorial, it's enough 
+to write aan expression on the command line and get back a meaningful output.  
+However some users might prefer a different output behaviour. To change the way the
+ interpreter prints interactively entered expressions, you will have to rebind 
+ <code>sys.displayhook</code> to a callable object. 
+<br><br>We will demonstrate this in the following interactive example session:
+<br>
+<pre>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; x = 42
+&gt;&gt;&gt; x
+42
+&gt;&gt;&gt; import sys
+&gt;&gt;&gt; def my_display(x):
+...     print "out: ",
+...     print x
+... 
+&gt;&gt;&gt; sys.displayhook = my_display
+&gt;&gt;&gt; x
+out:  42
+&gt;&gt;&gt; 
+&gt;&gt;&gt; print x
+42
+</pre>
+<br>
+We can see from this example, that the standard behaviour of the print() function 
+will not be changed.
+
+<h3>Standard data streams</h3>
+<img class="imgright" src="./Python Course  Introduction into the Sys Module_files/standard_data_streams.png" alt="standard data streams">
+Every serious user of a UNIX or Linux operating system knows standard streams, i.e.
+ input, standard output and standard error. They are known as pipes. They are commonly 
+abbreviated as stdin, stdout, stderr.
+<br>The standard input (stdin) is normally connected to the keyboard, while the standard 
+error and standard output go to the terminal (or window) in which you are working. 
+<br><br>
+These data streams can be accessed from Python via the objects of the sys module with the 
+same names, i.e. sys.stdin, sys.stdout and sys.stderr.
+<br>
+<pre>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; for i in (sys.stdin, sys.stdout, sys.stderr):
+...     print(i)
+... 
+<open file=""><stdin>', mode 'r' at 0x7f3397a2c0c0&gt;
+<open file=""><stdout>', mode 'w' at 0x7f3397a2c150&gt;
+<open file=""><stderr>', mode 'w' at 0x7f3397a2c1e0&gt;
+&gt;&gt;&gt;
+</stderr></open></stdout></open></stdin></open></pre>
+The following example illustrates the usage of the standard data streams:
+<pre>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; print "Going via stdout"
+Going via stdout
+&gt;&gt;&gt; sys.stdout.write("Another way to do it!\n")
+Another way to do it!
+&gt;&gt;&gt; x = raw_input("read value via stdin: ")
+read value via stdin: 42
+&gt;&gt;&gt; print x
+42
+&gt;&gt;&gt; print "type in value: ", ; sys.stdin.readline()[:-1]
+type in value: 42
+
+'42'
+&gt;&gt;&gt; 
+</pre> 
+The following example combines input and output:
+<pre>import sys
+
+while True:
+  # output to stdout:
+  print "Yet another iteration ..."
+  try:
+    # reading from sys.stdin (stop with Ctrl-D):
+    number = raw_input("Enter a number: ")
+  except EOFError:
+    print "\nciao"
+    break
+  else:
+    number = int(number)
+    if number == 0:
+      print &gt;&gt; sys.stderr, "0 has no inverse"
+    else:
+      print "inverse of %d is %f" % (number, 1.0/number) 
+</pre>
+If we save the previous example under "streams.py" and use a file called 
+"number.txt" with numbers (one number per line) for the input, 
+we can call the script in the following way from the Bash shell: 
+<pre>$ python streams.py &lt; numbers.txt
+</pre>
+It's also possible to redirect the output into a file:
+<pre>$ python streams.py &lt; numbers.txt &gt; output.txt
+</pre>
+Now the only output left in the shell will be:
+
+<pre>0 has no inverse
+</pre>
+because this comes via the sterr stream.
+
+<br>
+<h3>Redirections</h3>
+<img class="imgright" src="./Python Course  Introduction into the Sys Module_files/umleitungen3.png" alt="Umleitungen">
+There is hardly a user of a Linux or a Unix Shell, e.g. the Bourne or the Bash Shell, who hasn't 
+used input or output redirections. It's not exaggerated to say, that a usefull work is not 
+possible without redirections. 
+<br><br the="" same="" is="" true="" for="" system="" programming"="" or="" focused="" under="" python.=""><br><br>The standard output (stdout) can be redirected e.g. into a file, so that we can
+process this file later with another program. The same is possible with the standard error stream,
+we can redirect it into a file as well. We can redirect both stderr and stdout into the same file
+or into separate files.
+<br><br>
+The following script should be self-explanatory. But nevertheless here are some explanations: 
+The first statement uses the regular standard output
+(stdout), i.e. the text "Coming through stdout" will be printed into the terminal from which the 
+script has been called. In the next line we are storing the standard output channel in the 
+variable save_stdout, so that we will be capable of restoring the original state at a later point
+in the script. After this we open a file "test.txt" for writing. After the statement 
+<code>sys.stdout = fh</code> all print statements will directly print into this file. The original 
+condition is restored with  <code>sys.stdout = save_stdout</code>.
+
+<pre>import sys
+
+print("Coming through stdout")
+
+# stdout is saved
+save_stdout = sys.stdout
+
+fh = open("test.txt","w")
+
+sys.stdout = fh
+print("This line goes to test.txt")
+
+# return to normal:
+sys.stdout = save_stdout
+
+fh.close()
+</pre>
+The following example shows how to redirect the standard error stream into a file:
+<pre>import sys
+
+save_stderr = sys.stderr
+fh = open("errors.txt","w")
+sys.stderr = fh
+
+x = 10 / 0
+
+# return to normal:
+sys.stderr = save_stderr
+
+fh.close()
+</pre>
+<br>
+It's posible to write into the error stream directly, i.e. without changing the general output 
+behaviour. This can be achieved by appending <code>&gt;&gt; sys.stderr</code> to a print statement.
+<pre>import sys
+
+save_stderr = sys.stderr
+fh = open("errors.txt","w")
+sys.stderr = fh
+
+print &gt;&gt; sys.stderr, "printing to error.txt"
+
+# return to normal:
+sys.stderr = save_stderr
+
+fh.close()
+</pre>
+
+
+<h3>Other interesting Variables and Constants in the sys Module</h3>
+
+
+The largest positive integer supported by the platform's Py_ssize_t type, and thus the maximum 
+size lists, strings, dicts, and many other containers can have.
+<table cellpadding="3" cellspacing="3" border="1" align="left" valign="top" bgcolor="#E5E5E5">
+<tbody><tr>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td align="left" valign="top">byteorder</td>
+<td align="left" valign="top">An indicator of the native byte order. <br>
+The following output was created on a Linux machine and Python 2.6.5:
+<pre>&gt;&gt;&gt; sys.byteorder
+'little'
+&gt;&gt;&gt; 
+</pre>
+ The value will be 'big' on big-endian (most-significant byte first) platforms, and 
+'little' on little-endian (least-significant byte first) platforms.</td>
+</tr>
+<tr>
+<td align="left" valign="top">executable</td>
+<td align="left" valign="top">A string containing the name of the executable binary (path and executable file name) for the Python interpreter. E.g. "c:\\Python31\\python.exe on Windows 7 or "/usr/bin/python" on
+Linux.
+<pre>&gt;&gt;&gt; sys.executable
+'/usr/bin/python'
+</pre>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">maxint</td>
+<td align="left" valign="top">
+This attribute contains the largest positive integer supported by Python's 
+regular integer type. 
+The minumum value for the maximal integer value is at least <pre>2<sup>31-1</sup></pre>. 
+The largest negative integer corresponds to the value of <pre>- maxint - 1</pre>.
+This asymmetry results from the use of 2's complement binary arithmetic.
+<br>The value of maxint depends on the operating system.
+<br>
+<br>
+<b>Remark concerning Python 3.X:</b>
+The sys.maxint constant was removed with Python 3.0, since there is no longer a limit 
+to the values of integers. 
+However, sys.maxsize can be used as an integer larger than any practical list or string index. 
+It conforms to the implementation's "natural" integer size and is typically the same as sys.maxint 
+in previous releases on the same platform (assuming the same build options).
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">maxsize</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">maxunicode</td>
+<td align="left" valign="top">An integer giving the largest supported code point for a 
+Unicode character. The value of this depends on the configuration option that specifies 
+whether Unicode characters are stored as UCS-2 or UCS-4.
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">modules</td>
+<td align="left" valign="top">The value of sys.modules is a dictionary mapping the names of modules 
+to modules which have already been loaded. This can be manipulated e.g. to enforce the reloading of 
+modules. Note that removing a module from this dictionary is not the same as calling reload() 
+on the corresponding module object.
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">path</td>
+<td align="left" valign="top">Contains the search pyth, where Python is looking for modules.
+<pre>&gt;&gt;&gt; sys.path
+['', '/usr/lib/python2.6', '/usr/lib/python2.6/plat-linux2', '/usr/lib/python2.6/lib-tk', 
+'/usr/lib/python2.6/lib-old', '/usr/lib/python2.6/lib-dynload', '/usr/lib/python2.6/dist-packages', 
+'/usr/lib/python2.6/dist-packages/PIL', '/usr/lib/python2.6/dist-packages/gst-0.10', 
+'/usr/lib/pymodules/python2.6', '/usr/lib/python2.6/dist-packages/gtk-2.0', 
+'/usr/lib/pymodules/python2.6/gtk-2.0', '/usr/lib/python2.6/dist-packages/wx-2.8-gtk2-unicode', 
+'/usr/local/lib/python2.6/dist-packages']
+&gt;&gt;&gt; 
+</pre>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">platform</td>
+<td align="left" valign="top">Name of the platform on which Python is running, e.g. "linux2" for 
+Linux and "win32" for Windows
+<pre>&gt;&gt;&gt; sys.platform
+'linux2'
+&gt;&gt;&gt; 
+</pre>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">version</td>
+<td align="left" valign="top">Version number of the Python interpreter
+<pre>&gt;&gt;&gt; sys.version
+'2.6.5 (r265:79063, Apr 16 2010, 13:57:41) \n[GCC 4.4.3]'
+&gt;&gt;&gt; 
+</pre>
+
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">version_info</td>
+<td align="left" valign="top">Similiar information than sys.version, but the output is a tuple
+containing the five components of the version number: major, minor, micro, releaselevel, and serial. 
+The values of this tuple are integers except the value for the release level, which is one of the
+following: 'alpha', 'beta', 'candidate', or 'final'. 
+
+<pre>&gt;&gt;&gt; sys.version_info
+(2, 6, 5, 'final', 0)
+&gt;&gt;&gt; 
+</pre>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">__stdin__<br>
+__stdout__<br>
+__stderr__</td>
+<td align="left" valign="top">These attributes contain the original values of stdin, stderr and stdout at the start 
+of the program. They can be useful to print to the actual standard stream no matter if the 
+sys.std* object has been redirected.  They can also be used to restore the actual files 
+to known working file objects in case they have been overwritten with a broken object. 
+But instead of using these values, the original stream should always be explicitly saved in a 
+variable (as shown in our previous examples) before replacing it, and the original state should 
+be restored by using the saved object.
+</td><td align="left" valign="top">
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">getrecursionlimit()<br>
+setrecursionlimit(limit)</td>
+<td align="left" valign="top">getrecursionlimit() returns the current value of the recursion limit, 
+the maximum depth of the Python interpreter stack. This limit prevents 
+infinite recursion from causing an overflow of the C stack and 
+crashing Python. 
+<pre>&gt;&gt;&gt; sys.getrecursionlimit()
+&gt;&gt;&gt; 1000
+</pre>
+<br>
+setrecursionlimit(limit) sets the maximum depth of the Python interpreter stack to the value of 
+"limit". 
+</td></tr></tbody></table>
+<br>
+ &nbsp;
+<br><br>
+<p></p>
+
+</div>
+<div id="footer">  © 2011 <a href="http://www.bklein.de/">Bernd Klein</a>,
+Bodenseo; 
+Design by Denise Mitchinson adapted for python-course.eu by Bernd Klein</div>
+</div>
+
+
+</body></html>

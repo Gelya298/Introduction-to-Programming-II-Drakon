@@ -1,0 +1,3651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://habrahabr.ru/blogs/infosecurity/134359/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>Наносим удар по ddos ботнету своими силами / Информационная безопасность / Хабрахабр</title>
+		
+		
+		
+			<link href="http://habrahabr.ru/styles/1330680696/all.css" rel="stylesheet" media="all">
+		
+    
+		
+  <link href="http://habrahabr.ru/styles/1330680696/_parts/posts.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1330680696/_parts/comments.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1330680696/posts/all.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1330680696/forms.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1330680696/highlight.css" rel="stylesheet" media="all">
+
+
+		
+		
+			<script type="text/javascript" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/all.js"></script>
+		
+		
+			
+		
+  <script type="text/javascript" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/jquery.form.js"></script>
+  <script type="text/javascript" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/jquery.cookie.js"></script>
+  <script type="text/javascript" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/swfobject.js"></script>
+  <script type="text/javascript" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/wysiwyg.js"></script>
+  <script type="text/javascript" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/highlight.js"></script>
+  <script type="text/javascript" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/posts.js"></script>
+  <script type="text/javascript" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/comments.js"></script>
+  <script type="text/javascript" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/all(1).js"></script>
+
+		
+		<script type="text/javascript" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/adriver.core.2.js"></script>
+		
+		
+		
+		<link title="Хабрахабр / Комментарии к публикации &laquo;Наносим удар по ddos ботнету своими силами&raquo; в блоге &laquo;Информационная безопасность&raquo;" type="application/rss+xml" rel="alternate" href="http://habrahabr.ru/rss/post/134359/">
+		
+	<script async="true" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/ga.js"></script></head>
+
+	<body>
+	  
+
+
+	<div id="topline" title=""><div style="position: relative; width: 100%; height: 90px; "><embed type="application/x-shockwave-flash" width="100%" height="100%" quality="best" wmode="opaque" play="true" loop="true" menu="false" allowscriptaccess="always" src="http://masterh5.adriver.ru/images/0001607/0001607189/0/hantim_flash_b100x90.swf" flashvars="link1=http%3A//ad.adriver.ru/cgi-bin/click.cgi%3Fsid%3D176776%26ad%3D299620%26bid%3D1607189%26bt%3D52%26bn%3D1%26pz%3D0%26ref%3Dhttp%3A%252f%252fhabrahabr.ru%252fblogs%252finfosecurity%252f134359%252f%26custom%3D%26rleurl%3D&amp;ar_ph=topline&amp;target=_blank&amp;ar_comppath=http%3A//masterh5.adriver.ru/images/0001607/0001607189/0/&amp;ar_pass=&amp;ar_bid=1607189&amp;ar_bt=52&amp;ar_ad=299620&amp;ar_nid=0&amp;ar_rnd=6485436&amp;ar_ntype=0&amp;ar_sliceid=0&amp;ar_sid=176776"></div></div>
+	<script type="text/javascript">
+	new adriver("topline", {sid:176776, bt:52, bn:1});
+	</script>
+
+
+
+
+
+		<div id="layout">	    
+		  <div id="header">
+  <div class="userpanel silver">
+    
+    
+      <a href="http://habrahabr.ru/login/" class="login">войти</a> <a href="http://habrahabr.ru/register/">зарегистрироваться</a>
+    
+  </div>
+  <a class="logo" href="http://habrahabr.ru/" title="На главную страницу"></a>
+  <div class="search">
+    <form id="search_form" name="search" method="get" action="http://habrahabr.ru/search/">
+      <input type="text" name="q" value="поиск по сайту" onfocus="this.value = (this.value == &#39;поиск по сайту&#39;) ? &#39;&#39; : this.value" onblur="this.value = (this.value == &#39;&#39;) ? &#39;поиск по сайту&#39; : this.value" autocomplete="off">
+      <input type="submit" value="">
+    </form>
+  </div>
+  
+
+	<div class="main_menu">
+		<a href="http://habrahabr.ru/" class="active">посты</a><a href="http://habrahabr.ru/qa/">q&amp;a</a><a href="http://habrahabr.ru/bloglist/">блоги</a><a href="http://habrahabr.ru/events/coming/">события</a><a href="http://habrahabr.ru/companies/">компании</a>
+		<div class="banner_special">
+
+	 
+
+	 
+
+	
+	
+		<!--  AdRiver code START. Type:135x35 Site: habrahabr PZ: 0 BN: 0 -->
+		<script language="javascript" type="text/javascript"><!--
+		var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+		var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+		document.write(
+		'<iframe src="http://ad.adriver.ru/cgi-bin/erle.cgi?'
+		+ 'sid=176776&target=top&w=135&h=35&bt=25&pz=0&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail
+		+ '" frameborder=0 vspace=0 hspace=0 width=135 height=35 marginwidth=0'
+		+ ' marginheight=0 scrolling=no></iframe>');
+		//--></script><iframe src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/erle(3).html" frameborder="0" vspace="0" hspace="0" width="135" height="35" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+		<noscript></noscript>
+
+		<!--  AdRiver code END  -->
+	
+	
+
+</div>
+	</div>
+
+
+</div>
+
+
+	
+		  
+	  
+		  
+
+	<div class="blog_header">
+  <h2>
+    <a href="http://habrahabr.ru/blogs/infosecurity/" class="blog_title">Информационная безопасность</a>
+    <span class="profiled_blog" title="Профильный блог"></span>
+
+    
+  				
+	</h2>
+	<div class="blog-index">
+	 <div class="label">индекс</div>
+	 <div class="value">282,16</div>
+	</div>
+</div>
+  <div class="content_left">
+
+	
+
+
+	
+
+
+
+	
+		<div class="add_post"><a href="http://habrahabr.ru/add/topic/" title="Добавить пост"></a></div>
+	
+	
+
+
+<table class="menu">
+  <tbody><tr>
+    
+      <td class="item ">
+        <a href="http://habrahabr.ru/blogs/infosecurity/">Захабренные </a>      
+      </td>
+    
+      <td class="item ">
+        <a href="http://habrahabr.ru/blogs/infosecurity/new/">Новые (<span class="count">2)</span></a>      
+      </td>
+    
+      <td class="item ">
+        <a href="http://habrahabr.ru/blogs/infosecurity/unhabred/">Отхабренные </a>      
+      </td>
+    
+  </tr>  
+</tbody></table>
+<div class="submenu ">
+
+</div>
+<div class="clear"></div>
+
+
+  
+
+	<div class="company_post">
+
+	
+
+		
+  <div class="post" id="post_134359">
+    <h2 class="title">
+      
+    	
+	      
+	    
+	    
+	      
+      
+        <span class="post_title">Наносим удар по ddos ботнету своими силами</span>
+      
+      
+      
+
+      
+  	</h2>
+  	<div class="content">
+  	<img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/e0d49a48.png"><br>
+<br>
+Доброго времени суток уважаемое хабрасообщество, по просьбам хабровчан решил поделится некоторыми своими наработками борьбы с ддосом на основании личного практического опыта отражения атак. <br>
+В данной статье не будет очередного нового способа, как защититься от ддоса своими силами, информации по этому предостаточно. Мы зайдем немного с другой стороны. <br>
+Как говорится лучшая защита — нападение. Вот мы и будем с вами наносить удар по самому больному месту ддосеров — по ботам. Дополнительным приятным бонусом для нас будет то, что мы сделаем доброе дело и освободим хоть какую-то часть зараженных машин из плена злых ботнетчиков. <br>
+Понятно, что ботнет нам не убить, однако нанести порой вполне существенный удар можно, особенно если основную часть ботнета составляют дедики с руткитами, которые порой создают основную проблему при отражении атаки. Ну и кулхацкеру васе с его сотней кровью и потом добытых ботов тоже можно очень неплохо напакостить. Ибо боты, особенно на хороших каналах и из хороших регионов, стоят денег и порой немалых. Если они начнут дохнуть от посыпавшихся абуз, ддосерам может быть накладно продолжать ддосить вас и они могут повысить цену для заказчика или вообще приостановить атаку. Намного проще ддосить того, от кого не будет лишнего шума. <br>
+<br>
+<a name="habracut"></a><br>
+<h4>Как убить бота? </h4><br>
+<br>
+Итак, как же нам убить бота, ну или по крайней мере попытаться освободить его душу от вселившихся злых сил?<br>
+<br>
+<b>Для этого необходимо:</b><br>
+<br>
+1). Определить ip адреса атакующих ботов<br>
+2). Определить кому принадлежат данные ip адреса (вышестоящая организация: ДЦ, провайдер, учереждение ...), из whois получить список контактных abuse email, на которые будем слать жалобы<br>
+3). Подготовить логи, подтверждающие факт проведения атаки.<br>
+4). Отправить лог по спискам abuse email<br>
+<br>
+Если ботов немного, можно конечно все это сделать руками, но мы автоматизируем этот процесс.<br>
+<br>
+<h4>Ддос бывает разный</h4><br>
+Мы помним, что ддос бывает разный и универсальных способов определения зловердных адресов нету, в каждом конкретном будет иной алгоритм и иные источники. <br>
+<br>
+В общем это тема для отдельной статьи, я же постараюсь для понимания выбрать простой и доступный всем способ. <br>
+Итак, допустим, мы имеем TCP/UDP flood по разным портам, какие-то методы ддос сдерживают, доступ к машине есть, но мы хотим снизить мощность атаки и не допустить ее увеличение, ну или просто напакостить ддосерам. <br>
+Задача — нанести контрудар, лишить ботнетчиков самых активных ботов. <br>
+<br>
+<h4>Собираем логи</h4><br>
+Вариантов много, опять-таки тема для отдельной статьи. Есть много разных способов логирования трафика например tcpdump, iptrtaf, netflow…<br>
+У меня как-то исторически сложилось большинство логов было снято с использованием iptraf, который использовался для наблюдения за атакой и все скрипты были настроены на их распарсинг. Решение может не самое красивое, но достаточно универсальное. При самой минимальной модификации можно использовать любые логи и проделывать все нижеперечисленные манипуляции в реальном времени. <br>
+<br>
+Итак, начался ддос, мы запускаем iptraf, в настройках (Configure) влючаем логирование (Logging), теперь когда мы запустим IP traffic monitor, оно спросит в какой файл сохранять лог, например<br>
+/var/log/iptraf/iptraf.log <br>
+Теперь iptraf для нас будет записывать основную информацию о каждом пакете (в т.ч. и дропнутом). <br>
+По личному наблюдению хуже серверу от этого не станет, данное логирование почти не тратит полезных ресурсов сервера. <br>
+<br>
+<h4>Отправляем абузы</h4><br>
+Когда лог есть, можем приступать к его обработке и отправке писем счастья провайдерам зараженных машинок, дабы они разобрались с владельцами. <br>
+Для этого предлагаю несколько самописных скриптов, предназначенных для этого. <br>
+Скрипты писались в очень тяжелое время, так что о красоте и оптимизации речи не шло, сейчас их немного доработал, приправил комментариями. <br>
+Специально разбил всю работу на несколько модулей, каждый из которых отвечает за свою задачу. Это позволит адаптировать их под свой случай и контролировать каждый шаг.<br>
+<br>
+<h4>Скрипты</h4><br>
+Все скрипты можно скачать тут: <a href="https://github.com/Ajex/AntiDdosAbuse">github.com/Ajex/AntiDdosAbuse</a><br>
+<br>
+<b>Ниже опишу каждый. </b><br>
+<br>
+1). <b>show_ips.sh</b> — выводит список ip адресов из лога и количество пакетов, которые прошли за интервал сбора. <br>
+<br>
+<b>Параметры запуска: </b><br>
+<pre><code class="bash">./show_ips.sh iptraf.log <span class="string">"Dec 12"</span> &gt; ddos_ips.txt</code></pre><br>
+После этого скрипт распарсит файл, используя в качестве исходного лога файл <b>iptraf.log</b> и фильтра «Dec 12», и выведет результат в файл<b> ddos_ips.txt</b> для последующего анализа другими скриптами. <br>
+<br>
+* Можно применять и любые свои фильтры, выбирая данные к примеру за конкретный час<br>
+<br>
+<b>Вывод его будет такого вида:</b><br>
+<br>
+<pre><code class="html">     3 1.1.1.1.
+     3 1.1.1.2.
+     3 1.1.2.1.
+   10 2.3.2.2.
+   10 2.3.2.2.
+....
+7833 x.x.x.x
+19343 y.y.y.y
+58234 z.z.z.z
+</code></pre><br>
+<br>
+Учитывая, что данный лог будет сделан в момент атаки, будет очень сильный разрыв между наименьшими и наибольшими значениями. Порой в тысячи и десятки тысяч раз. Тут, опять-таки, нет универсальных алгоритмов по какому признаку считать трафик аномальным, нужно смотреть и думать головой. <br>
+Но как правило в файле будет очень хорошо видно, ибо нормальный пользователь не может отправить несколько десятков тысяч запросов за несколько минут. <br>
+На основании этого лога определяем границу с которой считать айпишники ботами. Можно дополнительно провести ручную проверку некоторых адресов из топов по логам apache/nginx и логу иптрафа. <br>
+Например бот ломился по UDP, а у вас только webserver или TCP долбился по каким-то левым портам, кои у вас наглухо закрыты. <br>
+Голову на данном шаге очень важно включать, ибо повторюсь универсальных методов нет, все зависит от того что за сервер под атакой, какие сервисы запущены, какая нагрузка. <br>
+Можно доработать скрипт и вместе с количеством выводить например еще регион адреса и считать количество закрытых портов, по которым ломился бот, дополнить информацию из логов вэб сервера… <br>
+Тут целое поле для мыслительной деятельности, которые выходит за рамки данной статьи. <br>
+<br>
+2). <b>get_info.sh</b> — извлекает abuse email из whois информации для каждого айпишника, полученного скриптом show_ips.sh на шаге 1.<br>
+<b>Параметры запуска:</b><br>
+<pre><code class="bash">./get_info.sh ddos_ips.txt &gt; abuse_email.txt</code></pre><br>
+где, <b>ddos_ips.txt</b> это файл созданный на шаге 1<br>
+После этого<b> abuse_email.txt</b> будет содержать список email адресов для отправки писем.<br>
+<br>
+<b>Вывод его будет такого вида:</b><br>
+<br>
+<pre><code class="html">x.x.x.x abuse@aaa.com master@aaa.com
+y.y.y.y abuse@bbb.com
+z.z.z.z abuse@ccc.com
+....
+</code></pre><br>
+<br>
+<i>Важно, в скрипте есть конфигурационный параметр <b>th_limit </b>, он означает с какого количества соединений считать ип ботом, эта граница определяется на предыдущем шаге. </i><br>
+<br>
+3).<b> get_logs.sh </b> — скрипт извлекает из лога iptraf информацию по каждому конкретному ip адресу, сохраняет в отдельный файл и упаковывает в Gzip<br>
+<br>
+<b>Параметры запуска:</b><br>
+<br>
+<pre><code class="bash">./get_logs.sh ddos_ips.txt iptraf.log <span class="string">"Nov 20"</span> pref</code></pre><br>
+где, <b>pref</b> префикс создаваемых логов для удобства их сортировки<br>
+<br>
+В параметрах обязательно указать th_limit, это опять число коннектов из файла ddos_ips.txt отделяющих хорошие ip адреса от ботов.<br>
+На выходе в текущей папке будут созданы Gzip файлы содержащие логи по каждому отдельному ипу. <br>
+<br>
+4). <b>mail_send.sh</b> — скрипт рассылающий абузы по спискам полученным из шага 2. скриптом <b>get_info.sh</b><br>
+<br>
+<b>Параметры запуска:</b><br>
+<br>
+<pre><code class="bash">./mail_send.sh abuse_email.txt pref</code></pre><br>
+<br>
+где abuse_email.txt файл полученный на шаге 2<br>
+<br>
+Внутри скрипта есть заголовок и тело письма, который переделываете под свои нужды. Можно попугать всяческими карами небесными и угрозами обратиться в полицию и т.д., на некоторых это даже действует. <br>
+<br>
+<code> echo "Hi, today, our server x.x.x.x was attacked from your or your c$ip <br>
+ Here are the logs <a href="http://yourcompany.com/abuse/">yourcompany.com/abuse/</a>$pref$ip.txt.gz (TZ - Europe/Moscow) ... bla bla bla ... The Company Name Ltd." | mail -s "[Abuse] ddos attack from your $ip" $email_row</code><br>
+<i>(свой текст специально не привожу, чтобы не слали по шаблону и не попало в спамфильтр)<br>
+</i><br>
+В скрипте, в шаблоне отправки, содержится ссылка на файл с логами. Я пробовал прикреплять файлы прямо в письмо, но, во первых, они часто бывают объемными, во вторых часто режутся спамфильтрами и вызывают подозрение, в третьих порой сложно их отсылать с машины под ддосом, а ссылка на корпоративный сайт выглядит весомее и безопаснее. <br>
+Поэтому я простым скриптом копировал логи на другую машину с поднятым вэбсервером, а в теле письма просто указывал ссылку на лог. <br>
+<br>
+<b>do_all.sh</b> — данный скрипт выполняет все действия последовательно, но сделан больше для демонстрации, ибо перед тем как его запустить, нужно оттюнинговать параметры скриптов, особенно <b>th_limit </b>под свой случай<br>
+<br>
+<b>Вот его параметры:</b><br>
+<br>
+<b>parse_date</b> — по этому выражению будет делаться Grep лога, если нужно отобрать записи за определенное число или час<br>
+<b>pref</b> — префикс для создаваемых файлов, например та же дата <br>
+<b>iptraf_raw_file</b> — откуда брать лог iptrafa<br>
+<br>
+Понятно что можно было сделать скрипты через потоки, но для статьи и понимания работы сделал так, как есть, простор для фантазии бесконечный. Можно доработать и автоматизировать все процессы, например автоматом включать логирование после начала атаки, сделать более точный анализатор для шага 1. <br>
+<br>
+Если действовать с умом, можно нанести достаточно весомый удар по ботнету, особенно если число ботов небольшое, но они большей частью состоят из дедиков на руткитах. Говорю это из личного опыта.<br>
+<br>
+<h4>И что в результате? Неужели это подействует? </h4><br>
+Что произойдет с полученной абузой? Возможно конечно ее проигнорируют, но, например, на следующий день айпишник опять попадет в черный список и опять уйдет абуза и т.д., возможно когда-то отреагируют. <br>
+Если ип это какой-то впс/вдс сервер и абуза попадет например в ДЦ с подробными логами, нормально оформлена, то она скорее всего будет изучена, а если логи будут очень вескими и сойдутся со статистикой ДЦ, то может и будет блок. Тут где-то 50/50, что в общем тоже неплохо. <br>
+Если подобное придет провайдеру, он скорее всего уведомит абонента (общался с некоторыми знакомыми, сказали что поступят именно так), а если жалоб придет несколько и опять-таки аргументированных, то может и заблочат до тех пор, пока клиент не поставит нормального антивируса. <br>
+<br>
+После нашей рассылки по всему миру произойдет целая цепочка событий, о которых мы, возможно, никогда и не узнаем, и возможно они не будут иметь какого-то решающего воздействия, но в любом случае это лучше чем ничего не делать и надеяться, что завтра ддосить будут кого-то другого а не вас. <br>
+Если подобные действия будут производить большинство и абузы будут сыпаться с разных айпишников, провайдеры будут вынуждены принять меры, каждая такая абуза это гвоздь в гроб ботнета. <br>
+<br>
+Спасибо за внимание, это моя первая статья на хабре, просьба сильно не ругать если что не так. Если же тематика будет интереса, поделюсь практическим опытом, как не обладая серьезными ресурсами, имея 3 рубля за пазухой можно своими силами противостоять достаточно сильным атакам. Порой хитрость и смекалка могут дать больше, чем мощное железо или широкий канал.<br>
+<br>
+UPD: Кстати, бывают случаи, когда способ, описанный в статье, может стать реальным спасением от ддоса. Например если завалили всю ширину порта со сравнительно небольшого числа ботов на широких каналах или сетевая не справляется с потоком запросов. В таком случае помогут или блок на стороне вышестоящего маршрутизатора, что очень часто не представляется возможным во многих ДЦ, или борьба при помощи абуз. Последнее кроме своей простоты и доступности, дает возможность неплохо так напакостить ддосерам и разоружить их. 
+  	<div class="clear"></div> 	
+  	</div>
+    
+<ul class="tags">
+	<li><a href="http://habrahabr.ru/tag/ddos/" rel="tag">ddos</a></li><li>, <a href="http://habrahabr.ru/tag/ddos-%D0%BF%D1%80%D0%BE%D1%82%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5/" rel="tag">ddos-противостояние</a></li><li>, <a href="http://habrahabr.ru/tag/abuse/" rel="tag">abuse</a></li><li>, <a href="http://habrahabr.ru/tag/ddos-%D0%B0%D1%82%D0%B0%D0%BA%D0%B0/" rel="tag">ddos-атака</a></li><li>, <a href="http://habrahabr.ru/tag/ddos-%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0/" rel="tag">ddos-защита</a></li><li>, <a href="http://habrahabr.ru/tag/%D0%B1%D0%BE%D1%82%D0%BD%D0%B5%D1%82/" rel="tag">ботнет</a></li><li>, <a href="http://habrahabr.ru/tag/%D0%B1%D0%BE%D1%80%D1%8C%D0%B1%D0%B0/" rel="tag">борьба</a></li>
+</ul>
+
+    <div class="infopanel" id="infopanel_post_134359">
+	
+        
+	
+	<div class="voting   ">
+
+		  				  
+		
+		<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+		<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+		
+
+		<div class="mark positive ">
+			
+			<span class="score" title="Всего 157: &uarr;153 и &darr;4">+149</span>
+			
+			  					  
+		</div>  
+
+	</div>
+	
+	
+
+	
+
+	<div class="published">12 декабря 2011, 13:31</div>
+
+	<div class="favorite">
+		
+		
+		<a class="guest" href="http://habrahabr.ru/blogs/infosecurity/134359/#" onclick="return false;" title="Только зарегистрированные пользователи могут добавлять посты в избранное"></a>
+		
+	</div>
+
+	<div class="favs_count" title="Количество пользователей, добавивших пост в избранное">334</div>
+
+	
+	<div class="twitter">
+		<a href="http://twitter.com/intent/tweet?text=http://habr.ru/p/134359/+%D0%9D%D0%B0%D0%BD%D0%BE%D1%81%D0%B8%D0%BC+%D1%83%D0%B4%D0%B0%D1%80+%D0%BF%D0%BE+ddos+%D0%B1%D0%BE%D1%82%D0%BD%D0%B5%D1%82%D1%83+%D1%81%D0%B2%D0%BE%D0%B8%D0%BC%D0%B8+%D1%81%D0%B8%D0%BB%D0%B0%D0%BC%D0%B8+%23habr" title="Опубликовать ссылку в Twitter" target="_blank"></a>
+	</div>
+	<div class="vkontakte"> 
+		<a href="http://vkontakte.ru/share.php?url=http://habr.ru/p/134359/" title="Опубликовать ссылку во ВКонтакте" onclick="window.open(this.href, &#39;Опубликовать ссылку во Вконтакте&#39;, &#39;width=800,height=300&#39;); return false"></a>
+	</div>
+	<div class="facebook">
+		<a href="http://www.facebook.com/sharer.php?u=http://habr.ru/p/134359/" title="Опубликовать ссылку в Facebook" onclick="window.open(this.href, &#39;Опубликовать ссылку в Facebook&#39;, &#39;width=800,height=300&#39;); return false"></a>
+	</div>
+	
+
+	
+
+	
+
+	
+	
+
+	
+	
+	<div class="author">
+		<a title="Автор текста" href="http://habrahabr.ru/users/Ajex/">Ajex</a>
+	</div>
+	
+	
+
+	
+
+</div>
+<div class="clear"></div>    
+    
+	</div>
+
+		
+		
+<div class="comments_list " id="comments">
+
+  <h2 class="title ">комментарии (<span id="comments_count">58</span>)
+    
+  </h2>
+
+   
+    
+<div class="comment_item" id="comment_4464456">
+	
+	
+		<div class="info  	" rel="4464456">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464456" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 10: &uarr;10 и &darr;0">+10</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/remal/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/remal/" class="username">remal</a>
+			<time datetime="2011-12-12T14:06:15+04:00">12 декабря 2011, 14:06</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464456" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			А мне всегда казалось, что сильно долбить с малого кол-ва адресов глупо и надо долбить понемногу, но с большого кол-ва машин… 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464456">
+	 
+		
+<div class="comment_item" id="comment_4464489">
+	
+	
+		<div class="info  	" rel="4464489">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464489" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 3: &uarr;3 и &darr;0">+3</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-12T14:19:22+04:00">12 декабря 2011, 14:19</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464489" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464456" data-id="4464489" data-parent_id="4464456" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Я тоже так раньше думал. Но когда столкнулся с тем, что сервер долбили кроме стандартных ботов, несколько таких, которые выдавали до 400 тыс pps и поток в 200-300 мегабит каждый. Фишка в том, что на обычных сетевых, кои стоят в большинстве серверов, прерывания обрабатываются одним ядром, в независимости от их кол-ва на машине. И от такого числа коннектов, даже при полном DROP всех соединений вся сетевая подсистема уходит в астрал. Ну и затык канала тоже ни кто не отменял, особенно если он у вас небольшой. <br>
+Бороться с таким достаточно проблематично. Вот абузами такие дедики убиваются достаточно просто (когда как, иногда конечно приходилось звонить и ругаться). Собственно для этого и затевалась вся затея с этими скриптами, но потом я применил ее отослав абузы по нескольким сотням адресов из списка тех ботов что нас долбили постоянно, заметил, их поубавилось, а на ящик стали приходить письма мол спасибо проверим, или спасибо отослали уведомление клиенту.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464489">
+	 
+		
+<div class="comment_item" id="comment_4464581">
+	
+	
+		<div class="info  	" rel="4464581">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464581" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 4: &uarr;4 и &darr;0">+4</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/SADKO/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/13461_24x24.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/SADKO/" class="username">SADKO</a>
+			<time datetime="2011-12-12T14:54:31+04:00">12 декабря 2011, 14:54</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464581" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464489" data-id="4464581" data-parent_id="4464489" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			И такое всё, чаще и чаще, ибо рутануть мажорный сервер, у каких-нибудь дизайнеров, офисных сисадминов и иже с ними «компетентных» товарищей, гораздо проще и доступней юным кул хачикам, чем создание и управление ядрёным ботнетом. А эффективность, вполне себе хороша, хоть и временна.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464581">
+	 
+		
+<div class="comment_item" id="comment_4464927">
+	
+	
+		<div class="info  	" rel="4464927">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464927" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/tangro/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/tangro/" class="username">tangro</a>
+			<time datetime="2011-12-12T16:32:05+04:00">12 декабря 2011, 16:32</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464927" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464581" data-id="4464927" data-parent_id="4464581" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Эффективность очень уж временна. Такой поток от хостящегося сервера «дизайнеров» провайдер по идее поймает в автоматическом режиме за буквально пару минут. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464927">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4464624">
+	
+	
+		<div class="info  	" rel="4464624">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464624" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  negative">
+						<span class="score" title="Всего 62: &uarr;1 и &darr;61">–60</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kafeman/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kafeman/" class="username">kafeman</a>
+			<time datetime="2011-12-12T15:07:18+04:00">12 декабря 2011, 15:07</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464624" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format bad bad5" data-default_opacity="0.2" style="opacity: 0.2; ">
+			Интересное решение, но какое-то не красивое.<br>
+Это всё-равно что вас в детском садике толкнул кто-то, а вы к воспитателю: «А он толкнул меня, вот запись камеры, накажите его». Да, возможно эффективно, но не красиво.<br>
+А вот если вы просто заблокируете, к примеру, пакеты от этого IP или ещё чего-нибудь, то атакующий будет знать, что тут работает «сильный админ».<br>
+Если бы мне пришло такое письмо от провайдера, то я бы даже захотел вместо установки антивируса специально продолжить DDoS. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464624">
+	 
+		
+<div class="comment_item" id="comment_4464632">
+	
+	
+		<div class="info  	" rel="4464632">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464632" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  negative">
+						<span class="score" title="Всего 27: &uarr;2 и &darr;25">–23</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kafeman/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kafeman/" class="username">kafeman</a>
+			<time datetime="2011-12-12T15:09:12+04:00">12 декабря 2011, 15:09</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464632" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464624" data-id="4464632" data-parent_id="4464624" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format bad bad5">
+			Кстати, как поведёт себя ваша система если я буду слать запросы со случайного IP? 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464632">
+	 
+		
+<div class="comment_item" id="comment_4464686">
+	
+	
+		<div class="info  	" rel="4464686">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464686" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 13: &uarr;13 и &darr;0">+13</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/AndryX/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/42548_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/AndryX/" class="username">AndryX</a>
+			<time datetime="2011-12-12T15:24:50+04:00">12 декабря 2011, 15:24</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464686" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464632" data-id="4464686" data-parent_id="4464632" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Интересная у вас терминология, «случайный IP»? 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464686">
+	 
+		
+<div class="comment_item" id="comment_4465256">
+	
+	
+		<div class="info  	" rel="4465256">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465256" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 3: &uarr;2 и &darr;1">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/dkr6/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/30089_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/dkr6/" class="username">dkr6</a>
+			<time datetime="2011-12-12T18:16:53+04:00">12 декабря 2011, 18:16</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465256" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464686" data-id="4465256" data-parent_id="4464686" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Это, как бы, на пальцах…<br>
+Пакетик приходит, и IP его виден…<br>
+А самого IP в Сети не существует…<br>
+И сети такой нет…<br>
+И жаловаться, следовательно, не на кого.<br>
+<br>
+Хотя, таки да, не «случайный», а «фиктивный»… 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465256">
+	 
+		
+<div class="comment_item" id="comment_4465327">
+	
+	
+		<div class="info  	" rel="4465327">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465327" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 2: &uarr;1 и &darr;1">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kafeman/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kafeman/" class="username">kafeman</a>
+			<time datetime="2011-12-12T18:43:09+04:00">12 декабря 2011, 18:43</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465327" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465256" data-id="4465327" data-parent_id="4465256" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Имелся ввиду «фиктивный» IP, сгенерированный «случайным» образом. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465327">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4465339">
+	
+	
+		<div class="info  	" rel="4465339">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465339" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/AndryX/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/42548_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/AndryX/" class="username">AndryX</a>
+			<time datetime="2011-12-12T18:47:51+04:00">12 декабря 2011, 18:47</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465339" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465256" data-id="4465339" data-parent_id="4465256" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Я в первую очередь подумал о динамическом IP, когда адрес выдаётся достаточно часто. Но провайдеры в таких случаях могут просмотреть логи и узнать кто в конкретный момент времени пользовался указанным в письме адресом.<br>
+<br>
+По повод вашего варианта, для меня это выглядит странно и я хотел бы усомниться в возможности проведения такой атаки. Я конечно слышал о дырах, которые заключаются в недостаточной фильтрации IP-адреса, но любой пакет, так или иначе, должен иметь адрес отправителя и адрес получателя, и чтобы это изменить нужно изменить протокол передачи данных. Если я ошибаюсь, то дайте пруфлинк на практический пример. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465339">
+	 
+		
+<div class="comment_item" id="comment_4465355">
+	
+	
+		<div class="info  	" rel="4465355">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465355" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kafeman/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kafeman/" class="username">kafeman</a>
+			<time datetime="2011-12-12T18:52:38+04:00">12 декабря 2011, 18:52</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465355" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465339" data-id="4465355" data-parent_id="4465339" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Первое же по запросу в Google:<br>
+<a href="http://rfc2.ru/2827.rfc">rfc2.ru/2827.rfc</a><br>
+Там рассказывается как с этим бороться 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465355">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4465604">
+	
+	
+		<div class="info  	" rel="4465604">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465604" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 2: &uarr;1 и &darr;1">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/alekciy/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/11544_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/alekciy/" class="username">alekciy</a>
+			<time datetime="2011-12-12T20:56:38+04:00">12 декабря 2011, 20:56</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465604" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465339" data-id="4465604" data-parent_id="4465339" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Ошибаетесь.<br>
+<br>
+В курсе, что, к примеру, поля в email (как то from) элементарно подделывается? Тут тот же механизм, ни чего не мешает передающей стороне указать не свой реальный IP адрес, а вообще какой угодно. При такой атаке просто трехэтапное рукопожатие не завершается, но злоумышленнику это и не нужно. В частности это используется в таких атаках как <a href="http://en.wikipedia.org/wiki/IP_address_spoofing">IP spoofing</a>.<br>
+<br>
+Бороться с такого рода атаками можно только на уровне провайдера оборудование которого смотрит IP адрес отправителя и убеждается, что он соответствует адресу указанному в заголовке пакета. Но зачастую это не делается, потому что указание не «своего» IP адреса вполне себе легитимный механизм и есть системы использующие это. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465604">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4465364">
+	
+	
+		<div class="info  	" rel="4465364">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465364" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-12T18:55:42+04:00">12 декабря 2011, 18:55</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465364" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465256" data-id="4465364" data-parent_id="4465256" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Если я правильно понимаю, речь идет об IP-spoofing — атака, заключающаяся в использовании в IP-пакетах, отправляемых жертве, в качестве обратного адреса IP-адрес хоста, которому она доверяет; легко осуществима в UDP, в некоторых случаях возможна в TCP-соединениях.<br>
+<br>
+Знаю такую гадость, но насколько мне известно сейчас подобное блокируется выше на уровне ДЦ, хотя могу ошибаться. <br>
+На уровне сервера это решается настройками sysctl, правда в случае с забиванием канала это конечно не спасет. <br>
+<br>
+Было бы интересно если бы кто-то, кто имеет отношение к провайдерству прокомментировал, актуален ли сейчас IP-spoofing. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465364">
+	 
+		
+<div class="comment_item" id="comment_4465398">
+	
+	
+		<div class="info  	" rel="4465398">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465398" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/ximaera/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/16562_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/ximaera/" class="username">ximaera</a>
+			<time datetime="2011-12-12T19:13:53+04:00">12 декабря 2011, 19:13</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465398" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465364" data-id="4465398" data-parent_id="4465364" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Конечно, актуален. Не далее недели назад видели spoofed-атаку в 1,5 Гбит/с, и вообще регулярно их видим. Даже речи не идёт о том, чтобы сбрасывать их со счетов. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465398">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4465625">
+	
+	
+		<div class="info  	" rel="4465625">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465625" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/alekciy/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/11544_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/alekciy/" class="username">alekciy</a>
+			<time datetime="2011-12-12T21:02:29+04:00">12 декабря 2011, 21:02</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465625" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465364" data-id="4465625" data-parent_id="4465364" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Не встречал еще пока такого ДЦ, который бы детектил IP-spoofing. Во-первых, это не делается по той же причине по которой невозможно на роутерах ДЦ рулить блокировкой. Фильтровать трафик на это уровне долго и дорого (относительно варианта «не фильтровать» конечно же). И вторая причина, хоть в IP-spoofing и используется подмена адреса в зловредных целях, есть ряд вполне себе нормальных систем которые используют такую схемы работы (т.е. указывают не «свой» IP адрес, а чужой, но на этом «чужом» адресе входящий пакет принимается штатном режиме). 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465625">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4467065">
+	
+	
+		<div class="info  	" rel="4467065">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4467065" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/alexmsk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/alexmsk/" class="username">alexmsk</a>
+			<time datetime="2011-12-13T13:55:30+04:00">13 декабря 2011, 13:55</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4467065" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465364" data-id="4467065" data-parent_id="4465364" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Что то я не понимаю, каким образом это можно осуществить? <br>
+Ведь если подставлять совсем уж рандомные адреса, то они просто напросто не будут смаршрутизированы оборудованием дата-центра, откуда идет атака. Есть конечно вариант занимать соседние адреса из своей подсети, не используемые в ДЦ, но в этом случае можно схлопотать по шапке от ДЦ еще до прихода абузы.<br>
+<br>
+Да и большинстро «поROOTенных» серверов не является таковыми. В большинстве случаев — это дырявые скрипты на сайте, соответственно для проворачивания таких вещей привилегий маловато. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4467065">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4466137">
+	
+	
+		<div class="info  	" rel="4466137">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466137" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kolcvk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kolcvk/" class="username">kolcvk</a>
+			<time datetime="2011-12-13T01:22:12+04:00">13 декабря 2011, 01:22</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466137" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464632" data-id="4466137" data-parent_id="4464632" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			От случайных ИП защитит uRPF-failed на самом сервере, мощные атаки бывают как правило по UDP, (10 — 20гигабит), в таких случаях следует обращатся к своему хостеру с просьбой зарезать весь UDP к серверу, и проблема будет решена. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466137">
+	 
+		
+<div class="comment_item" id="comment_4466173">
+	
+	
+		<div class="info  	" rel="4466173">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466173" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-13T01:42:26+04:00">13 декабря 2011, 01:42</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466173" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466137" data-id="4466173" data-parent_id="4466137" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			В случае атаки 20 гигабит максимум что можно сделать, не обладая существенными денежными ресурсами, это поставить свечку и заказать панихиду по серверу, а самому податься в философские размышления на тему «кто же меня так не любит и кому я так насолил». <br>
+Мы в свое время пытались тыкаться по ДЦ которые бы нам смогли порезать трафик, это я вам скажу совсем не тривиальная задача (найти такой ДЦ) 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466173">
+	 
+		
+<div class="comment_item" id="comment_4466182">
+	
+	
+		<div class="info  	" rel="4466182">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466182" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kolcvk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kolcvk/" class="username">kolcvk</a>
+			<time datetime="2011-12-13T01:49:18+04:00">13 декабря 2011, 01:49</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466182" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466173" data-id="4466182" data-parent_id="4466173" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Опять же зависит от хостера, если хостер надёжный, то с ним и в огонь и в воду, в обиду не даст. :)<br>
+Вот буквально 04.12 поливали клиентов как из ведра (СМИ), ничего устояли, живы целы, саппорт в усиленном режиме работал.<br>
+Ну если еще будет актуально — всегда велкам, <br>
+мы всегда помогаем клиентам. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466182">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4464701">
+	
+	
+		<div class="info  	" rel="4464701">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464701" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/vkupriyanov/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/vkupriyanov/" class="username">vkupriyanov</a>
+			<time datetime="2011-12-12T15:27:23+04:00">12 декабря 2011, 15:27</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464701" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464624" data-id="4464701" data-parent_id="4464624" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			неудачный ход мыслей<br>
+Во-первых, все стороны в конечном итоге теряют деньги (владельцы бот-сетей не в счет)<br>
+Во-вторых, Билайн блокирует зараженные машины клиентов без предупреждения (год назад столкнулся с таким случаем). И требовалось очень долго висеть на линии техподержки, выясняя причину блокировки и последующего подключения 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464701">
+	 
+		
+<div class="comment_item" id="comment_4467105">
+	
+	
+		<div class="info  	" rel="4467105">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4467105" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/alexmsk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/alexmsk/" class="username">alexmsk</a>
+			<time datetime="2011-12-13T14:10:36+04:00">13 декабря 2011, 14:10</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4467105" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464701" data-id="4467105" data-parent_id="4464701" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Владелец зараженной машины так или иначе должен нести ответственность за свою машину, в противном случае от подобной безответственности деньги как раз начинают терять ни в чем не повинные владельцы атакуемого ресурса. Да и сам владелец машины может в таком случае долго оставаться в неведении об «альтер-эго» его компьютера.<br>
+А блокировка без предупреждения это скорее изъян самого билайна, а не хода мыслей в целом. Так или иначе, abuse-адреса именно для этого и существуют.<br>
+Да и билайн, думаю, тоже понять можно. Слишком много ресурсов уходит на анализ каждого подобного случая, связь с владельцем машина, а таких случаев в день может быть иысячи. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4467105">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4464719">
+	
+	
+		<div class="info  	" rel="4464719">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464719" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 13: &uarr;13 и &darr;0">+13</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Sauron/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/57416_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/Sauron/" class="username">Sauron</a>
+			<time datetime="2011-12-12T15:32:00+04:00">12 декабря 2011, 15:32</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464719" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464624" data-id="4464719" data-parent_id="4464624" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			А зачем атакующему знать, что работает «сильный админ»? Пусть лучше не знает.<br>
+Другое дело, что воспитатель в садике может крепко по попе надавать, и отбить желание впредь пакостить. Ничего «детского» в этом нет. <br>
+(Ведь если вас, не дай боже, побьют или ограбят — вы вооружаетесь и идёте мстить, вместо того, чтоб обратится в милицию? Не думаю.) 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464719">
+	 
+		
+<div class="comment_item" id="comment_4464781">
+	
+	
+		<div class="info  	" rel="4464781">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464781" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 3: &uarr;3 и &darr;0">+3</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-12T15:50:27+04:00">12 декабря 2011, 15:50</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464781" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464719" data-id="4464781" data-parent_id="4464719" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Ну немного не в тему, но про сильного админа логика не лишена смысла. Тут имеет место чисто психологический момент. Если ддосеры (или заказчики ддоса) видят, что админ показал зубки и начал обороняться, к примеру ресурс начал пусть через раз, но открываться, на главной нет плаксивых историй о мегаддосе, зато видно что администрация онлайн, работает, сообщает о том, что все действия ддосеров логируются для последующего анализа, абузы рассылаются…, это может повлиять на решение о прекращении ддоса.<br>
+Идеальная жертва ддосера — ресурс, который тут же складывается намертво и не предпринимает ни каких действий к обороне, на главной куча слез, мол «мы ничего не можем сделать, ддос мощный», никаких попыток логировани и анализа трафика не предпринимается, абузы не шлются.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464781">
+	 
+		
+<div class="comment_item" id="comment_4464879">
+	
+	
+		<div class="info  	" rel="4464879">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464879" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 4: &uarr;3 и &darr;1">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/ksurent/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/24965_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/ksurent/" class="username">ksurent</a>
+			<time datetime="2011-12-12T16:18:57+04:00">12 декабря 2011, 16:18</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464879" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464781" data-id="4464879" data-parent_id="4464781" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Решение о прекращении принимается тогда, когда заканчивается оплаченный срок. До этого момента никто ничего не будет прекращать по собственному желанию. Исполнители не будут прекращать потому, что услуга уже оплачена, а заказчикам вообще нет смысла отменять (выгоднее сменить исполнителя).<br>
+Ботнет пополняется ежечасно (если не чаще), а ваши абузы, в лучшем случае, начнут работать через день. Владельцы ботнета от этого не пострадают. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464879">
+	 
+		
+<div class="comment_item" id="comment_4464934">
+	
+	
+		<div class="info  	" rel="4464934">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464934" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-12T16:33:17+04:00">12 декабря 2011, 16:33</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464934" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464879" data-id="4464934" data-parent_id="4464879" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			По поводу срока согласен, но думаю врядли заказывают ддос на месяц сразу. Обычно берут на пробу час или несколько часов. <br>
+В случаях с ДЦ абузы работают достаточно быстро, хотя понятно, что тут не идет речь о том что это панацея и все должно моментом сработать. Пусть до кого-то дойдет уведомление даже через месяц и на одного бота в мире станет меньше. В совокупности это может дать эффект. <br>
+<br>
+Тут важно не просто писать абузы, а подкреплять их логами. Даже по логам иптрафа можно увидеть что трафик совершенно ненормальный (несколько десятков тысяч соединений в сек с одного ип адреса, явно нормальными ни как не назвать).  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464934">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4464887">
+	
+	
+		<div class="info  	" rel="4464887">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464887" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-12T16:22:02+04:00">12 декабря 2011, 16:22</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464887" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464624" data-id="4464887" data-parent_id="4464624" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Кстати повторюсь, бывают случаи, когда блокировка не дает ни какого эффекта и при полном DROP всех соединений сервер лежит, из-за того что, например, канал забит или сетевая не справляется с запросами. <br>
+Сейчас ввиду распространения широких каналов данный вид аттаки набирает популярностью. Тут уже не обязательно десятков тысяч ботов. Достаточно всего лишь купить несколько протрояненных дедиков на широких каналах чтобы с них терроризировать любой ресурс. <br>
+По собственному опыту скажу, что просить вам ДЦ помочь порой бесполезно, ибо им проще скинуть такого клиента, чем перестраивать свои конфиги. А если вы работаете через реселлера, то тут задача усложняется до почти невыполнимой.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464887">
+	 
+		
+<div class="comment_item" id="comment_4465845">
+	
+	
+		<div class="info  	" rel="4465845">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465845" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/ASD2003ru/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/ASD2003ru/" class="username">ASD2003ru</a>
+			<time datetime="2011-12-12T22:30:58+04:00">12 декабря 2011, 22:30</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465845" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464887" data-id="4465845" data-parent_id="4464887" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Причем тут скинуть? В нормальных ДЦ есть услуга «Защита от DDOS». В некоторых даже временная (включается на время атаки). Но это конечно стоит денег.<br>
+ 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465845">
+	 
+		
+<div class="comment_item" id="comment_4466145">
+	
+	
+		<div class="info  	" rel="4466145">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466145" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kolcvk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kolcvk/" class="username">kolcvk</a>
+			<time datetime="2011-12-13T01:27:34+04:00">13 декабря 2011, 01:27</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466145" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465845" data-id="4466145" data-parent_id="4465845" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Ну в нормальных это слишком обобщенно сказано, таких ДЦ можно на пальцах сосчитать, которые действильно могут защитить, большинство будет защищать на 3 — 4 уровне оси, на л7 практически никто небудет защищать, но у многих есть API для того что-бы управлять услугой, и тогда — логика на самом сервере (самое правильное место) а по API информация передается на ферму блокировки в ДЦ.<br>
+ 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466145">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4466127">
+	
+	
+		<div class="info  	" rel="4466127">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466127" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kolcvk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kolcvk/" class="username">kolcvk</a>
+			<time datetime="2011-12-13T01:15:58+04:00">13 декабря 2011, 01:15</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466127" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464887" data-id="4466127" data-parent_id="4464887" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Злостный ДЦ у вас наверное, раз непомогает своим клиентам, <br>
+от себя скажу как хостер — помогать клиенту в таких случаях крайне необходимо, <br>
+ибо атака в несколько гигабит, может не только сервер клиента положить, но и всю стойку с другими клиентами.Хотя и встречались такие ДЦ, которые при ДДоСе просят клиента уйти по-дальше, для таких — всегда велкам :) 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466127">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4465661">
+	
+	
+		<div class="info  	" rel="4465661">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465661" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/opposite/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/42120_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/opposite/" class="username">opposite</a>
+			<time datetime="2011-12-12T21:14:48+04:00">12 декабря 2011, 21:14</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465661" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464624" data-id="4465661" data-parent_id="4464624" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			а мне наоборот кажется, что решение очень красивое. продолжая ваш пример с детским садом: Вася ударил Петю, Петя надел шлем, Вася взял молоток, Петя решил просто спасаться бегством при виде Васи, тогда Вася надел ролики, Петя одел платье Маши в надежде, что его не заметят и так далее… Именно с этим можно сравнить обычные решения проблемы ДДОСа, разве это красиво?<br>
+А если просто через воспитательницу объяснить Васе, что так делать не хорошо, то это будет проще, эффективнее и красивее:)  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465661">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4466774">
+	
+	
+		<div class="info  	" rel="4466774">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466774" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/flaresun/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/flaresun/" class="username">flaresun</a>
+			<time datetime="2011-12-13T12:02:24+04:00">13 декабря 2011, 12:02</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466774" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464624" data-id="4466774" data-parent_id="4464624" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			У Вас «детское» сравнение, попробуйте сделать его постарше, предположите вред чуть больший, чем просто «толкнул». Вы считаете, что сообщить «куда надо» будет хуже, чем сделать более грозный вид, чтоб не приставали, и пусть «обижают» других?<br>
+В топике ведь речь не про «пожаловаться», а скорее про «воспользоваться» основным доступным вариантом ответного воздействия. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466774">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4466998">
+	
+	
+		<div class="info  	" rel="4466998">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466998" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/AracooL/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/17292_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/AracooL/" class="username">AracooL</a>
+			<time datetime="2011-12-13T13:34:23+04:00">13 декабря 2011, 13:34</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466998" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464624" data-id="4466998" data-parent_id="4464624" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Скорее всего, не красиво будет с Вашей стороны меня DDoSить. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466998">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4464925">
+	
+	
+		<div class="info  	" rel="4464925">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464925" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 4: &uarr;3 и &darr;1">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/imperial/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/imperial/" class="username">imperial</a>
+			<time datetime="2011-12-12T16:31:20+04:00">12 декабря 2011, 16:31</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464925" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Спасибо. Полезная статья. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464925">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4464998">
+	
+	
+		<div class="info  	" rel="4464998">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4464998" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Sauron/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/57416_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/Sauron/" class="username">Sauron</a>
+			<time datetime="2011-12-12T16:48:30+04:00">12 декабря 2011, 16:48</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464998" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Хм, пожалуй да. Но отправка abuse писем тоже может быть замечена.<br>
+<br>
+Вообще лучше всего наверно применять оба пути — и защита блокировками, и контратака abuse письмами.<br>
+Так что vkupriyanov здесь несколько не прав, считая практику отсылки abuse писем «детской» и несерьёзной. С технической стороны — может и так, не шибко умно (хотя смотря как реализовать ). Но с юридической и практической — вполне логичный ход.<br>
+ 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4464998">
+	 
+		
+<div class="comment_item" id="comment_4465054">
+	
+	
+		<div class="info  	" rel="4465054">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465054" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-12T17:03:07+04:00">12 декабря 2011, 17:03</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465054" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4464998" data-id="4465054" data-parent_id="4464998" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Я ведь не предлагал свой способ, как единственно верный, в самом начале я говорил о том, что это не метод борьбы (хотя в некоторых случаях он может и являться таковым). <br>
+Это просто логическое дополнение к основным методам защиты. <br>
+Можно конечно сидеть в крепости с высока наблюдая за осадой, а можно бомбить в ответку, по одному отстреливая нападающих.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465054">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4465080">
+	
+	
+		<div class="info  	" rel="4465080">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465080" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 11: &uarr;11 и &darr;0">+11</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/mechmind/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/mechmind/" class="username">mechmind</a>
+			<time datetime="2011-12-12T17:12:50+04:00">12 декабря 2011, 17:12</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465080" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			In Soviet Russia botnet DDoS'ed by YOU<i>!!</i> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465080">
+	 
+		
+<div class="comment_item" id="comment_4465102">
+	
+	
+		<div class="info  	" rel="4465102">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465102" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 7: &uarr;7 и &darr;0">+7</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-12T17:22:33+04:00">12 декабря 2011, 17:22</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465102" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465080" data-id="4465102" data-parent_id="4465080" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Наши админы настолько суровы, что они ддосят ботнеты.))) 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465102">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4465527">
+	
+	
+		<div class="info  	" rel="4465527">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465527" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/ximaera/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/16562_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/ximaera/" class="username">ximaera</a>
+			<time datetime="2011-12-12T20:21:25+04:00">12 декабря 2011, 20:21</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465527" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Пара тезисов:<br>
+ — UDP/ICMP/SYN-флуд, как правило, ведётся со spoofed (затрудняюсь сказать по-русски) IP-адресов, и жаловаться на них можно хоть в спортлото;<br>
+ — атаки уровня приложения, как правило, ведутся с нескольких тысяч IP-адресов заражённых десктопов, и жаловаться на них можно их провайдерам до бесконечности. Малая часть провайдеров захочет принимать какие-то меры, и, к большому сожалению, ещё меньшая обладает техническими специалистами уровня, достаточного для реального решения проблемы. В результате из 10000 ботов вы отсечёте, ну, сотни четыре, при этом потратив существенное время на переговоры с сотрудниками <i>каждого</i> из провайдеров, иногда ещё и не на русском языке. Толку от таких действий — никакого.<br>
+<br>
+Having said that, изредка случаются атаки с дедиков без спуфа, и abuse@ может помочь в этом случае. Проблема в том, что время реакции abuse@ составляет иногда до 4 дней. Так что жалоба — это именно не решение проблемы, а месть атакующим.<br>
+<br>
+Нужно также понимать, что если атакующие не скрывают IP-адреса источников атаки, то будущее этих источников им до лампочки — машины заражены/взломаны, имя им — легион, и управляются они из командного центра. Так что и мстите-то вы скорее для собственного удовольствия. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465527">
+	 
+		
+<div class="comment_item" id="comment_4465561">
+	
+	
+		<div class="info  	" rel="4465561">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465561" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/dkr6/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/30089_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/dkr6/" class="username">dkr6</a>
+			<time datetime="2011-12-12T20:40:28+04:00">12 декабря 2011, 20:40</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465561" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465527" data-id="4465561" data-parent_id="4465527" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			… Но иногда так хочется вывести в чисто поле, поставить лицом к стенке и пустить пулю в лоб…<br>
+<br>
+Особенно, когда понимаешь, что всего этого могло бы и не быть, если бы толпы «леммингов» мыли руки после туалета…<br>
+Или хотя бы пользовались туалетной бумагой… 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465561">
+	 
+		
+<div class="comment_item" id="comment_4465618">
+	
+	
+		<div class="info  	" rel="4465618">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465618" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/ximaera/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/16562_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/ximaera/" class="username">ximaera</a>
+			<time datetime="2011-12-12T21:00:10+04:00">12 декабря 2011, 21:00</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465618" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465561" data-id="4465618" data-parent_id="4465561" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Само собой. Однако в то же время эти толпы являются целевой аудиторией абсолютного большинства рентабельных сервисов Рунета, и, если эти толпы поставить к стенке, данные сервисы просто перестанут существовать.<br>
+<br>
+Моё личное узколобое предвзятое мнение состоит в том, что провайдеры должны как-то, ну, ухаживать за своими клиентами. Антивирусы там дарить или бесплатное регулярное техобслуживание. А то развешивать рекламу и дарить домохозяйкам бесплатное подключение все горазды, а потом на этих домохозяек их провайдер плюёт с высокой колокольни. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465618">
+	 
+		
+<div class="comment_item" id="comment_4465719">
+	
+	
+		<div class="info  	" rel="4465719">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465719" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/alekciy/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/11544_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/alekciy/" class="username">alekciy</a>
+			<time datetime="2011-12-12T21:38:38+04:00">12 декабря 2011, 21:38</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465719" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465618" data-id="4465719" data-parent_id="4465618" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Провайдеру это не выгодно. Какая бесплатная поддержка, когда зачастую даже для штатных работ нанимают студентов которые в предметной области очень сильно плавают. И это даже не беря в расчет соображение о том, юзера любят временно отключать антивирусник когда им кажется что он мешает работе системы.<br>
+<br>
+Имхо, решение есть, но оно должно проводиться на уровне государства и законов. И к этому еще придут. Просто это элементы безопасности и страхования рисков, как и ремень безопасности в машине или ОСАГО. Вводить ответственность для конечно пользователей глупо, имхо, как нетехнические специалисты это не их дело. Но административную ответственность вводить для лиц устанавливающих антивирусные системы. Приглашать или нет такого спеца дело должно быть добровольное, но если нет актов от установленном и настроем ПО от таких специалистов, то ответственность на владельце компа. В нормально законе рецидив должен учитываться. Т.е. в случае первого нарушения ни какие санкции кроме уведомления не применяются. После этого адекватный пользователь либо произведет нормальную настройку, либо пригласит спецов и получит бумагу под это дело. Ну а не внял, значит применять прогрессирующую шкалу штрафов.<br>
+<br>
+В общем как и в программинге реализуемо все, вопрос воли и желания. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465719">
+	 
+		
+<div class="comment_item" id="comment_4465802">
+	
+	
+		<div class="info  	" rel="4465802">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465802" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/bear11/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/bear11/" class="username">bear11</a>
+			<time datetime="2011-12-12T22:09:31+04:00">12 декабря 2011, 22:09</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465802" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465719" data-id="4465802" data-parent_id="4465719" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Не забудьте, что задача выяснения того, что данная конкретно программа — вредоносная — алгоритмически неразрешима… 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465802">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4465877">
+	
+	
+		<div class="info  	" rel="4465877">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465877" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/ximaera/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/16562_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/ximaera/" class="username">ximaera</a>
+			<time datetime="2011-12-12T22:44:14+04:00">12 декабря 2011, 22:44</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465877" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465719" data-id="4465877" data-parent_id="4465719" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Проблема в том, что антивирусные системы тоже обладают неплохой такой инерцией. То есть искоренить вирусы и ботнеты не удастся, они будут всегда, вопрос только во времени их существования и в скорости реакции ответственных за их обезвреживание лиц.<br>
+<br>
+При этом организовать быструю реакцию техподдержки провайдера вполне реально. Оная техподдержка, по-хорошему, так или иначе должна быть круглосуточной и иметь в штате толкового технического специалиста, и она может оперативно заблокировать трафик по определённому признаку (например, IP-адрес назначения) по экстренному запросу. А вот организовать быструю реакцию эникейщиков-спецов по установке/обновлению антивируса невозможно.<br>
+<br>
+Но, конечно, это можно воплотить в жизнь только на уровне законов. Призывов к сознательности здесь явно недостаточно. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465877">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4466153">
+	
+	
+		<div class="info  	" rel="4466153">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466153" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 2: &uarr;1 и &darr;1">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kolcvk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kolcvk/" class="username">kolcvk</a>
+			<time datetime="2011-12-13T01:32:51+04:00">13 декабря 2011, 01:32</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466153" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465527" data-id="4466153" data-parent_id="4465527" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			UDP/ICMP — блокируются спокойно у хостера, даже на простой циске (свиче) простейшим аксес-листом.<br>
+SYN — это уже можно передавать хостеру у которого есть услуга защиты от ДДоС, <br>
+всёж лучше чем нагружать интераптами простой сервачок, хоть и дороже.<br>
+Вот хомячки — это больная тема, «домашние» провайдеры как правило медленно реагируют на абузу, тут спасает либо капасити сервера, либо услуга от ДЦ.<br>
+Насчёт времени реакции, ДЦ заинтересованы отвечать быстро, 24 — 48 часов макс.<br>
+т.к повторюсь (ниже уже писал) ниодин ДЦ, не хочет славы абузоустойчивого ДЦ со всеми вытекающими. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466153">
+	 
+		
+<div class="comment_item" id="comment_4466184">
+	
+	
+		<div class="info  	" rel="4466184">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466184" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-13T01:50:18+04:00">13 декабря 2011, 01:50</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466184" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466153" data-id="4466184" data-parent_id="4466153" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			24-48 часов это быстрое время реакции? В нашем случае, например через 48 часов можно было бы уже закрываться и попрощаться со всем проектом. <br>
+Посему наедятся тут на ДЦ достаточно рискованно. Тут надо оценку делать, или справляться своими силами, или фильтровать трафик на стороне. <br>
+Это конечно хорошо когда ДЦ помогает, но мне таких на жизненном пути не встречалось, может просто не везло. Им намного проще потерять одного клиента, нежели поставить под удар все оборудование и потерять всех остальных.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466184">
+	 
+		
+<div class="comment_item" id="comment_4466188">
+	
+	
+		<div class="info  	" rel="4466188">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466188" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kolcvk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kolcvk/" class="username">kolcvk</a>
+			<time datetime="2011-12-13T01:56:17+04:00">13 декабря 2011, 01:56</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466188" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466184" data-id="4466188" data-parent_id="4466184" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			В данном случае, приведены макс. позволительные для хостера сроки, у многих ДЦ поддержка 24х7, и обычно реакция незамедлительна (хотя опять же, судим по себе, и по партнёрам).<br>
+Может быть и проще потерять клиента, но раз клиент, два клиент, три клиент, <br>
+а потом и репутацию надёжного партнёра, с которым можно вести дела, и потерять можно.<br>
+ 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466188">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4466410">
+	
+	
+		<div class="info  	" rel="4466410">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466410" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Lux_In_Tenebris/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/850_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/Lux_In_Tenebris/" class="username">Lux_In_Tenebris</a>
+			<time datetime="2011-12-13T05:50:48+04:00">13 декабря 2011, 05:50</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466410" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466153" data-id="4466410" data-parent_id="4466153" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			<blockquote>SYN — это уже можно передавать хостеру у которого есть услуга защиты от ДДоС</blockquote><br>
+а может просто включить SYN cookies? 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466410">
+	 
+		
+<div class="comment_item" id="comment_4466564">
+	
+	
+		<div class="info  	" rel="4466564">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466564" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kolcvk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kolcvk/" class="username">kolcvk</a>
+			<time datetime="2011-12-13T10:09:29+04:00">13 декабря 2011, 10:09</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466564" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466410" data-id="4466564" data-parent_id="4466410" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Вы правы, SYN cookies / SYN proxy поможет боротся с SYN флудом, но с маленьким, <br>
+если вы не упрётесь в процессор (я имею ввиду прерывания, на обработку которых весь ресурс процессора будет выделен) то вы упрётесь в ширину канала сетевой карты (при больших атаках).<br>
+Так что боротся можно и самому, но со «школьниками» без помощи ДЦ (редкие ДЦ) / внешнего сервиса (дорогие сервисы) тут уж точно не обойтись. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466564">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4466409">
+	
+	
+		<div class="info  	" rel="4466409">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466409" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Lux_In_Tenebris/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/850_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/Lux_In_Tenebris/" class="username">Lux_In_Tenebris</a>
+			<time datetime="2011-12-13T05:49:39+04:00">13 декабря 2011, 05:49</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466409" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465527" data-id="4466409" data-parent_id="4465527" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			а ещё довольно таки часто обращения на abuse@ или валятся в какой-нибудь редко проверяемый ящик, или адрес вовсе не работает (для Азии и Южной Америки вполне себе обыденность) 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466409">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4467122">
+	
+	
+		<div class="info  	" rel="4467122">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4467122" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/alexmsk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/alexmsk/" class="username">alexmsk</a>
+			<time datetime="2011-12-13T14:19:07+04:00">13 декабря 2011, 14:19</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4467122" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465527" data-id="4467122" data-parent_id="4465527" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			&gt; — UDP/ICMP/SYN-флуд, как правило, ведётся со spoofed (затрудняюсь сказать по-русски) IP-адресов, и жаловаться на них можно хоть в спортлото;<br>
+<br>
+Задавал уже в комментариях этот вопрос, все же. Разве spoofed-травик не отвалится сам собой на маршрутизаторах ДЦ, в котором расположен атакующий хост? 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4467122">
+	 
+		
+<div class="comment_item" id="comment_4467133">
+	
+	
+		<div class="info  	" rel="4467133">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4467133" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/ximaera/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/16562_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/ximaera/" class="username">ximaera</a>
+			<time datetime="2011-12-13T14:22:05+04:00">13 декабря 2011, 14:22</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4467133" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4467122" data-id="4467133" data-parent_id="4467122" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Не отвалится. Во-первых, не все ДЦ заботятся о такой фильтрации. Во-вторых, существуют IX, где вообще мало кого интересует, что там происходит на подключенных машинах. abuse@ у ряда IX абсолютно непробиваемый. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4467133">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4465539">
+	
+	
+		<div class="info  	" rel="4465539">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465539" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/lybin/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/42211_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/lybin/" class="username">lybin</a>
+			<time datetime="2011-12-12T20:27:11+04:00">12 декабря 2011, 20:27</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465539" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Спасибо, жду еще статей:) 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465539">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4465907">
+	
+	
+		<div class="info  	" rel="4465907">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4465907" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 3: &uarr;2 и &darr;1">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Hello1/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Hello1/" class="username">Hello1</a>
+			<time datetime="2011-12-12T23:04:49+04:00">12 декабря 2011, 23:04</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465907" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Странный итог статьи, разослали письма, и не сказали уменьшилась ли атака. Только рассуждения что возможно найдутся люди которые отреагируют.<br>
+Но мне больше видится сценарий что через пару месяцев таких автоматических абуз ваш ip попадет в спамхаус и аналоги. Ip spoof здравствует и процветает. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4465907">
+	 
+		
+<div class="comment_item" id="comment_4466039">
+	
+	
+		<div class="info  	" rel="4466039">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466039" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-13T00:20:42+04:00">13 декабря 2011, 00:20</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466039" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4465907" data-id="4466039" data-parent_id="4465907" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Если говорить про мой конкретный случай, да это помогло. В основном долбили пара десятков дедиков на мощных каналах, после абуз они исчезали, от ДЦ почти всегда приходили ответы. <br>
+Маскировать ip ддосеры не пытались. <br>
+По письмам, отосланным на адреса простых ботов, ответы приходили еще на протяжении пары недель. Где-то стандартные шаблонные отписки мол ваш запрос принят, разберемся, где-то писали мол уведомили клиента или заблочили.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466039">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4466118">
+	
+	
+		<div class="info  	" rel="4466118">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466118" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/nick5/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/44873_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/nick5/" class="username">nick5</a>
+			<time datetime="2011-12-13T01:03:54+04:00">13 декабря 2011, 01:03</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466118" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			Спасибо за статью, хотелось бы узнать насколько с практической точки зрения данный метод эффективен? 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466118">
+	 
+		
+<div class="comment_item" id="comment_4466133">
+	
+	
+		<div class="info  	" rel="4466133">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4466133" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/kolcvk/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/kolcvk/" class="username">kolcvk</a>
+			<time datetime="2011-12-13T01:19:29+04:00">13 декабря 2011, 01:19</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466133" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4466118" data-id="4466133" data-parent_id="4466118" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			В принципе от зараженных дедиков — очень даже, многие ДЦ реагируют быстро, <br>
+это в их же интересах, никому ненужна слава абузоустойчивого хостера. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4466133">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4473320">
+	
+	
+		<div class="info  	" rel="4473320">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4473320" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/charon/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/35086_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/charon/" class="username">charon</a>
+			<time datetime="2011-12-16T01:04:47+04:00">16 декабря 2011, 01:04</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4473320" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			ваше решение по моему опыту будет неработоспособным. Всё хорошо, кроме поиска электронных адресов и отправки писем. <br>
+<code>whois IP|grep mail </code><br>
+это как-то отстойненько. Когда-то я тоже решал похожую задачу и так не нашёл способа универсально парсить ответ whois — он очень сильно различается для разных зон.<br>
+Вторая проблема — после некоторого количества запросов за единицу времени whois просто перестаёт отвечать вообще. Я так понял, это защита от ДДоСа или как-то так. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4473320">
+	 
+		
+<div class="comment_item" id="comment_4473449">
+	
+	
+		<div class="info  	" rel="4473449">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4473449" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ajex/" class="avatar"><img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ajex/" class="username">Ajex</a>
+			<time datetime="2011-12-16T02:35:59+04:00">16 декабря 2011, 02:35</time>
+			<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4473449" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/infosecurity/134359/#comment_4473320" data-id="4473449" data-parent_id="4473320" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message html_format ">
+			&gt;&gt;&gt; ваше решение по моему опыту будет неработоспособным. Всё хорошо, кроме поиска электронных адресов и отправки писем. <br>
+А вы попробуйте. :) Перед тем как выложить скрипты я их проверял на работоспособность. Если знаете что можно улучшить, код на гитхабе, там это все можно осуществить. <br>
+<br>
+&gt;&gt;&gt; whois IP|grep mail это как-то отстойненько. <br>
+Все гениальное порой очень просто, почему оно должно быть сложным?<br>
+<br>
+&gt;&gt; Вторая проблема — после некоторого количества запросов за единицу времени <br>
+возможно, но я на такой лимит не натыкался. Думаю если чекать 100 тыс ботов, это будет проблемным, но в отличие от общепринятого мнения ботов не сотни тыщ, а вполне определенное количество, поэтому в большинстве случаев проблем не должно возникнуть. Можно разбить проверку на группы и делать задержку. Я просто не хотел усложнять скрипты, в них принцип работы, который каждый волен настроить под себя. <br>
+<br>
+&gt;&gt;&gt; Я так понял, это защита от ДДоСа или как-то так.<br>
+своершенно не правильно поняли, данное решение совершенно не претендует на способ защиты и я об этом писал. Это одна из возможных составляющих оборонного комплекса, эдакая месть, если так проще для понимания. Возможно вам оно ни как и не поможет, но поможет кому-то еще.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4473449">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+  
+</div>
+		
+  <p class="for_users_only_msg">Только зарегистрированные пользователи могут оставлять комментарии. <a href="http://habrahabr.ru/login/">Войдите</a>, пожалуйста.</p>
+
+
+		<div id="edit_tags_form" class="hidden">
+<form action="http://habrahabr.ru/blogs/infosecurity/134359/#" method="post">
+  <input type="hidden" name="action" value="add">
+  <input type="hidden" name="ti" value="0">
+  <input type="hidden" name="tt" value="0">
+  <label>Пометьте топик понятными вам метками, если хотите</label>
+  <input type="text" name="tags_string" class="tags_string" autocomplete="off" style="">
+  <div class="description">Метки лучше разделять запятой. Например: <i>общение, социальные сети, myspace.com, подростки, мердок</i></div>
+  <input type="submit" value="Сохранить" class="submit"> или <a href="http://habrahabr.ru/blogs/infosecurity/134359/#" class="close" onclick="return close_edit_tags()">закрыть</a>
+</form>
+</div>
+	
+	
+
+    </div>
+  </div>
+  <div class="sidebar_right">
+    
+	
+<div class="block blog_info">
+  <h1>Информация о блоге</h1>
+  <div class="info">
+  
+    <div class="stats">
+      <div class="members_count" id="members_count">23893 читателя</div>
+      <div class="posts_count">1655 постов</div>
+    </div>
+    
+    
+		
+  </div>
+</div>
+
+	
+
+
+	<div class="banner_240x400">
+		
+<!--  AdRiver code START. Type:240x400 Site: habrahabr PZ: 0 BN: 0 -->
+<script language="javascript" type="text/javascript"><!--
+var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+document.write(
+'<iframe src="http://ad.adriver.ru/cgi-bin/erle.cgi?'
++ 'sid=176776&target=top&bt=22&pz=0&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail
++ '" frameborder=0 vspace=0 hspace=0 width=240 height=400 marginwidth=0'
++ ' marginheight=0 scrolling=no></iframe>');
+//--></script><iframe src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/erle(2).html" frameborder="0" vspace="0" hspace="0" width="240" height="400" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<noscript></noscript>
+
+<!--  AdRiver code END  -->
+
+	</div>
+
+
+
+
+
+
+	
+
+<div class="block daily_best_posts">
+  <h1>Лучшее <sup>за 24 часа</sup> ↓ </h1>
+  <div class="posts_list">
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/demoscene/" class="blog_name">Демосцена</a> →
+        <a href="http://habrahabr.ru/blogs/demoscene/139651/" class="post_name">Демо, которых никто никогда не видел</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/browsers/" class="blog_name">Браузеры</a> →
+        <a href="http://habrahabr.ru/blogs/browsers/139677/" class="post_name">Российский программист получил 60 тысяч долларов за найденную уязвимость Chrome</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/microsoft/" class="blog_name">Microsoft</a> →
+        <a href="http://habrahabr.ru/blogs/microsoft/139665/" class="post_name">Уменьшение лага сенсорных экранов со 100 мс до 1 мс</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/programming/" class="blog_name">Программирование</a> →
+        <a href="http://habrahabr.ru/blogs/programming/139639/" class="post_name">Как запустить Дальнобойщики 2 под Wine, патчим ddraw.c</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/nosql/" class="blog_name">NoSQL</a> →
+        <a href="http://habrahabr.ru/blogs/nosql/139325/" class="post_name">Архитектурный изьян CouchDB при удалении документов</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/cloud_computing/" class="blog_name">Облачные вычисления</a> →
+        <a href="http://habrahabr.ru/blogs/cloud_computing/139653/" class="post_name">Стартап Space Monkey предлагает 1 Терабайт в облаке за $10 в месяц</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/webstandards/" class="blog_name">Веб-стандарты</a> →
+        <a href="http://habrahabr.ru/blogs/webstandards/139668/" class="post_name">Единая база расширений GNOME Shell</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/algorithm/" class="blog_name">Алгоритмы</a> →
+        <a href="http://habrahabr.ru/blogs/algorithm/139646/" class="post_name">Упаковка в контейнеры (bin packing) при помощи генетического алгоритма</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/company/garstelecom/blog/" class="blog_name">Блог компании Гарс Телеком</a> →
+        <a href="http://habrahabr.ru/company/garstelecom/blog/139652/" class="post_name">55 каналов на одном частотном диапазоне: прорыв шведско-итальянской группы ученых</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/webdev/" class="blog_name">Веб-разработка</a> →
+        <a href="http://habrahabr.ru/blogs/webdev/139657/" class="post_name">Простая интеграция сайта и 1С</a>
+      </div>      
+    
+  </div>
+  <div class="all">« <a href="http://habrahabr.ru/top/">все лучшие</a></div>
+</div>
+
+	
+
+
+<div class="block similar_posts">
+
+	<h1>Похожие посты ↓ </h1>
+  <div class="posts_list">
+  	
+    	<div class="post_item">
+    				<span class="when">27.02.2012</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/company/drweb/blog/">Блог компании Доктор Веб</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/company/drweb/blog/138958/">Trojan.Tenagour.9 помогает злоумышленникам в DDoS-атаках</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">08.12.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/infosecurity/">Информационная безопасность</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/infosecurity/134264/">Не все DDoS-защиты одинаково полезны</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">21.12.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/company/kaspersky/blog/">Блог компании «Лаборатория Касперского»</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/company/kaspersky/blog/135040/">К DDoS-атаке – готовы!</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">10.12.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/infosecurity/">Информационная безопасность</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/infosecurity/134331/">Практический эпизод борьбы с DDoS</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">26.11.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/infosecurity/">Информационная безопасность</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/infosecurity/133418/">Школьный DDoS и стоит ли его бояться</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">29.10.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/sysadm/">Системное администрирование</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/sysadm/131469/">Метод определения и динамической защиты от DDoS типа SYN-flood</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">26.09.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/infosecurity/">Информационная безопасность</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/infosecurity/129181/">Методы борьбы с DDoS-атаками</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">16.09.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/infosecurity/">Информационная безопасность</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/infosecurity/128526/">Защита от DDOS атаки подручными средствами. Получение доступа к своему серверу</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">10.09.2008</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/webdev/">Веб-разработка</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/webdev/39509/">Защита от DDos. Простой, но эффективный скрипт</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">04.07.2007</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/infosecurity/">Информационная безопасность</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/infosecurity/11842/">Владельцы ботнетов Srizbi и Storm Worm развязали войну</a>
+      </div>
+  	
+  </div>			
+</div>
+
+
+
+
+	
+
+
+<div class="block live_broadcast_activity">
+  <h1>Прямой эфир ↓ </h1>
+  <div class="posts_list">
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/shanker/" class="user_name">shanker</a> →
+      <a href="http://habrahabr.ru/blogs/infosecurity/139604/#comment_4667168" class="post_name">Отслеживание параметров браузера и ОС пользователя как мера предотвращения угона аккаунтов (обновлено)</a>
+      <span class="count">46</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/dmitriid/" class="user_name">dmitriid</a> →
+      <a href="http://habrahabr.ru/blogs/android/139614/#comment_4667166" class="post_name">Что не так с Android?</a>
+      <span class="count">437</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/System32/" class="user_name">System32</a> →
+      <a href="http://habrahabr.ru/blogs/DIY/139647/#comment_4667165" class="post_name">Бинарные часы своими руками (Mega32, DS1307)</a>
+      <span class="count">40</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/edogs/" class="user_name">edogs</a> →
+      <a href="http://habrahabr.ru/blogs/infosecurity/139685/#comment_4667164" class="post_name">Блокиратор одноклассников и прочих сайтов</a>
+      <span class="count">1</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/diamant/" class="user_name">diamant</a> →
+      <a href="http://habrahabr.ru/blogs/cloud_computing/139653/#comment_4667163" class="post_name">Стартап Space Monkey предлагает 1 Терабайт в облаке за $10 в месяц</a>
+      <span class="count">77</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/shevmax/" class="user_name">shevmax</a> →
+      <a href="http://habrahabr.ru/blogs/demoscene/139651/#comment_4667162" class="post_name">Демо, которых никто никогда не видел</a>
+      <span class="count">70</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/SiTLar/" class="user_name">SiTLar</a> →
+      <a href="http://habrahabr.ru/blogs/browsers/139677/#comment_4667161" class="post_name">Российский программист получил 60 тысяч долларов за найденную уязвимость Chrome</a>
+      <span class="count">72</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/GlumShadow/" class="user_name">GlumShadow</a> →
+      <a href="http://habrahabr.ru/blogs/webdev/139682/#comment_4667160" class="post_name">Адаптируем графику под Retina экран</a>
+      <span class="count">19</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/karramba/" class="user_name">karramba</a> →
+      <a href="http://habrahabr.ru/blogs/hpodcasts/139650/#comment_4667151" class="post_name">Профит-Шоу XVI: директор агрегатора вакансий Jooble Роман Прокофьев</a>
+      <span class="count">7</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/jack7277/" class="user_name">jack7277</a> →
+      <a href="http://habrahabr.ru/blogs/webdev/139657/#comment_4667145" class="post_name">Простая интеграция сайта и 1С</a>
+      <span class="count">26</span>
+    </div>
+
+  </div>
+  <!--div class="all">&laquo; <a href="/live/">весь прямой эфир</a></div-->
+  
+</div>
+
+
+
+  
+	
+
+	
+
+<div class="block best_company">
+
+		<h1>Компания дня <img src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/bg_cicle_help.png" class="help-tip"></h1>
+
+		<div class="company_info">
+			<div class="name">
+			 <img class="favicon" src="./Наносим удар по ddos ботнету своими силами   Информационная безопасность   Хабрахабр_files/favicon_1581.ico" alt="Digital October" height="16" width="16">
+			 <a href="http://habrahabr.ru/company/digitaloctober/" class="title">Digital October</a>
+			</div>
+
+			<p>Последний пост:
+				<a href="http://habrahabr.ru/company/digitaloctober/blog/139469/">Квазикристаллы — гордость Чукотки</a>
+			</p>
+
+			<div class="like">
+  			<div id="fans_count">114 поклонников</div>
+  			
+			</div>
+		</div>
+
+	</div>
+
+
+	
+
+<div class="block qa_activity">
+  <h1>Q&amp;A ↓ </h1>
+  <div class="posts_list">
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/meta4/" class="user_name">meta4</a> →
+      <a href="http://habrahabr.ru/qa/17266/#comment_83397" class="post_name">На что мигрировать с MS SQL? MySQL или PostgreSql?</a>
+      <span class="count">2</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/bagyr/" class="user_name">bagyr</a> →
+      <a href="http://habrahabr.ru/qa/17267/#answer_71252" class="post_name">Os X lion и два монитора</a>
+      <span class="count">1</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/peanut/" class="user_name">peanut</a> →
+      <a href="http://habrahabr.ru/qa/17257/#answer_71249" class="post_name">Какие журналы по программированию вы читаете?</a>
+      <span class="count">3</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/volanddd/" class="user_name">volanddd</a> →
+      <a href="http://habrahabr.ru/qa/17265/#answer_71248" class="post_name">Сайты или программы для сохранения веб-страниц</a>
+      <span class="count">4</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/lolken/" class="user_name">lolken</a> →
+      <a href="http://habrahabr.ru/qa/17264/#comment_83393" class="post_name">для чего нужен pwr_good в бп?</a>
+      <span class="count">2</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/knekrasov/" class="user_name">knekrasov</a> →
+      <a href="http://habrahabr.ru/qa/17248/#comment_83392" class="post_name">Какие технлогии/паттерны использовать для веб-проекта?</a>
+      <span class="count">2</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/grigoryrudko/" class="user_name">grigoryrudko</a> →
+      <a href="http://habrahabr.ru/qa/17262/#answer_71244" class="post_name">Написал статью про машину времени и опрос для стартаперов про финансирование прототипа, не хватает кармы опубликовать</a>
+      <span class="count">3</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/librarian/" class="user_name">librarian</a> →
+      <a href="http://habrahabr.ru/qa/17263/#comment_83390" class="post_name">Motorola Milestone. Вопрос по кастомным прошивкам</a>
+      <span class="count">1</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/dokwork/" class="user_name">dokwork</a> →
+      <a href="http://habrahabr.ru/qa/17255/#comment_83389" class="post_name">Законно ли использовать словари от Lingvo в GoldenDict?</a>
+      <span class="count">1</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/Aco/" class="user_name">Aco</a> →
+      <a href="http://habrahabr.ru/qa/17229/#comment_83388" class="post_name">Нужна помощь web-разработчиков</a>
+      <span class="count">6</span>
+    </div>
+
+  </div>
+  <div class="all">« <a href="http://habrahabr.ru/qa/">все вопросы</a></div>
+  
+</div>
+
+	
+
+<div class="block new_vacanies">
+  <h1>О, работа! ↓ </h1>
+  <div class="vacancies">
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/8185-dizayner-interfeysov-art-direktor">Дизайнер интерфейсов / Арт-директор</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/8184-spetsialist-po-relyatsionnym-bazam-dannyh">Специалист по реляционным базам данных</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/8183-razrabotchik-ruby-on-rails">Разработчик Ruby on Rails</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/8182-actionscript-programmist">ActionScript программист</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/8177-c-programmist-mobilnyh-prilozheniy">C++ программист мобильных приложений</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/8180-razrabotchik-android-prilozheniy">Разработчик Android-приложений</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/8179-razrabotchik-ios-prilozheniy">Разработчик iOS-приложений</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/8178-redaktor-novostey-udalenno">Редактор новостей удаленно</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/8176-razrabotchik-veduschiy-razrabotchik-java">Разработчик/Ведущий разработчик Java</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/8174-veduschiy-php-razrabotchik">Ведущий PHP-разработчик</a>
+		</div>
+		
+  </div>
+  <div class="all">« <a href="http://hantim.ru/">все вакансии</a></div>
+
+	</div>
+      
+	
+	
+	
+	<div class="block category_blogs">
+		<h1>Безопасность ↓</h1>
+		
+		<div class="blogs_list">
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/crypto/">Криптография</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/virus/">Вирусы (и антивирусы)</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/spam/">Спам (и антиспам)</a>
+				  </div>
+		
+			  </div>
+			
+		</div>
+		<div class="all">« <a href="http://habrahabr.ru/bloglist/security/">все  блоги</a></div>
+  </div>
+	
+
+
+	
+
+
+<div class="block similar_events">
+  <h1>Ближайшие события</h1>
+  <div class="events">
+    
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_1"></div>
+				<div class="day">12</div>
+				<div class="month">марта</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/382/">#MBLT12 — международная мобильная конференция</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_1"></div>
+				<div class="day">12</div>
+				<div class="month">марта</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/495/">Microsoft Imagine Cup - региональный финал конкурса программных проектов</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_1"></div>
+				<div class="day">12</div>
+				<div class="month">марта</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/286/">Chief ConfeT&amp;QA: конференция для тест-менеджеров и ведущих специалистов по качеству</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_2"></div>
+				<div class="day">13</div>
+				<div class="month">марта</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/498/">Формула сайта: Успешный интернет-магазин от А до Я</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_2"></div>
+				<div class="day">13</div>
+				<div class="month">марта</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/499/">Современные технологии проектного менеджмента</a>			 
+			</div>
+		</div>
+		
+  </div>
+  <div class="all">« <a href="http://habrahabr.ru/events/">все события</a></div>
+</div>
+
+
+    
+  </div>
+  <div class="clear"></div>
+
+		  <div id="footer">
+      
+			
+			<dl>
+				<dd><a href="http://habrahabr.ru/login/">Войти</a></dd>
+				<dd><a href="http://habrahabr.ru/register/">Регистрация</a></dd>
+			</dl>
+			
+			<dl>
+				<dt>Разделы</dt>
+			  
+				<dd><a href="http://habrahabr.ru/qa/">Q&amp;A</a></dd>
+				<dd><a href="http://habrahabr.ru/events/">События</a></dd>
+				<!--dd><a href="http://habrahabr.ru/links/">Ссылки</a></dd-->
+				<dd><a href="http://habrahabr.ru/job/">Работа</a></dd>
+				<dd><a href="http://habrahabr.ru/bloglist/">Блоги</a></dd>
+				<dd><a href="http://habrahabr.ru/companies/">Компании</a></dd>
+				<dd><a href="http://habrahabr.ru/people/">Люди</a></dd>
+				<dd><a href="http://habrahabr.ru/top/">Лучшие</a></dd>
+			</dl>
+			<dl>
+				<dt>Блоги</dt>
+				<dd><a href="http://habrahabr.ru/">Все</a></dd>
+				<dd><a href="http://habrahabr.ru/blogs/">Тематические</a></dd>
+				<dd><a href="http://habrahabr.ru/corporative/">Корпоративные</a></dd>
+				<!--dd><a href="http://habrahabr.ru/personal/">Личные</a></dd-->
+				<dd><a href="http://habrahabr.ru/sandbox/">Песочница</a></dd>
+			</dl>
+			<dl>
+				<dt>Инфо</dt>
+				<dd><a href="http://habrahabr.ru/info/about/">О сайте</a></dd>
+				<dd><a href="http://habrahabr.ru/info/help/rules/">Правила</a></dd>
+				<dd><a href="http://habrahabr.ru/info/help/">Помощь</a></dd>
+				<dd><a href="http://habrahabr.ru/info/agreement/">Соглашение</a></dd>
+				<dd><a href="http://habrahabr.ru/info/stats/">Статистика</a></dd>
+			</dl>
+			<dl>
+				<dt>Услуги</dt>
+				<dd><a href="http://habrahabr.ru/info/advertising/">Реклама</a></dd>
+				<dd><a href="http://habrahabr.ru/info/advertising/corporate/">Корпоративные пакеты</a></dd>
+				<dd><a href="http://habrahabr.ru/info/advertising/workshops/">Семинары</a></dd>
+			</dl>
+      <div class="copyright">
+    		<a class="footer_logo" href="http://thematicmedia.ru/">Тематические Медиа</a>
+    		<div class="about">
+    			© 2006–2012<br>
+    			«<a href="http://www.thematicmedia.ru/">Тематические Медиа</a>»
+    		  <br><br>	
+  				Служба поддержки:<br>
+  				<a href="mailto:support@habrahabr.ru" title="адрес службы поддержки пользователей">support@habrahabr.ru</a><br><br><br>
+  				<a href="http://m.habrahabr.ru/">Мобильная версия</a>
+  			
+			  </div>
+      </div>
+	
+</div>
+		</div>
+	 	
+		
+    
+		
+    <script type="text/javascript">
+      $(document).ready(function(){
+        // test gggg
+        // настройки всплывающих уведомлений
+        $.jGrowl.defaults.closerTemplate = '<div>Закрыть все уведомления</div>';         
+        
+        // настройки тултипов
+        $(".help-tip").tipTip({maxWidth: "auto", edgeOffset: 10});  
+        
+      });
+      // global vars
+      var g_base_url = 'habrahabr.ru';
+      var g_show_xpanel = false;
+      var g_base_fullurl = 'http://habrahabr.ru/';
+      var g_is_guest = false;
+       
+    </script>
+    
+    
+<script type="text/javascript">
+	/*<![CDATA[*/
+	var ga = document.createElement('script');
+		ga.setAttribute('async', 'true');
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	/* ]]>*/
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(
+	    ['_setAccount', 'UA-726094-1'],
+	    ['_setDomainName', '.habrahabr.ru'],
+	    ["_addOrganic", "mail.ru", "q"],
+	    ["_addOrganic","rambler.ru", "words"],
+	    ["_addOrganic","nigma.ru", "s"],
+	    ["_addOrganic","blogs.yandex.ru", "text"],
+	    ["_addOrganic","webalta.ru", "q"],
+	    ["_addOrganic","aport.ru", "r"],
+	    ["_addOrganic","akavita.by", "z"],
+	    ["_addOrganic","meta.ua", "q"],
+	    ["_addOrganic","bigmir.net", "q"],
+	    ["_addOrganic","tut.by", "query"],
+	    ["_addOrganic","all.by", "query"],
+	    ["_addOrganic","i.ua", "q"],
+	    ["_addOrganic","online.ua", "q"],
+	    ["_addOrganic","a.ua", "s"],
+	    ["_addOrganic","ukr.net", "search_query"],
+	    ["_addOrganic","search.com.ua", "q"],
+	    ["_addOrganic","search.ua", "query"],
+	    ["_addOrganic","poisk.ru", "text"],
+	    ["_addOrganic","km.ru", "sq"],
+	    ["_addOrganic","liveinternet.ru", "ask"],
+	    ["_addOrganic","gogo.ru", "q"],
+	    ["_addOrganic","gde.ru", "keywords"],
+	    ["_addOrganic","quintura.ru", "request"],
+	    ['_trackPageview']
+	);
+	document.documentElement.firstChild.appendChild(ga);
+</script>	
+		
+		
+	
+
+<div id="AutocompleteContainter_6dc69" style="position: absolute; top: 141px; left: 958px; z-index: 9999; "><div class="autocomplete-w1"><div class="autocomplete" id="Autocomplete_6dc69" style="display: none; max-height: 400px; width: 300px; "></div></div></div><div id="AutocompleteContainter_e3431" style="position: absolute; top: 0px; left: 0px; z-index: 9999; "><div class="autocomplete-w1"><div class="autocomplete" id="Autocomplete_e3431" style="display: none; max-height: 400px; width: 300px; "></div></div></div><div id="tiptip_holder" style="max-width:auto;"><div id="tiptip_arrow"><div id="tiptip_arrow_inner"></div></div><div id="tiptip_content"></div></div></body></html>

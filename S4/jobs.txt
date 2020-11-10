@@ -1,0 +1,3 @@
+http://www.python.org/community/jobs/
+
+http://code.google.com/edu/languages/google-python-class/index.html

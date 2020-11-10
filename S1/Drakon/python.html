@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Python programming with DRAKON Editor</title>​
+<link rel="stylesheet" href="pygments_style.css" />
+<style>
+	
+	body { 
+		margin-top:0;
+		background-color:#ccccdd;
+		margin: 0;
+ 	 	padding: 0;
+ 	 	font-family: Verdana, "Bitstream Vera Sans", sans-serif;
+ 	}
+ 	pre {
+ 		margin:5px;
+ 	}
+ 	
+	.top_menu { margin:0; padding:3px; }
+	h2 { border-style:solid; 
+		border-top-width:7px;
+		border-bottom-width:0;
+		border-left-width:0;
+		border-right-width:0;
+		border-color:#ccccdd; 
+		background:#efefff;
+		padding:5px;
+	}
+	p { 
+		padding:5px; 
+		font-size:100%;	
+	}
+	h1 { 
+		padding:5px; 
+		background:#efefff;
+		margin:0;
+	}
+	
+	.container {
+		background-color:#ffffff;
+		width:850px;
+		position:center;
+		border-style:solid;
+		border-color:#000030;
+		border-width:0px; 
+		padding:0;
+		margin:0 auto;
+	}
+	
+	table.reference
+	{
+	background-color:#ffffff;
+	border:1px solid #c3c3c3;
+	border-collapse:collapse;
+	width:97%;
+	margin-left:10px;
+	}
+	
+	table.reference th
+	{
+	background-color:#e5eecc;
+	border:1px solid #c3c3c3;
+	padding:3px;
+	vertical-align:top;
+	}
+	
+	table.reference td 
+	{
+	border:1px solid #c3c3c3;
+	padding:3px;
+	vertical-align:top;
+	}
+	pre {
+		border-style:dashed;
+		border-width:1px;
+		border-color:#000000;
+		padding:5px;
+	}
+</style>
+</head>
+<body>
+<div id="header" class="container">
+
+
+<h1>Python programming with DRAKON Editor</h1>
+
+<p class="top_menu"><a href="http://drakon-editor.sourceforge.net/">Home </a>|
+<a href="https://sourceforge.net/projects/drakon-editor/files/">Download</a></p>
+
+<p>This is a short tutorial of using Python together with DRAKON for building real programs.
+A more advanced tutorial can be found in <strong>examples/Python</strong> folder in
+<a href="http://sourceforge.net/projects/drakon-editor/files/drakon_editor1.8.zip/download">drakon_editor1.8.zip</a>.</p>
+
+<h2>Contents</h2>
+
+<ul>
+<li>The basics
+<ul>
+<li><a href="#hello">Hello, world</a></li>
+<li><a href="#parameters">Formal parameters</a></li>
+<li><a href="#own_code">Adding your own code to the generated source file</a></li>
+</ul></li>
+<li>Flow control
+<ul>
+<li><a href="#if">Flow control with If</a></li>
+<li><a href="#select">Control flow with Select</a></li>
+</ul></li>
+<li>Loops
+<ul>
+<li><a href="#arrow">Loops with Arrow</a></li>
+<li><a href="#foreach">Foreach loop</a></li>
+<li><a href="#cloop">C-style loop</a></li>
+</ul></li>
+<li><a href="#classes">Classes</a></li>
+<li><a href="#comments">Commenting out diagrams</a></li>
+</ul>
+
+<p><a name="hello" /></p>
+
+<h2>Hello, world</h2>
+
+<ol>
+<li><p>Create a new file with DRAKON Editor.</p></li>
+<li><p>Select Python as the programming language. In the main menu, go to <strong>File / File properties...</strong>
+and choose the right version of Python.</p></li>
+<li><p>Create a new diagram called <code>Hello</code>:</p>
+
+<p><img src="Hello.png" alt="Hello world in DRAKON-Python" title="" /></p></li>
+<li><p>Add your own code. In the main menu, go to <strong>File / File description...</strong> and add the following text:</p>
+
+<p><b>=== footer ===<br />
+Hello()</b></p></li>
+<li><p>Generate the source code. In the main menu, go to <strong>DRAKON / Generate code</strong> or just press Ctrl-B (Command-B on Mac).</p></li>
+</ol>
+
+<p>DRAKON Editor will create a new .py file and put it next to the .drn file. The Python code will be something like this:</p>
+
+<pre>
+<span class="k">def</span> <span class="nf">Hello</span><span class="p">():</span>
+        <span class="c">#item 16</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+<span class="n">Hello</span><span class="p">()</span>
+</pre>
+
+<p><a name="parameters" /></p>
+
+<h2>Formal parameters</h2>
+
+<p>The formal parameters of the procedure are placed in the special <em>Parameters</em> icon, to the right from the <em>Begin</em> icon.</p>
+
+<p>How to create a <em>Parameters</em> icon:</p>
+
+<ol>
+<li><p>Add a new <em>Action</em> icon and put it next to the right side of the <em>Begin</em> icon.</p></li>
+<li><p>Connect the <em>Begin</em> icon with the new <em>Action</em> icon with a horizontal line.</p></li>
+<li><p>Add parameters, one parameter per line.</p>
+
+<p><img src="Parameters.png" alt="Formal parameters" title="" /></p></li>
+</ol>
+
+<p>DRAKON Editor will generate the following code for the diagram:</p>
+
+<pre>
+<span class="k">def</span> <span class="nf">DoubleHello</span><span class="p">(</span><span class="n">firstGreeting</span><span class="p">,</span> <span class="n">secondGreeting</span><span class="p">):</span>
+        <span class="c">#item 22</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">firstGreeting</span><span class="p">)</span>
+    <span class="c">#item 23</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">secondGreeting</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</pre>
+
+<p>Note the <em>item</em> comments in the generated code. They tell which icon on the diagram the next piece of code is generated from.</p>
+
+<p>To jump to the specific icon if you know its number, press Ctrl-I and enter the number. This is really convenient for debugging.</p>
+
+<p><a name="own_code" /></p>
+
+<h2>Adding your own code to the generated source file</h2>
+
+<p>Sometimes it is necessary to add some hand-written code 
+to the generated file. DRAKON Editor allows you to do that
+using the so called <em>sections</em> in the file description.</p>
+
+<p>To edit the file description, go to <strong>File / File description...</strong></p>
+
+<p>The <em>header</em> section is added at the beginning of the generated file:</p>
+
+<pre>=== header ===
+print("this code is put at the top")
+print("there can be several lines")
+</pre>
+
+<p>The <em>footer</em> section is added at the end of the generated file:</p>
+
+<pre>=== footer ===
+print("this code is put at the bottom")
+print("this is the last line")
+</pre>
+
+<p>We were using the <em>footer</em> section in the <strong>Hello</strong> example above
+to actually run the procedure we created.</p>
+
+<p>The section content is all text below the section header until
+the next section of end of file.</p>
+
+<p>The text in the file description that goes before any sections
+is ignored.</p>
+
+<p><a name="if" /></p>
+
+<h2>Flow control with If</h2>
+
+<p>The <em>If</em> icon produces the <em>if</em> statement:</p>
+
+<p><img src="LimitedPrint.png" alt="If example" title="" /></p>
+
+<p>The <em>If</em> icon in the diagram above produces this code:</p>
+
+<pre>
+<span class="c">#item 30</span>
+<span class="k">if</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="n">maxLength</span><span class="p">:</span>
+    <span class="c">#item 31</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;The text is short enough.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;I can print it:&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c">#item 34</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;The text is too long.&quot;</span><span class="p">)</span>
+</pre>
+
+<p>It is possible to swap <em>YES</em> and <em>NO</em> exits of an <em>if</em> icon. 
+Right-click on the <em>if</em> icon and choose <strong>Swap YES and NO</strong>.</p>
+
+<p><img src="swap.png" alt="Swap YES and NO" title="" /></p>
+
+<p><a name="select" /></p>
+
+<h2>Control flow with Select</h2>
+
+<p>Imagine you need to make a choice out of several options based
+on some value. In Python, you would write something like this:</p>
+
+<pre>
+<span class="k">def</span> <span class="nf">NumberToString</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;zero&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;a lot&quot;</span><span class="p">)</span>
+</pre>
+
+<p>In DRAKON, you can use the <em>Select</em> and <em>Case</em> icons like this:</p>
+
+<p><img src="select.png" alt="Select" title="" /></p>
+
+<p><a name="arrow" /></p>
+
+<h2>Loops with Arrow</h2>
+
+<p>When an <em>Arrow</em> is added to an <em>If</em> or <em>Select</em>, a loop is created.</p>
+
+<ol>
+<li><p>Do-Check loop:</p>
+
+<p><img src="arrow1.png" alt="Do-check loop" title="" /></p></li>
+<li><p>Check-Do loop:</p>
+
+<p><img src="arrow2.png" alt="Check-Do loop" title="" /></p></li>
+<li><p>Do-Check-Do (hybrid) loop:</p>
+
+<p><img src="arrow3.png" alt="Do-Check-Do loop" title="" /></p></li>
+</ol>
+
+<p><a name="foreach" /></p>
+
+<h2>Foreach loop</h2>
+
+<pre>
+<span class="k">def</span> <span class="nf">PrintStrings</span><span class="p">(</span><span class="n">strings</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre>
+
+<p>The DRAKON equivalent for the Python code above is:</p>
+
+<p><img src="foreach.png" alt="foreach" title="" /></p>
+
+<p>Note that the keyword <em>foreach</em> is used instead of the standard <em>for</em> Python keyword.</p>
+
+<p>The actual code that is generated for iteration over a collection
+depends on the Python version. The reason for that is the difference
+between iterator protocols in Python 2 and Python 3.</p>
+
+<p><a name="cloop" /></p>
+
+<h2>C-style loop</h2>
+
+<p>With DRAKON, it is possible to write C-style <em>for</em> constructs:</p>
+
+<p><img src="for.png" alt="for" title="" /></p>
+
+<p>Which is a syntactically sugared version of the below
+picture:</p>
+
+<p><img src="for2.png" alt="for" title="" /></p>
+
+<p><a name="classes" /></p>
+
+<h2>Classes</h2>
+
+<p>There can be only one class per .drn file.</p>
+
+<p>The class code should be put to the <em>class</em> section in the file description like this:</p>
+
+<pre>
+=== class ===
+class MoneyWaster:
+</pre>
+
+<p>In order to turn a diagram into a class method, add this line:<br />
+<code>#method</code><br />
+at the beginning of the formal parameters list for the method.</p>
+
+<p><img src="method.png" alt="method" title="" /></p>
+
+<p>Our class will look like this:</p>
+
+<pre>
+<span class="k">class</span> <span class="nc">MoneyWaster</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">SetName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+            <span class="c">#item 121</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</pre>
+
+<p><a name="comments" /></p>
+
+<h2>Commenting out diagrams</h2>
+
+<p>It is possible to exclude the whole diagram from code generation.</p>
+
+<p>If the first line of the formal parameters list is<br />
+<code>#comment</code><br />
+then no code is generated for this diagram.</p>
+
+<p>Its correctness, however, will still be checked against the DRAKON rules.</p>
+
+<p><img src="comment.png" alt="comment" title="" /></p>
+</div>
+</body>
+</html>
+

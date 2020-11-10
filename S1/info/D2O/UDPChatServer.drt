@@ -1,0 +1,563 @@
+1
+При сохранении листа в том же файле
+24
+1 -1 19 26 323 50
+1 -1 20 70 304 120
+1 -1 19 133 266 209
+1 -1 19 551 152 589
+1 -1 19 231 323 529
+2 -1 361 38 608 130
+2 -1 361 152 475 296
+2 -1 342 316 627 549
+2 -1 342 575 703 956
+2 -1 19 797 380 1168
+3 63 19 1197 2376 2293
+2 -1 817 38 1007 130
+2 -1 836 171 1007 319
+2 -1 836 342 988 434
+2 -1 836 436 1178 800
+2 -1 1045 50 1425 208
+2 -1 1216 252 1558 765
+2 -1 1786 239 2261 549
+2 -1 1710 568 2033 797
+2 -1 1140 911 1444 1134
+2 -1 1558 847 1881 1167
+2 -1 2261 531 2546 740
+2 -1 2071 758 2432 1195
+2 -1 2451 847 2850 1115
+9 1 0 0 152 38 -133 -12 171 12 0 0 0 0 -1 -1 -1 0
+"(** AUTHOR ""SAGE""; PURPOSE ""UDP Chat Server"" *)"
+9 1 0 0 285 95 -265 -25 19 25 0 0 0 0 -1 -1 -1 1
+IMPORT,"  Base := UDPChatBase, UDP, IP, Dates, Modules,","  Utilities := Strings, Kernel, AosEvents := Events;"
+9 1 0 0 171 171 -152 -38 95 38 0 0 0 0 -1 -1 -1 2
+CONST,"  moduleName = ""UDPChatServer"";","  (* Event classification as in AosEvents.XML *)","  EventClass = 3; (* UDP Chat *)","  EventSubclass = 3; (* UDP Chat Server *)"
+9 1 0 0 171 570 -152 -19 -19 19 0 0 0 0 -1 -1 -1 3
+VAR,"  instance: Instance;"
+9 1 0 0 361 380 -342 -149 -38 149 0 0 0 0 -1 -1 -1 4
+TYPE,"  ","  String = Utilities.String;","  ","  Instance = OBJECT","  VAR","    s: UDP.Socket;","    dt: Dates.DateTime;","    running, terminated: BOOLEAN;","    ip: IP.Adr;","    command, seqNum, messageType: INTEGER;","    uin, receiverUin, port, len, res, receiveBufOffset: LONGINT;","    user: Base.User;","    users: Base.Users;","    clients: Base.List;","    client, receiver: Base.Client;","    sendBuf: Base.Buffer;","    receiveBuf, password, shortName,","    fullName, eMail, message, textCode: String;","    str1, str2: ARRAY 256 OF CHAR;","    ACKReq: Base.ACKRec;","  END Instance;"
+0 1 0 0 418 47 -57 -9 57 9 0 1 0 0 7 8 -1 5
+Instance.&New
+1 1 0 0 418 121 -38 -9 38 9 0 0 0 0 -1 -1 -1 5
+Конец
+20 1 0 0 532 47 -38 -9 76 9 0 0 0 0 -1 -1 -1 5
+"(udp: UDP.Socket);"
+2 1 0 0 418 84 -57 -9 57 9 0 1 0 0 -1 6 -1 5
+"s := udp;"
+0 1 0 0 418 161 -57 -9 57 9 0 1 0 0 -1 11 -1 6
+Instance.Destroy
+1 1 0 0 418 287 -38 -9 38 9 0 0 0 0 -1 -1 -1 6
+Конец
+2 1 0 0 418 224 -57 -35 57 35 0 1 0 0 -1 10 -1 6
+"running := FALSE;",s.Close;,"BEGIN {EXCLUSIVE}","  AWAIT(terminated)",END;
+0 1 0 0 418 351 -76 -9 76 9 0 1 0 0 14 19 -1 7
+Instance.FinalizeClients
+1 1 0 0 418 481 -38 -9 38 9 0 0 0 0 -1 -1 -1 7
+Конец
+20 1 0 0 551 351 -38 -35 76 35 0 0 0 0 -1 -1 -1 7
+"(clients: Base.List);",VAR,"  i: LONGINT;","  p: ANY;","  client: Base.Client;"
+21 1 0 0 418 416 0 0 0 0 0 1 0 3 16 18 -1 7
+///-15
+21 1 0 0 608 416 0 0 0 0 0 0 0 0 -1 21 -1 7
+///-16
+21 1 0 0 532 444 0 0 0 0 0 1 0 0 -1 22 -1 7
+///-17
+6 1 0 0 418 444 -76 -9 76 9 0 1 0 0 17 13 -1 7
+"i < clients.GetCount()"
+2 1 0 0 418 388 -76 -9 76 9 0 1 0 0 -1 15 -1 7
+"i := 0;"
+21 1 0 0 532 549 0 0 0 0 0 0 0 0 21 -1 -1 7
+///-20
+21 1 0 0 608 549 0 0 0 0 0 0 0 0 -1 -1 -1 7
+///-21
+2 1 0 0 532 501 -57 -29 57 29 0 1 0 0 -1 20 -1 7
+"p := clients.GetItem(i);","client := p(Base.Client);",client.Finalize;,INC(i);
+0 1 0 0 418 617 -76 -9 76 9 0 1 0 0 25 26 -1 8
+Instance.FindClient
+1 1 0 0 418 784 -38 -9 38 9 0 0 0 0 -1 -1 -1 8
+Конец
+20 1 0 0 627 617 -114 -42 76 42 0 0 0 0 -1 -1 -1 8
+"(clients: Base.List;","  uin: LONGINT;","  VAR client: Base.Client): BOOLEAN;",VAR,"  i: LONGINT;","  p: ANY;"
+2 1 0 0 418 654 -76 -9 76 9 0 1 0 0 -1 27 -1 8
+"i := 0;"
+21 1 0 0 418 682 0 0 0 0 0 1 0 3 28 30 -1 8
+///-27
+21 1 0 0 665 682 0 0 0 0 0 0 0 0 -1 32 -1 8
+///-28
+21 1 0 0 551 710 0 0 0 0 0 1 0 0 -1 33 -1 8
+///-29
+6 1 0 0 418 710 -76 -9 76 9 0 1 0 0 29 40 -1 8
+"i < clients.GetCount()"
+21 1 0 0 551 956 0 0 0 0 0 0 0 0 32 -1 -1 8
+///-31
+21 1 0 0 665 956 0 0 0 0 0 0 0 0 -1 -1 -1 8
+///-32
+2 1 0 0 551 791 -76 -16 76 16 0 1 0 0 -1 34 -1 8
+"p := clients.GetItem(i);","client := p(Base.Client);"
+6 1 0 0 551 835 -76 -9 76 9 0 1 1 0 35 38 -1 8
+"uin = client.uin"
+21 1 0 0 646 835 0 0 0 0 0 1 0 0 -1 36 -1 8
+///-35
+21 1 0 0 646 900 0 0 0 0 0 0 0 0 -1 -1 -1 8
+///-36
+21 1 0 0 551 900 0 0 0 0 0 1 0 0 36 39 -1 8
+///-37
+2 1 0 0 551 872 -76 -9 76 9 0 1 0 0 -1 37 -1 8
+"RETURN TRUE;"
+2 1 0 0 551 928 -76 -9 76 9 0 1 0 0 -1 31 -1 8
+INC(i);
+2 1 0 0 418 747 -76 -9 76 9 0 1 0 0 -1 24 -1 8
+"RETURN FALSE;"
+0 1 0 0 95 826 -76 -9 76 9 0 1 0 0 43 44 -1 9
+Instance.CheckKeepAlive
+1 1 0 0 95 956 -38 -9 38 9 0 0 0 0 -1 -1 -1 9
+Конец
+20 1 0 0 209 826 -19 -29 76 29 0 0 0 0 -1 -1 -1 9
+"(clients: Base.List);",VAR,"  i: LONGINT;","  p: ANY;"
+2 1 0 0 95 863 -76 -9 76 9 0 1 0 0 -1 45 -1 9
+"i := 0;"
+21 1 0 0 95 891 0 0 0 0 0 1 0 3 46 48 -1 9
+///-45
+21 1 0 0 380 891 0 0 0 0 0 0 0 0 -1 50 -1 9
+///-46
+21 1 0 0 228 919 0 0 0 0 0 1 0 0 -1 51 -1 9
+///-47
+6 1 0 0 95 919 -76 -9 76 9 0 1 0 0 47 42 -1 9
+"i < clients.GetCount()"
+21 1 0 0 228 1168 0 0 0 0 0 0 0 0 50 -1 -1 9
+///-49
+21 1 0 0 380 1168 0 0 0 0 0 0 0 0 -1 -1 -1 9
+///-50
+2 1 0 0 228 963 -76 -16 76 16 0 1 0 0 -1 52 -1 9
+"p := clients.GetItem(i);","client := p(Base.Client);"
+6 1 0 0 228 1007 -114 -9 114 9 0 1 1 0 53 56 -1 9
+Kernel.Expired(client.keepAliveTimer)
+21 1 0 0 361 1007 0 0 0 0 0 1 0 0 -1 54 -1 9
+///-53
+21 1 0 0 361 1112 0 0 0 0 0 0 0 0 -1 -1 -1 9
+///-54
+21 1 0 0 228 1112 0 0 0 0 0 1 0 0 54 57 -1 9
+///-55
+2 1 0 0 228 1064 -95 -29 95 29 0 1 0 0 -1 55 -1 9
+"MulticastStatus(clients, client,","  Base.USER_OFFLINE, sendBuf, s);",client.Finalize;,clients.Remove(client);
+2 1 0 0 228 1140 -76 -9 76 9 0 1 0 0 -1 49 -1 9
+INC(i);
+0 1 0 0 114 1206 -76 -9 76 9 0 0 0 0 245 59 -1 10
+Instance.BEGIN
+21 1 0 0 114 1234 0 0 0 0 0 0 0 1 72 60 -1 10
+///-59
+4 1 0 0 114 1272 -76 -19 76 19 0 1 0 0 -1 69 58 10
+///-60
+5 1 0 0 114 2257 -76 -19 76 17 0 0 0 0 -1 62 73 10
+73
+21 1 0 0 114 2293 0 0 0 0 0 0 0 0 75 -1 -1 10
+///-62
+21 1 0 0 19 2293 0 0 0 0 0 0 0 0 62 -1 -1 10
+///-63
+21 1 0 0 19 1234 0 0 0 0 0 0 0 0 59 63 -1 10
+///-64
+21 1 0 0 2300 1234 0 0 0 0 0 0 0 0 -1 66 -1 10
+///-65
+4 1 0 0 2300 1272 -76 -19 76 19 0 1 0 0 -1 71 83 10
+///-66
+1 1 0 0 2300 1465 -38 -9 38 9 0 0 0 0 -1 -1 -1 10
+Конец
+2 1 0 0 114 1401 -76 -48 76 48 0 1 0 0 -1 61 -1 10
+"NEW(receiveBuf,","  Base.MaxUDPDataLen);","NEW(sendBuf, 0);",NEW(clients);,"NEW (users);","running := TRUE;","terminated := FALSE;"
+9 1 0 0 114 1322 -76 -12 76 12 0 1 0 0 -1 68 -1 10
+Init
+2 1 0 0 2300 1395 -76 -42 76 42 0 1 0 0 -1 67 -1 10
+users.Store;,FinalizeClients(clients);,clients.Clear;,"BEGIN {EXCLUSIVE}","  terminated := TRUE",END;
+9 1 0 0 2300 1322 -76 -12 76 12 0 1 0 0 -1 70 -1 10
+End
+21 1 0 0 285 1234 0 0 0 0 0 0 0 0 87 73 -1 10
+///-72
+4 1 0 0 285 1272 -76 -19 76 19 0 1 1 0 -1 76 99 10
+///-73
+5 1 0 0 285 2257 -76 -19 76 17 0 0 0 0 -1 75 88 10
+88
+21 1 0 0 285 2293 0 0 0 0 0 0 0 0 125 -1 -1 10
+///-75
+9 1 0 0 285 1322 -76 -12 76 12 0 1 0 0 -1 77 -1 10
+"Packet receive"
+6 1 0 0 285 1362 -76 -9 76 9 0 1 1 0 78 79 -1 10
+running
+21 1 0 0 608 1362 0 0 0 0 0 1 0 0 -1 83 -1 10
+///-78
+2 1 0 0 285 1419 -76 -29 76 29 0 1 0 0 -1 80 -1 10
+CheckKeepAlive(clients);,"s.Receive (receiveBuf^, 0,","  Base.MaxUDPDataLen,","  1, ip, port, len, res);"
+6 1 0 0 285 1476 -76 -9 76 9 0 1 1 0 81 82 -1 10
+"(res = UDP.Ok) & (len > 0)"
+21 1 0 0 513 1476 0 0 0 0 0 1 0 0 -1 85 -1 10
+///-81
+2 1 0 0 285 1513 -76 -9 76 9 0 1 0 0 -1 121 -1 10
+"receiveBufOffset := 0;"
+5 1 0 0 608 2257 -38 -19 38 17 0 0 0 0 -1 84 66 10
+66
+21 1 0 0 608 2293 0 0 0 0 0 0 0 0 90 -1 -1 10
+///-84
+5 1 0 0 513 2257 -38 -19 38 17 0 0 1 0 -1 86 73 10
+73
+21 1 0 0 513 2293 0 0 0 0 0 0 0 0 84 -1 -1 10
+///-86
+21 1 0 0 741 1234 0 0 0 0 0 0 0 0 97 88 -1 10
+///-87
+4 1 0 0 741 1272 -76 -19 76 19 0 1 0 0 -1 91 74 10
+///-88
+5 1 0 0 741 2257 -76 -19 76 17 0 0 0 0 -1 90 98 10
+98
+21 1 0 0 741 2293 0 0 0 0 0 0 0 0 104 -1 -1 10
+///-90
+9 1 0 0 741 1322 -76 -12 76 12 0 1 0 0 -1 92 -1 10
+Authentication
+2 1 0 0 741 1453 -114 -100 114 100 0 1 0 0 -1 93 -1 10
+"command := Base.BufGetInt(receiveBuf,","  receiveBufOffset);","seqNum := Base.BufGetInt(receiveBuf,","  receiveBufOffset);","uin := Base.BufGetLInt(receiveBuf,","  receiveBufOffset);","Utilities.IntToStr(seqNum, str1);","Utilities.Concat("" SeqNum: "", str1, str1);","Utilities.Concat(str1, "" Command: "", str1);","Utilities.IntToStr(uin, str2);","Utilities.Concat(""User ID: "", str2, str2);","Utilities.Concat(str2, str1, str1);","Base.CommandDecode(command, str2);","Utilities.Concat(str1, str2, str1);","Log(AosEvents.Information, 0, str1, FALSE);"
+6 1 0 0 741 1581 -95 -9 95 9 0 1 1 0 94 102 -1 10
+"FindClient(clients, uin, client)"
+21 1 0 0 1007 1581 0 0 0 0 0 1 0 0 -1 107 -1 10
+///-94
+6 1 0 0 741 1668 -95 -16 95 16 0 1 1 0 96 89 -1 10
+"(IP.AdrsEqual(client.ip, ip)) &","  (client.port = port)"
+21 1 0 0 874 1668 0 0 0 0 0 1 0 0 -1 103 -1 10
+///-96
+21 1 0 0 1502 1234 0 0 0 0 0 0 0 0 65 98 -1 10
+///-97
+4 1 0 0 1502 1272 -76 -19 76 19 0 1 0 0 -1 101 89 10
+///-98
+5 1 0 0 1502 2257 -76 -19 76 17 0 0 1 0 -1 100 73 10
+73
+21 1 0 0 1502 2293 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-100
+9 1 0 0 1502 1322 -76 -12 76 12 0 1 0 0 -1 126 -1 10
+"Packet handle"
+9 1 0 0 741 1621 -76 -12 76 12 0 1 0 0 -1 95 -1 10
+"Additional check"
+5 1 0 0 874 2257 -38 -19 38 17 0 0 1 0 -1 104 73 10
+73
+21 1 0 0 874 2293 0 0 0 0 0 0 0 0 106 -1 -1 10
+///-104
+5 1 0 0 1007 2257 -76 -19 76 17 0 0 1 0 -1 106 73 10
+73
+21 1 0 0 1007 2293 0 0 0 0 0 0 0 0 100 -1 -1 10
+///-106
+7 1 0 0 1007 1609 -76 -9 76 9 0 0 0 0 -1 108 -1 10
+command
+21 1 0 0 1007 1637 0 0 0 0 0 0 0 0 109 110 -1 10
+///-108
+21 1 0 0 1273 1637 0 0 0 0 0 0 0 0 -1 111 -1 10
+///-109
+8 1 0 0 1007 1675 -76 -19 76 19 0 1 0 0 -1 114 -1 10
+Base.LOGIN
+8 1 0 0 1273 1675 -76 -19 76 19 0 1 0 0 -1 120 -1 10
+Base.NEW_USER_REG
+21 1 0 0 1007 2013 0 0 0 0 0 1 0 0 113 105 -1 10
+///-112
+21 1 0 0 1273 2013 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-113
+2 1 0 0 1007 1735 -95 -22 95 22 0 1 0 0 -1 115 -1 10
+"password :=","  Base.BufGetString (receiveBuf,","  receiveBufOffset);"
+6 1 0 0 1007 1785 -114 -9 114 9 0 1 1 0 116 119 -1 10
+"users.PasswordCorrect(uin, password)"
+21 1 0 0 1140 1785 0 0 0 0 0 1 0 0 -1 117 -1 10
+///-116
+21 1 0 0 1140 1994 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-117
+21 1 0 0 1007 1994 0 0 0 0 0 1 0 0 117 112 -1 10
+///-118
+2 1 0 0 1007 1894 -95 -81 95 81 0 1 0 0 -1 118 -1 10
+NEW(client);,"client.ip := ip;","client.port := port;","client.uin := uin;","client.inSeqNum := seqNum;","client.outSeqNum := 0;","Kernel.SetTimer(client.keepAliveTimer,","  Base.clientKeepAliveAwait);",clients.Add(client);,"Server_LoginReply(client, sendBuf, s);","MulticastStatus(clients, client,","  Base.USER_ONLINE, sendBuf, s);"
+2 1 0 0 1273 1794 -114 -81 114 81 0 1 0 0 -1 113 -1 10
+"password := Base.BufGetString(receiveBuf,","  receiveBufOffset);","shortName := Base.BufGetString(receiveBuf,","  receiveBufOffset);","fullName := Base.BufGetString(receiveBuf,","  receiveBufOffset);","eMail := Base.BufGetString(receiveBuf,","  receiveBufOffset);","user := users.Add(password, shortName,","  fullName, eMail);","Server_NewUserReply(ip, port, user.uin,","  seqNum, sendBuf, s);"
+9 1 0 0 285 1553 -76 -12 76 12 0 1 0 0 -1 122 -1 10
+"Version check"
+6 1 0 0 285 1600 -114 -16 114 16 0 1 1 0 123 74 -1 10
+"Base.BufGetInt(receiveBuf,","  receiveBufOffset) = Base.VERSION"
+21 1 0 0 418 1600 0 0 0 0 0 1 0 0 -1 124 -1 10
+///-123
+5 1 0 0 418 2257 -38 -19 38 17 0 0 1 0 -1 125 73 10
+73
+21 1 0 0 418 2293 0 0 0 0 0 0 0 0 86 -1 -1 10
+///-125
+6 1 0 0 1502 1362 -76 -9 76 9 0 1 0 0 127 135 -1 10
+"command = Base.ACK"
+21 1 0 0 2205 1362 0 0 0 0 0 1 0 0 -1 130 -1 10
+///-127
+21 1 0 0 2205 2219 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-128
+21 1 0 0 1502 2219 0 0 0 0 0 1 0 0 128 99 -1 10
+///-129
+6 1 0 0 2205 2122 -75 -22 76 22 0 1 1 0 131 134 -1 10
+Base.SeqNumInACKList(,"  client.ACKList,","  seqNum, ACKReq)"
+21 1 0 0 2319 2122 0 0 0 0 0 1 0 0 -1 132 -1 10
+///-131
+21 1 0 0 2319 2200 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-132
+21 1 0 0 2205 2200 0 0 0 0 0 1 0 0 132 128 -1 10
+///-133
+2 1 0 0 2205 2172 -95 -9 95 9 0 1 0 0 -1 133 -1 10
+client.ACKList.Remove(ACKReq);
+6 1 0 0 1502 1412 -76 -22 76 22 0 1 1 0 136 139 -1 10
+Base.isNextSeqNum(,"  seqNum,","  client.inSeqNum)"
+21 1 0 0 2186 1412 0 0 0 0 0 1 0 0 -1 137 -1 10
+///-136
+21 1 0 0 2186 2081 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-137
+21 1 0 0 1502 2081 0 0 0 0 0 1 0 0 137 129 -1 10
+///-138
+2 1 0 0 1502 1462 -76 -9 76 9 0 1 0 0 -1 140 -1 10
+"client.inSeqNum := seqNum;"
+7 1 0 0 1502 1499 -76 -9 76 9 0 0 0 0 -1 141 -1 10
+command
+21 1 0 0 1502 1527 0 0 0 0 0 0 0 0 151 143 -1 10
+///-141
+21 1 0 0 2053 1527 0 0 0 0 0 0 0 0 -1 144 -1 10
+///-142
+8 1 0 0 1502 1565 -76 -19 76 19 0 1 0 0 -1 162 -1 10
+Base.SEND_MESSAGE
+8 1 0 0 2053 1565 -76 -19 76 19 0 1 0 0 -1 173 -1 10
+Base.SEND_TEXT_CODE
+21 1 0 0 1502 2062 0 0 0 0 0 1 0 0 146 138 -1 10
+///-145
+21 1 0 0 2053 2062 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-146
+21 1 0 0 1863 1527 0 0 0 0 0 0 0 0 142 148 -1 10
+///-147
+8 1 0 0 1863 1565 -76 -19 76 19 0 1 0 0 -1 156 -1 10
+Base.INFO_REQ
+21 1 0 0 1863 2043 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-149
+21 1 0 0 1502 2043 0 0 0 0 0 1 0 0 149 145 -1 10
+///-150
+21 1 0 0 1692 1527 0 0 0 0 0 0 0 0 147 152 -1 10
+///-151
+8 1 0 0 1692 1565 -76 -19 76 19 0 1 0 0 -1 155 -1 10
+Base.KEEP_ALIVE
+21 1 0 0 1692 2024 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-153
+21 1 0 0 1502 2024 0 0 0 0 0 1 0 0 153 150 -1 10
+///-154
+2 1 0 0 1692 1632 -76 -29 76 29 0 1 0 0 -1 153 -1 10
+"Server_ACK(client, sendBuf, s);",Kernel.SetTimer(,"  client.keepAliveTimer,","  Base.clientKeepAliveAwait);"
+2 1 0 0 1863 1625 -76 -22 76 22 0 1 0 0 -1 157 -1 10
+"receiverUin := Base.BufGetLInt(","  receiveBuf, receiveBufOffset);","user := users.Find(receiverUin);"
+6 1 0 0 1863 1675 -57 -9 57 9 0 1 1 0 158 161 -1 10
+"user # NIL"
+21 1 0 0 1939 1675 0 0 0 0 0 1 0 0 -1 159 -1 10
+///-158
+21 1 0 0 1939 1766 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-159
+21 1 0 0 1863 1766 0 0 0 0 0 1 0 0 159 149 -1 10
+///-160
+2 1 0 0 1863 1725 -57 -22 57 22 0 1 0 0 -1 160 -1 10
+Server_InfoReply(,"  client, user,","  sendBuf, s);"
+2 1 0 0 1502 1658 -96 -55 95 55 0 1 0 0 -1 163 -1 10
+"Server_ACK(client, sendBuf, s);","receiverUin := Base.BufGetLInt(","  receiveBuf, receiveBufOffset);","messageType := Base.BufGetInt(","  receiveBuf, receiveBufOffset);","message := Base.BufGetString(","  receiveBuf, receiveBufOffset);","dt := Dates.Now();"
+6 1 0 0 1502 1741 -76 -9 76 9 0 1 0 0 164 168 -1 10
+"receiverUin = 0"
+21 1 0 0 1616 1741 0 0 0 0 0 1 0 0 -1 167 -1 10
+///-164
+21 1 0 0 1616 2005 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-165
+21 1 0 0 1502 2005 0 0 0 0 0 1 0 0 165 154 -1 10
+///-166
+2 1 0 0 1616 1951 -57 -35 57 35 0 1 0 0 -1 165 -1 10
+MulticastMessage(,"  clients, client, dt,","  messageType,","  message,","  sendBuf, s);"
+6 1 0 0 1502 1785 -76 -16 76 16 0 1 1 0 169 172 -1 10
+"FindClient(clients,","  receiverUin, receiver)"
+21 1 0 0 1597 1785 0 0 0 0 0 1 0 0 -1 170 -1 10
+///-169
+21 1 0 0 1597 1897 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-170
+21 1 0 0 1502 1897 0 0 0 0 0 1 0 0 170 166 -1 10
+///-171
+2 1 0 0 1502 1849 -76 -29 76 29 0 1 0 0 -1 171 -1 10
+Server_ReceiveMessage(,"  client, receiver, dt,","  messageType, message,","  sendBuf, s);"
+2 1 0 0 2053 1625 -76 -22 76 22 0 1 0 0 -1 174 -1 10
+"Server_ACK(client, sendBuf, s);","textCode := Base.BufGetString(","  receiveBuf, receiveBufOffset);"
+6 1 0 0 2053 1682 -95 -16 95 16 0 1 1 0 175 178 -1 10
+"textCode^ =","  ""USER_DISCONNECTED"""
+21 1 0 0 2167 1682 0 0 0 0 0 1 0 0 -1 176 -1 10
+///-175
+21 1 0 0 2167 1794 0 0 0 0 0 0 0 0 -1 -1 -1 10
+///-176
+21 1 0 0 2053 1794 0 0 0 0 0 1 0 0 176 146 -1 10
+///-177
+2 1 0 0 2053 1746 -76 -29 76 29 0 1 0 0 -1 177 -1 10
+"MulticastStatus(clients,","  client, Base.USER_OFFLINE,","  sendBuf, s);",clients.Remove(client);
+0 1 0 0 912 47 -76 -9 76 9 0 1 0 0 -1 181 -1 11
+BEGIN
+1 1 0 0 912 121 -38 -9 38 9 0 0 0 0 -1 -1 -1 11
+Конец
+2 1 0 0 912 84 -95 -9 95 9 0 1 0 0 -1 180 -1 11
+Modules.InstallTermHandler(Cleanup);
+0 1 0 0 912 180 -76 -9 76 9 0 1 0 0 -1 184 -1 12
+Cleanup
+1 1 0 0 912 310 -38 -9 38 9 0 0 0 0 -1 -1 -1 12
+Конец
+6 1 0 0 912 217 -76 -9 76 9 0 1 1 0 185 188 -1 12
+"instance # NIL"
+21 1 0 0 1007 217 0 0 0 0 0 1 0 0 -1 186 -1 12
+///-185
+21 1 0 0 1007 282 0 0 0 0 0 0 0 0 -1 -1 -1 12
+///-186
+21 1 0 0 912 282 0 0 0 0 0 1 0 0 186 183 -1 12
+///-187
+2 1 0 0 912 254 -76 -9 76 9 0 1 0 0 -1 187 -1 12
+instance.Destroy;
+0 1 0 0 912 351 -76 -9 76 9 0 1 0 0 -1 191 -1 13
+Stop*
+1 1 0 0 912 425 -38 -9 38 9 0 0 0 0 -1 -1 -1 13
+Конец
+2 1 0 0 912 388 -76 -9 76 9 0 1 0 0 -1 190 -1 13
+Cleanup;
+0 1 0 0 912 465 -76 -9 76 9 0 1 0 0 194 195 -1 14
+Start*
+1 1 0 0 912 791 -38 -9 38 9 0 0 0 0 -1 -1 -1 14
+Конец
+20 1 0 0 1083 465 -76 -29 76 29 0 0 0 0 -1 -1 -1 14
+VAR,"  s: UDP.Socket;","  res: LONGINT;","  str: ARRAY 256 OF CHAR;"
+6 1 0 0 912 513 -76 -9 76 9 0 1 1 0 196 199 -1 14
+"instance = NIL"
+21 1 0 0 1178 513 0 0 0 0 0 1 0 0 -1 197 -1 14
+///-196
+21 1 0 0 1178 763 0 0 0 0 0 0 0 0 -1 -1 -1 14
+///-197
+21 1 0 0 912 763 0 0 0 0 0 1 0 0 197 193 -1 14
+///-198
+2 1 0 0 912 550 -76 -9 76 9 0 1 0 0 -1 200 -1 14
+"NEW(s, Base.serverPort, res);"
+6 1 0 0 912 587 -76 -9 76 9 0 1 1 0 201 204 -1 14
+"res = UDP.Ok"
+21 1 0 0 1083 587 0 0 0 0 0 1 0 0 -1 205 -1 14
+///-201
+21 1 0 0 1083 744 0 0 0 0 0 0 0 0 -1 -1 -1 14
+///-202
+21 1 0 0 912 744 0 0 0 0 0 1 0 0 202 198 -1 14
+///-203
+2 1 0 0 912 670 -76 -55 76 55 0 1 0 0 -1 203 -1 14
+"NEW(instance, s);",Utilities.IntToStr(,"  Base.serverPort, str);",Utilities.Concat(,"  ""server started on port: "",","  str, str);","Log(AosEvents.Information,","  0, str, TRUE);"
+2 1 0 0 1083 628 -76 -22 76 22 0 1 0 0 -1 202 -1 14
+"Log(AosEvents.Error,","  0, ""server NOT started!"",","  TRUE);"
+0 1 0 0 1140 85 -76 -9 76 9 0 1 0 0 208 209 -1 15
+Log
+1 1 0 0 1140 199 -38 -9 38 9 0 0 0 0 -1 -1 -1 15
+Конец
+20 1 0 0 1330 85 -76 -35 95 35 0 0 0 0 -1 -1 -1 15
+"(type, code: SHORTINT;","  CONST msg: ARRAY OF CHAR;","  showOnKernelLog: BOOLEAN);",VAR,"  message: AosEvents.Message;"
+2 1 0 0 1140 142 -95 -29 95 29 0 1 0 0 -1 207 -1 15
+"COPY(msg, message);","AosEvents.AddEvent(moduleName,","  type, EventClass, EventSubclass,","  code, message, showOnKernelLog);"
+0 1 0 0 1292 313 -76 -9 76 9 0 1 0 0 212 213 -1 16
+Instance.MulticastStatus
+1 1 0 0 1292 458 -38 -9 38 9 0 0 0 0 -1 -1 -1 16
+Конец
+20 1 0 0 1463 313 -76 -61 76 61 0 0 0 0 -1 -1 -1 16
+"(clients: Base.List;","  client: Base.Client;","  status: INTEGER;","  sendBuf: Base.Buffer;","  s: UDP.Socket);",VAR,"  i: LONGINT;","  p: ANY;","  receiver: Base.Client;"
+2 1 0 0 1292 350 -76 -9 76 9 0 1 0 0 -1 214 -1 16
+"i := 0;"
+21 1 0 0 1292 393 0 0 0 0 0 1 0 3 215 217 -1 16
+///-214
+21 1 0 0 1558 393 0 0 0 0 0 0 0 0 -1 219 -1 16
+///-215
+21 1 0 0 1425 421 0 0 0 0 0 1 0 0 -1 220 -1 16
+///-216
+6 1 0 0 1292 421 -76 -9 76 9 0 1 0 0 216 211 -1 16
+"i < clients.GetCount()"
+21 1 0 0 1425 765 0 0 0 0 0 0 0 0 219 -1 -1 16
+///-218
+21 1 0 0 1558 765 0 0 0 0 0 0 0 0 -1 -1 -1 16
+///-219
+2 1 0 0 1425 465 -76 -16 76 16 0 1 0 0 -1 221 -1 16
+"p := clients.GetItem(i);","receiver := p(Base.Client);"
+6 1 0 0 1425 509 -76 -9 76 9 0 1 1 0 222 225 -1 16
+"client.uin # receiver.uin"
+21 1 0 0 1539 509 0 0 0 0 0 1 0 0 -1 223 -1 16
+///-222
+21 1 0 0 1539 709 0 0 0 0 0 0 0 0 -1 -1 -1 16
+///-223
+21 1 0 0 1425 709 0 0 0 0 0 1 0 0 223 241 -1 16
+///-224
+2 1 0 0 1425 553 -76 -16 76 16 0 1 0 0 -1 226 -1 16
+"Server_UserStatus(client,","  receiver, status, sendBuf, s);"
+6 1 0 0 1425 604 -76 -16 76 16 0 1 1 0 227 230 -1 16
+"status =","  Base.USER_ONLINE"
+21 1 0 0 1520 604 0 0 0 0 0 1 0 0 -1 228 -1 16
+///-227
+21 1 0 0 1520 690 0 0 0 0 0 0 0 0 -1 -1 -1 16
+///-228
+21 1 0 0 1425 690 0 0 0 0 0 1 0 0 228 224 -1 16
+///-229
+2 1 0 0 1425 655 -76 -16 76 16 0 1 0 0 -1 229 -1 16
+"Server_UserStatus(receiver,","  client, status, sendBuf, s);"
+0 1 0 0 1862 313 -76 -9 76 9 0 1 0 0 233 267 -1 17
+Instance.MulticastMessage
+1 1 0 0 1862 443 -38 -9 38 9 0 0 0 0 -1 -1 -1 17
+Конец
+20 1 0 0 2185 313 -76 -74 76 74 0 0 0 0 -1 -1 -1 17
+"(clients: Base.List;","  client: Base.Client;","  dt: Dates.DateTime;","  messageType: INTEGER;","  message: String;","  sendBuf: Base.Buffer;","  s: UDP.Socket);",VAR,"  i: LONGINT;","  p: ANY;","  receiver: Base.Client;"
+21 1 0 0 1862 378 0 0 0 0 0 1 0 3 235 237 -1 17
+///-234
+21 1 0 0 2090 378 0 0 0 0 0 0 0 0 -1 239 -1 17
+///-235
+21 1 0 0 1995 406 0 0 0 0 0 1 0 0 -1 240 -1 17
+///-236
+6 1 0 0 1862 406 -76 -9 76 9 0 1 0 0 236 232 -1 17
+"i < clients.GetCount()"
+21 1 0 0 1995 549 0 0 0 0 0 0 0 0 239 -1 -1 17
+///-238
+21 1 0 0 2090 549 0 0 0 0 0 0 0 0 -1 -1 -1 17
+///-239
+2 1 0 0 1995 482 -76 -48 76 48 0 1 0 0 -1 238 -1 17
+"p := clients.GetItem(i);","receiver := p(Base.Client);",Server_ReceiveMessage(,"  client, receiver, dt,","  messageType, message,","  sendBuf, s);",INC(i);
+2 1 0 0 1425 737 -76 -9 76 9 0 1 0 0 -1 218 -1 16
+INC(i);
+0 1 0 0 1805 636 -95 -9 95 9 0 1 0 0 244 246 -1 18
+Instance.Server_NewUserReply
+1 1 0 0 1805 788 -38 -9 38 9 0 0 0 0 -1 -1 -1 18
+Конец
+20 1 0 0 1957 636 -38 -68 76 68 0 0 0 0 -1 -1 -1 18
+"(ip: IP.Adr;","  port: LONGINT;","  uin: LONGINT;","  seqNum: INTEGER;","  sendBuf: Base.Buffer;","  s: UDP.Socket);",VAR,"  res: LONGINT;","  string: String;",{EXCLUSIVE}
+20 1 0 0 285 1206 -76 -9 76 9 0 0 0 0 -1 -1 -1 10
+{ACTIVE}
+2 1 0 0 1805 712 -76 -48 76 48 0 1 0 0 -1 243 -1 18
+Base.ServerPacketInit(,"  Base.NEW_USER_REPLY,","  seqNum, sendBuf);","sendBuf.AddInt(uin, 4);","string := sendBuf.GetString();","s.Send(ip, port, string^, 0,","  sendBuf.GetLength (), res);"
+0 1 0 0 1216 959 -76 -9 76 9 0 1 0 0 249 250 -1 19
+Instance.Server_LoginReply
+1 1 0 0 1216 1125 -38 -9 38 9 0 0 0 0 -1 -1 -1 19
+Конец
+20 1 0 0 1368 959 -57 -48 76 48 0 0 0 0 -1 -1 -1 19
+"(client: Base.Client;","  sendBuf: Base.Buffer;","  s: UDP.Socket);",VAR,"  res: LONGINT;","  string: String;",{EXCLUSIVE}
+2 1 0 0 1216 1042 -76 -55 76 55 0 1 0 0 -1 248 -1 19
+Base.ServerPacketInit(,"  Base.LOGIN_REPLY,","  client.inSeqNum, sendBuf);","sendBuf.AddInt(client.uin, 4);","string := sendBuf.GetString();","s.Send(client.ip,","  client.port, string^, 0,","  sendBuf.GetLength (), res);"
+0 1 0 0 1634 902 -76 -9 76 9 0 1 0 0 253 254 -1 20
+Instance.Server_InfoReply
+1 1 0 0 1634 1158 -38 -9 38 9 0 0 0 0 -1 -1 -1 20
+Конец
+20 1 0 0 1805 902 -76 -55 76 55 0 0 0 0 -1 -1 -1 20
+"(client: Base.Client;","  user: Base.User;","  sendBuf: Base.Buffer;","  s: UDP.Socket);",VAR,"  string: String;","  res, len: LONGINT;",{EXCLUSIVE}
+2 1 0 0 1634 1030 -76 -100 76 100 0 1 0 0 -1 252 -1 20
+Base.ServerPacketInit(,"  Base.INFO_REPLY,","  client.inSeqNum,","  sendBuf);",sendBuf.AddInt(,"  user.uin, 4);","len := Utilities.Length(","  user.shortName) + 1;","sendBuf.AddInt(len, 2);","sendBuf.Add(user.shortName,","  0, len, TRUE, res);","string := sendBuf.GetString();","s.Send(client.ip, client.port,","  string^, 0,","  sendBuf.GetLength(), res);"
+0 1 0 0 2337 579 -76 -9 76 9 0 1 0 0 257 258 -1 21
+Instance.Server_ACK
+1 1 0 0 2337 731 -38 -9 38 9 0 0 0 0 -1 -1 -1 21
+Конец
+20 1 0 0 2470 579 -38 -48 76 48 0 0 0 0 -1 -1 -1 21
+"(client: Base.Client;","  sendBuf: Base.Buffer;","  s: UDP.Socket);",VAR,"  res: LONGINT;","  string: String;",{EXCLUSIVE}
+2 1 0 0 2337 655 -76 -48 76 48 0 1 0 0 -1 256 -1 21
+Base.ServerPacketInit(,"  Base.ACK, client.inSeqNum,","  sendBuf);","string := sendBuf.GetString();","s.Send(client.ip, client.port,","  string^, 0,","  sendBuf.GetLength(), res);"
+0 1 0 0 2166 826 -95 -9 95 9 0 1 0 0 261 262 -1 22
+Instance.Server_ReceiveMessage
+1 1 0 0 2166 1186 -38 -9 38 9 0 0 0 0 -1 -1 -1 22
+Конец
+20 1 0 0 2356 826 -76 -68 76 68 0 0 0 0 -1 -1 -1 22
+"(client, receiver: Base.Client;","  dt: Dates.DateTime;","  messageType: INTEGER;","  message: String;","  sendBuf: Base.Buffer;","  s: UDP.Socket);",VAR,"  string: String;","  res, len: LONGINT;",{EXCLUSIVE}
+2 1 0 0 2166 1006 -95 -152 95 152 0 1 0 0 -1 260 -1 22
+Base.ServerPacketInit(,"  Base.RECEIVE_MESSAGE,","  receiver.outSeqNum, sendBuf);",NEW(ACKReq);,"ACKReq.seqNum :=","  receiver.outSeqNum;",receiver.ACKList.Add(ACKReq);,INC(receiver.outSeqNum);,"sendBuf.AddInt(client.uin, 4);","sendBuf.AddInt(dt.year, 2);","sendBuf.AddInt(dt.month, 1);","sendBuf.AddInt(dt.day, 1);","sendBuf.AddInt(dt.hour, 1);","sendBuf.AddInt(dt.minute, 1);","sendBuf.AddInt(messageType, 2);","len := LEN(message^);","sendBuf.AddInt(len, 2);","sendBuf.Add(message^, 0, len,","  TRUE, res);","string := sendBuf.GetString();","s.Send(receiver.ip, receiver.port,","  string^, 0, sendBuf.GetLength(),","  res);"
+0 1 0 0 2565 902 -76 -9 76 9 0 1 0 0 265 266 -1 23
+Instance.Server_UserStatus
+1 1 0 0 2565 1106 -38 -9 38 9 0 0 0 0 -1 -1 -1 23
+Конец
+20 1 0 0 2774 902 -76 -55 76 55 0 0 0 0 -1 -1 -1 23
+"(client, receiver: Base.Client;","  status: INTEGER;","  sendBuf: Base.Buffer;","  s: UDP.Socket);",VAR,"  res: LONGINT;","  string: String;",{EXCLUSIVE}
+2 1 0 0 2565 1004 -114 -74 114 74 0 1 0 0 -1 264 -1 23
+"Base.ServerPacketInit(status,","  receiver.outSeqNum, sendBuf);",NEW(ACKReq);,"ACKReq.seqNum := receiver.outSeqNum;",receiver.ACKList.Add(ACKReq);,INC(receiver.outSeqNum);,"sendBuf.AddInt(client.uin, 4);","string := sendBuf.GetString();","s.Send(receiver.ip, receiver.port,","  string^, 0, sendBuf.GetLength(),","  res);"
+2 1 0 0 1862 350 -76 -9 76 9 0 1 0 0 -1 234 -1 17
+"i := 0;"

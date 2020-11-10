@@ -1,0 +1,89 @@
+
+<!-- saved from url=(0313)http://masterh1.adriver.ru/images/0001158/0001158189/0/index.html?html_params=rhost%3Dad.adriver.ru%26sid%3D76738%26ad%3D164477%26bid%3D1158189%26ar_ntype%3D0%26ar_pass%3D%26bt%3D22%26pz%3D0%26bn%3D0%26width%3D240%26height%3D400%26rnd%3D568486482%26geozoneid%3D205%26rleurl%3D%26target%3D_blank%26sliceid%3D836139 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></head><body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" scroll="no">
+<!-- AdRiver (c) Flash Loader -->
+<!-- Last Edited 26.01.2011 by Zonov Alexandr -->
+<script type="text/javascript">
+var ar_img			= ''||'',
+	ar_swf			= '240400.swf'||'',
+	ar_flashver		= parseInt('8')||0,
+	ar_quality		= 'best',
+	ar_gif_href		= '',
+	ar_wmode		= 'opaque',
+	ar_flash_pixel	= '',
+	ar_gif_pixel	= '';
+
+function ar_flver(d,n,m,f){n=navigator;f='Shockwave Flash';if((m=n.mimeTypes)&&(m=m["application/x-shockwave-flash"])&&m.enabledPlugin&&(n=n.plugins)&&n[f]){d=n[f].description}else if(window.ActiveXObject){try{d=(new ActiveXObject((f+'.'+f).replace(/ /g,''))).GetVariable('$version')}catch(e){}}return parseInt(d?d.replace(/\D+/,'').split(/\D+/)[0]:0)}
+function ar_p(p,v){return typeof(v)=='undefined'?'':p+'='+v}
+function ar_fp(p,v){return '<param name="'+p+'" value="'+v+'">'}
+
+function extendL(l,r){for(var i in l)l[i]=r[i]||l[i];return l}
+function obj2str(o){var l=[];for(var i in o)l.push(ar_p(i,o[i]));return l.join("&")}
+function str2obj(s){var a=s.split("&"),o={},p;for(var i in a){p=a[i].split("=");o[p[0]]=p[1]}return o}
+
+var url = location.href,
+	_ = str2obj(url.substr(url.indexOf("?")+1)).html_params;
+if (_){
+	function rndRep(s){return s.replace(/!\[rnd\]/g,_.rnd)}
+	function ar_c(s){return !s||(/^http:\/\//i).test(s)?s:_.comppath+s}
+	function ar_sendPix(s,b,i){if(!s)return;s=rndRep(s.replace(/!\[ref\]/,escape(document.referrer||'unknown')));if(b=document.body){i=document.createElement('IMG');i.style.position='absolute';i.style.width=i.style.height='0px';i.onload=i.onerror=function(){b.removeChild(i);i=b=null};i.src=s;b.insertBefore(i,b.firstChild);}else new Image().src=s;return true}
+
+	_ = str2obj(unescape(_));
+	_.target = _.target&&_.target.indexOf('_top')!=-1 ? '_top' : '_blank';
+	_.comppath = url.substring(0, url.indexOf('index.html'));
+	_.rhost = _.rhost || 'ad.adriver.ru';
+	_.ar_pass = unescape(_.ar_pass || '');
+
+	ar_redirect = _.url ? unescape(_.url) : ('http://' + _.rhost + '/cgi-bin/click.cgi?'
+		+ obj2str(extendL({bid: 0, ntype: _.ar_ntype, sid: 0, bn: 0, ad: 0, nid: 0, bt: 0, pz: 0, rnd: 0}, _)) + "&rleurl=");
+
+	ar_wmode = ar_wmode||'opaque';
+	ar_quality = ar_quality||'best';
+	ar_swf = rndRep(ar_c(ar_swf));
+	ar_img = rndRep(ar_c(ar_img));
+	ar_gif_href = rndRep(ar_gif_href);
+
+	var ar_plugin = ar_flver()>=ar_flashver&&ar_swf!='',
+		ar_metrics = ar_p(' width', _.width) + ar_p(' height', _.height);
+
+	if (url.indexOf('mngcgi')==-1) ar_sendPix(rndRep(ar_plugin ? ar_flash_pixel : ar_gif_pixel));
+
+	var ar_flashvars = 'link1=' + escape(ar_redirect)
+		+ ar_p('&target', _.target)
+		+ ar_p('&ar_comppath', escape(_.comppath))
+		+ ar_p('&ar_pass', escape(_.ar_pass))
+		+ ar_p('&ar_bid', _.bid)
+		+ ar_p('&ar_bt', _.bt)
+		+ ar_p('&ar_ad', _.ad)
+		+ ar_p('&ar_nid', _.nid)
+		+ ar_p('&ar_rnd', _.rnd)
+		+ ar_p('&ar_ntype', _.ar_ntype)
+		+ ar_p('&ar_sliceid', _.sliceid)
+		+ ar_p('&ar_sid', _.sid);
+
+	var ar_html = window.ActiveXObject
+		? '<object id="ar_flash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"' + ar_metrics + '>'
+			+ ar_fp('movie', ar_swf)
+			+ ar_fp('wmode', ar_wmode)
+			+ ar_fp('quality', ar_quality)
+			+ ar_fp('flashvars', ar_flashvars)
+			+ ar_fp('play', 'true')
+			+ ar_fp('loop', 'true')
+			+ ar_fp('menu', 'false')
+			+ ar_fp('allowScriptAccess', 'always')
+			+ ar_fp('allowFullScreen', 'true')
+			+ '</object>'
+		: '<embed type="application/x-shockwave-flash" menu=false allowFullScreen=true allowScriptAccess=always play=true loop=true src="'
+			+ ar_swf + '" wmode=' + ar_wmode + ' quality=' + ar_quality + ' flashvars="' + ar_flashvars + '"'
+			+ ar_metrics + '></embed>';
+
+	document.write(ar_plugin
+		? '<scr'+'ipt src="/flashloader.js"><\/scr'+'ipt>'
+		: ar_img
+			? '<a href="' + ar_redirect + escape(ar_gif_href) + '" onclick="return ar_sendPix(\''+_.ar_pass+'\');" target=' + _.target + '><img src="'
+				+ ar_img + '"' + ar_metrics + ' alt="" border=0></a>'
+			: '');
+}
+</script><script src="./Python-&#1073;&#1101;&#1082;&#1076;&#1086;&#1088; &#1076;&#1083;&#1103; Mac OS (&#1087;&#1088;&#1080;&#1084;&#1077;&#1088; &#1082;&#1086;&#1076;&#1072;)_files/flashloader.js"></script><embed type="application/x-shockwave-flash" menu="false" allowfullscreen="true" allowscriptaccess="always" play="true" loop="true" src="http://masterh1.adriver.ru/images/0001158/0001158189/0/240400.swf" wmode="opaque" quality="best" flashvars="link1=http%3A//ad.adriver.ru/cgi-bin/click.cgi%3Fbid%3D1158189%26ntype%3D0%26sid%3D76738%26bn%3D0%26ad%3D164477%26nid%3D0%26bt%3D22%26pz%3D0%26rnd%3D568486482%26rleurl%3D&amp;target=_blank&amp;ar_comppath=http%3A//masterh1.adriver.ru/images/0001158/0001158189/0/&amp;ar_pass=&amp;ar_bid=1158189&amp;ar_bt=22&amp;ar_ad=164477&amp;ar_rnd=568486482&amp;ar_ntype=0&amp;ar_sliceid=836139&amp;ar_sid=76738" width="240" height="400">
+
+</body></html>

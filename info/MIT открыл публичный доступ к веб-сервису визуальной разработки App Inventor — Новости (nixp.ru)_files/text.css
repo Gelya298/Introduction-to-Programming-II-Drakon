@@ -1,0 +1,81 @@
+/* ??? */
+
+div.delimeter {
+  color: #aaa;
+  width: 100%;
+  border-top: solid #ccc 1px;
+  text-align: right;
+}
+
+/* quotations from nixp */
+
+blockquote {
+  display: block;
+  margin: 12px 0; padding: 10px;
+  min-height: 30px;
+  border: 1px #c0cdd3 solid;
+  -moz-border-radius: 15px;
+  background: #ecf9ff;
+  font-size: 90%;
+  font-style: italic;
+}
+blockquote strong {
+  display: block;
+  min-height: 14px;
+  padding-bottom: 6px;
+  font-weight: bold;
+  font-style: normal;
+}
+blockquote .piska {
+  float: right;
+  position: relative; top: 0; right: -41px;
+  width: 31px; height: 38px;
+  padding: 0;
+  background: url(/images/stuff/quote-piska.gif) no-repeat top left;
+}
+/* no piska for tinyMCE, sorry */
+.mceContentBody .piska { display: none; }
+
+blockquote strong a { position: relative; top: -2px; color: #0050e3; text-decoration: none; border-bottom: 1px dotted; font-size: 120%; }
+blockquote p { margin: 5px 0 0 0; }
+blockquote div { text-align: right; }
+
+/* external quotations additions */
+
+blockquote.external { background: #eaeaea; }
+blockquote.external .piska { background-image: url(/images/stuff/quote-piska-ext.gif); }
+
+
+pre {
+  display: block;
+  margin: 12px 0;
+  white-space: pre-wrap;
+  font-family: sans-serif;
+  font-size: 100%;
+}
+
+/* code */
+
+.source pre, .articles .source pre {
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+/* console */
+
+.console pre, .articles pre {
+  padding: 5px;
+  background: #5a5a5a; color: #fff;
+  border: none;
+}
+
+.articles .source pre { background: none; color: #000; }
+
+/* hack by DenisGorbachev extends CaptainObvious */
+blockquote .source, blockquote .console { display: none; }
+
+/* some buttons for these elements */
+
+.element_delete, .element_edit {
+  display: none;
+}

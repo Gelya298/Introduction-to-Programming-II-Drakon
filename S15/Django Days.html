@@ -1,0 +1,2302 @@
+<!DOCTYPE html>
+<html b:version="2" class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr"><head>
+<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible">
+<meta content="width=1100" name="viewport">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<script type="text/javascript">(function() { var a=window;function c(b){this.t={};this.tick=function(b,i,d){d=void 0!=d?d:(new Date).getTime();this.t[b]=[d,i]};this.tick("start",null,b)}var f=new c;a.jstiming={Timer:c,load:f};try{var g=null;a.chrome&&a.chrome.csi&&(g=Math.floor(a.chrome.csi().pageT));null==g&&a.gtbExternal&&(g=a.gtbExternal.pageT());null==g&&a.external&&(g=a.external.pageT);g&&(a.jstiming.pt=g)}catch(h){};a.tickAboveFold=function(b){var e=0;if(b.offsetParent){do e+=b.offsetTop;while(b=b.offsetParent)}b=e;750>=b&&a.jstiming.load.tick("aft")};var j=!1;function k(){j||(j=!0,a.jstiming.load.tick("firstScrollTime"))}a.addEventListener?a.addEventListener("scroll",k,!1):a.attachEvent("onscroll",k);
+ })();</script>
+<meta content="true" name="MSSmartTagsPreventParsing">
+<meta content="blogger" name="generator">
+<link href="http://blog.futurecolors.ru/favicon.ico" rel="icon" type="image/x-icon">
+<link href="http://blog.futurecolors.ru/search/label/Django%20Days" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="Блог студии Future Colors - Atom" href="http://blog.futurecolors.ru/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="Блог студии Future Colors - RSS" href="http://blog.futurecolors.ru/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="Блог студии Future Colors - Atom" href="http://www.blogger.com/feeds/6180190261543881757/posts/default">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=6180190261543881757">
+<link rel="openid.server" href="http://www.blogger.com/openid-server.g">
+<!--[if IE]><script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/3804583874-ieretrofit.js"></script>
+<![endif]-->
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Блог студии Future Colors: Django Days</title>
+<link type="text/css" rel="stylesheet" href="Django%20Days_files/1563318330-widget_css_2_bundle.css">
+<link type="text/css" rel="stylesheet" href="Django%20Days_files/authorization.css">
+<style type="text/css">
+#navbar-iframe { display:block }
+</style>
+<style id="page-skin-1" type="text/css"><!--
+/*-----------------------------------------------
+Blogger Template Style
+Name:     Picture Window
+Designer: Josh Peterson
+URL:      www.noaesthetic.com
+----------------------------------------------- */
+#navbar-iframe {
+display: none !important;
+}
+/* Variable definitions
+====================
+<Variable name="keycolor" description="Main Color" type="color" default="#1a222a"/>
+<Variable name="body.background" description="Body Background" type="background"
+color="#296695" default="#111111 url(http://themes.googleusercontent.com/image?id=1OACCYOE0-eoTRTfsBuX1NMN9nz599ufI1Jh0CggPFA_sK80AGkIr8pLtYRpNUKPmwtEa) repeat-x fixed top center"/>
+<Group description="Page Text" selector="body">
+<Variable name="body.font" description="Font" type="font"
+default="normal normal 15px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="body.text.color" description="Text Color" type="color" default="#333333"/>
+</Group>
+<Group description="Backgrounds" selector=".body-fauxcolumns-outer">
+<Variable name="body.background.color" description="Outer Background" type="color" default="#296695"/>
+<Variable name="header.background.color" description="Header Background" type="color" default="transparent"/>
+<Variable name="post.background.color" description="Post Background" type="color" default="#ffffff"/>
+</Group>
+<Group description="Links" selector=".main-outer">
+<Variable name="link.color" description="Link Color" type="color" default="#336699"/>
+<Variable name="link.visited.color" description="Visited Color" type="color" default="#6699cc"/>
+<Variable name="link.hover.color" description="Hover Color" type="color" default="#33aaff"/>
+</Group>
+<Group description="Blog Title" selector=".header h1">
+<Variable name="header.font" description="Title Font" type="font"
+default="normal normal 36px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="header.text.color" description="Text Color" type="color" default="#ffffff" />
+</Group>
+<Group description="Tabs Text" selector=".tabs-inner .widget li a">
+<Variable name="tabs.font" description="Font" type="font"
+default="normal normal 15px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="tabs.text.color" description="Text Color" type="color" default="#ffffff"/>
+<Variable name="tabs.selected.text.color" description="Selected Color" type="color" default="#336699"/>
+</Group>
+<Group description="Tabs Background" selector=".tabs-outer .PageList">
+<Variable name="tabs.background.color" description="Background Color" type="color" default="transparent"/>
+<Variable name="tabs.selected.background.color" description="Selected Color" type="color" default="transparent"/>
+<Variable name="tabs.separator.color" description="Separator Color" type="color" default="transparent"/>
+</Group>
+<Group description="Post Title" selector="h3.post-title, .comments h4">
+<Variable name="post.title.font" description="Title Font" type="font"
+default="normal normal 18px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+</Group>
+<Group description="Post" selector=".post">
+<Variable name="post.footer.text.color" description="Footer Text Color" type="color" default="#999999"/>
+<Variable name="post.border.color" description="Border Color" type="color" default="#dddddd"/>
+</Group>
+<Group description="Gadgets" selector="h2">
+<Variable name="widget.title.font" description="Title Font" type="font"
+default="bold normal 13px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="widget.title.text.color" description="Title Color" type="color" default="#888888"/>
+</Group>
+<Group description="Footer" selector=".footer-outer">
+<Variable name="footer.text.color" description="Text Color" type="color" default="#cccccc"/>
+<Variable name="footer.widget.title.text.color" description="Gadget Title Color" type="color" default="#aaaaaa"/>
+</Group>
+<Group description="Footer Links" selector=".footer-outer">
+<Variable name="footer.link.color" description="Link Color" type="color" default="#99ccee"/>
+<Variable name="footer.link.visited.color" description="Visited Color" type="color" default="#77aaee"/>
+<Variable name="footer.link.hover.color" description="Hover Color" type="color" default="#33aaff"/>
+</Group>
+<Variable name="content.margin" description="Content Margin Top" type="length" default="20px"/>
+<Variable name="content.padding" description="Content Padding" type="length" default="0"/>
+<Variable name="content.background" description="Content Background" type="background"
+default="transparent none repeat scroll top left"/>
+<Variable name="content.border.radius" description="Content Border Radius" type="length" default="0"/>
+<Variable name="content.shadow.spread" description="Content Shadow Spread" type="length" default="0"/>
+<Variable name="header.padding" description="Header Padding" type="length" default="0"/>
+<Variable name="header.background.gradient" description="Header Gradient" type="url"
+default="none"/>
+<Variable name="header.border.radius" description="Header Border Radius" type="length" default="0"/>
+<Variable name="main.border.radius.top" description="Main Border Radius" type="length" default="20px"/>
+<Variable name="footer.border.radius.top" description="Footer Border Radius Top" type="length" default="0"/>
+<Variable name="footer.border.radius.bottom" description="Footer Border Radius Bottom" type="length" default="20px"/>
+<Variable name="region.shadow.spread" description="Main and Footer Shadow Spread" type="length" default="3px"/>
+<Variable name="region.shadow.offset" description="Main and Footer Shadow Offset" type="length" default="1px"/>
+<Variable name="tabs.background.gradient" description="Tab Background Gradient" type="url" default="none"/>
+<Variable name="tab.selected.background.gradient" description="Selected Tab Background" type="url"
+default="url(http://www.blogblog.com/1kt/transparent/white80.png)"/>
+<Variable name="tab.background" description="Tab Background" type="background"
+default="transparent url(http://www.blogblog.com/1kt/transparent/black50.png) repeat scroll top left"/>
+<Variable name="tab.border.radius" description="Tab Border Radius" type="length" default="10px" />
+<Variable name="tab.first.border.radius" description="First Tab Border Radius" type="length" default="10px" />
+<Variable name="tabs.border.radius" description="Tabs Border Radius" type="length" default="0" />
+<Variable name="tabs.spacing" description="Tab Spacing" type="length" default=".25em"/>
+<Variable name="tabs.margin.bottom" description="Tab Margin Bottom" type="length" default="0"/>
+<Variable name="tabs.margin.sides" description="Tab Margin Sides" type="length" default="20px"/>
+<Variable name="main.background" description="Main Background" type="background"
+default="transparent url(http://www.blogblog.com/1kt/transparent/white80.png) repeat scroll top left"/>
+<Variable name="main.padding.sides" description="Main Padding Sides" type="length" default="20px"/>
+<Variable name="footer.background" description="Footer Background" type="background"
+default="transparent url(http://www.blogblog.com/1kt/transparent/black50.png) repeat scroll top left"/>
+<Variable name="post.margin.sides" description="Post Margin Sides" type="length" default="-20px"/>
+<Variable name="post.border.radius" description="Post Border Radius" type="length" default="5px"/>
+<Variable name="widget.title.text.transform" description="Widget Title Text Transform" type="string" default="uppercase"/>
+<Variable name="startSide" description="Side where text starts in blog language" type="automatic" default="left"/>
+<Variable name="endSide" description="Side where text ends in blog language" type="automatic" default="right"/>
+*/
+/* Content
+----------------------------------------------- */
+body {
+font: normal normal 15px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #333333;
+background: #111111 url(http://themes.googleusercontent.com/image?id=1OACCYOE0-eoTRTfsBuX1NMN9nz599ufI1Jh0CggPFA_sK80AGkIr8pLtYRpNUKPmwtEa) repeat-x fixed top center;
+}
+html body .region-inner {
+min-width: 0;
+max-width: 100%;
+width: auto;
+}
+.content-outer {
+font-size: 90%;
+}
+a:link {
+text-decoration:none;
+color: #336699;
+}
+a:visited {
+text-decoration:none;
+color: #6699cc;
+}
+a:hover {
+text-decoration:underline;
+color: #33aaff;
+}
+.content-outer {
+background: transparent none repeat scroll top left;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+margin: 20px auto;
+}
+.content-inner {
+padding: 0;
+}
+/* Header
+----------------------------------------------- */
+.header-outer {
+background: transparent none repeat-x scroll top left;
+_background-image: none;
+color: #ffffff;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+}
+.Header img, .Header #header-inner {
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+}
+.header-inner .Header .titlewrapper,
+.header-inner .Header .descriptionwrapper {
+padding-left: 0;
+padding-right: 0;
+}
+.Header h1 {
+font: normal normal 36px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.Header h1 a {
+color: #ffffff;
+}
+.Header .description {
+font-size: 130%;
+}
+/* Tabs
+----------------------------------------------- */
+.tabs-inner {
+margin: .5em 20px 0;
+padding: 0;
+}
+.tabs-inner .section {
+margin: 0;
+}
+.tabs-inner .widget ul {
+padding: 0;
+background: transparent none repeat scroll bottom;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+}
+.tabs-inner .widget li {
+border: none;
+}
+.tabs-inner .widget li a {
+display: inline-block;
+padding: .5em 1em;
+margin-right: .25em;
+color: #ffffff;
+font: normal normal 15px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+-moz-border-radius: 10px 10px 0 0;
+-webkit-border-top-left-radius: 10px;
+-webkit-border-top-right-radius: 10px;
+-goog-ms-border-radius: 10px 10px 0 0;
+border-radius: 10px 10px 0 0;
+background: transparent url(http://www.blogblog.com/1kt/transparent/black50.png) repeat scroll top left;
+border-right: 1px solid transparent;
+}
+.tabs-inner .widget li:first-child a {
+padding-left: 1.25em;
+-moz-border-radius-topleft: 10px;
+-moz-border-radius-bottomleft: 0;
+-webkit-border-top-left-radius: 10px;
+-webkit-border-bottom-left-radius: 0;
+-goog-ms-border-top-left-radius: 10px;
+-goog-ms-border-bottom-left-radius: 0;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 0;
+}
+.tabs-inner .widget li.selected a,
+.tabs-inner .widget li a:hover {
+position: relative;
+z-index: 1;
+background: transparent url(http://www.blogblog.com/1kt/transparent/white80.png) repeat scroll bottom;
+color: #336699;
+-moz-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+}
+/* Headings
+----------------------------------------------- */
+h2 {
+font: bold normal 13px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+text-transform: uppercase;
+color: #888888;
+margin: .5em 0;
+}
+/* Main
+----------------------------------------------- */
+.main-outer {
+background: transparent url(http://www.blogblog.com/1kt/transparent/white80.png) repeat scroll top left;
+-moz-border-radius: 20px 20px 0 0;
+-webkit-border-top-left-radius: 20px;
+-webkit-border-top-right-radius: 20px;
+-webkit-border-bottom-left-radius: 0;
+-webkit-border-bottom-right-radius: 0;
+-goog-ms-border-radius: 20px 20px 0 0;
+border-radius: 20px 20px 0 0;
+-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+}
+.main-inner {
+padding: 15px 20px 20px;
+}
+.main-inner .column-center-inner {
+padding: 0 0;
+}
+.main-inner .column-left-inner {
+padding-left: 0;
+}
+.main-inner .column-right-inner {
+padding-right: 0;
+}
+/* Posts
+----------------------------------------------- */
+h3.post-title {
+margin: 0;
+font: normal normal 18px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+}
+.comments h4 {
+margin: 1em 0 0;
+font: normal normal 18px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+}
+.post-outer {
+background-color: #ffffff;
+border: solid 1px #dddddd;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+-goog-ms-border-radius: 5px;
+padding: 15px 20px;
+margin: 0 -20px 20px;
+}
+.post-body {
+line-height: 1.4;
+font-size: 110%;
+position: relative;
+}
+.post-header {
+margin: 0 0 1.5em;
+color: #999999;
+line-height: 1.6;
+}
+.post-footer {
+margin: .5em 0 0;
+color: #999999;
+line-height: 1.6;
+}
+#blog-pager {
+font-size: 140%
+}
+#comments .comment-author {
+padding-top: 1.5em;
+border-top: dashed 1px #ccc;
+border-top: dashed 1px rgba(128, 128, 128, .5);
+background-position: 0 1.5em;
+}
+#comments .comment-author:first-child {
+padding-top: 0;
+border-top: none;
+}
+.avatar-image-container {
+margin: .2em 0 0;
+}
+/* Widgets
+----------------------------------------------- */
+.widget ul, .widget #ArchiveList ul.flat {
+padding: 0;
+list-style: none;
+}
+.widget ul li, .widget #ArchiveList ul.flat li {
+border-top: dashed 1px #ccc;
+border-top: dashed 1px rgba(128, 128, 128, .5);
+}
+.widget ul li:first-child, .widget #ArchiveList ul.flat li:first-child {
+border-top: none;
+}
+.widget .post-body ul {
+list-style: disc;
+}
+.widget .post-body ul li {
+border: none;
+}
+/* Footer
+----------------------------------------------- */
+.footer-outer {
+color:#cccccc;
+background: transparent url(http://www.blogblog.com/1kt/transparent/black50.png) repeat scroll top left;
+-moz-border-radius: 0 0 20px 20px;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+-webkit-border-bottom-left-radius: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-goog-ms-border-radius: 0 0 20px 20px;
+border-radius: 0 0 20px 20px;
+-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+}
+.footer-inner {
+padding: 10px 20px 20px;
+}
+.footer-outer a {
+color: #99ccee;
+}
+.footer-outer a:visited {
+color: #77aaee;
+}
+.footer-outer a:hover {
+color: #33aaff;
+}
+.footer-outer .widget h2 {
+color: #aaaaaa;
+}
+h3.post-title {font-size: 23px;}
+.post-footer-line-1 {float:right;}
+body {background: white;}
+.header-outer {color: #333}
+.main-inner {padding: 15px 0px 20px;}
+.main-outer {
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+-o-border-radius: 0px;
+border-radius: 0px;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+-o-box-shadow: none;
+box-shadow: none;
+}
+.post-outer {margin: 0px; border: none; padding: 0px 20px 50px 0px;}
+.section {margin: 0px 20px 0px 0px;}
+.date-header {font-weight: normal; font-size: 10px}.Header h1 a {color: #333}
+.post-body h2 {color: #333; text-transform: none; font-size: 18px;}
+body .navbar {display: none}
+.post-outer {padding: 0 20px 40px 0;}
+.cloud-label-widget-content {text-align: left;}
+.jump-link {padding-top: 20px}
+.dp-highlighter {font-family: Consolas,monospace}
+.dp-highlighter .bar {display: none}
+.date-header {float: right; padding-right: 30px; margin-bottom: 0px; position: relative; z-index: 100; text-transform: none; font-size: 11px}
+.post-title {
+background: #ebebda;
+margin: 0px 0px 0px -2000px !important;
+padding: 15px 0px 15px 2000px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-o-border-radius: 10px;
+border-radius: 10px;
+}
+.post-title a {
+color: black;
+}
+pre code {
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-o-border-radius: 10px;
+border-radius: 10px;
+padding: 1em !important;
+font-size: 13px;
+background: #f0f0e5 !important;
+}
+.post-footer {
+/*
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-o-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #ddc;*/
+margin: 20px 0 20px 0;
+}
+.widget ul li, .widget #ArchiveList ul.flat li {border: none !important}
+.footer-outer {display: none;}
+.feed-links {display:none;}
+--></style>
+<style id="template-skin-1" type="text/css"><!--
+body {
+min-width: 980px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 980px;
+max-width: 980px;
+_width: 980px;
+}
+.main-inner .columns {
+padding-left: 0px;
+padding-right: 260px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0px;
+right: 260px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0px") -
+parseInt("260px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0px;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 260px;
+}
+.main-inner .column-left-outer {
+width: 0px;
+right: 100%;
+margin-left: -0px;
+}
+.main-inner .column-right-outer {
+width: 260px;
+margin-right: -260px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+--></style>
+<script type="text/javascript">(function(){if(-1!=navigator.userAgent.indexOf("Mobile")&&-1!=navigator.userAgent.indexOf("WebKit")&&-1==navigator.userAgent.indexOf("iPad")||-1!=navigator.userAgent.indexOf("Opera Mini")){var a;a:{var b=window.location.href,c=b.split("?");switch(c.length){case 1:a=b+"?m=1";break a;case 2:a=0<=c[1].search("(^|&)m=")?null:b+"&m=1";break a;default:a=null}}a&&window.location.replace(a)};})();
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script><script src="Django%20Days_files/google_top.js" type="text/javascript"></script><script src="Django%20Days_files/blogger_index.js" async="" type="text/javascript"></script><link type="text/css" rel="stylesheet" href="Django%20Days_files/widget.css"><style type="text/css">#twtr-widget-1 .twtr-avatar { display: none; } #twtr-widget-1 .twtr-tweet-text { margin-left: 0; }</style><script src="Django%20Days_files/count_002.js" async=""></script><script src="Django%20Days_files/count.js" async="" type="text/javascript"></script><style type="text/css">#twtr-widget-1 .twtr-doc,                      #twtr-widget-1 .twtr-hd a,                      #twtr-widget-1 h3,                      #twtr-widget-1 h4 {            background-color: #ccc !important;            color: #000 !important;          }          #twtr-widget-1 .twtr-tweet a {            color: #33aaff !important;          }          #twtr-widget-1 .twtr-bd, #twtr-widget-1 .twtr-timeline i a,           #twtr-widget-1 .twtr-bd p {            color: #555555 !important;          }          #twtr-widget-1 .twtr-new-results,           #twtr-widget-1 .twtr-results-inner,           #twtr-widget-1 .twtr-timeline {            background: #ffffff !important;          }</style></head>
+<body class="">
+<div class="navbar section" id="navbar"><div class="widget Navbar" id="Navbar1"><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener("load",
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<iframe src="Django%20Days_files/navbar.html" marginwidth="0" marginheight="0" id="navbar-iframe" allowtransparency="true" title="Blogger Navigation and Search" frameborder="0" height="30px" scrolling="no" width="100%"></iframe>
+<div></div><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div class="body-fauxcolumns">
+<div class="fauxcolumn-outer body-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="content-fauxcolumns">
+<div class="fauxcolumn-outer content-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content-outer">
+<div class="content-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left content-fauxborder-left">
+<div class="fauxborder-right content-fauxborder-right"></div>
+<div class="content-inner">
+<header>
+<div class="header-outer">
+<div class="header-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left header-fauxborder-left">
+<div class="fauxborder-right header-fauxborder-right"></div>
+<div class="region-inner header-inner">
+<div class="header section" id="header"><div class="widget Header" id="Header1">
+<div id="header-inner">
+<div class="titlewrapper">
+<h1 class="title">
+<a href="http://blog.futurecolors.ru/">Блог студии Future Colors</a>
+</h1>
+</div>
+<div class="descriptionwrapper">
+<p class="description"><span>Пишем про python, Django, вёрстку и не только.</span></p>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="header-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</header>
+<div class="tabs-outer">
+<div class="tabs-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left tabs-fauxborder-left">
+<div class="fauxborder-right tabs-fauxborder-right"></div>
+<div class="region-inner tabs-inner">
+<div class="tabs section" id="crosscol"><div class="widget HTML" id="HTML4">
+<div class="widget-content">
+<div class="b-header">
+<a class="b-header__title" href="http://blog.futurecolors.ru/">Блог</a>
+<nav class="b-menu">
+    
+        <div class="b-menu__item">
+            
+            <a class="b-menu__item-link" href="http://futurecolors.ru/works/">Работы</a>
+            
+        </div>
+    
+        <div class="b-menu__item">
+
+            
+            <a class="b-menu__item-link" href="http://futurecolors.ru/team/">Команда</a>
+            
+        </div>
+    
+        <div class="b-menu__item">
+            
+            <a class="b-menu__item-link" href="http://futurecolors.ru/vacancies/">Вакансии</a>
+            
+        </div>
+    
+        <div class="b-menu__item">
+            Блог
+        </div>
+    
+</nav>
+
+<a class="b-header__logo" href="http://futurecolors.ru/"></a>
+
+</div>
+<style type="text/css">
+.b-header {padding: 20px 0 30px; display: inline-block; width: 100%;}
+.b-header__title {height: 20px; margin-top: -20px; font-size: 16px; display: block;}
+.b-header__logo {height: 65px; width: 360px; float: left; background: url('http://futurecolors.ru/_static/images/logos/fc_main_logo_pink.png'); position: relative; left: -23px; display: block;}
+.b-menu {
+    line-height: 70px;
+    float: right;
+    font-size: 18px;
+    padding-right: 20px;
+}
+.b-menu__item {
+    float: left;
+    padding-left: 50px;
+}
+.b-menu__item-link {
+    color: #777777 !important;
+    font-style: italic;
+    text-decoration: underline !important;
+}
+
+.header-outer {display: none}
+.tabs-inner {margin: 0px;}
+</style>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6180190261543881757&amp;widgetType=HTML&amp;widgetId=HTML4&amp;action=editWidget&amp;sectionId=crosscol" onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML4"));' target="configHTML4" title="Изменить">
+<img alt="" src="Django%20Days_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+<div class="tabs section" id="crosscol-overflow"></div>
+</div>
+</div>
+<div class="tabs-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="main-outer">
+<div class="main-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left main-fauxborder-left">
+<div class="fauxborder-right main-fauxborder-right"></div>
+<div class="region-inner main-inner">
+<div class="columns fauxcolumns">
+<div class="fauxcolumn-outer fauxcolumn-center-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-left-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-right-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class="columns-inner">
+<div class="column-center-outer">
+<div class="column-center-inner">
+<div class="main section" id="main"><div class="widget Blog" id="Blog1">
+<div class="blog-posts hfeed">
+<div class="status-msg-wrap">
+<div class="status-msg-body">
+Показаны сообщения с ярлыком <b>Django Days</b>. <a href="http://blog.futurecolors.ru/">Показать все сообщения</a>
+</div>
+<div class="status-msg-border">
+<div class="status-msg-bg">
+<div class="status-msg-hidden">Показаны сообщения с ярлыком <b>Django Days</b>. <a href="http://blog.futurecolors.ru/">Показать все сообщения</a></div>
+</div>
+</div>
+</div>
+<div style="clear: both;"></div>
+<!-- google_ad_section_start(name=default) -->
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>20 марта 2012&nbsp;г.</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry">
+<a name="2772398133494825660"></a>
+<h3 class="post-title entry-title">
+<a href="http://blog.futurecolors.ru/2012/03/django-14-day-7-templates.html">Новинки Django 1.4, day 7: Templates</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"><span class="post-author vcard">
+Автор:
+<span class="fn">Илья Барышев</span>
+</span>
+</div>
+</div>
+<div class="post-body entry-content" id="post-body-2772398133494825660">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Седьмой пост в серии «<a href="http://blog.futurecolors.ru/search/label/Django%20Days">Django Days</a>», настал черёд рассказать про новые теги и другие вкусности шаблонов.<br>
+<br>
+<span style="font-size: large;">Тег {% elif %}</span><br>
+Для кого-то это чуть ли не главная фича 1.4 ;) Если у вас сложная логика
+ в шаблонах, то теперь она будет выглядеть чуть по-проще.<br>
+<br>
+<span style="font-size: large;">Key-value аргументы для пользовательских тегов</span><br>
+Теперь можно использовать key-value аргументы для тегов наряду с обычными позиционными аргументами, а именно:<br>
+<pre><code data-result="[object Object]" class="python">{% my_tag <span class="number">123</span> <span class="string">"abcd"</span> book.title warning=message|lower profile=user.profile %}</code></pre>
+Реализуется это всё через привычные args и kwargs:<br>
+<pre><code data-result="[object Object]" class="python"><span class="decorator">@register.simple_tag</span>
+<span class="function"><span class="keyword">def</span> <span class="title">my_tag</span><span class="params">(a, b, *args, **kwargs)</span>:</span>
+    warning = kwargs[<span class="string">'warning'</span>]
+    profile = kwargs[<span class="string">'profile'</span>]
+    ...
+    <span class="keyword">return</span> ...
+</code></pre>
+<div>
+<span style="font-size: large;">assignment-теги</span></div>
+Некоторые теги в отличие от simple_tag, не обязаны выводить что-то в 
+шаблон, им достаточно лишь модифицировать контекст рендеринга шаблона 
+(например,&nbsp;встроенный <span style="font-family: 'Courier New', Courier, monospace;">{% with %}</span>). &nbsp;Вот как можно использовать подобный тег для вывода времени:<br>
+<pre><code data-result="[object Object]" class="python">{% get_current_time <span class="string">"%Y-%m-%d %I:%M %p"</span> <span class="keyword">as</span> the_time %}
+The time <span class="keyword">is</span> {{ the_time }}.</code></pre>
+С целью упрощения создания таких пользовательских тегов теперь можно использовать декоратор&nbsp;<a href="https://docs.djangoproject.com/en/1.4/howto/custom-template-tags/#howto-custom-template-tags-assignment-tags">assignment_tag</a>:<br>
+<pre><code data-result="[object Object]" class="python"><span class="decorator">@register.assignment_tag</span>
+<span class="function"><span class="keyword">def</span> <span class="title">get_current_time</span><span class="params">(format_string)</span>:</span>
+    <span class="keyword">return</span> datetime.datetime.now().strftime(format_string)</code></pre>
+<br>
+<span style="font-size: large;">Контекстные пометки для перевода</span><br>
+В Django 1.3 появилась возможность <a href="https://docs.djangoproject.com/en/1.4/topics/i18n/translation/#contextual-markers">задавать контекст для переводимых строк</a>&nbsp;с
+ помощью функций&nbsp;pgettext() и ngettext(), что лишь частично решило 
+проблему локализации коротких фраз, которые могут иметь различный 
+перевод в зависимости от контекста. Теперь его можно <a href="https://docs.djangoproject.com/en/1.4/topics/i18n/translation/#std:templatetag-trans">передать</a> прямо в шаблоне:<br>
+<div>
+<pre><code data-result="[object Object]" class="python">{% trans <span class="string">"May"</span> context <span class="string">"month name"</span> %}
+{% trans <span class="string">"May"</span> context <span class="string">"verb"</span> %}
+{% blocktrans <span class="keyword">with</span> name=user.username context <span class="string">"greeting"</span> %}Hi {{ name }}{% endblocktrans %}
+</code></pre>
+<br>
+<span style="font-size: large;">Тег {% static %}</span><br>
+<div>
+Файлы из STATICFILES_STORAGE можно теперь отдавать через <a href="https://docs.djangoproject.com/en/1.4/ref/contrib/staticfiles/#std:templatetag-staticfiles-static">спецтег</a>:<br>
+<pre><code data-result="[object Object]" class="python">{% load static <span class="keyword">from</span> staticfiles %}
+&lt;img src=<span class="string">"{% static "</span>css/base.css<span class="string">" %}"</span> /&gt;</code></pre>
+Наиболее полезен новый тег будет тем, кто хранит статику не локально, а <a href="https://docs.djangoproject.com/en/1.4/howto/static-files/#serving-static-files-from-a-cloud-service-or-cdn">в CDN</a>,
+ например, на S3, либо другим нестандартным образом. В остальных случаях
+ этот тег эквивалентен {{STATIC_URL}} перед началом файла.<br>
+<br>
+Также появился новый тип хранилища&nbsp;<a href="https://docs.djangoproject.com/en/1.4/ref/contrib/staticfiles/#django.contrib.staticfiles.storage.CachedStaticFilesStorage">storage.CachedStaticFilesStorage</a>, позволяющий добавлять к именам файлов из статики их md5-хэш, чтобы гарантированно инвалидировать кэш css и js, картинок и т.п.</div>
+<div>
+<br></div>
+<div>
+<span style="font-size: large;">Фильтр&nbsp;truncatechars</span></div>
+<div>
+В это трудно поверить, но только сейчас&nbsp;<a href="https://code.djangoproject.com/ticket/5025">через 4,5 года</a>&nbsp;в состав фильтров по умолчанию попал <a href="https://docs.djangoproject.com/en/1.4/ref/templates/builtins/#std:templatefilter-truncatechars">truncatechars</a>, обрезающий строку до&nbsp;определенного&nbsp;количества символов и завершающий её многоточием. <a href="https://docs.djangoproject.com/en/1.4/ref/templates/builtins/#truncatewords">truncate_words</a> по-прежнему доступен.<br>
+<br></div>
+<span style="font-size: large;">It's not the end</span><br>
+<div>
+На очереди пост про поддержку временных зон, завтра-послезавтра опубликуем.</div>
+</div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-labels">
+Метки:
+<a href="http://blog.futurecolors.ru/search/label/django" rel="tag">django</a>,
+<a href="http://blog.futurecolors.ru/search/label/Django%20Days" rel="tag">Django Days</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2"><span style="visibility: visible;" class="post-comment-link"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-7-templates.html#disqus_thread" class="comment-link disqus-blogger-comment-link">Комментарии (5)</a></span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1355387419">
+<a href="http://www.blogger.com/post-edit.g?blogID=6180190261543881757&amp;postID=2772398133494825660&amp;from=pencil" title="Изменить сообщение">
+<img alt="" class="icon-action" src="Django%20Days_files/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>19 марта 2012&nbsp;г.</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry">
+<a name="5123885369611303303"></a>
+<h3 class="post-title entry-title">
+<a href="http://blog.futurecolors.ru/2012/03/django-14-day-6.html">Новинки Django 1.4, day 6: Шаблон проекта</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"><span class="post-author vcard">
+Автор:
+<span class="fn">Илья Барышев</span>
+</span>
+</div>
+</div>
+<div class="post-body entry-content" id="post-body-5123885369611303303">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Продолжим начатую в прошлый раз тему про новую структуру приложений. 
+Напомню, что теперь по-умолчанию manage.py находится на уровень выше, 
+чем модуль проекта. Чтобы проиллюстрировать это, запустим <span style="font-family: 'Courier New', Courier, monospace;">./manage.py startproject</span><span style="font-family: inherit;">:</span><br>
+<pre><code data-second_best="[object Object]" data-result="[object Object]" class="bash"><span class="comment"># создать проект blog в текущей директории</span>
+django-admin.py startproject blog
+<span class="comment"># blog</span>
+<span class="comment"># blog/blog</span>
+<span class="comment"># blog/blog/__init__.py</span>
+<span class="comment"># blog/blog/settings.py</span>
+<span class="comment"># blog/blog/urls.py</span>
+<span class="comment"># blog/blog/wsgi.py</span>
+<span class="comment"># blog/manage.py</span>
+</code></pre>
+<pre><code data-second_best="[object Object]" data-result="[object Object]" class="bash"><span class="comment"># в 1.4 можно создать проект blog не в текущей, а любой другой директории</span>
+<span class="comment"># Мы выбрали /home/futurecolors/stuff/</span>
+django-admin.py startproject blog&nbsp;/home/futurecolors/stuff/
+<span class="comment"># /home/futurecolors/stuff/</span>
+<span class="comment"># /home/futurecolors/stuff/blog</span>
+<span class="comment"># /home/futurecolors/stuff/blog/__init__.py</span>
+<span class="comment"># ...</span>
+<span class="comment"># /home/futurecolors/stuff/manage.py</span></code></pre>
+За объяснением, для чего потребовалось выносить manage.py, обращайтесь к <a href="http://blog.futurecolors.ru/2012/03/django-14-day-5.html">предыдущему посту</a>. А сегодня мы расскажем про пользовательские шаблоны проектов и приложений, а также зачем в проекте появился файл&nbsp;<span style="font-family: 'Courier New', Courier, monospace;">wsgi.py</span><br>
+<br>
+<span style="font-size: large;">Свой шаблон проекта</span><br>
+Свершилось, теперь можно из коробки создавать свои собственные шаблоны 
+проектов и приложений. То, для чего мы использовали собственный 
+фабскрипт (батарейка&nbsp;<a href="https://github.com/futurecolors/tinned-django/blob/master/tinned-django/fc/tin/start_project.py">tinned-django</a>&nbsp;на github), а кто-то использовал&nbsp;<a href="http://digitaldemiurge.ru/python/shablony-proektov-na-osnove-pastescript/">PasteScript</a>, теперь в какой-то мере можно сделать достаточно просто штатными средствами.<br>
+<br>
+Создавать проект из шаблона можно разными способами:<br>
+<pre><code data-second_best="[object Object]" data-result="[object Object]" class="cpp"><span class="preprocessor"># из папки</span>
+django-admin.py startproject --<span class="keyword">template</span>=/home/my_project_template myproject
+<span class="preprocessor"># из архива</span>
+django-admin.py startproject --<span class="keyword">template</span>=/home/my_project_template.tgz myproject
+<span class="preprocessor"># и даже из внешнего урла</span>
+django-admin.py startproject --<span class="keyword">template</span>=https:<span class="comment">//github.com/amccloud/django-project-skel/zipball/master myproject</span></code></pre>
+Последняя опция наиболее удобна, поскольку позволяет хранить свои 
+шаблоны проектов, например, на гитхабе и разворачивать, скачивая zipball
+ (последняя строчка из примера выше).<br>
+<br>
+Вот парочка проектов, предоставляющих свои «django-сборки»:<br>
+<br>
+<a href="https://github.com/xenith/django-base-template">https://github.com/xenith/django-base-template</a><br>
+Шаблон проекта на основе разработк mozilla<br>
+<br>
+<a href="https://github.com/amccloud/django-project-skel/">https://github.com/amccloud/django-project-skel/</a><br>
+Улучшенный стандартный шаблон от&nbsp;<a href="http://amccloud.com/post/14689947527/django-1-4-custom-project-template">Andrew McCloud</a><br>
+<br>
+У себя в студии планируем также использовать при создании новых проектов данную фичу, допилив предварительно наш <a href="https://github.com/futurecolors/tinned-django">tinned-django</a> (пока что он сыроват, да и несовместим с 1.4 --template опцией).<br>
+<br>
+При запуске команды генерации проекта все<span style="font-family: 'Courier New', Courier, monospace;"> *.py</span>-файлы интерпретируются как шаблоны, переменные заменяются соответствующими значениями из контекста. По умолчанию доступны&nbsp;<span style="font-family: 'Courier New', Courier, monospace;">project_name project_directory&nbsp;</span>и<span style="font-family: 'Courier New', Courier, monospace;">&nbsp;secret_key,</span> произвольные<span style="font-family: 'Courier New', Courier, monospace;">&nbsp;</span>переменные можно передать в командной строке как <span style="font-family: 'Courier New', Courier, monospace;">--key=value</span>.<br>
+<br>
+<span style="font-size: large;">Свой шаблон приложения</span><br>
+По схожему принципу работает создание приложений <span style="font-family: 'Courier New', Courier, monospace;">startapp</span>:<br>
+<pre><code data-second_best="[object Object]" data-result="[object Object]" class="cpp"><span class="preprocessor"># создаём приложение в текущей директории (старое поведение)</span>
+django-admin.py startapp myapp
+<span class="preprocessor"># указываем папку, в которой создать приложение</span>
+django-admin.py startapp myapp ./apps
+<span class="preprocessor"># шаблоны приложений тоже есть</span>
+django-admin.py startapp myapp --<span class="keyword">template</span>=/home/fc/app.tgz</code></pre>
+Это может быть полезно, если вы предпочитаете разбивать модуль с тестами на файлы, вместо единого <span style="font-family: 'Courier New', Courier, monospace;">tests.py,&nbsp;</span>либо как-то иначе модифицируете приложения.<br>
+<br>
+<span style="font-size: large;">Улучшена поддержка WSGI</span><br>
+Серьёзно&nbsp;обновились доки по <a href="https://docs.djangoproject.com/en/1.4/howto/deployment/">развёртыванию проектов</a> c помощью WSGI, которых так не хватало. Например, появились материалы по <a href="https://docs.djangoproject.com/en/1.4/howto/deployment/wsgi/uwsgi/">uWSGI</a> и <a href="https://docs.djangoproject.com/en/1.4/howto/deployment/wsgi/gunicorn/">gunicorn</a>.<br>
+<br>
+Вместе с этим теперь в структуре проекта присутствует файл <span style="font-family: 'Courier New', Courier, monospace;">wsgi.py</span> примерно следующего содержания:<br>
+<pre><code data-result="[object Object]" class="python"><span class="keyword">import</span> os
+os.environ.setdefault(<span class="string">"DJANGO_SETTINGS_MODULE"</span>, <span class="string">"{{ project_name }}.settings"</span>)
+<span class="keyword">from</span> django.core.wsgi <span class="keyword">import</span> get_wsgi_application
+application = get_wsgi_application()
+</code></pre>
+Это стандартное WSGI-приложение может пригодиться для подключения Django
+ к другим WSGI-приложениям или включения сторонних middleware. А 
+по-умолчанию его можно использовать для <a href="https://docs.djangoproject.com/en/1.4/howto/deployment/wsgi/">развёртывания через WSGI</a>-совместимый вебсервер.<br>
+<br>
+<span style="font-size: large;">To be continued...</span><br>
+Релиз Django через 3 дня, а серия постов всё не кончается. <a href="http://blog.futurecolors.ru/feeds/posts/default?alt=rss">Подписывайтесь на RSS</a> ;)</div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-labels">
+Метки:
+<a href="http://blog.futurecolors.ru/search/label/django" rel="tag">django</a>,
+<a href="http://blog.futurecolors.ru/search/label/Django%20Days" rel="tag">Django Days</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2"><span style="visibility: visible;" class="post-comment-link"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-6.html#disqus_thread" class="comment-link disqus-blogger-comment-link">Комментарии (2)</a></span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1355387419">
+<a href="http://www.blogger.com/post-edit.g?blogID=6180190261543881757&amp;postID=5123885369611303303&amp;from=pencil" title="Изменить сообщение">
+<img alt="" class="icon-action" src="Django%20Days_files/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>15 марта 2012&nbsp;г.</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry">
+<a name="8867781580701621214"></a>
+<h3 class="post-title entry-title">
+<a href="http://blog.futurecolors.ru/2012/03/django-14-day-5.html">Новинки Django 1.4, day 5: Структура проекта</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"><span class="post-author vcard">
+Автор:
+<span class="fn">Илья Барышев</span>
+</span>
+</div>
+</div>
+<div class="post-body entry-content" id="post-body-8867781580701621214">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<br>
+На сегодня у нас изменения в структуре django-проектов. Они достаточно важные, поэтому рассмотрим их по-подробней.<br>
+<br>
+<span style="font-size: large;">Изменения в manage.py и структуре проектов</span><br>
+<a href="https://docs.djangoproject.com/en/dev/releases/1.4/#updated-default-project-layout-and-manage-py">Docs</a><br>
+<a href="https://groups.google.com/forum/?fromgroups#%21topic/django-developers/RLcKN_9zKYs">Discussion on django-developers</a><br>
+<br>
+<b>Зачем</b><br>
+<br>
+Рассмотрим детально проблему,&nbsp;которую решают разработчики django в 
+новом релизе, изменяя структуру проекта. Вот как выглядел базовый 
+каркас, который генерила команда startproject до версии 1.4:<br>
+<pre><code data-result="[object Object]" class="">mysite/
+    __init__.py
+    manage.py
+    settings.py
+    urls.py
+    myapp/
+        __init__.py
+        models.py</code></pre>
+Недостатком данной структуры является наличие в пакете&nbsp;<span style="font-family: 'Courier New', Courier, monospace;">mysite</span>&nbsp;исполняемого консольного скрипта <span style="font-family: 'Courier New', Courier, monospace;">manage.py</span>, который по сути не связан с проектом и является «точкой входа». При запуске <span style="font-family: 'Courier New', Courier, monospace;">manage.py</span> из консоли, папка <span style="font-family: 'Courier New', Courier, monospace;">mysite</span> оказывается в <span style="font-family: 'Courier New', Courier, monospace;">sys.path</span> и мы можем получить доступ к урлам и настройкам через <span style="font-family: 'Courier New', Courier, monospace;">import urls</span> и <span style="font-family: 'Courier New', Courier, monospace;">import settings</span> соответственно. Тем не менее, Django по-умолчанию предлагает импортировать урлы и настройки с указанием названия пакета&nbsp;(<span style="font-family: 'Courier New', Courier, monospace;">ROOT_URLCONF</span>='mysite.urls'),
+ вероятно, для того, чтобы не засорять пространство имён верхнего 
+уровня. Дабы сделать подобный импорт возможным, функция&nbsp;<span style="font-family: 'Courier New', Courier, monospace;">setup_environ</span><span style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-align: -webkit-auto;">&nbsp;</span>колдует&nbsp;с sys.path, добавляя родительскую по отношению к <span style="font-family: 'Courier New', Courier, monospace;">mysite</span> папку, а потом возвращает sys.path в предыдущее состояние.<br>
+<br>
+Не говоря о том, что это совсем непитонический путь, данных подход создавал целый ряд проблем,&nbsp;<a href="https://code.djangoproject.com/ticket/15372">связанных с деплойментом</a>,
+ дистрибуцией приложений и т.д. Например, при добавлении родительской 
+папки в sys.path, могли импортироваться лежащие рядом пакеты, создавая 
+трудноотcлеживаемые проблемы.<br>
+<br>
+<b>Решение</b><br>
+<br>
+В целях борьбы с подобной магией было предложено решение по выделению 
+manage.py из папки проекта на уровень выше в файловой иерархии:<br>
+<pre><code data-result="[object Object]" class="">manage.py
+mysite/
+    __init__.py
+    settings.py
+    urls.py
+    myapp/
+        __init__.py
+        models.py</code></pre>
+<br>
+Во-первых, эта структура должна сподвигнуть авторов новых проектов и 
+мигрирующих старые следовать единой системе импортов. Например, ранее 
+можно было импортировать&nbsp;в разных местах&nbsp;приложение как <span style="font-family: 'Courier New', Courier, monospace;">import myapp</span>, так и <span style="font-family: 'Courier New', Courier, monospace;">import myproject.myapp</span>. Теперь же все импорты пакетов, находящихся внутри <span style="font-family: 'Courier New', Courier, monospace;">mysite,</span> должны будут однозначно включать название родительского модуля.<br>
+<br>
+Во-вторых, изменение структуры позволило упростить код скрипта&nbsp;manage.py:<br>
+<pre><code data-result="[object Object]" class="python"><span class="comment">#!/usr/bin/env python</span>
+<span class="keyword">import</span> os, sys
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+  os.environ.setdefault(<span class="string">"DJANGO_SETTINGS_MODULE"</span>, <span class="string">"{{ project_name }}.settings"</span>)
+
+  <span class="keyword">from</span> django.core.management <span class="keyword">import</span> execute_from_command_line
+
+  execute_from_command_line(sys.argv)
+</code></pre>
+<br>
+Начиная с 1.5 старый&nbsp;<span style="font-family: 'Courier New', Courier, monospace;">manage.py</span>&nbsp;станет
+ выдавать Deprecation warning, а в 1.6 перестанет работать совсем. 
+Будьте аккураты при обновлении структуры проекта, если вы импортируете 
+пакеты не единообразно, могут возникнуть проблемы с новым <span style="font-family: 'Courier New', Courier, monospace;">manage.py</span> (т.к. раньше он маскировал эти ошибки).<br>
+<br>
+<b>Это ещё не всё</b><br>
+<br>
+Продолжение о шаблонах проекта и приложений читайте <strike>завтра</strike> на этих выходных.</div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-labels">
+Метки:
+<a href="http://blog.futurecolors.ru/search/label/django" rel="tag">django</a>,
+<a href="http://blog.futurecolors.ru/search/label/Django%20Days" rel="tag">Django Days</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2"><span style="visibility: visible;" class="post-comment-link"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-5.html#disqus_thread" class="comment-link disqus-blogger-comment-link">Прокомментировать</a></span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1355387419">
+<a href="http://www.blogger.com/post-edit.g?blogID=6180190261543881757&amp;postID=8867781580701621214&amp;from=pencil" title="Изменить сообщение">
+<img alt="" class="icon-action" src="Django%20Days_files/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>12 марта 2012&nbsp;г.</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry">
+<a name="8976473252936048353"></a>
+<h3 class="post-title entry-title">
+<a href="http://blog.futurecolors.ru/2012/03/django-14-day-4.html">Новинки Django 1.4, day 4: Админка</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"><span class="post-author vcard">
+Автор:
+<span class="fn">Илья Барышев</span>
+</span>
+</div>
+</div>
+<div class="post-body entry-content" id="post-body-8976473252936048353">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Сегодня настала очеред поведать про фичи версии 1.4, относящиеся к административному интерфейсу Django. Предыдущие части <a href="http://blog.futurecolors.ru/2012/03/django-14-day-0.html">0</a>, <a href="http://blog.futurecolors.ru/2012/03/django-14-day-1-orm.html">1</a>, <a href="http://blog.futurecolors.ru/2012/03/django-14-day-2.html">2</a>, <a href="http://blog.futurecolors.ru/2012/03/django-14-day-1.html">3</a>.<br>
+<br>
+<span style="font-size: large;">HTML5 Doctype</span><br>
+Разработчики сменили  доктайп с HTML 4.01 Transitional и XHTML 1.0 
+Strict на более современный так называемый “HTML5 doctype” с сокращённой
+ записью <span style="font-family: 'Courier New', Courier, monospace;">&lt;!DOCTYPE html&gt;</span>,
+ который также заставляет современные браузеры рендерить страницы в 
+“standards mode”, так что ничего особо нового, хотя шуму много и в 
+чейнджлоге <a href="https://docs.djangoproject.com/en/dev/releases/1.4/#html5-doctype">где-то вверху списка</a>&nbsp;новшество. <br>
+<br>
+<span style="font-size: large;">Пользовательские фильтры в админке</span><br>
+&nbsp;Начиная с версии 1.4 теперь официально задокументирован <a href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter">API по созданию пользовательских фильтров</a>&nbsp;на
+ страницах&nbsp;ChangeList с табличным представлением данных моделей. 
+Ранее известный под именем FilterSpec, новый способ создания фильтров 
+вполне себе приятен. Вот пример из доков с переведёнными комментариями:
+
+<br>
+<pre><code data-second_best="[object Object]" data-result="[object Object]" class="python"><span class="keyword">from</span> django.utils.translation <span class="keyword">import</span> ugettext_lazy <span class="keyword">as</span> _
+<span class="keyword">from</span> django.contrib.admin <span class="keyword">import</span> SimpleListFilter
+<span class="class"><span class="keyword">class</span> <span class="title">DecadeBornListFilter</span><span class="params">(SimpleListFilter)</span>:</span>
+&nbsp; &nbsp; <span class="comment"># Человекопонятное название фильтра</span>
+&nbsp; &nbsp; title = _(<span class="string">'decade born'</span>)
+&nbsp; &nbsp; <span class="comment"># Название пармаетра, корое будет фигурировать в урле</span>
+&nbsp; &nbsp; parameter_name = <span class="string">'decade'</span>
+&nbsp; &nbsp; <span class="function"><span class="keyword">def</span> <span class="title">lookups</span><span class="params">(self, request, model_admin)</span>:</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="string">"""
+&nbsp; &nbsp; &nbsp; &nbsp; Пары значение-заголовок для пользовательского фильтра
+&nbsp; &nbsp; &nbsp; &nbsp; """</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">return</span> (
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (<span class="string">'80s'</span>, _(<span class="string">'in the eighties'</span>)),
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (<span class="string">'90s'</span>, _(<span class="string">'in the nineties'</span>)),
+&nbsp; &nbsp; &nbsp; &nbsp; )
+&nbsp; &nbsp; <span class="function"><span class="keyword">def</span> <span class="title">queryset</span><span class="params">(self, request, queryset)</span>:</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="string">"""
+&nbsp; &nbsp; &nbsp; &nbsp; Непосредственная фильтраций QuerySet&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; на основе взначения фильтра из&nbsp;self.value()
+&nbsp; &nbsp; &nbsp; &nbsp; """</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> self.value() == <span class="string">'80s'</span>:
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">return</span> queryset.filter(birthday__year__gte=<span class="number">1980</span>,
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; birthday__year__lte=<span class="number">1989</span>)
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">if</span> self.value() == <span class="string">'90s'</span>:
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="keyword">return</span> queryset.filter(birthday__year__gte=<span class="number">1990</span>,
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;birthday__year__lte=<span class="number">1999</span>)
+
+<span class="class"><span class="keyword">class</span> <span class="title">PersonAdmin</span><span class="params">(ModelAdmin)</span>:</span>
+    list_filter = (DecadeBornListFilter,)
+</code></pre>
+<br>
+Можно менять внешний вид фильтров посредством пользовательских шаблонов,
+ динамически&nbsp;на основе запроса&nbsp;менять набор фильтров, 
+возвращаемых функцией lookups. Стандартные фильтры 
+типа&nbsp;BooleanFieldListFilter и&nbsp;DateFieldListFilter по-прежнему 
+считаются "внутренним" API и не документируются, хотя никто не запрещает
+ ими пользоваться на свой страх и риск:
+<br>
+<pre><code data-result="[object Object]" class="python"><span class="class"><span class="keyword">class</span> <span class="title">PersonAdmin</span><span class="params">(ModelAdmin)</span>:</span>
+&nbsp; &nbsp; list_filter = (
+&nbsp; &nbsp; &nbsp; &nbsp; (<span class="string">'is_staff'</span>, BooleanFieldListFilter),
+&nbsp; &nbsp; )</code></pre>
+<br>
+<span style="font-size: large;">Множественная сортировка в админке</span><br>
+Наконец-то стало возможно сортировать данные в ChangeList'е не только по
+ одной колонке, а по нескольким сразу. Кроме стандартного атрибута 
+ordering, можно задать пользовательскую сортировку через <a href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.get_ordering">ModelAdmin.get_ordering()</a>&nbsp;в
+ зависимости от значения request или вручную через GUI. На скриншоте 
+пример админки этого сайта (аж 4 сортировки в разных направлениях):<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-G6UZlM89gQ0/T2cNgpYjSDI/AAAAAAAAAJQ/BmjRz-PX520/s1600/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA+%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0+2012-03-19+%D0%B2+14.39.25.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="Django%20Days_files/2012-03-1914.png" border="0" height="258" width="640"></a></div>
+<br>
+<span style="font-size: large;">Новые методы&nbsp;ModelAdmin</span><br>
+Добавилось целых три метода:<br>
+<br>
+<span style="font-family: 'Courier New', Courier, monospace;">ModelAdmin.<a href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.save_related">save_related</a>(self, request, form, formsets, change)</span><div>
+Позволяет добавить дополнительную обработку при сохранении формсетов с 
+инлайнами после того, как родительская сущность сохранена. Метод 
+дополняет существующие&nbsp;<a href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.save_model">save_model</a>() и <a href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.save_formset">save_formset</a>(),
+ позволяя вынести необхоимую пре- или пост-обработку в отдельный метод 
+не хакая неподохдящие&nbsp;response_change() and response_add().<br>
+<br>
+<span style="font-family: 'Courier New', Courier, monospace;">ModelAdmin.<a href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.get_list_display">get_list_display</a>(self, request)<br>ModelAdmin.<a href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.get_list_display_links">get_list_display_links</a>(self, request, list_display)</span>Кастомизация
+ свойств list_dispaly и list_display_links на основе request. Например, 
+так можно настроить разное количество колонок в зависимости от прав 
+пользователя, получив доступ к переменной request.user.<br>
+<div style="background-color: white; font-family: Verdana, sans-serif; font-size: 12px; line-height: 17px; margin-bottom: 0.8em; margin-top: 0.6em; text-align: -webkit-auto;">
+<br></div>
+<span style="font-size: large;">Инлайны учитывают права пользователей</span><br>
+Теперь инлайны в админке разрешаю выполнять только те действия, на 
+которых есть права у данного пользователя. Для редактирования M2M-связей
+ используются права от связанной модели (если промеждуточная таблица 
+создана автоматически и не имеет своих прав доступа). Ранее до 1.4&nbsp;<a href="https://code.djangoproject.com/ticket/8060">можно было редактировать любые сущности через inline-формы</a>&nbsp;админки&nbsp;, даже если у вас не было на это прав (главное, чтобы были права на «родительскую» сущность).<br>
+<br>
+<span style="font-size: large;">ADMIN_MEDIA_PREFIX Deprecated</span><br>
+<span style="background-color: yellow; font-size: x-small;">Добавлено</span><br>
+Опция&nbsp;<span style="font-family: 'Courier New', Courier, monospace;">ADMIN_MEDIA_PREFIX</span>
+ считается устаревшей и более не используется в админке для построения 
+урлов к статике. Следуя изменениям в 1.3, связанными с появлением 
+функциональности <span style="font-family: 'Courier New', Courier, monospace;">contrib.staticfiles</span>, начиная с 1.4 теперь вместо&nbsp;<span style="font-family: 'Courier New', Courier, monospace;">ADMIN_MEDIA_PREFIX</span> используется&nbsp;<span style="font-family: 'Courier New', Courier, monospace;">&lt;STATIC_URL&gt;/admin/</span>.
+ Это обратно несовместимое изменение, так что если у вас не был 
+правильно настроен STATIC_URL и STATIC_ROOT на отдачу статики, либо вы 
+отдавали статику админки по hardcoded-пути, стоит всё проверить перед 
+апдейтом.</div>
+<div>
+<br>
+<span style="font-size: large;">Продложение следует...</span><br>
+Осталось ещё несколько интересных тем, которые мы раскроем в ближайшие дни, вероятно, даже до релиза.<br>
+<br></div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-labels">
+Метки:
+<a href="http://blog.futurecolors.ru/search/label/django" rel="tag">django</a>,
+<a href="http://blog.futurecolors.ru/search/label/Django%20Days" rel="tag">Django Days</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2"><span style="visibility: visible;" class="post-comment-link"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-4.html#disqus_thread" class="comment-link disqus-blogger-comment-link">Комментарии (5)</a></span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1355387419">
+<a href="http://www.blogger.com/post-edit.g?blogID=6180190261543881757&amp;postID=8976473252936048353&amp;from=pencil" title="Изменить сообщение">
+<img alt="" class="icon-action" src="Django%20Days_files/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>10 марта 2012&nbsp;г.</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry">
+<a name="3122032840597518044"></a>
+<h3 class="post-title entry-title">
+<a href="http://blog.futurecolors.ru/2012/03/django-14-day-1.html">Новинки Django 1.4, day 3: Тестирование</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"><span class="post-author vcard">
+Автор:
+<span class="fn">Илья Барышев</span>
+</span>
+</div>
+</div>
+<div class="post-body entry-content" id="post-body-3122032840597518044">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Продолжение серии постов к выходу новой Django 1.4 (<a href="http://blog.futurecolors.ru/2012/03/django-14-day-0.html">начало</a>, про <a href="http://blog.futurecolors.ru/2012/03/django-14-day-1.html">ORM</a>, про&nbsp;<a href="http://blog.futurecolors.ru/2012/03/django-14-day-2.html">безопасность</a>). Сегодня мы немного осветим фичи в тестовом фреймворке.<br>
+<div>
+<br>
+<span style="font-size: large;">Поддержка браузерного тестирования</span></div>
+<a href="https://docs.djangoproject.com/en/1.4/topics/testing/#django.test.LiveServerTestCase">Docs</a><br>
+<a href="https://code.djangoproject.com/changeset/17241">Commit 17241</a><br>
+<div>
+<br>
+Одна из заметных фич: поддержка интеграционных веб-тестов, например, с помощью&nbsp;<a href="http://seleniumhq.org/">Selenium</a>.
+ Он и подобные ему инструменты умеют запускать браузер и выполнять в нём
+ различные действия, имитирующие поведение пользователя на странице, 
+типа кликов по ссылкам, ввода текста в форму и подобного. Это позволяет 
+тестировать сайты вцелом на основе приёмочных тестов (в отличие от 
+юнит-тестов, покрывающих лишь отдельный компонент, но не взаимодействие 
+компонентов). Также, в отличие от тестов с применением привычного 
+django.test.client, Selenium умеет выполнять javascript и вообще ведёт 
+себя как полноценный&nbsp;браузер&nbsp;(а вовсе не headless Client).</div>
+<div>
+<br></div>
+<div>
+Стал доступен новый класс тестов django.test.LiveServerTestCase, который
+ запускает во время теста встроенный вебсервер на localhost:8081.</div>
+<div>
+<br>
+<i><a href="https://github.com/django/django/blob/fba434684598e6d8e1c40da00181405900de770f/tests/regressiontests/admin_widgets/tests.py#L414">Пример такого теста для админки джанги</a></i><br>
+<br>
+Раньше примерно то же самое можно было сделать c помощью <a href="http://readthedocs.org/docs/django-sane-testing/en/latest/index.html">django-sane-testing</a> или<a href="https://github.com/dragoon/django-selenium/"> django-selenium</a>. Оба эти варианта обеспечивают более тесную интеграцию с Selenium, в отличие от достаточно абстрактного LiveServerTestCase.</div>
+<div>
+<br>
+Пока что нормальная интеграция <a href="http://www.getwindmill.com/">Windmill</a> (альтернативный&nbsp;инструмент&nbsp;для браузерного тестирования) <a href="https://code.djangoproject.com/ticket/17652">отсутствует</a>, <a href="http://twill.idyll.org/">Twill</a> не развивается уже 4 года, но фундамент API заложен.</div>
+<div>
+<br>
+Кстати, несмотря на то, что у Selenium есть <a href="http://selenium.googlecode.com/svn/trunk/docs/api/py/api.html">неплохое API для питона</a>, нам больше понравилась надстройку над ним под названием <a href="http://splinter.cobrateam.info/">splinter</a>, советуем обратить внимание.<br>
+<br>
+<span style="font-size: large;">Новые assert-функции и другие улучшения в тестах</span></div>
+<div>
+Упростились проверки HTML, генерируемого движком, для этого появились функции:</div>
+<div>
+<br></div>
+<div>
+<span style="font-family: 'Courier New', Courier, monospace;"><a href="https://docs.djangoproject.com/en/1.4/topics/testing/#django.test.TestCase.assertHTMLEqual">TestCase.assertHTMLEqual</a>(html1, html2, msg=None)&nbsp;</span></div>
+<div>
+<span style="font-family: 'Courier New', Courier, monospace;">TestCase.assertHTMLNotEqual(html1, html2, msg=None)</span></div>
+<div>
+<span style="font-family: 'Courier New', Courier, monospace;"><br></span></div>
+<div>
+Они игнорируют пробельные символы до и после тегов, порядок атрибутов и 
+прочая. Масхэв для интеграционных тестов, где без проверки html порой не
+ обойтись.<br>
+<br>
+<span style="font-family: 'Courier New', Courier, monospace;">assertTemplateUsed</span> и <span style="font-family: 'Courier New', Courier, monospace;">assertTemplateNotUsed</span> теперь можно <a href="https://docs.djangoproject.com/en/1.4/topics/testing/#django.test.TestCase.assertTemplateUsed">использовать как контекст-менеджеры</a>.<br>
+<br>
+<span style="font-family: 'Courier New', Courier, monospace;">assertQuerysetEqual</span>  обзавёлся аргументом <a href="https://docs.djangoproject.com/en/1.4/topics/testing/#django.test.TestCase.assertQuerysetEqual">ordered=True</a>, это значит, что теперь можно сравнивать выборки без необходимости задавать сортировку явно.</div>
+<div>
+<br></div>
+Появился упрощенный класс <span style="font-family: 'Courier New', Courier, monospace;">django.test.SimpleTestCase.</span>&nbsp;Он наследует стандартный функционал он unittest.TestCase, снабжая его новым функционалом:<br>
+<div>
+<br></div>
+<span style="font-size: large;">SimpleTestCase</span><br>
+<div>
+<span style="font-family: 'Courier New', Courier, monospace;">assertRaisesMessage(expected_exception, expected_message, callable_obj=None, *args, **kwargs)</span></div>
+<br>
+Разновидность <a href="http://docs.python.org/library/unittest.html#unittest.TestCase.assertRaisesRegexp">unittest.assertRaisesRegexp</a> с той лишь разницей, что expected_message не регулярное выражение.<br>
+<br>
+<div>
+<span style="font-family: 'Courier New', Courier, monospace;">assertFieldOutput(self, fieldclass, valid, invalid, field_args=None, field_kwargs=None,empty_value=u'')</span></div>
+<div>
+Проверка того, как ведёт себя поле формы, принимая соответствующие значения.</div>
+<div>
+В примере ниже поле должно принимать 'a@a.com' и отвергать 'aaa'.</div>
+<div>
+<br></div>
+<div>
+self.assertFieldOutput(EmailField, {'a@a.com': 'a@a.com'}, {'aaa': [u'Enter a valid e-mail address.']})<br>
+<br>
+Контекст-процессор&nbsp;<a href="https://docs.djangoproject.com/en/1.4/topics/testing/#django.test.TestCase.settings"><tt class="descclassname" style="background-color: white; font-size: 14px; line-height: 17px; margin-left: 0px; margin-right: 0px;">TestCase.</tt><tt class="descname" style="background-color: white; font-size: 14px; line-height: 17px; margin-left: 0px; margin-right: 0px;">settings</tt><span style="background-color: white; font-family: Verdana, sans-serif; font-size: 14px; line-height: 17px;">()</span></a>&nbsp;и декоратор&nbsp;<a href="https://docs.djangoproject.com/en/1.4/topics/testing/#django.test.utils.override_settings">TestCase.override_settings()</a></div>
+<div>
+На время теста можно удобно&nbsp;переопределять&nbsp;определённые настройки прямо из коробки:</div>
+<pre><code data-result="[object Object]" class="python"><span class="decorator">@override_settings(LOGIN_URL='/other/login/')</span>
+<span class="function"><span class="keyword">def</span> <span class="title">test_login</span><span class="params">(self)</span>:</span>&nbsp;
+&nbsp; &nbsp; response = self.client.get(<span class="string">'/sekrit/'</span>)&nbsp;
+&nbsp; &nbsp; self.assertRedirects(response, <span class="string">'/other/login/?next=/sekrit/'</span>)
+</code></pre>
+<div>
+<div>
+<div>
+<div>
+<br></div>
+<div>
+Ранее подобную задачу мы решали с помощью крайне полезного <a href="http://www.voidspace.org.uk/python/mock/">модуля mock</a>, облегчающего monkey-patching и не только.</div>
+<div>
+<br></div>
+<div>
+<span style="font-size: large;">To be continued...</span></div>
+<div>
+Завтра очередная порция, не переключайтесь.</div>
+</div>
+</div>
+</div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-labels">
+Метки:
+<a href="http://blog.futurecolors.ru/search/label/django" rel="tag">django</a>,
+<a href="http://blog.futurecolors.ru/search/label/Django%20Days" rel="tag">Django Days</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2"><span style="visibility: visible;" class="post-comment-link"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-1.html#disqus_thread" class="comment-link disqus-blogger-comment-link">Комментарии (2)</a></span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1355387419">
+<a href="http://www.blogger.com/post-edit.g?blogID=6180190261543881757&amp;postID=3122032840597518044&amp;from=pencil" title="Изменить сообщение">
+<img alt="" class="icon-action" src="Django%20Days_files/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>9 марта 2012&nbsp;г.</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry">
+<a name="1109668078341410400"></a>
+<h3 class="post-title entry-title">
+<a href="http://blog.futurecolors.ru/2012/03/django-14-day-2.html">Новинки Django 1.4, day 2: Безопасность и формы</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"><span class="post-author vcard">
+Автор:
+<span class="fn">Илья Барышев</span>
+</span>
+</div>
+</div>
+<div class="post-body entry-content" id="post-body-1109668078341410400">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Продолжаем «неделю Джанго», начало в предыдущих заметках&nbsp;<a href="http://blog.futurecolors.ru/2012/03/django-14-day-1-orm.html">ORM-плюшки</a>&nbsp;и <a href="http://blog.futurecolors.ru/2012/03/django-14-day-0.html">Day 0</a>. До релиза 1.4 пишем про новинки фреймворка. Сегодня в фокусе безопасность.<br>
+<br>
+<span style="font-size: large;">Обновлен механизм хэширования паролей</span><br>
+Теперь вместо <a href="http://en.wikipedia.org/wiki/SHA1">SHA1</a>, считающегося недостаточно надёжным, по-умолчанию используется более устойчивый к брутфорсу <a href="http://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a>. Если выбор разработчиков Django вам не по нраву, можно настроить свой предпочитаемый тип хэширования в переменной <a href="https://docs.djangoproject.com/en/dev/topics/auth/#auth-password-storage">PASSWORD_HASHERS</a>,
+ выбрав из уже имеющегося списка, либо написав свой собственный. Надо 
+заметить, что пароли хранятся в том же формате, что и раньше, так что 
+пользователям сбрасывать их не придётся. Более того, в момент 
+аутентификации со старым типом хэша последний будет апгрейдиться до 
+PBKDF2 автоматически.<br>
+<br>
+На наш взгляд очень правильное и изящное с точки зрения обратной совместимости решение.<br>
+<br>
+<span style="font-size: large;">Защита от кликджекинга (clickjacking)&nbsp;</span><br>
+Кликджекингом называют ситуацию, когда пользователь, совершая клик на 
+специально сформированной странице злоумышленника, на самом деле кликает
+ по ссылке на совершенно другом сайте.  Для борьбы с таким видом 
+уязвимости вебсайтов добавили middleware, выставлющую специальный 
+заголовок, который в современных браузерах запретит открытие сайта в 
+ифрейме на других сайтах.<br>
+<br>
+Подробнее про кликджекинг в моей заметке «<a href="http://prophet.ru/2011/08/fighting-clickjacking/">Боремся с clickjacking</a>»&nbsp;и в <a href="https://docs.djangoproject.com/en/dev/ref/clickjacking/">доках джанги</a>.<br>
+<br>
+<span style="font-size: large;">Улучшения в CSRF-защите и XSS-защите</span><br>
+Добавлена поддержка CSRF-защиты для PUT- и DELETE- запросов, что 
+облегчает работу с REST-вьюхами. Теперь можно настраивать путь CSRF-куки
+ а также передавать её через HTTPS. Чтобы вид гарантированно посылал 
+CSRF-куку появился декоратор&nbsp;<a href="https://docs.djangoproject.com/en/dev/ref/contrib/csrf/#django.views.decorators.csrf.ensure_csrf_cookie">ensure_csrf_cookie</a>.<br>
+<a href="https://docs.djangoproject.com/en/dev/ref/contrib/csrf/">Подробнее про CSRF в целом</a><br>
+<br>
+Для защиты сессионных кук от посягательств зловредного кода на 
+javascript, оставленного на плохо защищенной от XSS странице, неплохо бы
+ иметь дополнительную защиту. Теперь нельзя получить доступ к таким 
+кукам через document.cookie. Это обратно несовместимое изменение, но оно
+ вполне оправдано.<br>
+<br>
+<div>
+Подробнее в моей заметке «<a href="http://prophet.ru/2010/12/httponly-cookies/">HttpOnly куки и с чем их едят</a>».</div>
+<div>
+<b><br></b><br>
+<span style="font-size: large;">Криптографическая подпись</span><br>
+<a href="https://docs.djangoproject.com/en/dev/topics/signing/">Docs</a></div>
+<div>
+<br>
+В Django 1.4 появилось интересное API для криптографической подписи данных. Лучше абзаца слов скажут несколько строчек кода:</div>
+<pre><code data-result="[object Object]" class="python">&gt;&gt;&gt; signer = Signer()
+&gt;&gt;&gt; signer.sign(<span class="string">'My string'</span>)
+<span class="string">'My string:GdMGD6HNQ_qdgxYP8yBZAdAIV1w'</span>
+&gt;&gt;&gt; signer = Signer(salt=<span class="string">'extra'</span>)
+&gt;&gt;&gt; signer.sign(<span class="string">'My string'</span>)
+<span class="string">'My string:Ee7vGi-ING6n02gkcJ-QLHg6vFw'</span>
+&gt;&gt;&gt; signer.unsign(<span class="string">'My string:Ee7vGi-ING6n02gkcJ-QLHg6vFw'</span>)
+<span class="string">u'My string'</span>
+</code></pre>
+<div>
+<br>
+Можно подписывать как строчки, так и любые другие объекты, в качестве 
+ключа используется SECRET_KEY из settings, опционально можно добавить 
+соль. Для проверки того, когда было создано подписываемое значение есть 
+готовый класс <a href="https://docs.djangoproject.com/en/dev/topics/signing/#django.core.signing.TimestampSigner">TimestampSigner</a>.<br>
+Это низкоуровневое API хорошо&nbsp;подойдет&nbsp;для проверки 
+целостности данных в hidden-полях, генерации урлов для восстановления 
+пароля, других одноразовых урлов для доступа без авториазции и т.п.<br>
+<br>
+Кроме того, Django открывает разработчикам и более высокоуровневое применение Signer: <a href="https://docs.djangoproject.com/en/dev/topics/http/sessions/#cookie-session-backend">хранение данных сессии в куках</a>.
+ Гарантируется целостность данных в сессии за счёт подписи, но сами 
+значения не шифруются и передаются открытым текстом. Стоит также 
+учитывать ограничение на <a href="http://tools.ietf.org/html/rfc2965#section-5.3">размер куки в 4кб</a> и то, что размер куки влияет на&nbsp;то, как <a href="http://yuiblog.com/blog/2007/03/01/performance-research-part-3/">быстро открываются страницы вашего сайта</a>. Зачем же такие ограничения? Для нового FormWizard'а.<br>
+<br>
+<span style="font-size: large;">Новый FormWizard</span><br>
+<a href="https://docs.djangoproject.com/en/dev/ref/contrib/formtools/form-wizard/">Docs</a><br>
+<br>
+Внедрение&nbsp;криптографической подписи в Django связано с 
+новой&nbsp;реализацией&nbsp;многошаговых&nbsp;форм. Теперь FormWizard 
+основан на Class-based Views и поддерживает различные бэкенды для записи
+ данных форм при переходе между шагами. Ранее хранившиеся в 
+hidden-полях, теперь они могут быть сохранены как в сессии, так и в 
+подписанных куках.<br>
+<br>
+Нет смысла повторять здесь целиком документацию FormWizard,&nbsp;рекомендуем&nbsp;<a href="https://docs.djangoproject.com/en/dev/ref/contrib/formtools/form-wizard/">ознакомиться в первоисточнике</a>. В целом, создавать многошаговые формы должно стать сильно удобней.<br>
+<br>
+<span style="font-size: large;">To be continued...</span><br>
+Завтра будет пост про новые фичи в тестировании.<br>
+<div style="background-color: white; font-family: Verdana, sans-serif; font-size: 12px; line-height: 17px; margin-bottom: 0.8em; margin-top: 0.6em;">
+<br></div>
+<br>
+<br></div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-labels">
+Метки:
+<a href="http://blog.futurecolors.ru/search/label/django" rel="tag">django</a>,
+<a href="http://blog.futurecolors.ru/search/label/Django%20Days" rel="tag">Django Days</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2"><span style="visibility: visible;" class="post-comment-link"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-2.html#disqus_thread" class="comment-link disqus-blogger-comment-link">Прокомментировать</a></span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1355387419">
+<a href="http://www.blogger.com/post-edit.g?blogID=6180190261543881757&amp;postID=1109668078341410400&amp;from=pencil" title="Изменить сообщение">
+<img alt="" class="icon-action" src="Django%20Days_files/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>8 марта 2012&nbsp;г.</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry">
+<a name="6117754500148466301"></a>
+<h3 class="post-title entry-title">
+<a href="http://blog.futurecolors.ru/2012/03/django-14-day-1-orm.html">Новинки Django 1.4, day 1: ORM плюшки</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"><span class="post-author vcard">
+Автор:
+<span class="fn">Илья Барышев</span>
+</span>
+</div>
+</div>
+<div class="post-body entry-content" id="post-body-6117754500148466301">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<span id="internal-source-marker_0.3726458731107414" style="text-align: -webkit-auto;"></span><br>
+<h1 dir="ltr" style="font-weight: bold;">
+
+
+
+
+
+
+
+
+
+<b id="internal-source-marker_0.3726458731107414"><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Продолжение серии постов «<a href="http://blog.futurecolors.ru/2012/03/django-14-day-0.html">Новинки Django 1.4</a>».</span></b></h1>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Сегодня
+ мы расскажем про те новинки, которые появились в компоненте ORM. Многие
+ недолюбливают Django ORM за его простоту, которая мешает разработчикам 
+составлять сложные SQL-запросы. С другой стороны нам трудно отрицать 
+изящность API, превращающую большое число однотипных несложных запросов в
+ читабельные QuerySet.</span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">В Django 1.4 появилось сразу 3 новых метода:</span><br>
+<ul style="font-weight: bold;">
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: disc; vertical-align: baseline;"><span style="vertical-align: baseline; white-space: pre-wrap;">bulk_create()</span></li>
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: disc; vertical-align: baseline;"><span style="vertical-align: baseline; white-space: pre-wrap;">select_for_update()</span></li>
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: disc; vertical-align: baseline;"><span style="vertical-align: baseline; white-space: pre-wrap;">prefetch_related()</span></li>
+</ul>
+<div>
+<span style="font-family: Arial;"><span style="font-size: 15px; white-space: pre-wrap;"><br></span></span></div>
+<h3 dir="ltr" style="font-weight: bold;">
+
+
+
+
+
+
+
+
+
+<span style="color: #666666; font-family: Arial; font-size: 16px; vertical-align: baseline; white-space: pre-wrap;">Model.objects.bulk_create</span></h3>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="https://docs.djangoproject.com/en/dev/ref/models/querysets/#django.db.models.query.QuerySet.bulk_create">Docs</a> </span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="https://code.djangoproject.com/changeset/16739">Commit 16739</a></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+Полезная штука, позволяет вставлять в базу сразу несколько объектов в один запрос, например так:<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<br>
+Вместо N запросов:<br>
+<pre><code data-result="[object Object]" class="python">Entry.objects.create(headline=<span class="string">"Python 3.0 Released"</span>)
+Entry.objects.create(headline=<span class="string">"Python 3.1 Released"</span>)
+...
+Entry.objects.create(headline=<span class="string">"Python 3.3 Planned"</span>) 
+</code></pre>
+<br>
+Теперь можно сделать тоже самое за один запрос:<br>
+<br>
+<pre><code data-result="[object Object]" class="python">Entry.objects.bulk_create([
+    Entry(headline=<span class="string">"Python 3.0 Released"</span>),
+    ...
+    Entry(headline=<span class="string">"Python 3.3 Planned"</span>) 
+])</code></pre>
+<span style="text-align: -webkit-auto;"><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Плюс
+ очевиден: это работает быстрей за счёт уменьшения количества запросов. 
+Минусы в том, что функция save() для моделей не вызывается, сигналы 
+pre_save и post_save не возбуждаются. Кроме того, метод не работает с 
+мульти-табличным наследованием.</span><br><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Назвать
+ этот метод самым быстрым врядли можно, ведь оверхед при создании 
+экземпляров моделей никуда не пропадает, но это неплохой компромисс.</span></span><br>
+<span style="text-align: -webkit-auto;"><span style="font-family: Arial;"><span style="font-size: 15px; white-space: pre-wrap;"><br></span></span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span></span><br>
+<h3 dir="ltr" style="font-weight: bold;">
+
+
+
+
+
+
+
+
+
+<span style="color: #666666; font-family: Arial; font-size: 16px; vertical-align: baseline; white-space: pre-wrap;">QuerySet.select_for_update() </span></h3>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="https://docs.djangoproject.com/en/dev/ref/models/querysets/#django.db.models.query.QuerySet.select_for_update">Docs </a></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="https://code.djangoproject.com/changeset/16058">Commit 16058</a> </span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Реализация запросов вида SELECT ... FOR UPDATE для джанговского ORM. Запрос вида</span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">entries </span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">=</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"> Entry</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">.</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">objects</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">.</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">select_for_update()</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">.</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">filter(author</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">=</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">request</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: bold; vertical-align: baseline; white-space: pre-wrap;">.</span><span style="background-color: white; font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">user)</span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">создаст
+ эксклюзивную блокировку на запись строк выборки до конца текущей 
+транзакции. Если строки уже заблокированы другой транзакцией, запрос 
+будет ждать её завершения, чтобы получить свою блокировку. &nbsp;Чтобы 
+избежать этого поведения, можно использовать необязательный атрибут 
+nowait=True, который либо тут же без ожидания создаст блокировку, либо 
+вызовет DatabaseError, если это невозможно. </span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Будьте внимательны, аргумент nowait не поддежривается бэкендом MySQL и вызовет всё тот же DatabaseError.</span><br>
+<span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Функциональность
+ будет полезна тем, кто желает создавать гарантированные row locks для 
+изменения записей в базе данных в рамках транзакции, например, при 
+обсчёте биллинга, увеличении счётчиков и т.п.</span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Реализация <a href="http://www.postgresql.org/docs/9.0/static/sql-select.html#SQL-FOR-UPDATE-SHARE">SELECT ... FOR UPDATE в PostgreSQL</a> </span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Реализация <a href="http://dev.mysql.com/doc/refman/5.0/en/innodb-locking-reads.html">SELECT ... FOR UPDATE в MySQL</a> </span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<br>
+<h3 dir="ltr" style="font-weight: bold;">
+
+
+
+
+
+
+
+
+
+<span style="color: #666666; font-family: Arial; font-size: 16px; vertical-align: baseline; white-space: pre-wrap;">QuerySet.prefetch_related</span></h3>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="https://docs.djangoproject.com/en/dev/ref/models/querysets/#django.db.models.query.QuerySet.prefetch_related">Docs</a></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="https://code.djangoproject.com/changeset/16930">Commit 16930</a></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Наверное,
+ самая полезная фича сегодняшнего обзора. Она помогает радикально 
+сократить число запросов, создаваемых через ORM без использования 
+всяческих костылей (на DjangoCon Europe 2011 предлагались решения типа <a href="https://github.com/gasman/django-unjoinify">djanngo-unjoinify</a></span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"> и <a href="https://github.com/simonw/django-queryset-transform">django-queryset-transform</a></span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">).</span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Обычно для сокращения числа запросов используется метод .<a href="https://docs.djangoproject.com/en/dev/ref/models/querysets/#select-related">select_related</a>()</span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">,
+ который добавляет к запросу необходимые JOIN'ы. Несмотря на все его 
+плюсы (указание глубины связей, а также полей, которые необходимо 
+достать), этого явно недостаточно. select_related работает только со 
+связями типа 1-M и 1-1 (ForeignKey и OnetoOne) и не поддерживает M-M. 
+Данный пробел заполняет новый prefetch_related, который делает JOIN не в
+ SQL, а на уровне питон-кода, добавляя по одному запросу на каждую 
+связанную сущность.</span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Пример оптимизации из документации</span><br>
+<span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<pre><code data-result="[object Object]" class="python"><span class="comment">#models.py</span>
+<span class="class"><span class="keyword">class</span> <span class="title">Topping</span><span class="params">(models.Model)</span>:</span>
+    name = models.CharField(max_length=<span class="number">30</span>)
+
+<span class="class"><span class="keyword">class</span> <span class="title">Pizza</span><span class="params">(models.Model)</span>:</span>
+   name = models.CharField(max_length=<span class="number">50</span>)
+   toppings = models.ManyToManyField(Topping)
+
+<span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span>
+   <span class="keyword">return</span> <span class="string">u"%s (%s)"</span> % (self.name, <span class="string">u", "</span>.join([topping.name
+            <span class="keyword">for</span> topping <span class="keyword">in</span> self.toppings.all()]))
+
+<span class="comment">#views.py</span>
+<span class="function"><span class="keyword">def</span> <span class="title">show_me_some_pizzas</span><span class="params">()</span>:</span>
+    render_to_response(‘template.html’, {‘objects’:Pizza.objects.all()})
+</code></pre>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"><br></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Выводя
+ в шаблоне {{ pizza }} из вычисленного QuerySet, мы получим по 
+дополнительному запросу на каждую пиццу, что совсем не круто (для 20 
+пицц в БД выходит 1+20=21 запрос). На помощь приходит prefetch_related:</span><br>
+<span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<pre><code data-result="[object Object]" class="python"><span class="comment">#views.py</span>
+<span class="function"><span class="keyword">def</span> <span class="title">show_me_some_pizzas_fixed</span><span class="params">()</span>:</span>
+render_to_response(‘template.html’, {‘objects’:Pizza.objects.all().prefetch_related(<span class="string">'toppings'</span>)})
+</code></pre>
+<span style="font-family: Arial;"><span style="font-size: 15px; white-space: pre-wrap;"><br></span></span><span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Данный
+ вид+шаблон сделают всего два запроса (при этом результаты обоих будут 
+полностью загружены в память, в отличие от максимально ленивого 
+QuerySet, который будет хранить одновременно в памяти миниально 
+необходимый набор строк).</span><br>
+<span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Функциональность prefetch_related этим не ограничивается, можно делать “псевдо-джойны” с птичьей нотацией:</span><br>
+<span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<pre><code data-result="[object Object]" class="python">Restaurant.objects.prefetch_related(<span class="string">'best_pizza__toppings'</span>)</code></pre>
+<span style="font-family: Arial;"><span style="font-size: 15px; white-space: pre-wrap;"><br></span></span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">и даже совмещать их с настоящими джойнами через select_related </span><br>
+<span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<pre><code data-result="[object Object]" class="python">Restaurant.objects.select_related(<span class="string">'best_pizza'</span>).prefetch_related(<span class="string">'best_pizza__toppings'</span>)</code></pre>
+<span style="font-family: Arial;"><span style="font-size: 15px; white-space: pre-wrap;"><br></span></span><span style="font-family: Arial; font-size: 15px; font-style: italic; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Более подробно читайте в доках <a href="https://docs.djangoproject.com/en/dev/ref/models/querysets/#django.db.models.query.QuerySet.prefetch_related">prefetch_related</a></span><br>
+<div>
+<span style="font-family: Arial;"><span style="font-size: 15px; white-space: pre-wrap;"><br></span></span></div>
+<div>
+<span style="font-family: Arial;"><span style="font-size: 15px; white-space: pre-wrap;"><br></span></span></div>
+<div>
+<span style="font-family: Arial;"><span style="white-space: pre-wrap;"><b><span style="font-size: large;">To be continued...</span></b></span></span></div>
+<div>
+<span style="font-family: Arial;"><span style="white-space: pre-wrap;">Завтра будет продложение про безопасность и формы</span></span></div>
+<div>
+<span style="color: #1155cc; font-family: Arial;"><span style="font-size: 15px; white-space: pre-wrap;"><br></span></span></div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-labels">
+Метки:
+<a href="http://blog.futurecolors.ru/search/label/django" rel="tag">django</a>,
+<a href="http://blog.futurecolors.ru/search/label/Django%20Days" rel="tag">Django Days</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2"><span style="visibility: visible;" class="post-comment-link"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-1-orm.html#disqus_thread" class="comment-link disqus-blogger-comment-link">Комментарии (4)</a></span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1355387419">
+<a href="http://www.blogger.com/post-edit.g?blogID=6180190261543881757&amp;postID=6117754500148466301&amp;from=pencil" title="Изменить сообщение">
+<img alt="" class="icon-action" src="Django%20Days_files/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>7 марта 2012&nbsp;г.</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry">
+<a name="4602327299053035945"></a>
+<h3 class="post-title entry-title">
+<a href="http://blog.futurecolors.ru/2012/03/django-14-day-0.html">Новинки Django 1.4, day 0</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"><span class="post-author vcard">
+Автор:
+<span class="fn">Илья Барышев</span>
+</span>
+</div>
+</div>
+<div class="post-body entry-content" id="post-body-4602327299053035945">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<span id="internal-source-marker_0.35169079224579036" style="text-align: -webkit-auto;"><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">На этой неделе 5 марта вышел первый <a href="https://www.djangoproject.com/weblog/2012/mar/05/14-rc-1/">релиз-кандидат Django 1.4</a>.
+ С конца декабря, когда вышла альфа-версия, новых фич не появилось, зато
+ постоянно исправляются баги и продолжает улучшаться документация.</span><br><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="https://docs.djangoproject.com/en/dev/releases/1.4/">Changelog Django 1.4</a></span><br><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Обещают
+ выпуск полноценного релиза через неделю во время очередного PyCon. В 
+преддверии этого ожидаемого события мы подготовили для вас серию постов о
+ новой функциональности. Каждый день мы будем публиковать заметку с 
+достаточно подробным (но без занудства) описанием изменений в любимом 
+фреймворке.</span><br><span style="color: #1155cc; font-family: Arial;"><span style="font-size: 15px; white-space: pre-wrap;"></span></span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span></span><br>
+<h2 dir="ltr" style="font-weight: bold;">
+
+
+
+
+
+
+
+
+
+
+<span style="font-family: Arial; font-size: 19px; vertical-align: baseline; white-space: pre-wrap;">Примерный порядок постов</span></h2>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<ol style="font-weight: bold;">
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: decimal; vertical-align: baseline;"><span style="white-space: pre-wrap;"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-1-orm.html">ORM</a></span></li>
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: decimal; vertical-align: baseline;"><span style="white-space: pre-wrap;"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-2.html">Безопасность и Формы</a></span></li>
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: decimal; vertical-align: baseline;"><span style="vertical-align: baseline; white-space: pre-wrap;"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-1.html">Тестирование</a></span></li>
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: decimal; vertical-align: baseline;"><span style="vertical-align: baseline; white-space: pre-wrap;"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-4.html">Админка</a></span></li>
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: decimal; vertical-align: baseline;"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-5.html">Структура проекта</a> (manage.py)</li>
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: decimal; vertical-align: baseline;"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-6.html">Структура проекта</a> (свои шаблоны)</li>
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: decimal; vertical-align: baseline;"><span style="vertical-align: baseline; white-space: pre-wrap;"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-7-templates.html">Шаблоны</a></span></li>
+<li style="font-family: Arial; font-size: 15px; font-weight: normal; list-style-type: decimal; vertical-align: baseline;"><span style="vertical-align: baseline; white-space: pre-wrap;">Таймзоны</span></li>
+</ol>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Мы осветим только самое интересные на наш взгляд моменты, за полным списком обращайтесь к <a href="https://docs.djangoproject.com/en/dev/releases/1.4/">release notes</a>.</span><span style="font-weight: normal; vertical-align: baseline;"> </span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Особенно советуем обратить внимание на <a href="https://docs.djangoproject.com/en/dev/releases/1.4/#backwards-incompatible-changes-in-1-4">Backwards incompatible changes</a></span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"> и <a href="https://docs.djangoproject.com/en/dev/releases/1.4/#features-deprecated-in-1-4">Features deprecated in 1.4</a>.</span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"> Они описаны достаточно хорошо, читайте внимательно.</span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<h2 dir="ltr" style="font-weight: bold;">
+
+
+
+
+
+
+
+
+
+
+<span style="font-family: Arial; font-size: 19px; vertical-align: baseline; white-space: pre-wrap;">Поддержка Python</span></h2>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Начиная
+ с Django 1.4, разработчики отказываются от поддержки python 2.4 
+(который вышел более 7 лет назад), давно пора было это сделать. После 
+релиза ожидается, что начнутся работы по внедрению поддержки Python 3, 
+на данный момент существует только <a href="https://bitbucket.org/vinay.sajip/django/">неофициальный экспериментальный бранч транка</a></span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">, который проходит большинство тестов как на 2.7.2 так и 3.2.2 (но не все). <strike>Обещано озвучить планы по выпуску Django 1.5 и поддержке python 3 в скором времени</strike>.</span><br>
+<span style="font-family: Arial; font-size: x-small;"><span style="background-color: yellow; white-space: pre-wrap;">Обновление</span></span><br>
+<span style="font-family: Arial; font-size: 15px; white-space: pre-wrap;">Осенью планируется релиз 1.5 с поддержкой python 2.6 - 3.3, <a href="https://twitter.com/#%21/ubernostrum/status/178983714229985280">рассказали девелоперы</a> на PyCon 2012.</span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"></span><br>
+<span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Разработчики Django <a href="http://softwaremaniacs.org/blog/2011/10/03/core-devs-on-future/">убеждены</a>, что поддержка python 3 должна быть реализована без ущерба поддержки второй версии питона </span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">и на той же codebase, то есть быть как можно более обратно совместимой.</span><br>
+<span style="text-align: -webkit-auto;"><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"> </span><br><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">Надо заметить, что данную задачу во многом упростит недавно принятый PEP 414 “<a href="http://www.python.org/dev/peps/pep-0414/">Explicit Unicode Literal for Python 3.3</a>”</span><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;">, возвращающий в питон явно обозначенные юникодные строки. Рекомендуем пост Армина с <a href="http://lucumr.pocoo.org/2011/12/7/thoughts-on-python3/">размышлениями на тему развития python 3</a>.</span></span><br>
+<span style="text-align: -webkit-auto;"><span style="font-family: Arial; font-size: 15px; font-weight: normal; vertical-align: baseline; white-space: pre-wrap;"><br></span></span><br>
+<span style="font-family: Arial; font-size: 19px; white-space: pre-wrap;">To be continued...</span><br>
+<br>
+<span style="font-family: Arial;"><span style="font-size: 15px; white-space: pre-wrap;">Следите за обновлениями в блоге и за нами в твитере <a href="https://twitter.com/#%21/futurecolors">@futurecolors</a></span></span></div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-labels">
+Метки:
+<a href="http://blog.futurecolors.ru/search/label/django" rel="tag">django</a>,
+<a href="http://blog.futurecolors.ru/search/label/Django%20Days" rel="tag">Django Days</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2"><span style="visibility: visible;" class="post-comment-link"><a href="http://blog.futurecolors.ru/2012/03/django-14-day-0.html#disqus_thread" class="comment-link disqus-blogger-comment-link">Комментарии (2)</a></span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1355387419">
+<a href="http://www.blogger.com/post-edit.g?blogID=6180190261543881757&amp;postID=4602327299053035945&amp;from=pencil" title="Изменить сообщение">
+<img alt="" class="icon-action" src="Django%20Days_files/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+<!-- google_ad_section_end -->
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://blog.futurecolors.ru/search/label/Django%20Days?max-results=20" id="Blog1_blog-pager-newer-link" title="Следующие">Следующие</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://blog.futurecolors.ru/search/label/Django%20Days?updated-max=2012-03-07T10:16:00%2B04:00&amp;max-results=20&amp;start=8&amp;by-date=false" id="Blog1_blog-pager-older-link" title="Предыдущие">Предыдущие</a>
+</span>
+<a class="home-link" href="http://blog.futurecolors.ru/">Главная страница</a>
+</div>
+<div class="clear"></div>
+<div class="blog-feeds">
+<div class="feed-links">
+Подписаться на:
+<a class="feed-link" href="http://blog.futurecolors.ru/feeds/posts/default" target="_blank" type="application/atom+xml">Сообщения (Atom)</a>
+</div>
+</div>
+</div><div class="widget HTML" id="HTML3">
+<script type="text/javascript">
+                var disqus_shortname = 'futurecolors';
+                var disqus_blogger_current_url = "http://blog.futurecolors.ru/search/label/Django%20Days";
+                if (!disqus_blogger_current_url.length) {
+                    disqus_blogger_current_url = "http://blog.futurecolors.ru/search/label/Django%20Days";
+                }
+                var disqus_blogger_homepage_url = "http://blog.futurecolors.ru/";
+                var disqus_blogger_canonical_homepage_url = "http://blog.futurecolors.ru/";
+            </script>
+<style type="text/css">
+                    .post-comment-link { visibility: hidden; }
+                </style>
+<script type="text/javascript">
+                (function() {
+                    var bloggerjs = document.createElement('script');
+                    bloggerjs.type = 'text/javascript';
+                    bloggerjs.async = true;
+                    bloggerjs.src = 'http://'+disqus_shortname+'.disqus.com/blogger_index.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bloggerjs);
+                })();
+                </script>
+</div></div>
+</div>
+</div>
+<div class="column-left-outer">
+<div class="column-left-inner">
+<aside>
+</aside>
+</div>
+</div>
+<div class="column-right-outer">
+<div class="column-right-inner">
+<aside>
+<div class="sidebar section" id="sidebar-right-1"><div class="widget HTML" id="HTML1">
+<div class="widget-content">
+<a href="http://feeds.feedburner.com/futurecolors" title="Подпишитесь на РСС"><img src="Django%20Days_files/rss.png" alt="РСС" style="margin-right: 10px;"></a>
+<a href="https://twitter.com/futurecolors" title="Читайте нас в Твиттере"><img src="Django%20Days_files/twitter.png" alt="Твиттер"></a>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6180190261543881757&amp;widgetType=HTML&amp;widgetId=HTML1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML1"));' target="configHTML1" title="Изменить">
+<img alt="" src="Django%20Days_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget HTML" id="HTML5">
+<h2 class="title">Наши читатели</h2>
+<div class="widget-content">
+<a href="http://feeds.feedburner.com/futurecolors"><img src="Django%20Days_files/futurecolors.gif"></a>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6180190261543881757&amp;widgetType=HTML&amp;widgetId=HTML5&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML5"));' target="configHTML5" title="Изменить">
+<img alt="" src="Django%20Days_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget Label" id="Label1">
+<h2>Темы</h2>
+<div class="widget-content cloud-label-widget-content">
+<span class="label-size label-size-5">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/django">django</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/Eclipse">Eclipse</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/GDD">GDD</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/google">google</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/HTML5">HTML5</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/javascript">javascript</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/jquery">jquery</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/PHP">PHP</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/python">python</a>
+</span>
+<span class="label-size label-size-1">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/zend%20framework">zend framework</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/%D0%90%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">Администрирование</a>
+</span>
+<span class="label-size label-size-4">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/%D0%91%D0%B0%D0%BD%D0%BA%D0%BE%D0%BC%D0%B0%D1%82%D0%BE%D1%80">Банкоматор</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/%D0%B2%D1%91%D1%80%D1%81%D1%82%D0%BA%D0%B0">вёрстка</a>
+</span>
+<span class="label-size label-size-4">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/%D0%98%D0%B7%D0%B1%D1%80%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5">Избранное</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0">музыка</a>
+</span>
+<span class="label-size label-size-2">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D1%8B">Проекты</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0">разработка</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F">События</a>
+</span>
+<span class="label-size label-size-4">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/%D0%A1%D0%BF%D0%BE%D0%BA%D0%BE%D0%B9%D0%BD%D0%BE.%D1%80%D1%83">Спокойно.ру</a>
+</span>
+<span class="label-size label-size-3">
+<a dir="ltr" href="http://blog.futurecolors.ru/search/label/%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81">Яндекс</a>
+</span>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6180190261543881757&amp;widgetType=Label&amp;widgetId=Label1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target="configLabel1" title="Изменить">
+<img alt="" src="Django%20Days_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget HTML" id="HTML2">
+<h2 class="title">Студийный твитер</h2>
+<div class="widget-content">
+<script src="Django%20Days_files/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 7,
+  interval: 6000,
+  width: 'auto',
+  height: 500,
+  theme: {
+    shell: {
+      background: '#ccc',
+      color: '#000'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#555555',
+      links: '#33aaff'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: true,
+    hashtags: true,
+    timestamp: false,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('futurecolors').start();
+</script><div class="twtr-widget twtr-widget-profile" id="twtr-widget-1"><div class="twtr-doc" style="width: 100%;">            <div class="twtr-hd"><a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors" class="twtr-profile-img-anchor"><img alt="profile" class="twtr-profile-img" src="Django%20Days_files/fc_twitter_normal.png"></a>                      <h3>Студия Future Colors</h3>                      <h4><a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors">futurecolors</a></h4>             </div>            <div class="twtr-bd">              <div class="twtr-timeline" style="height: 500px;">                <div class="twtr-tweets">                  <div class="twtr-reference-tweet"></div><div class="twtr-tweet" id="tweet-id-7"><div class="twtr-tweet-wrap">         <div class="twtr-avatar">           <div class="twtr-img"><a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors"><img alt="futurecolors profile" src="Django%20Days_files/fc_twitter_normal.png"></a></div>         </div>         <div class="twtr-tweet-text">           <p>             <a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors" class="twtr-user">futurecolors</a> Чтиво на выходные <a href="http://t.co/u4fczb4I" target="_blank" urlentities="[object Object]" rel="nofollow">blog.futurecolors.ru/2012/03/24-25.…</a> <a href="http://twitter.com/search?q=%23python" title="#python" class="tweet-url hashtag" target="_blank">#python</a> <a href="http://twitter.com/search?q=%23django" title="#django" class="tweet-url hashtag" target="_blank">#django</a> <a href="http://twitter.com/search?q=%23js" title="#js" class="tweet-url hashtag" target="_blank">#js</a> <a href="http://twitter.com/search?q=%23design" title="#design" class="tweet-url hashtag" target="_blank">#design</a>             <em>            <a target="_blank" class="twtr-timestamp" time="Sat Mar 24 12:09:05 +0000 2012" href="http://twitter.com/futurecolors/status/183525845598617600">yesterday</a> ·            <a target="_blank" class="twtr-reply" href="http://twitter.com/intent/tweet?in_reply_to=183525845598617600">reply</a> ·             <a target="_blank" class="twtr-rt" href="http://twitter.com/intent/retweet?tweet_id=183525845598617600">retweet</a> ·             <a target="_blank" class="twtr-fav" href="http://twitter.com/intent/favorite?tweet_id=183525845598617600">favorite</a>             </em>           </p>         </div>       </div></div><div class="twtr-tweet" id="tweet-id-6"><div class="twtr-tweet-wrap">         <div class="twtr-avatar">           <div class="twtr-img"><a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors"><img alt="futurecolors profile" src="Django%20Days_files/fc_twitter_normal.png"></a></div>         </div>         <div class="twtr-tweet-text">           <p>             <a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors" class="twtr-user">futurecolors</a> <a href="http://twitter.com/search?q=%23Django" title="#Django" class="tweet-url hashtag" target="_blank">#Django</a> 1.4 is out! <a href="https://t.co/kAMvVuMg" target="_blank" urlentities="[object Object]" rel="nofollow">djangoproject.com/weblog/2012/ma…</a>             <em>            <a target="_blank" class="twtr-timestamp" time="Fri Mar 23 18:46:58 +0000 2012" href="http://twitter.com/futurecolors/status/183263585118588928">yesterday</a> ·            <a target="_blank" class="twtr-reply" href="http://twitter.com/intent/tweet?in_reply_to=183263585118588928">reply</a> ·             <a target="_blank" class="twtr-rt" href="http://twitter.com/intent/retweet?tweet_id=183263585118588928">retweet</a> ·             <a target="_blank" class="twtr-fav" href="http://twitter.com/intent/favorite?tweet_id=183263585118588928">favorite</a>             </em>           </p>         </div>       </div></div><div class="twtr-tweet" id="tweet-id-5"><div class="twtr-tweet-wrap">         <div class="twtr-avatar">           <div class="twtr-img"><a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors"><img alt="futurecolors profile" src="Django%20Days_files/fc_twitter_normal.png"></a></div>         </div>         <div class="twtr-tweet-text">           <p>             <a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors" class="twtr-user">futurecolors</a> Вдруг кто не в курсе, мы расширяемся и ищем толковых веб-разработчиков <a href="http://t.co/v3xWO4EL" target="_blank" urlentities="[object Object]" rel="nofollow">futurecolors.ru/vacancies/</a> <a href="http://twitter.com/search?q=%23python" title="#python" class="tweet-url hashtag" target="_blank">#python</a> <a href="http://twitter.com/search?q=%23django" title="#django" class="tweet-url hashtag" target="_blank">#django</a> / <a href="http://twitter.com/search?q=%23html5" title="#html5" class="tweet-url hashtag" target="_blank">#html5</a> <a href="http://twitter.com/search?q=%23js" title="#js" class="tweet-url hashtag" target="_blank">#js</a>             <em>            <a target="_blank" class="twtr-timestamp" time="Wed Mar 21 14:26:35 +0000 2012" href="http://twitter.com/futurecolors/status/182473283294330880">4 days ago</a> ·            <a target="_blank" class="twtr-reply" href="http://twitter.com/intent/tweet?in_reply_to=182473283294330880">reply</a> ·             <a target="_blank" class="twtr-rt" href="http://twitter.com/intent/retweet?tweet_id=182473283294330880">retweet</a> ·             <a target="_blank" class="twtr-fav" href="http://twitter.com/intent/favorite?tweet_id=182473283294330880">favorite</a>             </em>           </p>         </div>       </div></div><div class="twtr-tweet" id="tweet-id-4"><div class="twtr-tweet-wrap">         <div class="twtr-avatar">           <div class="twtr-img"><a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors"><img alt="futurecolors profile" src="Django%20Days_files/fc_twitter_normal.png"></a></div>         </div>         <div class="twtr-tweet-text">           <p>             <a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors" class="twtr-user">futurecolors</a> Новые фичи в шаблонах <a href="http://twitter.com/search?q=%23django" title="#django" class="tweet-url hashtag" target="_blank">#django</a> 1.4 <a href="http://t.co/uouAaxK0" target="_blank" urlentities="[object Object]" rel="nofollow">blog.futurecolors.ru/2012/03/django…</a> День 7             <em>            <a target="_blank" class="twtr-timestamp" time="Tue Mar 20 17:40:36 +0000 2012" href="http://twitter.com/futurecolors/status/182159722470842368">5 days ago</a> ·            <a target="_blank" class="twtr-reply" href="http://twitter.com/intent/tweet?in_reply_to=182159722470842368">reply</a> ·             <a target="_blank" class="twtr-rt" href="http://twitter.com/intent/retweet?tweet_id=182159722470842368">retweet</a> ·             <a target="_blank" class="twtr-fav" href="http://twitter.com/intent/favorite?tweet_id=182159722470842368">favorite</a>             </em>           </p>         </div>       </div></div><div class="twtr-tweet" id="tweet-id-3"><div class="twtr-tweet-wrap">         <div class="twtr-avatar">           <div class="twtr-img"><a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors"><img alt="futurecolors profile" src="Django%20Days_files/fc_twitter_normal.png"></a></div>         </div>         <div class="twtr-tweet-text">           <p>             <a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors" class="twtr-user">futurecolors</a> Шаблон нового <a href="http://twitter.com/search?q=%23django" title="#django" class="tweet-url hashtag" target="_blank">#django</a>-проекта теперь можно кастомизировать <a href="http://t.co/zPYvBPMi" target="_blank" urlentities="[object Object]" rel="nofollow">blog.futurecolors.ru/2012/03/django…</a> День 6             <em>            <a target="_blank" class="twtr-timestamp" time="Mon Mar 19 17:53:22 +0000 2012" href="http://twitter.com/futurecolors/status/181800544099246080">6 days ago</a> ·            <a target="_blank" class="twtr-reply" href="http://twitter.com/intent/tweet?in_reply_to=181800544099246080">reply</a> ·             <a target="_blank" class="twtr-rt" href="http://twitter.com/intent/retweet?tweet_id=181800544099246080">retweet</a> ·             <a target="_blank" class="twtr-fav" href="http://twitter.com/intent/favorite?tweet_id=181800544099246080">favorite</a>             </em>           </p>         </div>       </div></div><div class="twtr-tweet" id="tweet-id-2"><div class="twtr-tweet-wrap">         <div class="twtr-avatar">           <div class="twtr-img"><a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors"><img alt="futurecolors profile" src="Django%20Days_files/fc_twitter_normal.png"></a></div>         </div>         <div class="twtr-tweet-text">           <p>             <a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors" class="twtr-user">futurecolors</a> Несколько популярных мифов о <a href="http://twitter.com/search?q=%23HTML5" title="#HTML5" class="tweet-url hashtag" target="_blank">#HTML5</a> <a href="http://t.co/WEwN54wn" target="_blank" urlentities="[object Object]" rel="nofollow">habrahabr.ru/post/140155/</a>             <em>            <a target="_blank" class="twtr-timestamp" time="Sat Mar 17 17:59:38 +0000 2012" href="http://twitter.com/futurecolors/status/181077345417969665">8 days ago</a> ·            <a target="_blank" class="twtr-reply" href="http://twitter.com/intent/tweet?in_reply_to=181077345417969665">reply</a> ·             <a target="_blank" class="twtr-rt" href="http://twitter.com/intent/retweet?tweet_id=181077345417969665">retweet</a> ·             <a target="_blank" class="twtr-fav" href="http://twitter.com/intent/favorite?tweet_id=181077345417969665">favorite</a>             </em>           </p>         </div>       </div></div><div class="twtr-tweet" id="tweet-id-1"><div class="twtr-tweet-wrap">         <div class="twtr-avatar">           <div class="twtr-img"><a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors"><img alt="futurecolors profile" src="Django%20Days_files/fc_twitter_normal.png"></a></div>         </div>         <div class="twtr-tweet-text">           <p>             <a target="_blank" href="http://twitter.com/intent/user?screen_name=futurecolors" class="twtr-user">futurecolors</a> RT <a class="tweet-url username" data-screen-name="coagulant" href="http://twitter.com/coagulant" target="_blank">@coagulant</a>: Что почитать на выходных по <a href="http://twitter.com/search?q=%23python" title="#python" class="tweet-url hashtag" target="_blank">#python</a> <a href="http://twitter.com/search?q=%23css" title="#css" class="tweet-url hashtag" target="_blank">#css</a> <a href="http://twitter.com/search?q=%23js" title="#js" class="tweet-url hashtag" target="_blank">#js</a> <a href="http://t.co/myk1KST9" target="_blank" urlentities="[object Object]" rel="nofollow">blog.futurecolors.ru/2012/03/blog-p…</a>             <em>            <a target="_blank" class="twtr-timestamp" time="Sat Mar 17 09:28:03 +0000 2012" href="http://twitter.com/futurecolors/status/180948603550969857">8 days ago</a> ·            <a target="_blank" class="twtr-reply" href="http://twitter.com/intent/tweet?in_reply_to=180948603550969857">reply</a> ·             <a target="_blank" class="twtr-rt" href="http://twitter.com/intent/retweet?tweet_id=180948603550969857">retweet</a> ·             <a target="_blank" class="twtr-fav" href="http://twitter.com/intent/favorite?tweet_id=180948603550969857">favorite</a>             </em>           </p>         </div>       </div></div>                  <!-- tweets show here -->                </div>              </div>            </div>            <div class="twtr-ft">              <div><a target="_blank" href="http://twitter.com/"><img alt="" src="Django%20Days_files/widget-logo.png"></a>                <span><a target="_blank" class="twtr-join-conv" style="color: rgb(0, 0, 0);" href="http://twitter.com/futurecolors">Join the conversation</a></span>              </div>            </div>          </div></div>
+<style type="text/css">
+.twtr-hd {display: none;}
+.twtr-ft {display: none;}
+#twtr-widget-1 .twtr-doc {background: none !important;}
+.twtr-widget .twtr-tweet-wrap {padding: 10px 0px;}
+.twtr-tweet-text em {display: none}
+.twtr-user {display: none;}
+</style>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6180190261543881757&amp;widgetType=HTML&amp;widgetId=HTML2&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML2"));' target="configHTML2" title="Изменить">
+<img alt="" src="Django%20Days_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget Profile" id="Profile1">
+<h2>Авторы</h2>
+<div class="widget-content">
+<ul>
+<li><a href="http://www.blogger.com/profile/08898337670941872472">Роман Семирук</a></li>
+<li><a href="http://www.blogger.com/profile/15705756344551173720">Future Colors</a></li>
+<li><a href="http://www.blogger.com/profile/11623525063309695352">Илья Барышев</a></li>
+<li><a href="https://plus.google.com/111964287911711994443">Артём Голиков</a></li>
+<li><a href="https://plus.google.com/108693221593921353090">Виталий Олевинский</a></li>
+<li><a href="http://www.blogger.com/profile/15020616551297626623">Павел Воробьев</a></li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6180190261543881757&amp;widgetType=Profile&amp;widgetId=Profile1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("Profile1"));' target="configProfile1" title="Изменить">
+<img alt="" src="Django%20Days_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget BlogArchive" id="BlogArchive1">
+<h2>Архив</h2>
+<div class="widget-content">
+<div id="ArchiveList">
+<div id="BlogArchive1_ArchiveList">
+<ul class="flat">
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2012_03_01_archive.html">Март 2012</a> (13)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2011_08_01_archive.html">Август 2011</a> (2)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2011_06_01_archive.html">Июнь 2011</a> (2)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2011_05_01_archive.html">Май 2011</a> (2)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2011_04_01_archive.html">Апрель 2011</a> (3)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2011_03_01_archive.html">Март 2011</a> (3)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2010_11_01_archive.html">Ноябрь 2010</a> (2)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2010_10_01_archive.html">Октябрь 2010</a> (1)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2010_06_01_archive.html">Июнь 2010</a> (2)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2010_05_01_archive.html">Май 2010</a> (3)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2010_04_01_archive.html">Апрель 2010</a> (3)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2010_03_01_archive.html">Март 2010</a> (1)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2010_02_01_archive.html">Февраль 2010</a> (1)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2010_01_01_archive.html">Январь 2010</a> (2)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2009_12_01_archive.html">Декабрь 2009</a> (1)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2009_11_01_archive.html">Ноябрь 2009</a> (3)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2009_10_01_archive.html">Октябрь 2009</a> (3)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2009_09_01_archive.html">Сентябрь 2009</a> (3)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2009_08_01_archive.html">Август 2009</a> (6)
+      </li>
+<li class="archivedate">
+<a href="http://blog.futurecolors.ru/2009_07_01_archive.html">Июль 2009</a> (10)
+      </li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6180190261543881757&amp;widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target="configBlogArchive1" title="Изменить">
+<img alt="" src="Django%20Days_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+</aside>
+</div>
+</div>
+</div>
+<div style="clear: both"></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class="main-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<footer>
+<div class="footer-outer">
+<div class="footer-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left footer-fauxborder-left">
+<div class="fauxborder-right footer-fauxborder-right"></div>
+<div class="region-inner footer-inner">
+<div class="foot section" id="footer-1"></div>
+<table class="section-columns columns-2" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="foot section" id="footer-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="foot section" id="footer-2-2"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class="foot section" id="footer-3"><div class="widget Attribution" id="Attribution1">
+<div class="widget-content" style="text-align: center;">
+Технологии <a href="http://www.blogger.com/" target="_blank">Blogger</a>.
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=6180190261543881757&amp;widgetType=Attribution&amp;widgetId=Attribution1&amp;action=editWidget&amp;sectionId=footer-3" onclick='return _WidgetManager._PopupConfig(document.getElementById("Attribution1"));' target="configAttribution1" title="Изменить">
+<img alt="" src="Django%20Days_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</div>
+</div>
+<div class="footer-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class="content-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+<script src="Django%20Days_files/highlight.js"></script>
+<link href="Django%20Days_files/default.css" rel="stylesheet">
+<script type="text/javascript">
+  hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="Django%20Days_files/2628719693-widgets.js"></script>
+<script type="text/javascript">
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV2";window['blogger_blog_id'] = '6180190261543881757';BLOG_attachCsiOnload(''); }_WidgetManager._Init('http://www.blogger.com/rearrange?blogID\x3d6180190261543881757','http://blog.futurecolors.ru/search/label/Django%20Days','6180190261543881757');
+_WidgetManager._SetPageActionUrl('http://www.blogger.com/display?blogID\x3d6180190261543881757','APq4FmDjUbBnhxTXLYP9SzuEx_ojaRQypT3VAoK2s_SFdNaBrGVobkGBswu0vK7gu55iCxX8IvgbV7z1EZh89l3kCXXatyaoTPIIP7RHjwoGP3xOoGSNb8Q\x3d','AOuZoY6o__8htaMX3jdkfeJFwHlVcrVRpA:1332699297148');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'bloggerUrl': 'http://www.blogger.com', 'title': 'Блог студии Future Colors', 'pageType': 'index', 'url': 'http://blog.futurecolors.ru/search/label/Django%20Days', 'canonicalUrl': 'http://blog.futurecolors.ru/search/label/Django%20Days', 'canonicalHomepageUrl': 'http://blog.futurecolors.ru/', 'homepageUrl': 'http://blog.futurecolors.ru/', 'blogspotFaviconUrl': 'http://blog.futurecolors.ru/favicon.ico', 'enabledCommentProfileImages': true, 'searchLabel': 'Django Days', 'searchQuery': '', 'pageName': 'Django Days', 'pageTitle': 'Блог студии Future Colors: Django Days', 'encoding': 'UTF-8', 'locale': 'ru', 'isPrivate': false, 'isMobile': false, 'mobileClass': '', 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Блог студии Future Colors - Atom\42 href\75\42http://blog.futurecolors.ru/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42Блог студии Future Colors - RSS\42 href\75\42http://blog.futurecolors.ru/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42Блог студии Future Colors - Atom\42 href\75\42http://www.blogger.com/feeds/6180190261543881757/posts/default\42 /\76\n\74link rel\75\42EditURI\42 type\75\42application/rsd+xml\42 title\75\42RSD\42 href\75\42http://www.blogger.com/rsd.g?blogID\0756180190261543881757\42 /\076', 'meTag': '', 'openIdOpTag': '\74link rel\75\42openid.server\42 href\75\42http://www.blogger.com/openid-server.g\42 /\76\n', 'imageSrcTag': '', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var a\75window;function c(b){this.t\75{};this.tick\75function(b,i,d){d\75void 0!\75d?d:(new Date).getTime();this.t[b]\75[d,i]};this.tick(\42start\42,null,b)}var f\75new c;a.jstiming\75{Timer:c,load:f};try{var g\75null;a.chrome\46\46a.chrome.csi\46\46(g\75Math.floor(a.chrome.csi().pageT));null\75\75g\46\46a.gtbExternal\46\46(g\75a.gtbExternal.pageT());null\75\75g\46\46a.external\46\46(g\75a.external.pageT);g\46\46(a.jstiming.pt\75g)}catch(h){};a.tickAboveFold\75function(b){var e\0750;if(b.offsetParent){do e+\75b.offsetTop;while(b\75b.offsetParent)}b\75e;750\76\75b\46\46a.jstiming.load.tick(\42aft\42)};var j\75!1;function k(){j||(j\75!0,a.jstiming.load.tick(\42firstScrollTime\42))}a.addEventListener?a.addEventListener(\42scroll\42,k,!1):a.attachEvent(\42onscroll\42,k);\n })();\74/script\076', 'mobileHeadScript': '', 'analyticsAccountNumber': '', 'ieCssRetrofitLinks': '\74!--[if IE]\76\74script type\75\42text/javascript\42 src\75\42http://www.blogger.com/static/v1/jsbin/3804583874-ieretrofit.js\42\76\74/script\76\n\74![endif]--\076', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/f75e48f708466c7f/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/28ee9dac758a380a'}}, {'name': 'skin', 'data': {'vars': {'content_padding': '0', 'tabs_selected_background_color': 'transparent', 'region_shadow_spread': '3px', 'header_padding': '0', 'tab_selected_background_gradient': 'url(http://www.blogblog.com/1kt/transparent/white80.png)', 'link_visited_color': '#6699cc', 'tabs_margin_sides': '20px', 'post_title_font': 'normal normal 18px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'tabs_separator_color': 'transparent', 'tabs_text_color': '#ffffff', 'header_background_gradient': 'none', 'widget_title_font': 'bold normal 13px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'body_background': '#111111 url(http://themes.googleusercontent.com/image?id\0751OACCYOE0-eoTRTfsBuX1NMN9nz599ufI1Jh0CggPFA_sK80AGkIr8pLtYRpNUKPmwtEa) repeat-x fixed top center', 'tab_first_border_radius': '10px', 'tabs_border_radius': '0', 'keycolor': '#1a222a', 'content_shadow_spread': '0', 'main_background': 'transparent url(http://www.blogblog.com/1kt/transparent/white80.png) repeat scroll top left', 'header_font': 'normal normal 36px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'footer_background': 'transparent url(http://www.blogblog.com/1kt/transparent/black50.png) repeat scroll top left', 'header_background_color': 'transparent', 'widget_title_text_transform': 'uppercase', 'footer_link_visited_color': '#77aaee', 'footer_link_hover_color': '#33aaff', 'footer_border_radius_bottom': '20px', 'tabs_background_gradient': 'none', 'tab_background': 'transparent url(http://www.blogblog.com/1kt/transparent/black50.png) repeat scroll top left', 'tabs_background_color': 'transparent', 'header_border_radius': '0', 'post_margin_sides': '-20px', 'link_hover_color': '#33aaff', 'footer_link_color': '#99ccee', 'content_background': 'transparent none repeat scroll top left', 'tabs_margin_bottom': '0', 'body_text_color': '#333333', 'main_padding_sides': '20px', 'post_border_color': '#dddddd', 'footer_text_color': '#cccccc', 'footer_border_radius_top': '0', 'post_background_color': '#ffffff', 'content_border_radius': '0', 'endSide': 'right', 'post_footer_text_color': '#999999', 'startSide': 'left', 'tabs_font': 'normal normal 15px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'body_font': 'normal normal 15px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'post_border_radius': '5px', 'widget_title_text_color': '#888888', 'content_margin': '20px', 'link_color': '#336699', 'footer_widget_title_text_color': '#aaaaaa', 'header_text_color': '#ffffff', 'main_border_radius_top': '20px', 'region_shadow_offset': '1px', 'tab_border_radius': '10px', 'tabs_selected_text_color': '#336699', 'body_background_color': '#296695', 'tabs_spacing': '.25em'}, 'override': '.Header h1 a {color: #333}\n.post-body h2 {color: #333; text-transform: none; font-size: 18px;}\nbody .navbar {display: none}\n.post-outer {padding: 0 20px 40px 0;}\n.cloud-label-widget-content {text-align: left;}\n.jump-link {padding-top: 20px}\n\n.dp-highlighter {font-family: Consolas,monospace}\n.dp-highlighter .bar {display: none}\n\n.date-header {float: right; padding-right: 30px; margin-bottom: 0px; position: relative; z-index: 100; text-transform: none; font-size: 11px}\n.post-title {\nbackground: #ebebda;\nmargin: 0px 0px 0px -2000px !important;\npadding: 15px 0px 15px 2000px;\n    -moz-border-radius: 10px;\n    -webkit-border-radius: 10px;\n    -o-border-radius: 10px;\n    border-radius: 10px;\n}\n.post-title a {\ncolor: black;\n}\npre code {\n    -moz-border-radius: 10px;\n    -webkit-border-radius: 10px;\n    -o-border-radius: 10px;\n    border-radius: 10px;\npadding: 1em !important;\nfont-size: 13px;\nbackground: #f0f0e5 !important;\n}\n.post-footer {\n/*\n    -moz-border-radius: 10px;\n    -webkit-border-radius: 10px;\n    -o-border-radius: 10px;\n    border-radius: 10px;\nborder: 1px solid #ddc;*/\nmargin: 20px 0 20px 0;\n}\n.widget ul li, .widget #ArchiveList ul.flat li {border: none !important}\n.footer-outer {display: none;}\n.feed-links {display:none;}'}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '/?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '/?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '/?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '/?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '/?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '/?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '/?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML4', 'crosscol', null, document.getElementById('HTML4'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebar-right-1', null, document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML5', 'sidebar-right-1', null, document.getElementById('HTML5'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar-right-1', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML2', 'sidebar-right-1', null, document.getElementById('HTML2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'sidebar-right-1', null, document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar-right-1', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer-3', null, document.getElementById('Attribution1'), {'attribution': 'Технологии \74a href\75\47http://www.blogger.com\47 target\75\47_blank\47\76Blogger\74/a\76.'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header'));
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'navMessage': 'Показаны сообщения с ярлыком \74b\76Django Days\74/b\76. \74a href\75\42http://blog.futurecolors.ru/\42\76Показать все сообщения\74/a\076', 'lightboxEnabled': true, 'lightboxModuleUrl': 'http://www.blogger.com/static/v1/jsbin/69651461-lbx_ru.js', 'lightboxCssUrl': 'http://www.blogger.com/static/v1/v-css/3397631820-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML3', 'main', null, document.getElementById('HTML3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PageListView', new _WidgetInfo('PageList1', 'null', null, document.getElementById('PageList1'), {'title': 'Страницы', 'links': [{'href': 'http://blog.futurecolors.ru/', 'title': 'Главная страница', 'isCurrentPage': false}], 'mobile': false}, 'displayModeFull'));
+</script>
+
+
+<div style="display:none;"><script type="text/javascript">
+(function(w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter102611 = new Ya.Metrika({id:102611, enableAll: true, trackHash:true, ut:"noindex", webvisor:true});
+        }
+        catch(e) { }
+    });
+})(window, "yandex_metrika_callbacks");
+</script></div>
+<script defer="defer" src="Django%20Days_files/watch.js" type="text/javascript"></script>
+<noscript><div><img alt='' src='//mc.yandex.ru/watch/102611?ut=noindex' style='position:absolute; left:-9999px;'/></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<link href="Django%20Days_files/3397631820-lightbox_bundle.css" rel="stylesheet" type="text/css"><script src="Django%20Days_files/69651461-lbx_ru.js" type="text/javascript"></script></body><!-- Yandex.Metrika counter --></html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)http://drakon-editor.sourceforge.net/cpp/c.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>C programming with DRAKON Editor</title></head><body>​
+<link rel="stylesheet" href="http://drakon-editor.sourceforge.net/cpp/pygments_style.css">
+<style>
+	
+	body { 
+		margin-top:0;
+		background-color:#ccccdd;
+		margin: 0;
+ 	 	padding: 0;
+ 	 	font-family: Verdana, "Bitstream Vera Sans", sans-serif;
+ 	}
+ 	pre {
+ 		margin:5px;
+ 	}
+ 	
+	.top_menu { margin:0; padding:3px; }
+	h2 { border-style:solid; 
+		border-top-width:7px;
+		border-bottom-width:0;
+		border-left-width:0;
+		border-right-width:0;
+		border-color:#ccccdd; 
+		background:#efefff;
+		padding:5px;
+	}
+	p { 
+		padding:5px; 
+		font-size:100%;	
+	}
+	h1 { 
+		padding:5px; 
+		background:#efefff;
+		margin:0;
+	}
+	
+	.container {
+		background-color:#ffffff;
+		width:850px;
+		position:center;
+		border-style:solid;
+		border-color:#000030;
+		border-width:0px; 
+		padding:0;
+		margin:0 auto;
+	}
+	
+	table.reference
+	{
+	background-color:#ffffff;
+	border:1px solid #c3c3c3;
+	border-collapse:collapse;
+	width:97%;
+	margin-left:10px;
+	}
+	
+	table.reference th
+	{
+	background-color:#e5eecc;
+	border:1px solid #c3c3c3;
+	padding:3px;
+	vertical-align:top;
+	}
+	
+	table.reference td 
+	{
+	border:1px solid #c3c3c3;
+	padding:3px;
+	vertical-align:top;
+	}
+	pre {
+		border-style:dashed;
+		border-width:1px;
+		border-color:#000000;
+		padding:5px;
+	}
+</style>
+
+
+<div id="header" class="container">
+
+
+<h1>C programming with DRAKON Editor</h1>
+
+<p class="top_menu"><a href="http://drakon-editor.sourceforge.net/">Home </a>|
+<a href="https://sourceforge.net/projects/drakon-editor/files/">Download</a></p>
+
+<p>C is the language which benefits more than others of uniting with DRAKON. 
+With DRAGON-C, the power and simplicity of C is combined with the clarity of DRAKON.</p>
+
+<p>The DRAKON language requires that the diagram must have only one exit. 
+This is especially convenient in DRAGON-C because now we have a single place
+(right before the <em>End</em> icon) where the acquired resources, 
+such as memory or file handles
+should be deallocated.</p>
+
+<p>This is a basic tutorial in building DRAKON-C programs.
+A more advanced tutorial can be found in <strong>examples/C</strong> folder in
+<a href="http://sourceforge.net/projects/drakon-editor/files/drakon_editor1.8.zip/download">drakon_editor1.8.zip</a>.</p>
+
+<p>Download the tutorial: <a href="http://drakon-editor.sourceforge.net/cpp/hello_c.drn">hello_c.drn</a>.</p>
+
+<h2>Contents</h2>
+
+<ul>
+<li>The basics
+<ul>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/c.html#hello">Hello, world</a></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/c.html#parameters">Formal parameters</a></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/c.html#own_code">Adding your own code to the generated source file</a></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/c.html#public_inline"><em>public</em> and <em>inline</em> modifiers</a></li>
+</ul></li>
+<li>Flow control
+<ul>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/c.html#if">Flow control with If</a></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/c.html#select">Control flow with Select</a></li>
+</ul></li>
+<li>Loops
+<ul>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/c.html#arrow">Loops with Arrow</a></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/c.html#cloop">C-style For loop</a></li>
+</ul></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/c.html#comments">Commenting out diagrams</a></li>
+</ul>
+
+<p><a name="hello"></a></p><a name="hello">
+
+<h2>Hello, world</h2>
+
+<ol>
+<li><p>Create a new file with DRAKON Editor.</p></li>
+<li><p>Select C as the programming language. In the main menu, go to
+<strong>File / File properties...</strong> and choose "C".</p></li>
+<li><p>Create a new diagram called <code>main</code>:</p>
+
+<p><img src="./C programming with DRAKON Editor_files/Hello.png" alt="Hello world in DRAKON-C" title=""></p></li>
+<li><p>Add your own code. In the main menu, go to <strong>File / File description...</strong> 
+and add the following text:</p>
+
+<p><b>=== c_header ===<br>
+#include &lt;stdio.h&gt;</b></p></li>
+<li><p>Generate the source code. In the main menu, go to <strong>DRAKON / Generate code</strong>
+or just press Ctrl-B (Command-B on Mac).</p></li>
+</ol>
+
+<p>DRAKON Editor will create a pair of new .h and .c files and put them next to 
+the .drn file. The C code will be something like this:</p>
+
+<pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span>
+    <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span>
+    <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* item 171 */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Hello, world!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
+</a><p><a name="parameters"></a></p><a name="parameters">
+
+<h2>Formal parameters</h2>
+
+<p>The formal parameters of the procedure are placed in the special <em>Parameters</em> icon, to the right from the <em>Begin</em> icon.</p>
+
+<p>How to create a <em>Parameters</em> icon:</p>
+
+<ol>
+<li><p>Add a new <em>Action</em> icon and put it next to the right side of the <em>Begin</em> icon.</p></li>
+<li><p>Connect the <em>Begin</em> icon with the new <em>Action</em> icon with a horizontal line.</p></li>
+<li><p>Add parameters, one parameter per line.</p></li>
+</ol>
+
+<p>The last line of the <em>Parameters</em> icon may contain an optional <em>returns</em> line 
+that specifies the type of the value returned by the function. If there is no
+<em>returns</em> line, the function returns <em>void</em>.</p>
+
+<p><img src="./C programming with DRAKON Editor_files/Parameters.png" alt="Formal parameters" title=""></p>
+
+<p>DRAKON Editor will generate the following code for the diagram:</p>
+
+<pre><span class="k">static</span> <span class="kt">void</span> <span class="nf">DoubleHello</span><span class="p">(</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">firstGreeting</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">secondGreeting</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* item 22 */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">firstGreeting</span><span class="p">);</span>
+    <span class="cm">/* item 23 */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">secondGreeting</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
+<p>Note the <em>item</em> comments in the generated code. They tell which icon on the 
+diagram the next piece of code is generated from.</p>
+
+<p>To jump to the specific icon (if you know its number), 
+press Ctrl-I and enter the number. This is really convenient for debugging.</p>
+
+</a><p><a name="own_code"></a></p><a name="own_code">
+
+<h2>Adding your own code to the generated source files</h2>
+
+<p>Sometimes it is necessary to add some hand-written code 
+to the generated files. DRAKON Editor allows you to do that
+using the so called <em>sections</em> in the file description.</p>
+
+<p>To edit the file description, go to <strong>File / File description...</strong></p>
+
+<p>The <em>h_header</em> section is added at the beginning of the generated .h file.
+The <em>h_footer</em> section is added at the end of the generated .h file.
+<em>c_header</em> and <em>c_footer</em> are inserted in the .c file.</p>
+
+<p>We were using the <em>c_header</em> section in the <em>main</em> example above
+to include the system header &lt;stdio.h&gt;.</p>
+
+<p>The section content is all text below the section header until
+the next section of end of file.
+The text that goes before any sections in the file description 
+is ignored.</p>
+
+<p>Here is an example of a typical file description.</p>
+
+<pre>Some text describing the file. It will be ignored during
+code generation.
+
+<span class="o">===</span> <span class="n">c_header</span> <span class="o">===</span>
+<span class="cp">/* This code goes to the top of the .c file. */</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="cp">#define ONE 1</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="n">globalVar</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">MyFun</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="o">===</span> <span class="n">c_footer</span> <span class="o">===</span>
+<span class="cm">/* This code goes to the bottom of the .c file. */</span>
+<span class="kt">int</span> <span class="n">MyFun</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"This is a hand-written function.</span><span class="se">\</span><span class="s">n"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">}</span>
+
+</pre>
+
+<p><strong>Sections reference for DRAKON-C file descriptions</strong></p>
+
+<table class="reference">
+<tbody><tr>
+<td><b>Section</b></td><td><b>Goes to file</b></td><td><b>Position</b></td>
+</tr><tr>
+</tr>
+<tr><td>h_header</td><td>.h file</td><td>Start of file</td>
+</tr><tr>
+</tr>
+<tr><td>h_footer</td><td>.h file</td><td>End of file</td>
+</tr><tr>
+</tr>
+<tr><td>c_header</td><td>.c file</td><td>Start of file</td>
+</tr><tr>
+</tr>
+<tr><td>c_footer</td><td>.c file</td><td>End of file</td>
+</tr>
+</tbody></table>
+
+</a><p><a name="public_inline"></a></p><a name="public_inline">
+
+<h2><em>public</em> and <em>inline</em> modifiers</h2>
+
+<p>By default, the linkage of functions is <em>static</em>. In order to make the
+function public, put the word <strong>public</strong> on the first
+line of the <em>Parameters</em> icon (see the example with <em>main</em> function above).</p>
+
+<p>The declarations of public functions are placed in the generated header (.h) file.</p>
+
+<p>The word <strong>inline</strong> on the first line of the <em>Parameters</em> icon adds 
+the <em>inline</em> keyword to the function declaration and definition. 
+The definition of public inline functions goes to the header.</p>
+
+<table class="reference">
+<tbody><tr>
+<td><b>Parameters<br>icon</b></td>
+<td><b>Declaration</b></td>
+<td><b>Declaration<br>goes to header</b></td>
+<td><b>Definition<br>goes to header</b></td>
+</tr>
+<tr>
+<td>int p1<br>int p2</td>
+<td>static void Foo(int p1, int p2)</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>inline<br>int p1<br>int p2</td>
+<td>static inline void Foo(int p1, int p2)</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>public<br>int p1<br>int p2</td>
+<td>void Foo(int p1, int p2)</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td>public inline<br>int p1<br>int p2</td>
+<td>inline void Foo(int p1, int p2)</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+
+
+</tbody></table>
+
+</a><p><a name="if"></a></p><a name="if">
+
+<h2>Flow control with If</h2>
+
+<p>The <em>If</em> icon produces the <em>if</em> statement:</p>
+
+<p><img src="./C programming with DRAKON Editor_files/LimitedPrint.png" alt="If example" title=""></p>
+
+<p>The <em>If</em> icon in the diagram above produces this code:</p>
+
+<pre><span class="k">static</span> <span class="kt">void</span> <span class="nf">LimitedPrint</span><span class="p">(</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">text</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">maxLength</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* item 29 */</span>
+    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+
+    <span class="cm">/* item 30 */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">length</span> <span class="o">&lt;=</span> <span class="n">maxLength</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// item 31</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"The text is short enough.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"I can print it:%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// item 34</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"The text is too long.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>    
+<span class="p">}</span>
+</pre>
+
+<p>It is possible to swap <em>YES</em> and <em>NO</em> exits of an <em>if</em> icon. 
+Right-click on the <em>if</em> icon and choose <strong>Swap YES and NO</strong>.</p>
+
+<p><img src="./C programming with DRAKON Editor_files/swap.png" alt="Swap YES and NO" title=""></p>
+
+</a><p><a name="select"></a></p><a name="select">
+
+<h2>Control flow with Select</h2>
+
+<p>Imagine you need to make a choice out of several options based
+on some value. In C, you would write something like this:</p>
+
+<pre><span class="k">switch</span> <span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">0</span>:
+        <span class="n">printf</span><span class="p">(</span><span class="s">"zero</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">1</span>:
+        <span class="n">printf</span><span class="p">(</span><span class="s">"one</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">2</span>:
+        <span class="n">printf</span><span class="p">(</span><span class="s">"two</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="nl">default:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"a lot</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
+<p>In DRAKON, you can use the <em>Select</em> and <em>Case</em> icons like this:</p>
+
+<p><img src="./C programming with DRAKON Editor_files/select.png" alt="Select" title=""></p>
+
+</a><p><a name="arrow"></a></p><a name="arrow">
+
+<h2>Loops with Arrow</h2>
+
+<p>When an <em>Arrow</em> is added to an <em>If</em> or <em>Select</em>, a loop is created.</p>
+
+<ol>
+<li><p>Do-Check loop:</p>
+
+<p><img src="./C programming with DRAKON Editor_files/arrow1.png" alt="Do-check loop" title=""></p></li>
+<li><p>Check-Do loop:</p>
+
+<p><img src="./C programming with DRAKON Editor_files/arrow2.png" alt="Check-Do loop" title=""></p></li>
+<li><p>Do-Check-Do (hybrid) loop:</p>
+
+<p><img src="./C programming with DRAKON Editor_files/arrow3.png" alt="Do-Check-Do loop" title=""></p></li>
+</ol>
+
+</a><p><a name="cloop"></a></p><a name="cloop">
+
+<h2>C-style For loop</h2>
+
+<p>With DRAKON, it is possible to write standard C-style <em>for</em> constructs.
+Note the absense of the <em>for</em> keyword.</p>
+
+<p><img src="./C programming with DRAKON Editor_files/for.png" alt="for" title=""></p>
+
+<p>Which is a syntactically sugared version of the below
+picture:</p>
+
+<p><img src="./C programming with DRAKON Editor_files/for2.png" alt="for" title=""></p>
+
+</a><p><a name="comments"></a></p><a name="comments">
+
+<h2>Commenting out diagrams</h2>
+
+<p>It is possible to exclude the whole diagram from code generation.</p>
+
+<p>If the first line of the formal parameters list is<br>
+<code>#comment</code><br>
+then no code is generated for this diagram.</p>
+
+<p>Its correctness, however, will still be checked against the DRAKON rules.</p>
+
+<p><img src="./C programming with DRAKON Editor_files/comment.png" alt="comment" title=""></p>
+</a></div><a name="comments">
+
+
+
+</a></body></html>

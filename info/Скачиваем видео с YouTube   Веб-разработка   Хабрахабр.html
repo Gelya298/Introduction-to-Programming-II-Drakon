@@ -1,0 +1,3345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)http://habrahabr.ru/blogs/webdev/137496/#habracut -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>Скачиваем видео с YouTube / Веб-разработка / Хабрахабр</title>
+		
+		
+		
+			<link href="http://habrahabr.ru/styles/1328200559/all.css" rel="stylesheet" media="all">
+		
+    
+		
+  <link href="http://habrahabr.ru/styles/1328200559/_parts/posts.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1328200559/_parts/comments.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1328200559/posts/all.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1328200559/forms.css" rel="stylesheet" media="all">
+  <link href="http://habrahabr.ru/styles/1328200559/highlight.css" rel="stylesheet" media="all">
+
+
+		
+		
+			<script type="text/javascript" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/all.js"></script>
+		
+		
+			
+		
+  <script type="text/javascript" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/jquery.form.js"></script>
+  <script type="text/javascript" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/jquery.cookie.js"></script>
+  <script type="text/javascript" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/swfobject.js"></script>
+  <script type="text/javascript" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/wysiwyg.js"></script>
+  <script type="text/javascript" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/highlight.js"></script>
+  <script type="text/javascript" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/posts.js"></script>
+  <script type="text/javascript" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/comments.js"></script>
+  <script type="text/javascript" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/all(1).js"></script>
+
+		
+		<script type="text/javascript" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/adriver.core.2.js"></script>
+		
+		
+		
+		<link title="Хабрахабр / Комментарии к публикации &laquo;Скачиваем видео с YouTube&raquo; в блоге &laquo;Веб-разработка&raquo;" type="application/rss+xml" rel="alternate" href="http://habrahabr.ru/rss/post/137496/">
+		
+	<script async="true" src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/ga.js"></script></head>
+
+	<body>
+	  
+
+
+	<div id="topline" title=""><div style="position: relative; width: 100%; height: 90px; "><embed type="application/x-shockwave-flash" width="100%" height="100%" quality="best" wmode="opaque" play="true" loop="true" menu="false" allowscriptaccess="always" src="http://eltel1.adriver.ru/images/0001535/0001535266/0/100hbteams.swf" flashvars="link1=http%3A//ad.adriver.ru/cgi-bin/click.cgi%3Fsid%3D176776%26ad%3D320700%26bid%3D1535266%26bt%3D52%26bn%3D1%26pz%3D0%26ref%3Dhttp%3A%252f%252fhabrahabr.ru%252fblogs%252fwebdev%252f137496%252f%26custom%3D%26rleurl%3D&amp;ar_ph=topline&amp;target=_blank&amp;ar_comppath=http%3A//eltel1.adriver.ru/images/0001535/0001535266/0/&amp;ar_pass=&amp;ar_bid=1535266&amp;ar_bt=52&amp;ar_ad=320700&amp;ar_nid=0&amp;ar_rnd=9178432&amp;ar_ntype=0&amp;ar_sliceid=973538&amp;ar_sid=176776"></div></div>
+	<script type="text/javascript">
+	new adriver("topline", {sid:176776, bt:52, bn:1});
+	</script>
+
+
+
+
+
+		<div id="layout">	    
+		  <div id="header">
+  <div class="userpanel silver">
+    
+    
+      <a href="http://habrahabr.ru/login/" class="login">войти</a> <a href="http://habrahabr.ru/register/">зарегистрироваться</a>
+    
+  </div>
+  <a class="logo" href="http://habrahabr.ru/" title="На главную страницу"></a>
+  <div class="search">
+    <form id="search_form" name="search" method="get" action="http://habrahabr.ru/search/">
+      <input type="text" name="q" value="поиск по сайту" onfocus="this.value = (this.value == &#39;поиск по сайту&#39;) ? &#39;&#39; : this.value" onblur="this.value = (this.value == &#39;&#39;) ? &#39;поиск по сайту&#39; : this.value" autocomplete="off">
+      <input type="submit" value="">
+    </form>
+  </div>
+  
+
+	<div class="main_menu">
+		<a href="http://habrahabr.ru/" class="active">посты</a><a href="http://habrahabr.ru/qa/">q&amp;a</a><a href="http://habrahabr.ru/bloglist/">блоги</a><a href="http://habrahabr.ru/events/coming/">события</a><a href="http://habrahabr.ru/companies/">компании</a>
+		<div class="banner_special">
+
+	 
+
+	 
+
+	
+	
+		<!--  AdRiver code START. Type:135x35 Site: habrahabr PZ: 0 BN: 0 -->
+		<script language="javascript" type="text/javascript"><!--
+		var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+		var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+		document.write(
+		'<iframe src="http://ad.adriver.ru/cgi-bin/erle.cgi?'
+		+ 'sid=176776&target=top&w=135&h=35&bt=25&pz=0&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail
+		+ '" frameborder=0 vspace=0 hspace=0 width=135 height=35 marginwidth=0'
+		+ ' marginheight=0 scrolling=no></iframe>');
+		//--></script><iframe src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/erle(3).html" frameborder="0" vspace="0" hspace="0" width="135" height="35" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+		<noscript></noscript>
+
+		<!--  AdRiver code END  -->
+	
+	
+
+</div>
+	</div>
+
+
+</div>
+
+
+	
+		  
+	  
+		  
+
+	<div class="blog_header">
+  <h2>
+    <a href="http://habrahabr.ru/blogs/webdev/" class="blog_title">Веб-разработка</a>
+    <span class="profiled_blog" title="Профильный блог"></span>
+
+    
+  				
+	</h2>
+	<div class="blog-index">
+	 <div class="label">индекс</div>
+	 <div class="value">236,64</div>
+	</div>
+</div>
+  <div class="content_left">
+
+	
+
+
+	
+
+
+
+	
+		<div class="add_post"><a href="http://habrahabr.ru/add/topic/" title="Добавить пост"></a></div>
+	
+	
+
+
+<table class="menu">
+  <tbody><tr>
+    
+      <td class="item ">
+        <a href="http://habrahabr.ru/blogs/webdev/">Захабренные </a>      
+      </td>
+    
+      <td class="item ">
+        <a href="http://habrahabr.ru/blogs/webdev/new/">Новые (<span class="count">2)</span></a>      
+      </td>
+    
+      <td class="item ">
+        <a href="http://habrahabr.ru/blogs/webdev/unhabred/">Отхабренные </a>      
+      </td>
+    
+  </tr>  
+</tbody></table>
+<div class="submenu ">
+
+</div>
+<div class="clear"></div>
+
+
+  
+
+	<div class="company_post">
+
+	
+
+		
+  <div class="post" id="post_137496">
+    <h2 class="title">
+    
+    	
+      
+      
+      
+      
+      
+        <span class="post_title">Скачиваем видео с YouTube</span>
+      
+      
+      
+
+
+  		<a href="http://habrahabr.ru/sandbox/" style="font-size: 14px; background: #F0F0E7; padding: 0 5px;vertical-align:super;color:#767676;text-decoration:none;" title="Перейти в песочницу">из песочницы</a>
+  		
+  	</h2>
+    <div class="content">
+      Эта история берет начало в далеком 2006-м году… Я тогда был в начале своей программистской карьеры и работал в одной <s>говноконторе</s> развивающейся ноунейм фирме. Тогда у нас было несколько заказов на сайты с похожим функционалом: нужно было сделать портал, на который люди могли бы заливать видео/картинки/музыку и потом этот контент просматривать, комментировать, а заодно и смотреть рекламу принося прибыль доброму дяде владельцу. Все бы хорошо, но чтобы завлечь людей на сайт нужно чтобы там уже было много контента. Таким образом создавалось бы впечатление что сайт работает давно и успешно. И вот заказчик ставит грандиозную цель: наполнить новоиспеченный портал видео с <a href="http://www.youtube.com/">youtube.com</a>. Еще не зная, что меня ждет, я с радостью взялся за работу…<br>
+<a name="habracut"></a><br>
+Все конечно же оказалось не так просто. Наверняка ты знаешь, что ютуб никогда не давал прямых ссылок на свои файлы. Те ссылки, что можно выпарсить из страницы с плейером не дадут нужного результата. В лучшем случае ты упрешься в то, что получив наконец желаемую «прямую» ссылку на файл будешь получать 403-ю ошибку (нет прав доступа к файлу). Тогда, в 2006-м, я на этом и остановился после нескольких дней поиска и гугления. Кстати, тогда ютуб еще не был приобретением великого и ужасно доброго Гугла (спасибо <a href="http://habrahabr.ru/users/anmipo/" class="user_link">anmipo</a> за исправление). Я решил, что такой возможности как скачать видео с ютуба просто не существует. Как оказалось, я ошибся…<br>
+<br>
+Прошло несколько лет… К теме скачивания видео я вернулся совершенно случайно уже в 2012-м. Наткнулся на один сайт, где можно было онлайн конвертировать видео файлы из одного формата в другой и там же была возможность скачать видео с ютуба просто сабмитнув ссылку на это видео. Старая тема всплыла в моей памяти. Очень кстати я как раз занимался изученнием платформы Android. Я решил написать приложение для андроида, которое позволяло бы пользователю скачать полюбившийся ролик на свой телефон. <br>
+В итоге я принялся снова изучать и пытаться понять, что же я делал не так первый раз…<br>
+<br>
+Я не буду приводить здесь исходный код приложения поскольку его читать будет слишком скучно. Если кому-то захочется узнать подробности реализации, вы можете писать мне напрямую.<br>
+<br>
+Итак, перейдем к делу и рассмотрим процесс скачивания видео с ютуба пошагово.<br>
+<br>
+<h4>Исходные данные</h4><br>
+Ссылка на видео, например <a href="http://www.youtube.com/watch?v=JCYIwiT0X98&feature=g-all-esi&context=G265c44fFAAAAAAAAHAA">www.youtube.com/watch?v=JCYIwiT0X98&amp;feature=g-all-esi&amp;context=G265c44fFAAAAAAAAHAA</a><br>
+<br>
+<h4>Первый шаг</h4><br>
+Нужно получить метаинформацию о видео. <br>
+Делается это запросом на <a href="http://www.youtube.com/get_video_info?video_id=JCYIwiT0X98">www.youtube.com/get_video_info?video_id=JCYIwiT0X98</a><br>
+Видео ID берем из исходных данных, это параметр <b>v=JCYIwiT0X98</b><br>
+<br>
+В результате получаем текстовый стрим примерно такого вида:<br>
+<a href="http://dl.dropbox.com/u/26865519/get_video_info_example">dl.dropbox.com/u/26865519/get_video_info_example</a><br>
+<br>
+<h4>Второй шаг</h4><br>
+Получить ссылки на скачивание видео.<br>
+Сылки на видео содержатся в параметре url_encoded_fmt_stream_map. Формат этого параметра следующий:<br>
+url_encoded_fmt_stream_map=Url encoded(url=url 1,url=url 2,...,url=url n)<br>
+<br>
+То есть в урле закодированы другие урлы, для этого и понадобилось из заенкодить. Если мы раскодируем наши ссылки то получим следующее:<br>
+<pre>url=http%3A%2F%2Fo-o.preferred.uarnet-kbp1.v11.lscache8.c.youtube.com%2Fvideoplayback%3Fsparams%3Did%252Cexpire%252Cip%252Cipbits%252Citag%252Csource%252Cratebypass%252Ccp%26fexp%3D916601%252C900203%26itag%3D45%26ip%3D91.0.0.0%26signature%3D84EA8CE08129B8AAF41D1F7898420BED2E2C3438.57CDB11E07D00A54C99F905DE0DA77AEBC0E9038%26sver%3D3%26ratebypass%3Dyes%26source%3Dyoutube%26expire%3D1328198927%26key%3Dyt1%26ipbits%3D8%26cp%3DU0hRTVFUVl9HUUNOMV9JTlpKOldSRTY2Tk9hSmU5%26id%3D242608c224f45fdf&amp;quality=hd720&amp;fallback_host=tc.v11.cache8.c.youtube.com&amp;type=video%2Fwebm%3B+codecs%3D%22vp8.0%2C+vorbis%22&amp;itag=45,url=http%3A%2F%2Fo-o.preferred.uarnet-kbp1.v15.lscache1.c.youtube.com%2Fvideoplayback%3Fsparams%3Did%252Cexpire%252Cip%252Cipbits%252Citag%252Csource%252Cratebypass%252Ccp%26fexp%3D916601%252C900203%26itag%3D22%26ip%3D91.0.0.0%26signature%3D1AC166895886593943D1346017A82762AFF47E9C.59C7B7E9030474710D768847DDD0433DE42D0A19%26sver%3D3%26ratebypass%3Dyes%26source%3Dyoutube%26expire%3D1328198927%26key%3Dyt1%26ipbits%3D8%26cp%3DU0hRTVFUVl9HUUNOMV9JTlpKOldSRTY2Tk9hSmU5%26id%3D242608c224f45fdf&amp;quality=hd720&amp;fallback_host=tc.v15.cache1.c.youtube.com&amp;type=video%2Fmp4%3B+codecs%3D%22avc1.64001F%2C+mp4a.40.2%22&amp;itag=22,url=http%3A%2F%2Fo-o.preferred.uarnet-kbp1.v21.lscache1.c.youtube.com%2Fvideoplayback%3Fsparams%3Did%252Cexpire%252Cip%252Cipbits%252Citag%252Csource%252Cratebypass%252Ccp%26fexp%3D916601%252C900203%26itag%3D44%26ip%3D91.0.0.0%26signature%3D0E18ABF397609CD176F02A026E6827BF89EDEEC1.AF7A313EFC85510A908760E20F3B88A69F9BC871%26sver%3D3%26ratebypass%3Dyes%26source%3Dyoutube%26expire%3D1328198927%26key%3Dyt1%26ipbits%3D8%26cp%3DU0hRTVFUVl9HUUNOMV9JTlpKOldSRTY2Tk9hSmU5%26id%3D242608c224f45fdf&amp;quality=large&amp;fallback_host=tc.v21.cache1.c.youtube.com&amp;type=video%2Fwebm%3B+codecs%3D%22vp8.0%2C+vorbis%22&amp;itag=44,url=http%3A%2F%2Fo-o.preferred.uarnet-kbp1.v8.lscache6.c.youtube.com%2Fvideoplayback%3Fsparams%3Did%252Cexpire%252Cip%252Cipbits%252Citag%252Csource%252Calgorithm%252Cburst%252Cfactor%252Ccp%26fexp%3D916601%252C900203%26algorithm%3Dthrottle-factor%26itag%3D35%26ip%3D91.0.0.0%26burst%3D40%26sver%3D3%26signature%3D3946508038978141EA2FE1E8A691C237497B20A8.5C4F1CAA8BFF22B061A304281162831BBDF8F3C1%26source%3Dyoutube%26expire%3D1328198927%26key%3Dyt1%26ipbits%3D8%26factor%3D1.25%26cp%3DU0hRTVFUVl9HUUNOMV9JTlpKOldSRTY2Tk9hSmU5%26id%3D242608c224f45fdf&amp;quality=large&amp;fallback_host=tc.v8.cache6.c.youtube.com&amp;type=video%2Fx-flv&amp;itag=35,url=http%3A%2F%2Fo-o.preferred.uarnet-kbp1.v22.lscache3.c.youtube.com%2Fvideoplayback%3Fsparams%3Did%252Cexpire%252Cip%252Cipbits%252Citag%252Csource%252Cratebypass%252Ccp%26fexp%3D916601%252C900203%26itag%3D43%26ip%3D91.0.0.0%26signature%3D25CE0D32BEF98C0B631656DCBCE204F44DB0678F.810337E9249E7AF4B5D06592FC3664AE81A054C7%26sver%3D3%26ratebypass%3Dyes%26source%3Dyoutube%26expire%3D1328198927%26key%3Dyt1%26ipbits%3D8%26cp%3DU0hRTVFUVl9HUUNOMV9JTlpKOldSRTY2Tk9hSmU5%26id%3D242608c224f45fdf&amp;quality=medium&amp;fallback_host=tc.v22.cache3.c.youtube.com&amp;type=video%2Fwebm%3B+codecs%3D%22vp8.0%2C+vorbis%22&amp;itag=43,url=http%3A%2F%2Fo-o.preferred.uarnet-kbp1.v7.lscache6.c.youtube.com%2Fvideoplayback%3Fsparams%3Did%252Cexpire%252Cip%252Cipbits%252Citag%252Csource%252Calgorithm%252Cburst%252Cfactor%252Ccp%26fexp%3D916601%252C900203%26algorithm%3Dthrottle-factor%26itag%3D34%26ip%3D91.0.0.0%26burst%3D40%26sver%3D3%26signature%3D639B6C6CE89DA078D0F236F2E6EF25D6699E92B3.8E643652167A642565D7CF46356702AB4240B039%26source%3Dyoutube%26expire%3D1328198927%26key%3Dyt1%26ipbits%3D8%26factor%3D1.25%26cp%3DU0hRTVFUVl9HUUNOMV9JTlpKOldSRTY2Tk9hSmU5%26id%3D242608c224f45fdf&amp;quality=medium&amp;fallback_host=tc.v7.cache6.c.youtube.com&amp;type=video%2Fx-flv&amp;itag=34,url=http%3A%2F%2Fo-o.preferred.uarnet-kbp1.v3.lscache3.c.youtube.com%2Fvideoplayback%3Fsparams%3Did%252Cexpire%252Cip%252Cipbits%252Citag%252Csource%252Cratebypass%252Ccp%26fexp%3D916601%252C900203%26itag%3D18%26ip%3D91.0.0.0%26signature%3D806E129CEA4EE91ABABDB54ABE1A57A133C97BCA.4807466495C2C05D71A918357D275F04CDDE1AFF%26sver%3D3%26ratebypass%3Dyes%26source%3Dyoutube%26expire%3D1328198927%26key%3Dyt1%26ipbits%3D8%26cp%3DU0hRTVFUVl9HUUNOMV9JTlpKOldSRTY2Tk9hSmU5%26id%3D242608c224f45fdf&amp;quality=medium&amp;fallback_host=tc.v3.cache3.c.youtube.com&amp;type=video%2Fmp4%3B+codecs%3D%22avc1.42001E%2C+mp4a.40.2%22&amp;itag=18,url=http%3A%2F%2Fo-o.preferred.uarnet-kbp1.v23.lscache1.c.youtube.com%2Fvideoplayback%3Fsparams%3Did%252Cexpire%252Cip%252Cipbits%252Citag%252Csource%252Calgorithm%252Cburst%252Cfactor%252Ccp%26fexp%3D916601%252C900203%26algorithm%3Dthrottle-factor%26itag%3D5%26ip%3D91.0.0.0%26burst%3D40%26sver%3D3%26signature%3D8CED45631A15BD0E90EDB77AEFEEE2C421F122F1.9C1BC70FB6A2ED45D3491A5A082A96F029A228CB%26source%3Dyoutube%26expire%3D1328198927%26key%3Dyt1%26ipbits%3D8%26factor%3D1.25%26cp%3DU0hRTVFUVl9HUUNOMV9JTlpKOldSRTY2Tk9hSmU5%26id%3D242608c224f45fdf&amp;quality=small&amp;fallback_host=tc.v23.cache1.c.youtube.com&amp;type=video%2Fx-flv&amp;itag=5&amp;
+</pre><br>
+<br>
+Это все урлы нашего видео в различных форматах. За формат отвечает параметр itag. Вот возможные значения этого параметра:<br>
+<br>
+<pre>itag=5 - FLV 320 x 240
+itag=34 - FLV 640 x 360
+itag=35 - FLV 854 x 480
+itag=18 - MP4 640 x 360
+itag=22 - MP4 1280 x 720
+itag=37 - MP4 1920 x 1080
+itag=38 - MP4 4096 x 1714
+itag=43 - WEBM 640 x 360
+itag=44 - WEBM 854 x 480
+itag=45 - WEBM 1280 x 720
+</pre><br>
+<br>
+Казалось бы мы уже близки к скачиванию, достаточно просто взять нужный урл и все. Но нет… Нужно еще немного <s>попрыгать с бубном</s> поработать.<br>
+<br>
+Для примера возьмем первый урл и декодируем его:<br>
+<pre>http://o-o.preferred.uarnet-kbp1.v15.lscache1.c.youtube.com/videoplayback?sparams=id%2Cexpire%2Cip%2Cipbits%2Citag%2Csource%2Cratebypass
+%2Ccp&amp;fexp=916601%2C900203&amp;itag=22&amp;ip=91.0.0.0&amp;signature=1AC166895886593943D1346017A82762AFF47E9C.59C7B7E9030474710D768847DDD0433DE42D0A19&amp;sver=3&amp;ratebypass=yes&amp;source=youtube&amp;expire=1328198927&amp;key=yt1&amp;ipbits=8&amp;cp=U0hRTVFUVl9HUUNOMV9JTlpKOldSRTY2Tk9hSmU5&amp;id=242608c224f45fdf&amp;quality=hd720&amp;fallback_host=tc.v15.cache1.c.youtube.com&amp;type=video/mp4; codecs="avc1.64001F, mp4a.40.2"&amp;itag=22</pre><br>
+<br>
+Если сейчас вставить его в браузерную строку, то получим нашу любимую 403-ю ошибку. Для того чтобы получить валидную ссылку на поток, нужно отбросить все параметры после id и добавить в конец "&amp;title=Наш тайтл", то есть в нашем случае получаем:<br>
+<br>
+<pre>http://o-o.preferred.uarnet-kbp1.v15.lscache1.c.youtube.com/videoplayback?sparams=id%2Cexpire%2Cip%2Cipbits%2Citag%2Csource%2Cratebypass
+%2Ccp&amp;fexp=916601%2C900203&amp;itag=22&amp;ip=91.0.0.0&amp;signature=1AC166895886593943D1346017A82762AFF47E9C.59C7B7E9030474710D768847DDD0433DE42D0A19&amp;sver=3&amp;ratebypass=yes&amp;source=youtube&amp;expire=1328198927&amp;key=yt1&amp;ipbits=8&amp;cp=U0hRTVFUVl9HUUNOMV9JTlpKOldSRTY2Tk9hSmU5&amp;id=242608c224f45fdf&amp;title=%D0%9F%D1%8B%D0%BB%D1%8C+%D0%BD%D0%B0+%D0%91%D0%B8%D0%B1%D0%BB%D0%B8%D0%B8++%D1%80%D0%B6%D0%B0%D0%B2%D1%87%D0%B8%D0%BD%D0%B0+%D0%BD%D0%B0+%D1%81%D0%B5%D1%80%D0%B4%D1%86%D0%B5</pre><br>
+<br>
+Вот она — желанная ссылка на поток! :-) Кстати, тайтл для последнего параметра взят из шага 1, самый последний параметр из метаинформации.<br>
+<br>
+Ну и напоследок даю ссылку на приложение для Андроида которое демонстрирует показанную здесь теорию на практике:<br>
+<a href="https://market.android.com/details?id=com.youtubedownloader">market.android.com/details?id=com.youtubedownloader</a><br>
+<br>
+<h4>Источники</h4><br>
+<ul>
+<li><a href="http://www.google.com/">www.google.com</a></li>
+<li>Код браузерного плагина для скачивания видео с ютуба: <a href="http://userscripts.org/scripts/review/25105">userscripts.org/scripts/review/25105</a></li>
+<li><a href="http://meyerweb.com/eric/tools/dencoder/">meyerweb.com/eric/tools/dencoder/</a> — полезная тулза для кодирования/декодирования урлов онлайн</li>
+</ul><br>
+<br>
+<b>UPD:</b> Поправил место где написано насчет «творения Гугла»
+  		<div class="clear"></div>
+    </div>
+
+		
+<ul class="tags">
+	<li><a href="http://habrahabr.ru/tag/youtube/" rel="tag">youtube</a></li><li>, <a href="http://habrahabr.ru/tag/%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C%20%D1%80%D0%BE%D0%BB%D0%B8%D0%BA/" rel="tag">скачать ролик</a></li><li>, <a href="http://habrahabr.ru/tag/%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE/" rel="tag">скачать видео</a></li><li>, <a href="http://habrahabr.ru/tag/android/" rel="tag">android</a></li>
+</ul>
+
+		<div class="infopanel" id="infopanel_post_137496">
+	
+        
+	
+	<div class="voting   ">
+
+		  				  
+		
+		<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+		<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+		
+
+		<div class="mark">
+			
+			
+			
+			
+			<span class="score" title="Результат голосования виден только авторизованным пользователям">—</span>
+			
+			  					  
+		</div>  
+
+	</div>
+	
+	
+
+	
+
+	<div class="published"> 2 февраля 2012, 17:42</div>
+
+	<div class="favorite">
+		
+		
+		<a class="guest" href="http://habrahabr.ru/blogs/webdev/137496/#" onclick="return false;" title="Только зарегистрированные пользователи могут добавлять посты в избранное"></a>
+		
+	</div>
+
+	<div class="favs_count" title="Количество пользователей, добавивших пост в избранное">88</div>
+
+	
+	<div class="twitter">
+		<a href="http://twitter.com/intent/tweet?text=http://habr.ru/p/137496/+%D0%A1%D0%BA%D0%B0%D1%87%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC+%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE+%D1%81+YouTube+%23habr" title="Опубликовать ссылку в Twitter" target="_blank"></a>
+	</div>
+	<div class="vkontakte"> 
+		<a href="http://vkontakte.ru/share.php?url=http://habr.ru/p/137496/" title="Опубликовать ссылку во ВКонтакте" onclick="window.open(this.href, &#39;Опубликовать ссылку во Вконтакте&#39;, &#39;width=800,height=300&#39;); return false"></a>
+	</div>
+	<div class="facebook">
+		<a href="http://www.facebook.com/sharer.php?u=http://habr.ru/p/137496/" title="Опубликовать ссылку в Facebook" onclick="window.open(this.href, &#39;Опубликовать ссылку в Facebook&#39;, &#39;width=800,height=300&#39;); return false"></a>
+	</div>
+	
+
+	
+
+	
+
+	
+	
+
+	
+	
+	<div class="author">
+		<a title="Автор текста" href="http://habrahabr.ru/users/alexrewa/">alexrewa</a>
+	</div>
+	
+	
+
+	
+
+</div>
+<div class="clear"></div>    
+		
+	</div>
+
+		
+		
+<div class="comments_list " id="comments">
+
+  <h2 class="title ">комментарии (<span id="comments_count">53</span>)
+    
+  </h2>
+
+   
+    
+<div class="comment_item" id="comment_4579698">
+	
+	
+		<div class="info  	" rel="4579698">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579698" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 10: &uarr;10 и &darr;0">+10</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Xlab/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/38900_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/Xlab/" class="username">Xlab</a>
+			<time datetime="2012-02-02T17:53:44+04:00"> 2 февраля 2012, 17:53</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579698" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Формат частенько меняется, будьте готовы обновлять своё приложение раз в 2 месяца. А то и чаще. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579698">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579704">
+	
+	
+		<div class="info  	" rel="4579704">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579704" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/alexrewa/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/58920_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/alexrewa/" class="username">alexrewa</a>
+			<time datetime="2012-02-02T17:55:07+04:00"> 2 февраля 2012, 17:55</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579704" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Да, согласен, за этим приходится следить 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579704">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579746">
+	
+	
+		<div class="info  	" rel="4579746">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579746" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 17: &uarr;16 и &darr;1">+15</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/anmipo/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/53693_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/anmipo/" class="username">anmipo</a>
+			<time datetime="2012-02-02T18:01:58+04:00"> 2 февраля 2012, 18:01</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579746" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			<blockquote>Тогда, в 2006-м [...] я тогда не знал, что ютуб это творение великого и ужасно доброго Гугла. </blockquote>Само собой, потому что Гугл купил (а не сотворил) Youtube только в <a href="http://www.google.com/intl/en/press/pressrel/youtube.html">ноябре 2006</a>. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579746">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579770">
+	
+	
+		<div class="info  	" rel="4579770">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579770" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ghostwriter/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/38970_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ghostwriter/" class="username">Ghostwriter</a>
+			<time datetime="2012-02-02T18:07:43+04:00"> 2 февраля 2012, 18:07</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579770" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			&gt; o-o.preferred.uarnet-kbp1.v15.lscache1.c.youtube.com<br>
+<br>
+Кто-нибудь понимает каким образом в YouTube организована инфраструктура DNS-серверов и по какому алгоритму в ней выделяются ноды? 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579770">
+	 
+		
+<div class="comment_item" id="comment_4579810">
+	
+	
+		<div class="info  	" rel="4579810">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579810" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/CAJAX/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/8712_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/CAJAX/" class="username">CAJAX</a>
+			<time datetime="2012-02-02T18:16:56+04:00"> 2 февраля 2012, 18:16</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579810" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579770" data-id="4579810" data-parent_id="4579770" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Изначально видео лежит на сервере (или нескольких в том же регионе), где его загрузил пользователь, потом, при большом спросе распрострянется по другим регионам, оседая на кеширющих локальных серверах. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579810">
+	 
+		
+<div class="comment_item" id="comment_4579844">
+	
+	
+		<div class="info  	" rel="4579844">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579844" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Ghostwriter/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/38970_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/Ghostwriter/" class="username">Ghostwriter</a>
+			<time datetime="2012-02-02T18:26:12+04:00"> 2 февраля 2012, 18:26</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579844" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579810" data-id="4579844" data-parent_id="4579810" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Вопрос в том, по какому принципу разворачиваются кеширующие сервера, и как поддерживается эта инфраструктура, когда каждая DNS-зона имеет разные политики именования — где-то это «uarnet-kbp1», а где-то «o-o».<br>
+ 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579844">
+	 
+		
+<div class="comment_item" id="comment_4579971">
+	
+	
+		<div class="info  	" rel="4579971">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579971" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/adeep/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/52314_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/adeep/" class="username">adeep</a>
+			<time datetime="2012-02-02T19:05:28+04:00"> 2 февраля 2012, 19:05</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579971" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579844" data-id="4579971" data-parent_id="4579844" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			есть Google global cache programm. по этой программе они могут выделить локальный кеш при достижении некоторых условий. в локальный кэш анонсируются маршруты локальных пользователей. этим пользователям выдаются правильные ссылки на контент, который есть в кэше. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579971">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579845">
+	
+	
+		<div class="info  	" rel="4579845">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579845" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 4: &uarr;2 и &darr;2">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Talyutin/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/45237_24x24.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Talyutin/" class="username">Talyutin</a>
+			<time datetime="2012-02-02T18:26:21+04:00"> 2 февраля 2012, 18:26</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579845" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Лично я не вижу смысла и не помню когда последний раз была необходимость скачать ролик с YouTube. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579845">
+	 
+		
+<div class="comment_item" id="comment_4579930">
+	
+	
+		<div class="info  	" rel="4579930">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579930" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/rapkasta/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/11946_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/rapkasta/" class="username">rapkasta</a>
+			<time datetime="2012-02-02T18:55:35+04:00"> 2 февраля 2012, 18:55</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579930" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579845" data-id="4579930" data-parent_id="4579845" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Пожалуйста — у вас «ночная безлимитка». Наступает ночь — вы ставите на загрузку ролики, на следующий день их смотрите. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579930">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4579994">
+	
+	
+		<div class="info  	" rel="4579994">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579994" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/infsega/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/55872_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/infsega/" class="username">infsega</a>
+			<time datetime="2012-02-02T19:12:51+04:00"> 2 февраля 2012, 19:12</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579994" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579845" data-id="4579994" data-parent_id="4579845" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Мобильный интернет не настолько быстрый, как хотелось бы. Поэтому дома с вечера — закачка роликом с YouTube, а утром — час в электричке/метро за просмотром очередной серии «Вредного Кино» или клипов. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579994">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4580042">
+	
+	
+		<div class="info  	" rel="4580042">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580042" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/papasha_mike/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/papasha_mike/" class="username">papasha_mike</a>
+			<time datetime="2012-02-02T19:30:18+04:00"> 2 февраля 2012, 19:30</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580042" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579845" data-id="4580042" data-parent_id="4579845" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Да вариантов навалом. Например, я с утра закачиваю какие-нибудь ролики на планшет, а затем смотрю их в метро по пути на работу. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580042">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4580188">
+	
+	
+		<div class="info  	" rel="4580188">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580188" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 5: &uarr;5 и &darr;0">+5</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Xlab/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/38900_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/Xlab/" class="username">Xlab</a>
+			<time datetime="2012-02-02T20:45:46+04:00"> 2 февраля 2012, 20:45</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580188" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579845" data-id="4580188" data-parent_id="4579845" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Всё чаще и чаще с ютуба удаляются видео по разным причинам. Некоторые хотелось бы сохранить. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580188">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579917">
+	
+	
+		<div class="info  	" rel="4579917">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579917" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 7: &uarr;4 и &darr;3">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Deimus/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/9302_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/Deimus/" class="username">Deimus</a>
+			<time datetime="2012-02-02T18:52:12+04:00"> 2 февраля 2012, 18:52</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579917" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Самый легкий способ (даже не думал, что никто не будет упомянать):<br>
+<br>
+добавляем буквы «ss» в начало ссылки/адреса Ютуб и перенаправляемся на сервис специально предназначенный для скачивания видео с Ютуб (на всех доступных форматах).<br>
+<br>
+примерно так: <br>
+ДО: <a href="http://www.youtube.com/?some_video_mideo">www.youtube.com?some_video_mideo</a><br>
+ПОСЛЕ: <a href="http://www.ssyoutube.com/?some_video_mideo">www.ssyoutube.com?some_video_mideo</a>  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579917">
+	 
+		
+<div class="comment_item" id="comment_4579957">
+	
+	
+		<div class="info  	" rel="4579957">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579957" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/lopatoid/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/lopatoid/" class="username">lopatoid</a>
+			<time datetime="2012-02-02T19:02:06+04:00"> 2 февраля 2012, 19:02</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579957" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579917" data-id="4579957" data-parent_id="4579917" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			К сожалению, в этом случае ролики скачиваются не напрямую с YouTube, а через промежуточный сервер. Скорости это не добавляет. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579957">
+	 
+		
+<div class="comment_item" id="comment_4580351">
+	
+	
+		<div class="info  	" rel="4580351">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580351" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/run4way/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/49183_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/run4way/" class="username">run4way</a>
+			<time datetime="2012-02-02T22:05:09+04:00"> 2 февраля 2012, 22:05</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580351" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579957" data-id="4580351" data-parent_id="4579957" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Я проверил, ваша неправда. Первое попавшееся видео качает с <a href="http://o-o.preferred.fra02s03.v6.lscache2.c.youtube.com/">o-o.preferred.fra02s03.v6.lscache2.c.youtube.com</a> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580351">
+	 
+		
+<div class="comment_item" id="comment_4580449">
+	
+	
+		<div class="info  	" rel="4580449">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580449" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/lopatoid/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/lopatoid/" class="username">lopatoid</a>
+			<time datetime="2012-02-02T22:54:49+04:00"> 2 февраля 2012, 22:54</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580449" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580351" data-id="4580449" data-parent_id="4580351" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Сверху — скриншот с работы. Снизу — из дома. Одно и то же видео качается через промежуточный сервер или напрямую в зависимости от айпишника пользователя?<br>
+<img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/15f30d94367bfc22b7d6fc0c36d36bd6.png"> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580449">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579943">
+	
+	
+		<div class="info  	" rel="4579943">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579943" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Eddy_Em/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/52537_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/Eddy_Em/" class="username">Eddy_Em</a>
+			<time datetime="2012-02-02T18:59:08+04:00"> 2 февраля 2012, 18:59</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579943" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Хм, а я просто поставил minitube, чтобы скачивать с тытрубы ролики. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579943">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579952">
+	
+	
+		<div class="info  	" rel="4579952">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579952" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/waphyld/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/48370_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/waphyld/" class="username">waphyld</a>
+			<time datetime="2012-02-02T19:00:56+04:00"> 2 февраля 2012, 19:00</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579952" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Расширение для Chrome, Firefox и Opera. <a href="http://youtubedownloader.anoniamto.com/">Будьте здоровы.</a> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579952">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579961">
+	
+	
+		<div class="info  	" rel="4579961">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579961" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/BlackTheMad/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/BlackTheMad/" class="username">BlackTheMad</a>
+			<time datetime="2012-02-02T19:03:39+04:00"> 2 февраля 2012, 19:03</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579961" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Как-то сложно, достаточно открыть страницу с видео, переключить на нужное разрешение и посмотреть во вкладке Developer Tools -&gt; Network (Safari, Chrome) адрес, который упрямо продолжает загружаться, хотя вся страница уже готова. Скопировать его и скормить, например curl. Ну это если не надо скачивать видео в промышленных масштабах. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579961">
+	 
+		
+<div class="comment_item" id="comment_4580117">
+	
+	
+		<div class="info  	" rel="4580117">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580117" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/ZimM/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/28677_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/ZimM/" class="username">ZimM</a>
+			<time datetime="2012-02-02T20:03:57+04:00"> 2 февраля 2012, 20:03</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580117" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579961" data-id="4580117" data-parent_id="4579961" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Не выйдет. Там при запросе этого самого файла передаются специальные кукисы и заголовки, без наличия/правильности которых сервер ничего не отдаст. Об этом и статья, в общем-то 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580117">
+	 
+		
+<div class="comment_item" id="comment_4580178">
+	
+	
+		<div class="info  	" rel="4580178">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580178" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/BlackTheMad/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/BlackTheMad/" class="username">BlackTheMad</a>
+			<time datetime="2012-02-02T20:40:57+04:00"> 2 февраля 2012, 20:40</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580178" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580117" data-id="4580178" data-parent_id="4580117" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Видимо, мы с разных ютубов качаем =) У меня это прокатывало с абсолютно всеми сайтами, где выкладывается видео. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580178">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4580195">
+	
+	
+		<div class="info  	" rel="4580195">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580195" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Xlab/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/38900_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/Xlab/" class="username">Xlab</a>
+			<time datetime="2012-02-02T20:50:25+04:00"> 2 февраля 2012, 20:50</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580195" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580117" data-id="4580195" data-parent_id="4580117" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			В 2010<br>
+прокатывало без<br>
+<pre><code class="python"><span class="keyword">elif</span> type == <span class="string">'youtube'</span>:
+        system(<span class="string">"notify-send -i info -t 1000 Сохраняю '"</span>+urllib.unquote(title)+<span class="string">"' &amp;"</span>)
+        video = <span class="string">'http://youtube.com/get_video.php?video_id='</span>+video+<span class="string">'\\&amp;t=$(curl -s http://www.youtube.com/watch?v='</span>+video+<span class="string">' | sed -n \'s/.*, "t": "\\([^"]*\\)", .*/\\1/p\')'</span>;
+        system(<span class="string">"wget -O '/home/user/"</span>+title+<span class="string">".flv' -c "</span>+video+<span class="string">" &amp;"</span>)</code></pre> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580195">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4580225">
+	
+	
+		<div class="info  	" rel="4580225">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580225" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/MainNika/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/36223_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/MainNika/" class="username">MainNika</a>
+			<time datetime="2012-02-02T21:03:55+04:00"> 2 февраля 2012, 21:03</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580225" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580117" data-id="4580225" data-parent_id="4580117" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Так куки за вас браузеры отправляют. А заголовков там действительно нет. Я тоже пользуюсь таким способом скачивания видео.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580225">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579976">
+	
+	
+		<div class="info  	" rel="4579976">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579976" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/nokimaro/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/51179_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/nokimaro/" class="username">nokimaro</a>
+			<time datetime="2012-02-02T19:07:17+04:00"> 2 февраля 2012, 19:07</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579976" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Хочется так же заметить, что ссылка на скачивание видео, которую мы получаем, привязывается к IP клиента.<br>
+Соответственно если мы делаем сервис по скачиванию видео, то полученные ссылки пользователям мы отдать не сможем, а трафик придётся перегонять через свой сервер. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579976">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579980">
+	
+	
+		<div class="info  	" rel="4579980">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579980" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/dimmaq/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/21344_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/dimmaq/" class="username">dimmaq</a>
+			<time datetime="2012-02-02T19:10:18+04:00"> 2 февраля 2012, 19:10</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579980" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Из всех сервисов (какие пробовал) для скачивания видео больше всего понравился savefrom.net, там же расширение для firefox, которое добавляет кнопочку на страницу. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579980">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4579995">
+	
+	
+		<div class="info  	" rel="4579995">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4579995" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/andybel/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/56808_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/andybel/" class="username">andybel</a>
+			<time datetime="2012-02-02T19:13:01+04:00"> 2 февраля 2012, 19:13</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4579995" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Когда столько умных людей пишут про одно и то же, всегда найдёшь хоть что-нибудь полезное. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4579995">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580080">
+	
+	
+		<div class="info  	" rel="4580080">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580080" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/tyr/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/6343_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/tyr/" class="username">tyr</a>
+			<time datetime="2012-02-02T19:45:47+04:00"> 2 февраля 2012, 19:45</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580080" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Чё-то я всю жизнь качал с ютуб просто через копируя ссылку на самый большой файл из Activity Сафари и вставляя её в Downloads, не ожидал, что об этом можно такой большой пост написать :)<br>
+<img src="http://https//img.skitch.com/20120202-nam6wc89x3ikuhx6b3k3gmar2.jpg"><br>
+<br>
+Рассказал бы лучше кто, как качать rtmp-потоки с livestream.com :( 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580080">
+	 
+		
+<div class="comment_item" id="comment_4580081">
+	
+	
+		<div class="info  	" rel="4580081">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580081" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/tyr/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/6343_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/tyr/" class="username">tyr</a>
+			<time datetime="2012-02-02T19:46:05+04:00"> 2 февраля 2012, 19:46</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580081" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580080" data-id="4580081" data-parent_id="4580080" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			простите <br>
+<img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/20120202-nam6wc89x3ikuhx6b3k3gmar2.jpg"> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580081">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4580114">
+	
+	
+		<div class="info  	" rel="4580114">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580114" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 4: &uarr;4 и &darr;0">+4</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/uscr/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/uscr/" class="username">uscr</a>
+			<time datetime="2012-02-02T20:02:48+04:00"> 2 февраля 2012, 20:02</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580114" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580080" data-id="4580114" data-parent_id="4580080" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Для rtmp есть хак с tcpdump. Типа так:<br>
+<br>
+<code>tcpdump -eflAi eth0 -s 0 -w - | strings | grep -ao "rtmp://.\+.flv"</code><br>
+<br>
+Получится ссылка, которую можно скормить, например, rtmpdump. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580114">
+	 
+		
+<div class="comment_item" id="comment_4580115">
+	
+	
+		<div class="info  	" rel="4580115">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580115" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/uscr/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/uscr/" class="username">uscr</a>
+			<time datetime="2012-02-02T20:03:15+04:00"> 2 февраля 2012, 20:03</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580115" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580114" data-id="4580115" data-parent_id="4580114" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Способ для окололинуксов, разумеется. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580115">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4580191">
+	
+	
+		<div class="info  	" rel="4580191">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580191" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/tangro/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/tangro/" class="username">tangro</a>
+			<time datetime="2012-02-02T20:46:34+04:00"> 2 февраля 2012, 20:46</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580191" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580080" data-id="4580191" data-parent_id="4580080" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Есть изрядное количество спец. программ. Хорошие — платные. Я вот разрабатываю одну из таких. Суть — в сниффинге и постпроцессинге трафика. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580191">
+	 
+		
+<div class="comment_item" id="comment_4580252">
+	
+	
+		<div class="info  	" rel="4580252">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580252" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/tyr/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/6343_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/tyr/" class="username">tyr</a>
+			<time datetime="2012-02-02T21:16:27+04:00"> 2 февраля 2012, 21:16</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580252" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580191" data-id="4580252" data-parent_id="4580191" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Разумеется я пробовал, штук шесть наверное разных: только пара (jaksta и ещё какая-то под вин) смогли вообще обнаружить поток с ливстрима, но качали где-то по минуте-полторы и либо теряли поток, либо начинали писать в новые файлы с ошибками :( С другими потоками не возникало таких проблем 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580252">
+	 
+		
+<div class="comment_item" id="comment_4580417">
+	
+	
+		<div class="info  	" rel="4580417">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580417" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/tangro/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/tangro/" class="username">tangro</a>
+			<time datetime="2012-02-02T22:36:22+04:00"> 2 февраля 2012, 22:36</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580417" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580252" data-id="4580417" data-parent_id="4580252" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			У RTMP есть пара хитрых модификаций, не все их ловят. Завтра буду на работе — проверю как мой софт ловит видео с этого сервака. Проверю — отпишусь. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580417">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580101">
+	
+	
+		<div class="info  	" rel="4580101">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580101" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/FreeTibet/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/44871_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/FreeTibet/" class="username">FreeTibet</a>
+			<time datetime="2012-02-02T19:54:43+04:00"> 2 февраля 2012, 19:54</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580101" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Не так давно гуглил на данную тематику.<br>
+В дополнение к топику, рекомендую парочку ссылок:<br>
+<br>
+<a href="http://62live.ru/pravovaya-pomoshue/7427-ustanovka-nelicenzionnogo-po.html">62live.ru/pravovaya-pomoshue/7427-ustanovka-nelicenzionnogo-po.html</a><br>
+<a href="http://smartsourcing.ru/blogs/otraslevye_novosti_i_sobytiya/981">smartsourcing.ru/blogs/otraslevye_novosti_i_sobytiya/981</a> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580101">
+	 
+		
+<div class="comment_item" id="comment_4580103">
+	
+	
+		<div class="info  	" rel="4580103">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580103" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/FreeTibet/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/44871_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/FreeTibet/" class="username">FreeTibet</a>
+			<time datetime="2012-02-02T19:55:17+04:00"> 2 февраля 2012, 19:55</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580103" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580101" data-id="4580103" data-parent_id="4580101" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Я всегда буду смотреть в какой вкладке пишу комментарий. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580103">
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4580144">
+	
+	
+		<div class="info  	" rel="4580144">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580144" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/alexrewa/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/58920_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/alexrewa/" class="username">alexrewa</a>
+			<time datetime="2012-02-02T20:18:56+04:00"> 2 февраля 2012, 20:18</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580144" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580101" data-id="4580144" data-parent_id="4580101" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Я не думаю что скачивание видео с ютуба является не законным. Например вот эта статья подтверждает мою точку зрения: <a href="http://habrahabr.ru/blogs/youtube/49543/">habrahabr.ru/blogs/youtube/49543/</a><br>
+<br>
+Кроме того существует очень много утилит/сервисов для скачивания роликов. Просто для андроида я пока не видел и решил заполнить эту нишу. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580144">
+	 
+		
+<div class="comment_item" id="comment_4580157">
+	
+	
+		<div class="info  	" rel="4580157">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580157" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Davidov/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/5802_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/Davidov/" class="username">Davidov</a>
+			<time datetime="2012-02-02T20:26:52+04:00"> 2 февраля 2012, 20:26</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580157" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580144" data-id="4580157" data-parent_id="4580144" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Вы не первый. Их просто с завидной регулярностью удаляют из маркета. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580157">
+	 
+		
+<div class="comment_item" id="comment_4580172">
+	
+	
+		<div class="info  	" rel="4580172">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580172" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/alexrewa/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/58920_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/alexrewa/" class="username">alexrewa</a>
+			<time datetime="2012-02-02T20:37:49+04:00"> 2 февраля 2012, 20:37</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580172" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580157" data-id="4580172" data-parent_id="4580157" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Возможно… При создании приложения я руководствовался логикой что например плагин для файрфокса существует и его не запрещают для использования 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580172">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	 
+		
+<div class="comment_item" id="comment_4580184">
+	
+	
+		<div class="info  	" rel="4580184">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580184" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/overmove/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/overmove/" class="username">overmove</a>
+			<time datetime="2012-02-02T20:42:42+04:00"> 2 февраля 2012, 20:42</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580184" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580144" data-id="4580184" data-parent_id="4580144" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Для android OS таких сервисов предостаточно.<br>
+<a href="https://market.android.com/details?id=com.youtubedownloader&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS55b3V0dWJlZG93bmxvYWRlciJd">один</a><br>
+<a href="http://4pda.ru/forum/index.php?showtopic=238644">два</a><br>
+<a href="http://4pda.ru/forum/index.php?showtopic=68883">три</a><br>
+<a href="http://4pda.ru/forum/index.php?showtopic=190669">четыре</a><br>
+Так как такие сервисы нарушают правила пользования сервисом youtube, найти в маркете сложно 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580184">
+	 
+		
+<div class="comment_item" id="comment_4580187">
+	
+	
+		<div class="info  	" rel="4580187">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580187" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/alexrewa/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/58920_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/alexrewa/" class="username">alexrewa</a>
+			<time datetime="2012-02-02T20:45:15+04:00"> 2 февраля 2012, 20:45</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580187" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580184" data-id="4580187" data-parent_id="4580184" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Один — это и есть мое приложение )) 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580187">
+	 
+		
+<div class="comment_item" id="comment_4580203">
+	
+	
+		<div class="info  	" rel="4580203">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580203" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/overmove/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/overmove/" class="username">overmove</a>
+			<time datetime="2012-02-02T20:56:18+04:00"> 2 февраля 2012, 20:56</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580203" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580187" data-id="4580203" data-parent_id="4580187" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			пинка мне за то, что не сравнил кто автор этой статьи и автор приложения на market.<br>
+есть вероятность, что Ваше приложение в последствие будет удалено с маркета 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580203">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580173">
+	
+	
+		<div class="info  	" rel="4580173">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580173" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 2: &uarr;2 и &darr;0">+2</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/skilledHS/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/skilledHS/" class="username">skilledHS</a>
+			<time datetime="2012-02-02T20:37:57+04:00"> 2 февраля 2012, 20:37</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580173" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Отличный сервер для скачивания видео с YouTube — <a href="http://keepvid.com/">http://keepvid.com/</a> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580173">
+	 
+		
+<div class="comment_item" id="comment_4580249">
+	
+	
+		<div class="info  	" rel="4580249">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580249" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/dasty/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/39510_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/dasty/" class="username">dasty</a>
+			<time datetime="2012-02-02T21:14:55+04:00"> 2 февраля 2012, 21:14</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580249" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580173" data-id="4580249" data-parent_id="4580173" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Не понимаю, зачем сервис использует джаву? На сколько помню, раньше он без нее вполне себе работал.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580249">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580180">
+	
+	
+		<div class="info  	" rel="4580180">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580180" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/slipknot_LeX/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/4355_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/slipknot_LeX/" class="username">slipknot_LeX</a>
+			<time datetime="2012-02-02T20:41:17+04:00"> 2 февраля 2012, 20:41</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580180" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Firefox+Flashgot мой выбор. Думаю для остальных браузеров тоже есть что-то подобное. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580180">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580215">
+	
+	
+		<div class="info  	" rel="4580215">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580215" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/dasty/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/39510_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/dasty/" class="username">dasty</a>
+			<time datetime="2012-02-02T21:01:06+04:00"> 2 февраля 2012, 21:01</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580215" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Пользуюсь плагином DownloadHelper для Firefox, видит очень много форматов на ютубе<br>
+<br>
+<img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/8c05f6fa3c65106ceee0a4b2f3e9e7a0.png"> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580215">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580261">
+	
+	
+		<div class="info  	" rel="4580261">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580261" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/ShpuntiK/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/58747_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/ShpuntiK/" class="username">ShpuntiK</a>
+			<time datetime="2012-02-02T21:19:21+04:00"> 2 февраля 2012, 21:19</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580261" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Второй шаг… объёмный я бы сказал. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580261">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580277">
+	
+	
+		<div class="info  	" rel="4580277">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580277" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/artem_dev/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/57486_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/artem_dev/" class="username">artem_dev</a>
+			<time datetime="2012-02-02T21:25:39+04:00"> 2 февраля 2012, 21:25</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580277" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			тоже подкину ссылку — <a href="https://github.com/rg3/youtube-dl">youtube-dl</a> консольная утилита написанная на питоне, может выкачивать видео с десятка сервисов и с Youtube в том числе, неоднократно меня выручала. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580277">
+	 
+		
+<div class="comment_item" id="comment_4580408">
+	
+	
+		<div class="info  	" rel="4580408">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580408" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Nc_Soft/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Nc_Soft/" class="username">Nc_Soft</a>
+			<time datetime="2012-02-02T22:31:29+04:00"> 2 февраля 2012, 22:31</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580408" class="link_to_comment">#</a>
+			
+			
+				<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580277" data-id="4580408" data-parent_id="4580277" class="to_parent">↑</a>
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Поддержу, <br>
+youtube-dl 'http://www.youtube.com/watch?v=APTh9uhf7WQ'<br>
+и всё, магия автора хоть и интересна, но уже все реализовано 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580408">
+	
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580406">
+	
+	
+		<div class="info  	" rel="4580406">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580406" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark positive ">
+						<span class="score" title="Всего 1: &uarr;1 и &darr;0">+1</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Nebulosa/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/Nebulosa/" class="username">Nebulosa</a>
+			<time datetime="2012-02-02T22:30:37+04:00"> 2 февраля 2012, 22:30</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580406" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Я, смеха ради, как-то автоматизировал закачки с популярных файлообменников, лениво мне было держать браузер включенным ради скачки одного файла. И каких только ухищрений файлообменников я видывал, и треэтапное формирование ссылки и хитрые подгрузки javascripts с параметрами и прочее… Всю логику можно было просматривать плагином Firefox Httplive и через полчаса готовый скрипт качал wget'ом нужный файл. 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580406">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580481">
+	
+	
+		<div class="info  	" rel="4580481">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580481" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/MakeInstall/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/46468_24x24.png" alt=""></a>
+			<a href="http://habrahabr.ru/users/MakeInstall/" class="username">MakeInstall</a>
+			<time datetime="2012-02-02T23:10:43+04:00"> 2 февраля 2012, 23:10</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580481" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Я просто оставлю это здесь <a href="http://www.oxytube.com/">www.oxytube.com/</a> самый простой вариант и удобный.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580481">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580495">
+	
+	
+		<div class="info  	" rel="4580495">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580495" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/Gilberg/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/39074_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/Gilberg/" class="username">Gilberg</a>
+			<time datetime="2012-02-02T23:17:32+04:00"> 2 февраля 2012, 23:17</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580495" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Раньше пользовался 3outube — удобство в замене одной буквы в адресной строке, но сейчас почему-то не работает… 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580495">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580528">
+	
+	
+		<div class="info  	" rel="4580528">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580528" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/mshewzov/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/54552_24x24.jpg" alt=""></a>
+			<a href="http://habrahabr.ru/users/mshewzov/" class="username">mshewzov</a>
+			<time datetime="2012-02-02T23:31:46+04:00"> 2 февраля 2012, 23:31</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580528" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Почитал комментарии. Похоже, что только я пользуюсь дедовским способом — поиск .mp4 файлов в кэше браузера с помощью Windows Search. У меня настроен шаблон поиска, что-то типа виртуальной папки. Примеры тут: <a href="http://www.box.com/s/7aztxplzprnactim3k9s">www.box.com/s/7aztxplzprnactim3k9s</a> 
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580528">
+	
+	</div>
+</div>
+
+   
+    
+<div class="comment_item" id="comment_4580542">
+	
+	
+		<div class="info  	" rel="4580542">
+			<div class="folding-dot-holder"><div class="folding-dot"></div></div>
+			
+			<div id="voting_4580542" class="voting   ">
+										
+				
+					<span class="plus" title="Голосовать могут только зарегистрированные пользователи."></span>
+					<span class="minus" title="Голосовать могут только зарегистрированные пользователи."></span>
+				
+				<div class="mark  ">
+						<span class="score" title="Всего 0: &uarr;0 и &darr;0">0</span> 
+				</div>	 
+			</div>
+			
+			<a href="http://habrahabr.ru/users/webmaks/" class="avatar"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/stub-user-small.gif" alt=""></a>
+			<a href="http://habrahabr.ru/users/webmaks/" class="username">webmaks</a>
+			<time datetime="2012-02-02T23:37:50+04:00"> 2 февраля 2012, 23:37</time>
+			<a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580542" class="link_to_comment">#</a>
+			
+			
+			<span class="to_chidren"></span>
+			<div class="clear"></div>
+		</div>
+		<div class="message ">
+			Я как то таким вопросом не задумывался ни разу, сколько надо было скачать DM спасал. Ну ни раз упроблем не встречал и тем более танцов с бубном.  
+		</div>
+		<div class="reply">
+			
+		</div>
+	
+	<div class="reply_comments" id="reply_comments_4580542">
+	
+	</div>
+</div>
+
+  
+</div>
+		
+  <p class="for_users_only_msg">Только зарегистрированные пользователи могут оставлять комментарии. <a href="http://habrahabr.ru/login/">Войдите</a>, пожалуйста.</p>
+
+
+		<div id="edit_tags_form" class="hidden">
+<form action="http://habrahabr.ru/blogs/webdev/137496/#" method="post">
+  <input type="hidden" name="action" value="add">
+  <input type="hidden" name="ti" value="0">
+  <input type="hidden" name="tt" value="0">
+  <label>Пометьте топик понятными вам метками, если хотите</label>
+  <input type="text" name="tags_string" class="tags_string" autocomplete="off" style="">
+  <div class="description">Метки лучше разделять запятой. Например: <i>общение, социальные сети, myspace.com, подростки, мердок</i></div>
+  <input type="submit" value="Сохранить" class="submit"> или <a href="http://habrahabr.ru/blogs/webdev/137496/#" class="close" onclick="return close_edit_tags()">закрыть</a>
+</form>
+</div>
+	
+	
+
+    </div>
+  </div>
+  <div class="sidebar_right">
+    
+	
+<div class="block blog_info">
+  <h1>Информация о блоге</h1>
+  <div class="info">
+  
+    <div class="stats">
+      <div class="members_count" id="members_count">23539 читателей</div>
+      <div class="posts_count">1856 постов</div>
+    </div>
+    
+    
+		
+  </div>
+</div>
+
+	
+
+
+	<div class="banner_240x400">
+		
+<!--  AdRiver code START. Type:240x400 Site: habrahabr PZ: 0 BN: 0 -->
+<script language="javascript" type="text/javascript"><!--
+var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+document.write(
+'<iframe src="http://ad.adriver.ru/cgi-bin/erle.cgi?'
++ 'sid=176776&target=top&bt=22&pz=0&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail
++ '" frameborder=0 vspace=0 hspace=0 width=240 height=400 marginwidth=0'
++ ' marginheight=0 scrolling=no></iframe>');
+//--></script><iframe src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/erle(2).html" frameborder="0" vspace="0" hspace="0" width="240" height="400" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<noscript></noscript>
+
+<!--  AdRiver code END  -->
+
+	</div>
+
+
+
+
+
+
+	
+
+<div class="block daily_best_posts">
+  <h1>Лучшее <sup>за 24 часа</sup> ↓ </h1>
+  <div class="posts_list">
+    
+      <div class="post_item">
+        
+		
+		
+		
+		<!--<a href="http://habrahabr.ru/company/toster/blog/131694/#toster_tickets">--><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/toster.gif" alt="Toster" style="vertical-align:top;float:left;display:block;margin-right:10px;margin-top:4px;" class="help-tip"><!--</a>-->
+        <a href="http://habrahabr.ru/blogs/css/" class="blog_name">Каскадные Таблицы Стилей</a> →
+        <a href="http://habrahabr.ru/blogs/css/137404/" class="post_name">Bootstrap 2.0 – HTML+CSS+JS UI фреймворк</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/open_source/" class="blog_name">Open source</a> →
+        <a href="http://habrahabr.ru/blogs/open_source/137442/" class="post_name">Игры id Software — на Github</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/php/" class="blog_name">PHP</a> →
+        <a href="http://habrahabr.ru/blogs/php/137459/" class="post_name">Деобфускация PHP кода</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/Dura_Lex/" class="blog_name">Dura Lex</a> →
+        <a href="http://habrahabr.ru/blogs/Dura_Lex/137483/" class="post_name">Как избежать уголовной ответственности за распространение нелицензионного ПО и что делать, если вас поймали</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/virtualization/" class="blog_name">Виртуализация</a> →
+        <a href="http://habrahabr.ru/blogs/virtualization/137327/" class="post_name">Проброс видеокарты в виртуальную машину</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/infosecurity/" class="blog_name">Информационная безопасность</a> →
+        <a href="http://habrahabr.ru/blogs/infosecurity/137499/" class="post_name">В Украине продолжаются атаки на сайты органов власти</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/nginx/" class="blog_name">Nginx</a> →
+        <a href="http://habrahabr.ru/blogs/nginx/137454/" class="post_name">MySQL в NGINX: использование блокирующих библиотек в неблокирующем сервере</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/DIY/" class="blog_name">DIY или Сделай Сам</a> →
+        <a href="http://habrahabr.ru/blogs/DIY/137472/" class="post_name">Как сделать электродвигатель за 15 минут</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/blogs/e_gov/" class="blog_name">Электронное правительство</a> →
+        <a href="http://habrahabr.ru/blogs/e_gov/137457/" class="post_name">Платформа gov.uk будет полностью открытой. Исходные коды опубликованы на GitHub</a>
+      </div>      
+    
+      <div class="post_item">
+        
+		
+		
+		
+		
+        <a href="http://habrahabr.ru/company/kaspersky/blog/" class="blog_name">Блог компании «Лаборатория Касперского»</a> →
+        <a href="http://habrahabr.ru/company/kaspersky/blog/137460/" class="post_name">«Деньги на халяву!» для любителей социальных сетей</a>
+      </div>      
+    
+  </div>
+  <div class="all">« <a href="http://habrahabr.ru/top/">все лучшие</a></div>
+</div>
+
+	
+
+
+<div class="block similar_posts">
+
+	<h1>Похожие посты ↓ </h1>
+  <div class="posts_list">
+  	
+    	<div class="post_item">
+    				<span class="when">19.12.2008</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/youtube/">YouTube</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/youtube/47331/">Самый простой способ скачать видео с YouTube</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">19.01.2010</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/google/">Google</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/google/81260/">До безобразия простой способ скачать видео с youtube</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">27.10.2009</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/android/">Android</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/android/73544/">Первое официальное видео Android 2.0</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">19.03.2007</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/youtube/">YouTube</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/youtube/5457/">Скачать видео с YouTube через поцелуй</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">25.01.2007</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/google/">Google</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/google/1331/">YouTube даст заработать на видео, а Google Video станет службой поиска видеоконтента в сети.</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">09.12.2006</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/youtube/">YouTube</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/youtube/839/">YouTube позволяет пользователям записывать видео прямо на сайт</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">09.12.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/wireless/">Беспроводные технологии</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/wireless/134255/">xBounds — беспроводная видеокарта для Android</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">06.09.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/infosecurity/">Информационная безопасность</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/infosecurity/127782/">Доступность скрытых и приватных видео на YouTube для подписчиков</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">27.02.2011</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/blogs/video/">Работа с видео</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/blogs/video/114554/">Смотрим любое потоковое видео с сайта «ВКонтакте», практически на любом android-смартфоне или планшете без поддержки flash</a>
+      </div>
+  	
+    	<div class="post_item">
+    				<span class="when">11.11.2010</span> → 
+    				<a class="blog_name" href="http://habrahabr.ru/company/google/blog/">Блог компании Google</a> → 
+    				<a class="post_name" href="http://habrahabr.ru/company/google/blog/107993/">Подумать только! Каждую минуту на YouTube закачивается 35 часов видео!</a>
+      </div>
+  	
+  </div>			
+</div>
+
+
+
+
+	
+
+
+<div class="block live_broadcast_activity">
+  <h1>Прямой эфир ↓ </h1>
+  <div class="posts_list">
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/shutya/" class="user_name">shutya</a> →
+      <a href="http://habrahabr.ru/blogs/atnikvariat/137465/#comment_4580554" class="post_name">Roverbook Discovery AT4 — «компактный» ноутбук из 90-х</a>
+      <span class="count">24</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/pred8or/" class="user_name">pred8or</a> →
+      <a href="http://habrahabr.ru/blogs/javascript/135565/#comment_4580553" class="post_name">ISO 8601 и ECMAScript — головная боль от разночтения стандартов</a>
+      <span class="count">36</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/mib/" class="user_name">mib</a> →
+      <a href="http://habrahabr.ru/blogs/DIY/137472/#comment_4580551" class="post_name">Как сделать электродвигатель за 15 минут</a>
+      <span class="count">27</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/rwx64/" class="user_name">rwx64</a> →
+      <a href="http://habrahabr.ru/blogs/system_programming/137479/#comment_4580550" class="post_name">Продолжение истории про переменные окружения, или подменяем PEB</a>
+      <span class="count">11</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/uinner/" class="user_name">uinner</a> →
+      <a href="http://habrahabr.ru/blogs/infosecurity/137499/#comment_4580549" class="post_name">В Украине продолжаются атаки на сайты органов власти</a>
+      <span class="count">62</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/mihaild/" class="user_name">mihaild</a> →
+      <a href="http://habrahabr.ru/blogs/hosting/137507/#comment_4580548" class="post_name">Бесплатное увеличение Dropbox аккаунта на 4,5 ГБ</a>
+      <span class="count">11</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/FBT/" class="user_name">FBT</a> →
+      <a href="http://habrahabr.ru/blogs/freelance/137463/#comment_4580547" class="post_name">Отечественный фриланс. Впечатления заказчика</a>
+      <span class="count">113</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/grokinn/" class="user_name">grokinn</a> →
+      <a href="http://habrahabr.ru/blogs/infosecurity/137502/#comment_4580546" class="post_name">«Вирусная» атака на Android Market оказалась ошибкой Symantec</a>
+      <span class="count">16</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/webmaks/" class="user_name">webmaks</a> →
+      <a href="http://habrahabr.ru/blogs/webdev/137496/#comment_4580542" class="post_name">Скачиваем видео с YouTube</a>
+      <span class="count">53</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/zadnica/" class="user_name">zadnica</a> →
+      <a href="http://habrahabr.ru/blogs/Dura_Lex/137483/#comment_4580539" class="post_name">Как избежать уголовной ответственности за распространение нелицензионного ПО и что делать, если вас поймали</a>
+      <span class="count">186</span>
+    </div>
+
+  </div>
+  <!--div class="all">&laquo; <a href="/live/">весь прямой эфир</a></div-->
+  
+</div>
+
+
+
+  
+	
+
+<div class="block megafon_htmlblock">
+	<div class="logo"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/logo.jpg" alt=""></div>
+	<div class="description">Уникальный сервис «МультиФон» позволяет совершать и принимать звонки по привлекательным тарифам!</div>
+	<div class="download"><a id="megafon_download_link" href="http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=316613&bt=21&bid=1492182&bn=1492182&rnd=281245338" class="win"><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/button.jpg" alt=""></a></div>
+	<div class="description2">Cовершай и принимай <b>видеовызовы</b>, общайся в чате и пользуйся другими возможностями.</div>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+		var download_link = $('#megafon_download_link')
+		if(navigator.userAgent.indexOf('Win') != -1){ 
+			console.log('win')
+			download_link.attr('href', 'http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=316613&bt=21&bid=1492182&bn=1492182&rnd=281245338').addClass('win');
+		}else if(navigator.userAgent.indexOf('Mac') != -1){ 
+			console.log('mac')
+			download_link.attr('href', 'http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=316613&bt=21&bid=1492183&bn=1492183&rnd=1641624102').addClass('mac');
+		}else if(navigator.userAgent.indexOf('UNIX') != -1){
+			console.log('unix')
+			download_link.attr('href', 'http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=316613&bt=21&bid=1492184&bn=1492184&rnd=1166844504').addClass('unix');
+		}else { 
+			console.log('win2')
+			download_link.attr('href', 'http://ad.adriver.ru/cgi-bin/click.cgi?sid=1&ad=316613&bt=21&bid=1492182&bn=1492182&rnd=281245338').addClass('win');
+		}
+
+})
+
+
+</script>
+
+<!--  AdRiver code START. Type:counter(zeropixel) Site: SP SZ: multifon PZ: 0 BN: 0 -->
+<script language="javascript" type="text/javascript"><!--
+var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+document.write('<img src="http://ad.adriver.ru/cgi-bin/rle.cgi?' + 'sid=179440&sz=multifon&bt=21&pz=0&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail + '" border=0 width=1 height=1>')
+//--></script><img src="./Скачиваем видео с YouTube   Веб-разработка   Хабрахабр_files/rle.cgi" border="0" width="1" height="1">
+<noscript></noscript>
+<!--  AdRiver code END  -->
+
+
+	
+
+	
+
+<div class="block qa_activity">
+  <h1>Q&amp;A ↓ </h1>
+  <div class="posts_list">
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/shurshur/" class="user_name">shurshur</a> →
+      <a href="http://habrahabr.ru/qa/15895/#answer_66582" class="post_name">Cisco: метод кодирования wpa-psk ключа в конфиге</a>
+      <span class="count">1</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/osby/" class="user_name">osby</a> →
+      <a href="http://habrahabr.ru/qa/16003/#comment_78105" class="post_name">Как узнать провайдера</a>
+      <span class="count">8</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/Sekira/" class="user_name">Sekira</a> →
+      <a href="http://habrahabr.ru/qa/16038/#comment_78104" class="post_name">Наушники apple и обычные капельки</a>
+      <span class="count">4</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/vart/" class="user_name">vart</a> →
+      <a href="http://habrahabr.ru/qa/16035/#answer_66581" class="post_name">Посоветуйте JSON библиотеку под Java</a>
+      <span class="count">4</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/skilledHS/" class="user_name">skilledHS</a> →
+      <a href="http://habrahabr.ru/qa/16040/#comment_78102" class="post_name">Регистрация домена</a>
+      <span class="count">1</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/Silver_Clash/" class="user_name">Silver_Clash</a> →
+      <a href="http://habrahabr.ru/qa/16042/#answer_66579" class="post_name">А посоветуйте хороший USB wi-fi адаптер?</a>
+      <span class="count">1</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/viperet/" class="user_name">viperet</a> →
+      <a href="http://habrahabr.ru/qa/16037/#comment_78101" class="post_name">Как сделать сенсорный терминал (интернет-киоск)</a>
+      <span class="count">3</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/prox/" class="user_name">prox</a> →
+      <a href="http://habrahabr.ru/qa/16021/#answer_66577" class="post_name">Проверка зрения</a>
+      <span class="count">10</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/paco/" class="user_name">paco</a> →
+      <a href="http://habrahabr.ru/qa/16039/#comment_78100" class="post_name">Как создавать виртуальные домены 3 уровня в ASP.NET MVC 3?</a>
+      <span class="count">2</span>
+    </div>
+
+    <div class="post_item">
+      <a href="http://habrahabr.ru/users/andreevich/" class="user_name">andreevich</a> →
+      <a href="http://habrahabr.ru/qa/16034/#comment_78096" class="post_name">Как заставить разработчиков сдать протестированный продукт?</a>
+      <span class="count">5</span>
+    </div>
+
+  </div>
+  <div class="all">« <a href="http://habrahabr.ru/qa/">все вопросы</a></div>
+  
+</div>
+
+	
+
+<div class="block new_vacanies">
+  <h1>О, работа! ↓ </h1>
+  <div class="vacancies">
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7791-menedzher-po-prodazham">Менеджер по продажам</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7788-python-razrabotchik">Python-разработчик</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7786-presale-menedzher">Presale менеджер</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7784-python-razrabotchik">Python разработчик</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7782-ui-dizayner">UI-дизайнер</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7781-razrabotchik-php-asp-net-mvc">Разработчик PHP ASP .NET MVC</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7780-programmist-asp-net">Программист ASP.NET</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7778-ios-razrabotchik-75-go-urovnya">iOS-разработчик 75-го уровня</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/7777-lead-game-developer">Lead game developer</a>
+		</div>
+		
+		<div class="job_item">
+			<a href="http://hantim.ru/jobs/6967-junior-php-programmist-malo-opyta-stazher">Junior PHP-программист (мало опыта, стажер)</a>
+		</div>
+		
+  </div>
+  <div class="all">« <a href="http://hantim.ru/">все вакансии</a></div>
+
+	</div>
+      
+	
+	
+	
+	<div class="block category_blogs">
+		<h1>Программирование ↓</h1>
+		
+		<div class="blogs_list">
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/algorithm/">Алгоритмы</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/crazydev/">Ненормальное программирование</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/regex/">Регулярные выражения</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/Git/">Git</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/sphinx/">Sphinx</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/system_programming/">Системное программирование</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/development/">Разработка</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/gdev/">Game Development</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/complete_code/">Совершенный код</a>
+				  </div>
+		
+			  </div>
+			
+        <div class="blog_item">				
+				  <div class="title">
+				  	<a href="http://habrahabr.ru/blogs/hi/">Высокая производительность</a>
+				  </div>
+		
+			  </div>
+			
+		</div>
+		<div class="all">« <a href="http://habrahabr.ru/bloglist/programming/">все  блоги</a></div>
+  </div>
+	
+
+
+	
+
+
+<div class="block similar_events">
+  <h1>Ближайшие события</h1>
+  <div class="events">
+    
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_5"></div>
+				<div class="day">03</div>
+				<div class="month">февраля</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/403/">Лекция Санберга: интерактив в телевидении</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_6"></div>
+				<div class="day">04</div>
+				<div class="month">февраля</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/378/">Мастер-класс по разработке приложений для Android</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_1"></div>
+				<div class="day">06</div>
+				<div class="month">февраля</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/394/">QML тренинг в Петрозаводске</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_2"></div>
+				<div class="day">07</div>
+				<div class="month">февраля</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/406/">Начальный курс по разработке сайтов на TPL-шаблонизаторе</a>			 
+			</div>
+		</div>
+		
+    <div class="event">
+			
+			<div class="date">
+				<div class="dayname dayname_2"></div>
+				<div class="day">07</div>
+				<div class="month">февраля</div>				
+			</div>
+			
+			<div class="title">
+			 <a href="http://habrahabr.ru/events/412/">Лекция Джона Перри Барлоу, который против цензуры в Интернете</a>			 
+			</div>
+		</div>
+		
+  </div>
+  <div class="all">« <a href="http://habrahabr.ru/events/">все события</a></div>
+</div>
+
+
+    
+  </div>
+  <div class="clear"></div>
+
+		  <div id="footer">
+      
+			
+			<dl>
+				<dd><a href="http://habrahabr.ru/login/">Войти</a></dd>
+				<dd><a href="http://habrahabr.ru/register/">Регистрация</a></dd>
+			</dl>
+			
+			<dl>
+				<dt>Разделы</dt>
+			  
+				<dd><a href="http://habrahabr.ru/qa/">Q&amp;A</a></dd>
+				<dd><a href="http://habrahabr.ru/events/">События</a></dd>
+				<!--dd><a href="http://habrahabr.ru/links/">Ссылки</a></dd-->
+				<dd><a href="http://habrahabr.ru/job/">Работа</a></dd>
+				<dd><a href="http://habrahabr.ru/bloglist/">Блоги</a></dd>
+				<dd><a href="http://habrahabr.ru/companies/">Компании</a></dd>
+				<dd><a href="http://habrahabr.ru/people/">Люди</a></dd>
+				<dd><a href="http://habrahabr.ru/top/">Лучшие</a></dd>
+			</dl>
+			<dl>
+				<dt>Блоги</dt>
+				<dd><a href="http://habrahabr.ru/">Все</a></dd>
+				<dd><a href="http://habrahabr.ru/blogs/">Тематические</a></dd>
+				<dd><a href="http://habrahabr.ru/corporative/">Корпоративные</a></dd>
+				<!--dd><a href="http://habrahabr.ru/personal/">Личные</a></dd-->
+				<dd><a href="http://habrahabr.ru/sandbox/">Песочница</a></dd>
+			</dl>
+			<dl>
+				<dt>Инфо</dt>
+				<dd><a href="http://habrahabr.ru/info/about/">О сайте</a></dd>
+				<dd><a href="http://habrahabr.ru/info/help/rules/">Правила</a></dd>
+				<dd><a href="http://habrahabr.ru/info/help/">Помощь</a></dd>
+				<dd><a href="http://habrahabr.ru/info/agreement/">Соглашение</a></dd>
+				<dd><a href="http://habrahabr.ru/info/stats/">Статистика</a></dd>
+			</dl>
+			<dl>
+				<dt>Услуги</dt>
+				<dd><a href="http://habrahabr.ru/info/advertising/">Реклама</a></dd>
+				<dd><a href="http://habrahabr.ru/info/advertising/corporate/">Корпоративные пакеты</a></dd>
+				<dd><a href="http://habrahabr.ru/info/advertising/workshops/">Семинары</a></dd>
+			</dl>
+      <div class="copyright">
+    		<a class="footer_logo" href="http://thematicmedia.ru/">Тематические Медиа</a>
+    		<div class="about">
+    			© 2006–2012<br>
+    			«<a href="http://www.thematicmedia.ru/">Тематические Медиа</a>»
+    		  <br><br>	
+  				Служба поддержки:<br>
+  				<a href="mailto:support@habrahabr.ru" title="адрес службы поддержки пользователей">support@habrahabr.ru</a><br><br><br>
+  				<a href="http://m.habrahabr.ru/">Мобильная версия</a>
+  			
+			  </div>
+      </div>
+	
+</div>
+		</div>
+	 	
+		
+    
+		
+    <script type="text/javascript">
+      $(document).ready(function(){
+        // test gggg
+        // настройки всплывающих уведомлений
+        $.jGrowl.defaults.closerTemplate = '<div>Закрыть все уведомления</div>';         
+        
+        // настройки тултипов
+        $(".help-tip").tipTip({maxWidth: "auto", edgeOffset: 10});  
+        
+      });
+      // global vars
+      var g_base_url = 'habrahabr.ru';
+      var g_show_xpanel = false;
+      var g_base_fullurl = 'http://habrahabr.ru/';
+      var g_is_guest = false;
+       
+    </script>
+    
+    
+<script type="text/javascript">
+	/*<![CDATA[*/
+	var ga = document.createElement('script');
+		ga.setAttribute('async', 'true');
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	/* ]]>*/
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(
+	    ['_setAccount', 'UA-726094-1'],
+	    ['_setDomainName', '.habrahabr.ru'],
+	    ["_addOrganic", "mail.ru", "q"],
+	    ["_addOrganic","rambler.ru", "words"],
+	    ["_addOrganic","nigma.ru", "s"],
+	    ["_addOrganic","blogs.yandex.ru", "text"],
+	    ["_addOrganic","webalta.ru", "q"],
+	    ["_addOrganic","aport.ru", "r"],
+	    ["_addOrganic","akavita.by", "z"],
+	    ["_addOrganic","meta.ua", "q"],
+	    ["_addOrganic","bigmir.net", "q"],
+	    ["_addOrganic","tut.by", "query"],
+	    ["_addOrganic","all.by", "query"],
+	    ["_addOrganic","i.ua", "q"],
+	    ["_addOrganic","online.ua", "q"],
+	    ["_addOrganic","a.ua", "s"],
+	    ["_addOrganic","ukr.net", "search_query"],
+	    ["_addOrganic","search.com.ua", "q"],
+	    ["_addOrganic","search.ua", "query"],
+	    ["_addOrganic","poisk.ru", "text"],
+	    ["_addOrganic","km.ru", "sq"],
+	    ["_addOrganic","liveinternet.ru", "ask"],
+	    ["_addOrganic","gogo.ru", "q"],
+	    ["_addOrganic","gde.ru", "keywords"],
+	    ["_addOrganic","quintura.ru", "request"],
+	    ['_trackPageview']
+	);
+	document.documentElement.firstChild.appendChild(ga);
+</script>	
+		
+		
+	
+
+<div id="AutocompleteContainter_ccd0" style="position: absolute; top: 51px; left: 958px; z-index: 9999; "><div class="autocomplete-w1"><div class="autocomplete" id="Autocomplete_ccd0" style="display: none; max-height: 400px; width: 300px; "></div></div></div><div id="AutocompleteContainter_c3cee" style="position: absolute; top: 0px; left: 0px; z-index: 9999; "><div class="autocomplete-w1"><div class="autocomplete" id="Autocomplete_c3cee" style="display: none; max-height: 400px; width: 300px; "></div></div></div><div id="tiptip_holder" style="max-width:auto;"><div id="tiptip_arrow"><div id="tiptip_arrow_inner"></div></div><div id="tiptip_content"></div></div></body></html>

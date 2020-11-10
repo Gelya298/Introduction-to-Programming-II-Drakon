@@ -1,0 +1,657 @@
+    html, body {
+        height:100%;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+        font-size: 12px;
+        margin:0; 
+        padding:0;
+    }
+	table{
+	border:0px; /* border="0" */
+	border-collapse:collapse; /* cellspacing="0" */
+	}
+	table td { padding:0px; /* cellspadding="0" */ }
+	
+    A, A:hover {
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+        text-decoration: underline; 
+    }
+
+    A:hover {
+        text-decoration: none; 
+    }
+
+
+	td{
+		vertical-align: top;
+		font-size: 12px;
+	}
+	
+	blockquote {
+		background: #edefe4;
+		border: 1px solid #000000;
+		padding: 10px;
+	}
+
+	#top_mail{
+		font-size: 12px;
+		color: #000000;
+	}
+	#top_mail img{
+		position: relative;
+		top: 2px;
+	}
+	
+	#top_enter{
+		font-size: 12px;
+		color: #003f7e;
+	}
+	#top_enter a{
+		color: #000000;
+		text-decoration: none;
+	}
+	#top_enter a:hover{
+		text-decoration: underline;
+	}
+	#top_search input{
+		border: 1px solid #7a9aba;
+		width: 181px;
+		height: 20px;
+		font-size: 12px;
+		position: relative;
+		top: -5px;
+	}
+	
+	.top_menu{
+		font-size: 16px;
+		color: #FFFFFF;
+		padding: 5px 30px 5px 0;
+	}
+	.top_menu a{
+		color: #FFFFFF;
+		text-decoration: none;
+		font-family: Arial;
+	}
+	.top_menu a:hover{
+		font-family: Arial;
+		text-decoration: underline;
+	}
+	
+	
+	.header_news{
+		font-size: 11px;
+		color: #000000;
+	}
+	.header_news img{
+		float: left;
+		margin: 0 10px 10px 0;
+		border: 1px solid #a5a5a5;
+	}
+	.header_news a{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.header_news a:hover{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.header_news span{
+		
+	}
+	.header_news strong{
+		color: #003f7e; font-size: 12px;
+	}
+	
+	h1{
+		font-size: 24px;
+		font-weight: normal;
+		color: #003f7e;
+		margin: 0;
+		padding: 0 0 0 15px;
+	}
+	h2{
+		font-size: 20px;
+		font-weight: normal;
+		color: #003f7e;
+		margin: 0;
+		padding: 0 0 0 15px;
+	}
+	
+	.main_news_title{
+		 background: url(http://www.xakep.ru/i/new_i/main_news_title.gif) left top no-repeat;
+		 height:60px;
+		 padding: 5px 0 0 15px;
+	}
+	.main_news_title img{
+		float: left;
+		margin: 0 10px 0 0;
+	}
+	.main_news_title a{
+		font-size: 12px;
+		font-weight: bold;
+		text-decoration: none;
+		color: #FFFFFF;
+	}
+	.main_news_title a:hover{
+		color: #AAAAAA;
+	}
+	
+	.main_news_txt{
+		padding: 5px 0 10px 15px;
+		font-size: 12px;
+		color: #000000;
+	}
+	
+	
+	.main_news2_txt{
+		padding: 5px 0 10px 0px;
+		font-size: 12px;
+		color: #000000;
+		border-bottom: 1px solid #e6e7de;
+	}
+	.main_news2_txt a{
+		color: #000000;
+		text-decoration: none;
+	}
+	.main_news2_txt a:hover{
+		color: #003f7e;
+		text-decoration: underline;
+	}
+	
+	
+	.main_news3_txt td{
+		padding: 5px 0 10px 0px;
+		font-size: 12px;
+		color: #000000;
+		border-bottom: 1px solid #e6e7de;
+	}
+	.main_news3_txt td span a{
+		color: #838484;
+	}
+	.main_news3_txt td a{
+		color: #000000;
+		text-decoration: none;
+	}
+	.main_news3_txt td a:hover{
+		text-decoration: underline;
+	}
+	
+	.inner_news_txt td{
+		padding: 5px 0 10px 0px;
+		font-size: 12px;
+		color: #000000;
+	}
+
+	.inner_news_txt td a{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.inner_news_txt td a:hover{
+		text-decoration: underline;
+	}
+	
+	
+	.anons{
+		padding: 0 0 0 0px;
+		font-size: 18px;
+		font-family: Tahoma, Verdana, Arial, sans-serif;
+		color: #000000;
+		font-weight: bold;
+	}
+	.anons strong{
+		font-size: 54px;
+		font-family: Tahoma;
+		color: #003f7e;
+		line-height: 0.8em;
+	}
+	.anons_links{
+		padding: 5px 0 30px 0;
+		width: 100px;
+	}	
+	.anons_links a{
+		font-size: 12px;
+		color: #000000;
+	}
+	#anons_fignya{
+		display: block;
+		height: 65px;
+		width: 70px;
+		margin: 0 0 10px 10px;
+	}
+	
+	.anons_arr_1{
+		display: block;
+		position: absolute;
+		top:-45px;
+		right: 60px;
+		width: 45px;
+		height: 30px;
+		background: url(http://www.xakep.ru/i/new_i/spacer.gif);
+	}
+	.anons_arr_2{
+		display: block;
+		position: absolute;
+		top:-40px;
+		right: 0px;
+		width: 45px;
+		height: 35px;
+		z-index: 1000;
+		background: url(http://www.xakep.ru/i/new_i/spacer.gif);
+	}
+	
+	.big_arr{
+		position: relative;left: 348px;
+	}
+
+	.big_arr1{
+		position: absolute;right: 0px;top:-1px;	
+	}
+	* html .big_arr1{
+		position: absolute;right: -1px;top:-1px;	
+	}
+	
+	
+	.anons_ul{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.anons_ul li{
+		background: url(http://www.xakep.ru/i/new_i/anons_ul.gif) left 2px no-repeat;
+		padding: 0 0 0 15px;
+		font-size: 16px;
+		color: #000000;
+		font-family: georgia, "times new roman", times, serif;
+	}
+	
+	.stati{
+		padding: 15px 15px 15px 0;
+		font-size: 12px;
+		color: #000000;
+		border-bottom: 1px solid #e4e7d6;
+	}
+	.stati img{
+		float: left;
+		margin: 0 10px 0px 0;
+	}
+	.stati a{
+		color: #003f7e;
+	}
+	.stati span{
+		color: #003f7e;
+	}
+	
+
+	.video td{
+		font-size: 11px;
+		color: #000000;
+		padding: 3px 3px 5px 0px;
+		border-bottom: 1px solid #e7efd6;
+	}
+	.video td a{
+		color: #003f7e;
+	}
+	.video td input{
+		position: relative;
+		top: 3px;
+	}
+	
+	.bagtrack td{
+		font-size: 11px;
+		color: #000000;
+		
+		border-bottom: 1px solid #e7efd6;
+	}
+	.bagtrack td strong{
+		font-size: 18px;
+		color: #003f7e;
+		font-weight: bold;
+	}
+	.bagtrack a{
+		font-size: 11px;
+		text-decoration: none;
+		color: #000000;
+	}
+	.bagtrack a:hover{
+		font-size: 11px;
+		text-decoration: underline;
+		color: #003f7e;
+	}
+	
+	.table_more{
+		background: #e6e7de;
+	}
+	.table_more td{
+		font-size: 12px;
+		color: #000000;
+		padding: 2px 15px;
+	}
+	.table_more td a{
+		color: #003f7e;
+		text-decoration: none;
+		font-weight: bold;
+	}
+	.table_more td a:hover{
+		text-decoration: underline;
+	}
+	
+	
+	.blog{
+		padding: 10px 0 12px 0px;
+		font-size: 12px;
+		color: #000000;
+		border-bottom: 1px solid #e6e7de;
+	}
+	.blog a{
+		color: #003f7e;
+	}
+	.blog strong{
+		color: #003f7e;
+	}
+	
+
+
+	.forum{
+		border-top: 1px solid #e4e7d6;
+		background: #FFFFFF;
+	}
+	.forum td{
+		padding: 2px 15px;
+		font-size: 12px;
+		color: #000000;
+		border-bottom: 1px solid #e4e7d6;
+		border-right: 1px solid #e4e7d6;
+		line-height: 1.5em;
+	}
+	.forum a{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.forum a:hover{
+		text-decoration: underline;
+	}
+	.forum span{
+		color: #9c9c9c;
+	}
+	
+	.bottom_menu td{
+		font-size: 12px;
+	}
+	.bottom_menu td strong{
+		color: #003f7e;
+	}
+	.bottom_menu td ul{
+		margin: 0;
+		padding: 0 0 0 15px;
+		list-style: square;
+	}
+	.bottom_menu td ul li{
+		color: #003f7e;
+	}
+	.bottom_menu td ul li a{
+		color: #000000;
+	}
+	
+	.bottom_autors{
+		font-size: 12px;
+		color: #000000;
+	}
+	.bottom_autors a{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.bottom_autors a:hover{
+		text-decoration: underline;
+	}
+	
+	.inner_top{
+		padding: 10px 20px;
+		font-size: 12px;
+	}
+	.inner_top a{
+		color: #000000;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	.inner_top a:hover{
+		text-decoration: underline;
+	}
+	
+	.inner_top_txt{
+		padding: 15px;
+	}
+	.inner_top_txt td{
+		font-size: 12px;
+		padding: 3px 0;
+		border-bottom: 1px solid #e7efd6;
+	}
+	.inner_top_txt td a{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.inner_top_txt td a:hover{
+		text-decoration: underline;
+	}
+	
+	.paging{
+		padding: 0 0 0 15px
+	}
+	.paging td{
+		background: #FFFFFF;
+		padding: 10px 15px;
+		font-size: 12px;
+	}
+	.paging td a{
+		color: #000000;
+		text-decoration: none;
+	}
+	.paging td a:hover{
+		text-decoration: underline;
+	}
+	.paging td span{
+		color: #003f7e;
+	}
+	
+	.archive{
+		padding: 0px 15px;
+	}
+	.archive h2{
+		background: none;
+	}
+	.archive_info{
+		font-size: 12px;
+		padding: 15px 0 0 0;
+	}
+	.archive_info strong{
+		font-size: 24px;
+		font-weight: normal;
+	}
+	.archive_info a{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.archive_info a:hover{
+		text-decoration: underline;
+	}
+	
+	.archive_links td{
+		font-size: 12px;
+		padding: 3px 0;
+		text-align: center;
+	}
+	.archive_links a{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.archive_links a:hover{
+		text-decoration: underline;
+	}
+	
+	
+	.ads_google{
+		font-size: 12px;
+	}
+	.ads_google a{
+		font-weight: bold;
+		color: #000000;
+	}
+	
+	.inner_txt_header{
+		font-size: 12px;
+	}
+	.inner_txt_header img{
+		position: relative;
+		top: 2px;
+	}
+	.inner_txt_header a{
+		color: #003f7e;
+	}
+	
+	.inner_txt{
+		font-size: 12px;
+		padding: 15px;
+	}
+	.inner_txt strong{
+		font-size: 12px;
+	}
+	.inner_txt a{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.inner_txt a:hover{
+		text-decoration: underline;
+	}
+	
+	.comments{
+		padding: 15px;
+		border-bottom: 1px solid #808080;
+	}
+	.comments div{
+		padding: 15px 15px 0 15px;
+	}	
+	
+	.banner_bg{
+		background: #edefe4;	
+		padding: 10px; 
+	}
+	.banner_bg_cont{
+		background: #edefe4;	
+		padding: 10 5 10 5; 
+	}	
+	
+	.textBodySm2{
+		font-size: 6px;
+	}
+	.textBodySm2 a{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.textBodySm2 a:hover{
+		text-decoration: underline;
+	}	
+	
+	.textBody{
+		font-size: 12px;
+		padding: 15px;
+	}
+	.textBody a{
+		color: #003f7e;
+		text-decoration: none;
+	}
+	.textBody a:hover{
+		text-decoration: underline;
+	}			
+	
+	.inner_txt  p{
+		padding-top: 5px;
+	}
+	.inner_txt  .read_this{
+		padding-top: 10px; padding-bottom: 10px; font-size: 17px;
+	}
+	.inner_txt  h1{
+		font-size: 22px;
+		font-weight: normal;
+		color: #000000;
+		background: #FFFFFF;
+		margin: 0;
+		padding: 0 0 0 15px;
+	}
+	.inner_txt  h2{
+		font-size: 18px;
+		font-weight: normal;
+		color: #000000;
+		background: #FFFFFF;
+		margin: 0;
+		padding: 10 0 10 15px;
+	}
+	
+	.inner_txt  h3{
+		font-size: 16px;
+		font-weight: normal;
+		color: #000000;
+		background: #FFFFFF;
+		margin: 0;
+		padding: 0 0 0 20px;
+	}
+	.inner_txt  blockquote h3{
+		background: #edefe4;
+	}	
+	.inner_txt  blockquote h2{
+		background: #edefe4;
+	}		
+	
+
+pre {
+    white-space: pre-wrap; /* Последние Opera, Firefox, Safari, Chrome*/
+    white-space: -o-pre-wrap; /* Старая Opera (8?) */
+    word-wrap: break-word; /* IE 5.5+ */
+}
+
+code {
+    white-space: pre-wrap; /* Последние Opera, Firefox, Safari, Chrome*/
+    white-space: -o-pre-wrap; /* Старая Opera (8?) */
+    word-wrap: break-word; /* IE 5.5+ */
+}	
+
+	.main_news_title11{
+		 background: url(http://www.xakep.ru/i/new_i/main_news_title.gif) left top no-repeat;
+		 height:60px;
+		 padding: 5px 0 0 15px;
+	}
+	.main_news_title11 img{
+		float: left;
+		margin: 0 10px 0 0;
+	}
+	.main_news_title11 a{
+		font-size: 16px;
+		text-decoration: none;
+		color: #FFFFFF;
+	}
+	.main_news_title11 a:hover{
+		color: #003f7e;
+	}
+	
+	.fade{
+		background: url(http://www.xakep.ru/i/fade1.png) repeat-y 0 bottom;
+		display: block;
+		height: 14px;
+		position: relative;
+		z-index: 10;
+		margin-top: -14px;
+		margin-left: 210px;
+		
+	}
+	
+	.fade2{
+		background: url(http://www.xakep.ru/i/fade1.png) repeat-y 0 bottom;
+		display: block;
+		height: 14px;
+		position: relative;
+		z-index: 10;
+		margin-top: -14px;
+		margin-left: 100px;
+		
+	}
+	
+	.zagolovok { font-size: 17px; padding: 0; margin-bottom: 5;}
+	.zagolovok_big { font-size: 24px; padding: 0; margin-bottom: 5;}
+		

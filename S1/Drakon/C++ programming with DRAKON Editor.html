@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)http://drakon-editor.sourceforge.net/cpp/cpp.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>C++ programming with DRAKON Editor</title></head><body>​
+<link rel="stylesheet" href="http://drakon-editor.sourceforge.net/cpp/pygments_style.css">
+<style>
+	
+	body { 
+		margin-top:0;
+		background-color:#ccccdd;
+		margin: 0;
+ 	 	padding: 0;
+ 	 	font-family: Verdana, "Bitstream Vera Sans", sans-serif;
+ 	}
+ 	pre {
+ 		margin:5px;
+ 	}
+ 	
+	.top_menu { margin:0; padding:3px; }
+	h2 { border-style:solid; 
+		border-top-width:7px;
+		border-bottom-width:0;
+		border-left-width:0;
+		border-right-width:0;
+		border-color:#ccccdd; 
+		background:#efefff;
+		padding:5px;
+	}
+	p { 
+		padding:5px; 
+		font-size:100%;	
+	}
+	h1 { 
+		padding:5px; 
+		background:#efefff;
+		margin:0;
+	}
+	
+	.container {
+		background-color:#ffffff;
+		width:850px;
+		position:center;
+		border-style:solid;
+		border-color:#000030;
+		border-width:0px; 
+		padding:0;
+		margin:0 auto;
+	}
+	
+	table.reference
+	{
+	background-color:#ffffff;
+	border:1px solid #c3c3c3;
+	border-collapse:collapse;
+	width:97%;
+	margin-left:10px;
+	}
+	
+	table.reference th
+	{
+	background-color:#e5eecc;
+	border:1px solid #c3c3c3;
+	padding:3px;
+	vertical-align:top;
+	}
+	
+	table.reference td 
+	{
+	border:1px solid #c3c3c3;
+	padding:3px;
+	vertical-align:top;
+	}
+	pre {
+		border-style:dashed;
+		border-width:1px;
+		border-color:#000000;
+		padding:5px;
+	}
+</style>
+
+
+<div id="header" class="container">
+
+
+<h1>C++ programming with DRAKON Editor</h1>
+
+<p class="top_menu"><a href="http://drakon-editor.sourceforge.net/">Home </a>|
+<a href="https://sourceforge.net/projects/drakon-editor/files/">Download</a></p>
+
+<p>This tutorial shows how to create classes and methods in DRAKON-C++.
+See <a href="http://drakon-editor.sourceforge.net/cpp/c.html">the C tutorial</a> to learn how to build algorithms
+inside the method bodies.</p>
+
+<p>A more advanced tutorial can be found in <strong>examples/C++</strong> folder in
+<a href="http://sourceforge.net/projects/drakon-editor/files/drakon_editor1.8.zip/download">drakon_editor1.8.zip</a>.</p>
+
+<p><strong>Contents</strong></p>
+
+<ul>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/cpp.html#basics">Getting started</a></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/cpp.html#class_section"><em>class</em> section</a></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/cpp.html#methods">Methods</a></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/cpp.html#examples">Method examples</a></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/cpp.html#copying"><em>options</em> section</a></li>
+<li><a href="http://drakon-editor.sourceforge.net/cpp/cpp.html#other">Other sections</a></li>
+</ul>
+
+<p><a name="basics"></a></p><a name="basics">
+
+<h2>Getting started</h2>
+
+<p>To create a DRAKON-C++ file:</p>
+
+<ol>
+<li><p>Create a new file with DRAKON Editor.</p></li>
+<li><p>Select C++ as the programming language. In the main menu, go to
+<strong>File / File properties...</strong> and choose "C++".</p></li>
+</ol>
+
+<p>If you press Ctrl+B (Command-B on Mac), DRAKON Editor will generate
+an .h and a .cpp files in the same folder as the .drn file.</p>
+
+<p>The <strong>DRAKON / Generate code</strong> menu command can be used instead.</p>
+
+<p>You can also use <em>drakon_gen.tcl</em> command-line utility to
+generate the C++ files.</p>
+
+<p>A DRAKON Editor file can contain one class and many free
+functions (functions that are not members of any class).</p>
+
+</a><p><a name="basics">Creating free functions is described in the </a><a href="http://drakon-editor.sourceforge.net/cpp/c.html">C tutorial</a>.</p>
+
+<p>Creating a class involves two actions:</p>
+
+<ol>
+<li>Add a <em>class</em> section to the file description.</li>
+<li>Add diagrams and mark them as methods.</li>
+</ol>
+
+<p><a name="class_section"></a></p><a name="class_section">
+
+<h2><em>class</em> section</h2>
+
+<p>A section is a block of plain text in the file description. A section starts
+with the section header and contains all the text below the header until
+the next section or end of file.</p>
+
+<p>The text before the first section is the actual "file description" and 
+is ignored by the code generator.</p>
+
+<p>To edit the file description, go to <strong>File / File description...</strong></p>
+
+<p>The <em>class</em> section header should be:</p>
+
+<p><code>=== class ===</code></p>
+
+<p>Type in the class declaration without the closing bracket under the header.
+You could add member fields, hand-written functions, inner classes and enums.</p>
+
+<p>Do not place there the declarations of the methods that 
+are generated from diagrams. Those declarations will be put there
+automatically.</p>
+
+<p>Here is an example of a <em>class</em> section. Both <em>class</em> and <em>struct</em> keywords are
+accepted in the section body (but not in the header).</p>
+
+<pre><span class="o">===</span> <span class="k">class</span> <span class="o">===</span>
+<span class="k">struct</span> <span class="n">Easy</span>
+<span class="p">{</span>
+</pre>
+
+<p>Another one:</p>
+
+<pre><span class="o">===</span> <span class="k">class</span> <span class="o">===</span>
+
+<span class="k">class</span> <span class="nc">GoodClass</span>
+<span class="p">{</span>
+</pre>
+
+<p>A more elaborate class:</p>
+
+<pre><span class="o">===</span> <span class="k">class</span> <span class="o">===</span>
+
+<span class="c1">// This is a very good class.</span>
+<span class="k">class</span> <span class="nc">GoodClass</span> <span class="o">:</span> <span class="k">public</span> <span class="n">BadClass</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">_count</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">_width</span><span class="p">;</span>
+
+    <span class="k">struct</span> <span class="n">Record</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">First</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">Second</span><span class="p">;</span>
+    <span class="p">};</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="c1">// Manually added method declaration</span>
+
+    <span class="kt">void</span> <span class="n">DoIt</span><span class="p">();</span>
+</pre>
+
+<p>Note that there are no closing brackets in these examples.</p>
+
+</a><p><a name="methods"></a></p><a name="methods">
+
+<h2>Methods</h2>
+
+<p>In order to turn the diagram into a class method, add the <em>method</em> keyword
+to the <em>Parameters</em> icon of the diagram.</p>
+
+<p>For example, this diagram:</p>
+
+<p><img src="./C++ programming with DRAKON Editor_files/print.png" alt="Print method" title=""></p>
+
+<p>will produce the following definition in the .cpp file:</p>
+
+<pre><span class="kt">void</span> <span class="n">Nice</span><span class="o">::</span><span class="n">Print</span><span class="p">()</span> <span class="p">{</span>
+    <span class="cm">/* item 6 */</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Nice::print: "</span> <span class="o">&lt;&lt;</span> <span class="n">_value</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span><span class="p">;</span>    
+<span class="p">}</span>
+</pre>
+
+<p>Here is the declaration which is inserted into the class:</p>
+
+<pre><span class="nl">private:</span>
+    <span class="kt">void</span> <span class="n">Print</span><span class="p">();</span>
+</pre>
+
+<p>In order to make the method public, add the <em>public</em> keyword to the
+first line of the <em>Parameters</em> icon. To make it protected, use <em>protected</em> instead.</p>
+
+<p><img src="./C++ programming with DRAKON Editor_files/print_public.png" alt="Public Print method" title=""></p>
+
+<p>You can also use other keywords to change the function interface:</p>
+
+<ul>
+<li><em>const</em> will append the C++ keyword <strong>const</strong> to the function signature.</li>
+<li><em>virtual</em> will make the function virtual.</li>
+<li><em>static</em> will make the function static in the C++ sense. 
+Needless to say that <em>static</em> and <em>virtual</em> should not be assigned
+to the same method.</li>
+<li><em>inline</em> will make the function inline.</li>
+<li><em>abstract</em> will append this smiley =0; to the function declaration.
+The function definition will not be generated.</li>
+</ul>
+
+<p>In order to create a constructor, use the <em>ctr</em> keyword instead of <em>method</em>.</p>
+
+<p><img src="./C++ programming with DRAKON Editor_files/constructor.png" alt="constructor.png" title=""></p>
+
+<p>The <em>dtr</em> keyword turns the diagram into a destructor.</p>
+
+<p><img src="./C++ programming with DRAKON Editor_files/destructor.png" alt="destructor.png" title=""></p>
+
+<p>There can be several constructors per file, but only one destructor. 
+The constructors must have different signatures.</p>
+
+<p>Overloading for methods is not allowed.</p>
+
+</a><p><a name="examples"></a></p><a name="examples">
+
+<h2>Method examples</h2>
+
+<table class="reference">
+<tbody><tr>
+<td><b>Parameters icon</b></td><td><b>Generated signature</b></td>
+</tr>
+<tr>
+<td>method</td>
+<td>private: void Foo();</td>
+</tr>
+<tr>
+<td>public method</td>
+<td>public: void Foo();</td>
+</tr>
+<tr>
+<td>public method<br>int a<br>int b<br>returns const char*</td>
+<td>public: const char* Foo(int a, int b);</td>
+</tr>
+<tr>
+<td>public inline method<br>int a<br>int b<br>returns const char*</td>
+<td>public: inline const char* Foo(int a, int b) {<br>
+// Generated method body.<br>
+}</td>
+</tr>
+
+<tr>
+<td>public virtual method<br>int a<br>int b<br>returns int</td>
+<td>public: virtual int Foo(int a, int b);</td>
+</tr>
+<tr>
+<td>public virtual const method<br>int a<br>int b<br>returns int</td>
+<td>public: virtual int Foo(int a, int b) const;</td>
+</tr>
+
+<tr>
+<td>public virtual const abstract method<br>int a<br>int b<br>returns int</td>
+<td>public: virtual int Foo(int a, int b) const = 0;</td>
+</tr>
+
+<tr>
+<td>protected static method<br>int a<br>int b</td>
+<td>public: static int Foo(int a, int b);</td>
+</tr>
+
+<tr>
+<td>protected ctr<br>int a<br>int b</td>
+<td>protected: explicit NiceClass(int a, int b);</td>
+</tr>
+
+<tr>
+<td>dtr</td>
+<td>public: virtual ~NiceClass();</td>
+</tr>
+
+</tbody></table>
+
+</a><p><a name="copying"></a></p><a name="copying">
+
+<h2><em>options</em> section</h2>
+
+<p>The <em>options</em> section is optional.</p>
+
+<p>By default, DRAKON Editor generates a private copy constructor and a 
+private assignment operator in order to prevent accidental copying.</p>
+
+<pre><span class="nl">private:</span>
+    <span class="c1">// non-copyable</span>
+    <span class="n">Nice</span><span class="p">(</span><span class="k">const</span> <span class="n">Nice</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="kt">void</span> <span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Nice</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{}</span>
+</pre>
+
+<p>In order to get rid of these, add a <em>copying</em> option with the value "yes":</p>
+
+<pre>=== options ===
+copying=yes
+</pre>
+
+</a><p><a name="other"></a></p><a name="other">
+
+<h2>Other sections</h2>
+
+<p>DRAKON Editor supports a few sections intended for adding hand-written code
+to the generated files.
+Depending on the section, its text is added either to the top or to the 
+bottom of the file. The section also determines which file will the
+section text go to - .h file or .cpp file.</p>
+
+<table class="reference">
+<tbody><tr>
+<td><b>Section</b></td><td><b>Goes to file</b></td><td><b>Position</b></td>
+</tr><tr>
+</tr>
+<tr><td>h_header</td><td>.h file</td><td>Start of file</td>
+</tr><tr>
+</tr>
+<tr><td>h_footer</td><td>.h file</td><td>End of file</td>
+</tr><tr>
+</tr>
+<tr><td>c_header</td><td>.cpp file</td><td>Start of file</td>
+</tr><tr>
+</tr>
+<tr><td>c_footer</td><td>.cpp file</td><td>End of file</td>
+</tr>
+</tbody></table>
+</a></div><a name="other">
+
+
+
+</a></body></html>

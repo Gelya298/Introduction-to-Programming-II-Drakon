@@ -1,0 +1,280 @@
+/* CSS Document */
+
+BODY {
+	margin:10px;
+	padding:0px;
+	background: url("../images/bg-stripes.png") #eee;
+	font-family: Arial, sans-serif; font-size: 12px;
+	color: #222070;
+	text-align:center; /* IE 5 FIX FOR CENTERING */
+	}
+
+#outerbody {
+	border-style: solid; border-color: #bbb; border-width: 0px 1px 1px 0px;
+	background: white;
+	width: 980px; margin: 0 auto 0 auto;
+	text-align:left; /* чтоб не было проблем с выравниванием всего по центру */
+	}
+
+A:link { color: #00b; }
+A:hover { color: #e05; }
+A:visited { color: #509; }
+A:active,A:focus { color: #00f; }
+
+ul {
+font-size:12px;
+margin:5px 0;
+padding:0;
+}
+
+ul li {
+background: url("../images/bullet_small.png") 5px 9px no-repeat;
+list-style: none;
+margin-left:20px;
+padding:3px 0 3px 15px;
+}
+ul ul li {
+margin-left:40px;
+}
+
+ol { font-size:12px; }
+
+ol li {
+padding-bottom: 10px;
+}
+
+H1,H2,H3,H4 { color: #239; }
+H1 { font-size: 18px; }
+H2 { font-size: 16px; }
+H3 { font-size: 14px; }
+H4 { font-size: 13px; padding-left: 10px; }
+P,BLOCKQUOTE,DIV { font-size: 12px; }
+/* P { margin-top: 8px; margin-bottom: 8px; } */
+P { margin-top: 2px; margin-bottom: 2px; text-indent: 2em; } /* красная строка и уменьшенный межабзацный интервал */
+B { color: #239; }
+P, BLOCKQUOTE {text-align: justify;}
+DIV.noindent P { margin-left:5em; color: #34C; text-indent: 0; margin-bottom: 1.5em;}
+
+DIV.quote, BLOCKQUOTE { margin-left:3em; font-style:oblique; color: #239; }
+DIV.quote:before, BLOCKQUOTE:before {content: "`` "; }
+DIV.quote:after, BLOCKQUOTE:after {content: " ''"; }
+DIV.quote:before, DIV.quote:after, BLOCKQUOTE:before,BLOCKQUOTE:after { color: #239; font-weight: bold;}
+
+
+/* TABLE {border: 2px solid #000; padding: 3px; margin: 3px;} */
+TR {margin: 0px; padding: 0px;}
+TD {margin: 0px; padding: 0px;}
+/* DIV {margin: 2px; padding: 1px; } */
+
+TABLE#maintable {
+	border: 3px white solid;
+	}
+
+			/* ЗАГОЛОВОК */
+
+/* from old design - now hidden */ DIV#header { display: none; background: rgb(51,57,185) url("../images/h1_large.jpg"); padding: 0px; padding-top: 44px; padding-bottom: 44px; }
+DIV#header H1 { color: white; font-size: 22pt; font-weight: bold; text-align: center; margin: 0px; }
+
+/* this line doesn't really work */ DIV.topbar {background: url("../images/topbarbg.png"); height: 17px; }
+
+			/* ОБЛАСТИ ЗНАНИЯ */
+
+/* то, что ниже - убрать */
+
+/*	TABLE#areastable {}
+	
+	DIV.areas TABLE.moduletable { display: block; float: left; min-width: 15%; max-width: 32%; width: 32%; 
+	background-color: #fff; padding: 2px; margin: 0 2px; border: #fff solid 1px; }
+	DIV.areas TABLE.moduletable UL { margin: 0px; padding: 0px; 
+	color: rgb(51,57,185); font-weight: bold; font-style: italic; font-family: Arial, sans-serif; font-size: 11px; }
+	DIV.areas TABLE.moduletable LI:before { content: " " }
+	DIV.areas TABLE.moduletable LI { display: block; float: left; margin: 0px; margin-right: 8px; padding: 0px; background: none;}
+	
+	DIV#area1 {}
+	DIV#area2 {}
+	DIV#area3 {} */
+
+/* то, что выше - убрать */
+
+/* DIV#areax {background: url("../images/bg-top3.jpg"); background-position: 100% 100%; } */ /* фон этот ВП попросила убрать */
+DIV#areax {height: 43px; padding: 5px 25px 5px 15px; } 
+
+DIV#areax UL { margin: 0px; padding: 0px; }
+DIV#areax LI { display: block; float: left; margin: 0px; margin-right: 5px; padding: 0px; padding-left: 8px; background-position: 0px 5px;
+font-weight: bold; font-style: italic; font-family: Arial, sans-serif; font-size: 11px; }
+DIV#areax LI A {color: #366; text-decoration: none;}
+DIV#areax LI A:hover { color: #55a; text-decoration: underline; }
+DIV#areax LI A:visited { color: #335;}
+DIV#areax LI A:focus, DIV#new LI A:active { color: #33c; text-decoration: underline; }
+
+
+				/* УХИ */
+
+DIV#uhix TABLE.moduletable { display: inline; }
+DIV#uhix TABLE.moduletable TR { display: inline; }
+DIV#uhix TABLE.moduletable TD { padding: 0px 5px 0px 10px; }
+DIV#uhix TABLE.moduletable IMG { border: dotted 1px #8ba; }
+
+
+				/* ГЛАВНОЕ МЕНЮ */
+
+TD#tleft { background-color: #f5f5f5; width: 160px; }
+
+/* DIV#menu { background-color: #eef; padding: 3px; width: 180px; } */
+/* DIV#menuin {border: solid 1px; padding: 7px; margin-top: 4px; background: #fff; width: 172px;} */
+DIV#menu TABLE.moduletable, 
+DIV#menu TABLE.moduletableintro, DIV#menu TABLE.moduletablelib, DIV#menu TABLE.moduletableupg, 
+DIV#menu TABLE.moduletableabout, DIV#menu TABLE.moduletableprojects, 
+DIV#menu TABLE.moduletablepromote, 
+DIV#menu TABLE.moduletableukr { width: 150px; margin: 5px; }
+DIV#menu TD { background: #fff; margin: 0px; padding: 0px; }
+DIV#menu TH { color: #c33958; font-weight: bold; font-size: 11px; text-align: left; padding-top: 5px; }
+DIV.msection IMG { float:left; position: relative; top: -3px; left: -3px; }
+DIV.mitem { margin-left: 10px; }
+DIV#menu TABLE.moduletableukr TH { color: #406040; }
+
+/* Картинки в меню */
+DIV#menu TABLE.moduletableintro TH, DIV#menu TABLE.moduletablelib TH, DIV#menu TABLE.moduletableupg TH, 
+DIV#menu TABLE.moduletableabout TH, DIV#menu TABLE.moduletableprojects TH, 
+DIV#menu TABLE.moduletablepromote TH { height: 17px; padding-left: 20px; }
+
+DIV#menu TABLE.moduletableintro TH {background: url("../images/1intro_16p.png") 0 -1px no-repeat;}
+DIV#menu TABLE.moduletablelib TH {background: url("../images/2lib_16p.png") 0 -1px no-repeat;}
+DIV#menu TABLE.moduletableupg TH {background: url("../images/2upg_16p.png") 0 -1px no-repeat;}
+DIV#menu TABLE.moduletableabout TH {background: url("../images/3about_16p.png") 0 -1px no-repeat;}
+DIV#menu TABLE.moduletableprojects TH {background: url("../images/4projects_16p.png") 0 -1px no-repeat;}
+DIV#menu TABLE.moduletablepromote TH {background: url("../images/5promote_16p.png") 0 -1px no-repeat;}
+
+/* Пункты меню */
+DIV#menu TABLE TR, DIV#menu TABLE TD, DIV#menu TABLE TH {
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	}
+
+DIV#menu TABLE TD A {
+	display: block;
+	background: #83A3CE;
+	margin: 0px 0px;
+	padding: 1px 7px 2px 15px;
+	border: 1px solid white;
+	color: #fafaff;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 12px;
+	}
+
+DIV#menu TABLE TD A:hover {
+	background: #8899bf;
+	padding: 1px 6px 1px 15px;
+	border-top: 2px solid white;
+	border-left: 2px solid white;
+	border-right: 1px solid #aabbff;
+	border-bottom: 1px solid #aabbff;
+	}
+
+DIV#menu TABLE TD A:active {
+	color: #44448d;
+	}
+
+DIV#menu TABLE TD A#active_menu {
+	background: #03A3AE;
+	}
+
+DIV#menu TABLE TD A#active_menu:hover {
+	background: #03A3AE;
+	padding: 1px 7px 2px 15px;
+	border: 1px solid white;
+	}
+
+DIV#menu TABLE TD A#active_menu:active {
+	color: #fafaff;
+	}
+
+
+				/* ЦЕНТР */
+
+TABLE#contenttable {}
+/* DIV#content {margin: 16px; padding: 4px; } */
+DIV#content TD.contentheading, 
+DIV#content TD.contentheadingnews, 
+DIV#content DIV.componentheadingnews, 
+DIV#content DIV.componentheading { color: #f33958; font-weight: bold; font-size: 110%; }
+
+DIV#content {margin: 0 10px; }
+
+
+			/* БЛОКИ ПРАВОЙ КОЛОНКИ */
+
+      /* новый вариант оформления - не понравился */
+/* TD#tright { background-color: #f5f5f5; width: 200px; }
+DIV#rightcolumn { background-color: #f5f5f5; padding: 1px; width: 200px; }
+DIV#rightcolumn TABLE.moduletable { margin: 5px; width: 190px; } */ /* DIV.rightblock */ /*
+DIV#rightcolumn TABLE.moduletable TH { padding: 5px 0px 5px 2px; 
+	color: #3339B9; font-weight: bold; font-size: 11px; text-align: left; } */ /* DIV.blockheader */ 
+
+      /* старый CSS - Валерия просила не менять*/
+DIV#rightcolumn { background-color: #7bb8c9; padding: 1px; width: 196px; }
+DIV#rightcolumn TABLE.moduletable { background-color: #fff; border: solid 1px black; margin: 1px; margin-bottom: 2px; width: 194px; } /* DIV.rightblock */
+DIV#rightcolumn TABLE.moduletable IMG {margin-bottom: 10px; } /* чтобы между картинкой и границей блока снизу был промежуток */
+DIV#rightcolumn TABLE.moduletable TH { padding: 5px 0px 5px 2px; 
+	color: rgb(51,57,185); font-weight: bold; font-style: italic; font-size: 11px; text-align: center; }
+      /* end of старый CSS */
+
+DIV#rightcolumn TABLE.moduletable TD {font-size: 12px; } /* fix for IE - font size */
+DIV#rightcolumn TABLE.moduletable ul li { margin-left:0px; } /* в правой колонке отступа для буллетов не надо }
+
+
+DIV#messages {}
+DIV#donow {}
+DIV#news {}
+DIV#service {}
+DIV#login {}
+DIV#admib {}
+DIV#friends {}
+DIV.friendimg {}
+DIV.friendname { font-size: 85%; text-align: center;}
+
+/* DIV#rightcolumn UL {
+	margin-left: 17px; margin-top: 0px; margin-bottom: 3px; padding: 0px; } /* DIV.rightblock */ 
+
+DIV#donow DIV.blockheader {color: rgb(243,57,88);}
+
+DIV#footer { width: 100%; background-color: #6bb8c9; padding: 5px; text-align: center; }
+
+TABLE.contentpane {width: 100%; } /* fix for forum in IE */
+
+
+				/* КАРТИНКИ */
+
+div.picleft, div.picright {margin: 5px; padding: 5px; border: solid black 1px; font-weight: bold; text-align: center; }
+div.picleft {float: left; margin-right: 10px; }
+div.picright {float: right; margin-left: 10px; }
+
+div.mosimage { margin: 5px; padding: 5px; border: solid black 1px; }
+div.mosimage_caption { font-weight: bold; }
+
+				/* ТАБЛИЦЫ */
+
+TABLE.twocolor {border-width: 0px 0px 1px 1px; }
+TABLE.twocolor TD {border-width: 1px 1px 0px 0px; padding: 4px 14px; vertical-align: top;}
+TABLE.twocolor TH {border-width: 1px 1px 0px 0px; padding: 4px 14px; background: #83A3CE; color: #fafaff;}
+TABLE.twocolor,TABLE.twocolor TD,TABLE.twocolor TH { border-style: solid; border-color: white; }
+
+				/* СЛУЖЕБНОЕ */
+
+div.message {margin: 5px; padding: 10px; width: 100%; text-align: center; font-size: 15px; font-weight: bold; background: #ccf; color: #44b;}
+
+
+				/* ФОРУМ */
+
+table.contentpane { background: #f5f5f5; padding: 5px;}
+th.sb_catname a { color: #c33958;}
+td.sectiontableheader { background: #83A3CE; color: #fafaff; padding: 0 3px;}
+div.sb_footer { display: none;}
+tr.sectiontableentry1 { background: #e4ecf7;}
+tr.sectiontableentry2 { background: #eef5ff;}
+span.createdate { font-style: italic; }
+td.sb_new { color: #c33958; font-size: 18px; font-weight: bold; text-align: center; }
+td.sb_notnew { color: #f5f5f5; }
+input.button { }

@@ -1,0 +1,989 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0032)http://sage.com.ua/ru.shtml?e1l0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+		
+
+		<meta name="verify-v1" content="Jf6icSFYArUvzueemaxkYb15qnyc3Z2ye9TGW21+wbo=">
+
+		
+
+			
+
+			
+			
+
+			<meta name="copyright" content="© 2005-2008 Ярослав Романченко mailto:tobject[at]sage[dot]com[dot]ua">
+
+		
+
+		<title>SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование</title>
+		<meta name="description" content="Операционная система A2 (Bluebottle). Установка и конфигурирование системы">
+
+		<link rel="stylesheet" type="text/css" href="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/styles.css">
+		<script src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/loadimages.js" type="text/javascript"></script>
+
+		<script language="JavaScript">
+		<!--
+		function myclock()
+		{
+		// "Каждые сутки были разделены на 16 часов; каждый час содержал 144 части;
+		// в каждой части было 1296 долей, в каждой доле 72 мгновения,
+		// в мгновении 760 мигов, а в миге 160 сигов." 
+
+		// 1 Час = 24/16 = 1,5 ч, 24*60/16 мин, 24*60*60/16 с, 24*60*60*1000/16 = 5400000 мс
+		// 1 Часть = 24*60*60*1000/(16*144) = 37500 мс
+		// 1 Доля = 24*60*60*1000/(16*144*1296) = 86400000/2985984 = 28,93(518) мс
+		// 1 Мгновение = 24*60*60*1000/(16*144*1296*72) = 86400000/214990848 = 0,402 мс
+		// 1 Миг = 24*60*60*1000*1000/(16*144*1296*72*760) = 0,529 мкс
+		// 1 Сиг = 24*60*60*1000*1000*1000/(16*144*1296*72*760*160) = 3,305 нс
+
+		// Сутки заканчивались и начинались после захода солнца (здесь сутки начинаются
+		// в 18.00 по современному времени)
+
+			var data = new Date();
+			var hours = data.getHours();
+			if (hours <= 17) {hours += 6} else {hours -= 18};
+			var milliseconds = hours * 3600000 + data.getMinutes() * 60000
+			  + data.getSeconds() * 1000 + data.getMilliseconds();
+
+			var s = '';
+			var chas = Math.floor(milliseconds / 5400000);
+			if (chas < 10) {s += '0'};
+			milliseconds -= chas * 5400000;
+			s += chas + ':';
+
+			var chast = Math.floor(milliseconds / 37500);
+			if (chast < 10) {s += '00'}
+			else if (chast < 100) {s += '0'};
+			milliseconds -= chast * 37500;
+			s += chast + ':';
+
+			var dolya = Math.floor(milliseconds * 2985984 / 86400000);
+			if (dolya < 10) {s += '000'}
+			else if (dolya < 100) {s += '00'}
+			else if (dolya < 1000) {s += '0'};
+			s += dolya;
+
+		/*	s += dolya + ':';
+			milliseconds -= dolya * 86400000 / 2985984;
+			var mgnovenie = Math.floor(milliseconds * 214990848 / 86400000);
+			if (mgnovenie < 10) {s += '0'};
+			s += mgnovenie;
+		*/
+			var elem = document.getElementById("ClockCell");
+			elem.innerHTML = s;
+			var t = setTimeout('myclock()', 28);
+		}
+		-->
+		</script>
+
+	</head>
+
+	<body onload="myclock();LoadImages();">
+
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tbody><tr>
+				<td valign="top" colspan="2" id="ClockCell" class="clock">06:041:0278</td>
+				<td valign="top">
+					<p class="center">
+&nbsp;
+</p>
+				</td>
+				<td valign="top" colspan="2">
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" colspan="2">
+					&nbsp;
+				</td>
+				<td valign="top">
+					<p class="center">
+
+						
+
+							<a href="http://sage.com.ua/en.shtml">EN</a>
+							&nbsp;
+							<a href="http://sage.siteburg.com/">mirror</a>
+							&nbsp;|&nbsp;
+							<b>RU</b>
+							&nbsp;
+							<a href="http://sage.h15.ru/">зеркало</a>
+
+						
+
+					</p>
+				</td>
+				<td valign="top" colspan="2">
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" class="width180">
+					<table width="100%" cellspacing="0" cellpadding="0">
+
+						
+						
+
+						
+							<tbody><tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell156x24rep0" colspan="2">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e0l0">Главная</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+						
+
+						
+						
+
+						
+							<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l1.gif" alt="">
+	</td>
+	<td class="cell156x24rep1" colspan="2">
+		<p><b>
+ОС A2 (Bluebottle)		</b></p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r1.gif" alt="">
+	</td>
+</tr>
+
+
+							
+								<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/s0.gif" alt="">
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l1.gif" alt="">
+	</td>
+	<td class="cell144x24rep1">
+		<p><b>
+Установка		</b></p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r1.gif" alt="">
+	</td>
+</tr>
+
+							
+
+							
+
+							
+								<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/s0.gif" alt="">
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell144x24rep0">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e1l2">Локализация</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+							
+
+							
+
+							
+								<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/s0.gif" alt="">
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell144x24rep0">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e1l4">UDP-чат</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+							
+
+							
+
+							
+								<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/s0.gif" alt="">
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell144x24rep0">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e1l3">Прокси-сервер</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+							
+
+							
+
+							
+								<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/s0.gif" alt="">
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell144x24rep0">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e1l1">IFS</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+							
+
+							
+
+							
+								<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/s0.gif" alt="">
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell144x24rep0">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e1l6">Демки</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+							
+
+							
+
+							
+								<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/s0.gif" alt="">
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell144x24rep0">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e1l9">Игры</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+							
+
+							
+
+							
+								<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/s0.gif" alt="">
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell144x24rep0">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e1l8">Raytracing</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+							
+
+							
+
+							
+								<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/s0.gif" alt="">
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell144x24rep0">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e1l7">Virtual keyboard</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+							
+
+							
+
+							
+								<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/s1.gif" alt="">
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell144x24rep0">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e1l5">Frappr!</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+							
+
+						
+
+						
+						
+						
+						
+							<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell156x24rep0" colspan="2">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e6l0">ДРАКОН</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+						
+
+						
+						
+						
+						
+							<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell156x24rep0" colspan="2">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e2l1">Программы</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+						
+
+						
+						
+				
+						
+							<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell156x24rep0" colspan="2">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e3l0">Утилиты</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+						
+
+						
+						
+						
+						
+							<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell156x24rep0" colspan="2">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e8l0">Ссылки</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+						
+
+						
+						
+						
+						
+							<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell156x24rep0" colspan="2">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e4l0">Веб-мастеру</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+						
+						
+						
+						
+						
+						
+							<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell156x24rep0" colspan="2">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e7l0">Контакт</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+						
+						
+						
+						
+						
+						
+							<tr>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/l0.gif" alt="">
+	</td>
+	<td class="cell156x24rep0" colspan="2">
+		<p>
+<a href="http://sage.com.ua/ru.shtml?e5l0">Резюме</a>		</p>
+	</td>
+	<td class="cell12x24">
+		<img width="12" height="24" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/r0.gif" alt="">
+	</td>
+</tr>
+
+						
+						
+					</tbody></table>
+					<table width="100%" cellspacing="0" cellpadding="0">
+						<tbody><tr>
+							<td valign="top">
+								<br>
+<p class="center">
+
+<a href="http://a2os.org.ua/forums/index.php" target="_blank"><img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/A2.png" style="width: 150px; height: 115px" alt="A2 OS forum"></a>
+
+<br>
+<br>
+
+<a href="http://s02.flagcounter.com/more/B2y"><img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/saved_resource" alt="free counters" border="0"></a>
+
+<br>
+<br>
+
+    <a href="http://jigsaw.w3.org/css-validator/">
+        <img style="width: 88px; height: 31px" src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/vcss" alt="Valid CSS!">
+    </a>
+
+<br>
+<br>
+
+
+<a href="http://mytop-in.net/" target="_blank"><img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/saved_resource(1)" style="width: 81px; height: 63px" alt="Rated by MyTOP"></a>
+
+
+</p>
+							</td>
+						</tr>
+
+					</tbody></table>
+
+				</td>
+
+				<td valign="top" class="width12">
+					&nbsp;
+				</td>
+
+				<td valign="top" class="content">
+					<table><tbody><tr><td>
+						<img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/printer.gif" alt="
+							принтер
+						">
+
+						</td><td>&nbsp;</td><td>
+
+						
+
+							
+
+						
+
+						
+								
+							
+									
+						
+
+						
+								
+							<a href="http://sage.com.ua/print_ru.shtml?e1l0">&nbsp;<small>Версия для печати</small></a>
+								
+						
+					</td></tr></tbody></table>
+					<br>
+
+					
+						<h1>
+						Операционная система A2 (Bluebottle). Установка и конфигурирование
+						</h1>
+						<br>
+						    <p class="right"><b><i>SAGE</i></b></p>
+    <br>
+    <h2>Вступление</h2>
+		<p class="indent"><a href="http://bluebottle.ethz.ch/" target="_blank">A2</a> - мощная операционная система, разрабатываемая в <a href="http://www.nativesystems.inf.ethz.ch/" target="_blank">Native Systems Research Group</a>, основанная на ядре (<b>kernel</b>) <b>Active Object System</b> (<b>Aos</b>). <b>Aos</b> обеспечивает компактную среду выполнения (<b>runtime</b>) для языка <a href="http://bluebottle.ethz.ch/languagereport/index.html" target="_blank">Active Oberon</a> (<a href="http://bluebottle.ethz.ch/languagereport/ActiveReport.pdf">pdf</a>), который поддерживает активные объекты (нити) непосредственно, и позволяет разрабатывать эффективные системы, основанные на активных объектах, функционирующие непосредственно на железе.
+    </p>		
+		<p class="indent">Над слоем ядра, гибкая коллекция модулей обеспечивает общие абстракции для устройств и сервисов, например, файловые системы, интерфейсы пользователя, сетевые подключения, кодеки и т.д.
+		</p>
+		<p class="indent">Относительно большое число приложений доступно для системы <b>A2</b>.
+    </p>
+    <p class="indent">Например:
+		</p>
+		<ul>
+      <li>Мультимедиа проигрыватель (<b>DivX</b>, <b>MP3</b>, <b>OGG</b>)</li>
+      <li>Среда разработки (<b>IDE</b>)</li>
+      <li><b>Web</b> сервер</li>
+      <li><b>TV</b></li>
+      <li><b>Oberon</b> для <b>A2</b></li>
+    </ul>
+		<p class="indent"><b>A2</b> в настоящий момент реализован для <b>Intel</b> <b>SMP</b>-совместимых много-процессорных систем (поддерживается <b>HyperThreading</b>) и <b>Intel</b>-совместимых однопроцессорных систем, а также для процессора <b>Strong-ARM</b>/<b>XScale</b>. <b>A2</b> может также выполняться на отдельных виртуальных машинах, как например: <b>Qemu</b>, <b>VMWare</b> и <b>Virtual PC 4.0</b> (только <b>Macintosh</b> версия).
+    </p>
+		<p class="indent">Сайт <a href="http://bluebottle.ethz.ch/" target="_blank">A2</a> также размещен на сервере, работающем под управлением ОС <b>A2</b>!
+    </p>
+    <p class="indent">
+      Если Вы заинтересованны в использовании системы <b>A2</b> посетите также и <a href="http://www.ocp.inf.ethz.ch/">официальный сайт Оберон сообщества</a>.
+    </p>
+    <p class="indent">
+      Для установки операционной системы потребуется 
+      <a href="http://bluebottle.ethz.ch/downloads/A2CD.zip">A2CD.zip</a>
+      образ установочного диска.
+    </p>
+    <p class="indent">
+      <b>A2</b>
+      на сегодняшний день поддерживает загрузку: с 
+      <b>IDE/ATA</b>
+      жестких дисков, 
+      <b>USB</b>
+      устройств и устройств, подключенных через 
+      <b>Adaptec SCSI</b>
+      адаптеры. На все эти случаи имеются три различных образа ядра (kernel) системы: 
+      <code>AosIDE.Bin</code>, 
+      <code>AosUSB.Bin</code>
+      и 
+      <code>AosAda7.Bin</code>
+      соответственно.
+    </p>
+    <p class="indent">
+      Под 
+      <b>A2</b>
+      сравнительно легко пишутся драйвера устройств. Список поддерживаемых системой устройств постоянно растет.
+    </p>
+    <br>
+    <h2>Установка</h2>
+    <p class="indent">
+      Для установки 
+      <b>A2</b>
+      на компьютер потребуется свободный раздел на жестком диске или отдельный жесткий диск. Поскольку 
+      <b>A2</b>
+      совместим с
+      <a href="http://www.vmware.com/" target="_blank">VMware Workstation</a>, здесь и далее не будем делать различий между физическим компьютером и виртуальным :-)
+    </p>
+    <p class="indent">
+      Потребуется свободный раздел емкостью не менее 200 Мб. Для выделения свободной области диска, например можно воспользоваться утилитой 
+      <a href="http://www.powerquest.com/" target="_blank">Partition Magic</a>. Еще раз подчеркиваю, что не нужно создавать новый раздел, достаточно выделить под него свободную область.
+    </p>
+    <br><p class="indent">
+      
+			<b>Шаг 1.</b> Распаковываем <a href="http://bluebottle.ethz.ch/downloads/crazy/AosCD.zip">ISO</a>
+      образ установочного диска из архива в любую папку на жестком диске.
+    </p>
+    <br><p class="indent">
+      
+      <b>Шаг 2.</b> Создаем из образа на 
+      <b>CD</b>
+      носителе загрузочный диск. При использовании 
+      <b>VMware Workstation</b>
+      диск создавать не обязательно, – загрузить виртуальную машину можно прямо с
+      файла образа, лежащего на жестком диске.
+    </p>
+    <br><p class="indent">
+      		
+      <b>Шаг 3.</b> Загружаем компьютер.
+    </p>
+    <p class="indent">
+      На экране монитора должен появиться рабочий стол с меню, расположенным в левом нижнем углу.
+    </p>
+    <p class="indent">
+      Весь дальнейший процесс установки операционной системы выполняется при помощи графического инсталлятора или приложения 
+      <a href="http://www.oberon.ethz.ch/" target="_blank">Oberon</a>
+      (<b>Oberon</b>
+      существует и как отдельная операционная система, однако в <b>A2</b> она теперь выполняется в качестве приложения).
+    </p>
+    <p class="indent">
+      Для запуска 
+      графического инсталлятора
+      выбираем пункт меню 
+      <b>Installer</b>
+      из раздела 
+      <b>System</b>.
+    </p>
+    <p class="center">
+      <img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/BBInstallerLaunch.png" alt="Запуск графического инсталлятора в ОС A2">
+    </p>
+    <p class="center">
+      <img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/BBInstaller.png" alt="Графический инсталлятор ОС A2">
+    </p>
+    <p class="indent">
+      Для запуска 
+      <b>Oberon</b>
+      выбираем пункт меню 
+      <b>Oberon</b>
+      из раздела 
+      <b>Tools</b>.
+    </p>
+    <p class="center">
+      <img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/BBOberonLaunch.png" alt="Запуск Native Oberon в ОС A2">
+    </p>
+    <p class="indent">
+      Все операции в 
+      <b>Oberon</b>
+      (как и в 
+      <b>A2</b>, в целях совместимости) выполняются с помощью команд, которые можно набирать в любом поле, позволяющем выполнять набор текста.
+      Чтобы найти подходящее место, пощелкайте левой кнопкой мыши в разных окнах, пока не появится знак следующего вида:
+    </p>
+    <p class="center">
+      <img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/BBPrompt.png" alt="Место ввода текста">
+    </p>
+    <p class="indent">
+      Система является полностью регистро-зависимой (различает большие и маленькие буквы). Команда всегда состоит из названия модуля, отвечающего за взаимодействие с той или иной частью подсистемы, с добавлением имени вызываемой функции, указываемой через точку (аналогия с обращением к методам объектов или полям записей в языках программирования высокого уровня). После имени функции через пробелы идет перечисление параметров, передаваемых функции. После перечисления параметров ставится необязательный знак "<code>~</code>" (тильда). Это связано с особенностью функционирования подсистемы разбора параметров функций – для выполнения команды создается временный буфер памяти, в который попадает весь текст идущий после имени вызываемой функции. Если при наполнении буфера в тексте встречается "<code>~</code>", наполнение буфера прекращается и происходит разбор параметров и исполнение команды, иначе в буфер попадает весь текст, который присутствует после параметров команды. Таким образом, знак "<code>~</code>" экономит память. Запуск команды на исполнение производится нажатием средней кнопкой мыши на команде. Проиллюстрирую работу команд на реальных практических примерах.
+    </p>
+    <br><p class="indent">
+      
+      <b>Шаг 4.</b> Создаем основную загрузочную запись 
+      (<b>MBR</b>).
+    </p>
+    <p class="indent">
+      В случае установки на чистый не использовавшийся ранее диск, (ситуация типичная, например для 
+      <b>VMware</b>) предварительно необходимо произвести инициализацию диска путем создания основной загрузочной записи 
+      <b>MBR</b>.
+    </p>
+    <p class="indent">
+      Набираем в любом доступном месте: <code>Partitions.Tool</code>
+    </p>
+    <p class="indent">
+      В данном случае это не команда а имя файла. Файлы с расширением 
+      <b>Tool</b>
+      используются в системе 
+      <b>Oberon</b>, в качестве своеобразных палитр 
+      <u>инструментов</u>, отсюда возникло расширение 
+      <b>Tool</b>. А <b>Partitions</b>, как нетрудно догадаться – модуль отвечающий за различные операции с внешними устройствами (жесткими дисками, <b>CD</b> накопителями, и т.д.). Назначение палитр инструментов – присутствие в них наиболее часто используемых команд, что исключает необходимость в их повторном наборе.
+    </p>
+    <p class="indent">
+Наверняка вы встретите перед некоторыми командами в палитрах знак "<code>!</code>". В данном случае этот знак означает отрицание, т.е. 
+      <u>запрет запуска команды</u>, – так защищены команды, случайное исполнение которых может привести к нежелательным последствиям. Для разрешения запуска команды, достаточно удалить знак "<code>!</code>".
+    </p>
+    <p class="indent">
+      Выделяем надпись <code>Partitions.Tool</code> (Для этого ставим указатель мыши в начале предполагаемого выделения, нажимаем правую кнопу мыши и удерживая ее в нажатом состоянии тянем до конца предполагаемого выделения), находим в правой части экрана команду <code>Edit.Open &#8593;</code> и выполняем ее.
+    </p>
+    <p class="indent">Откроется окно текстового редактора 
+      <b>Edit</b> с открытым в нем файлом <code>Partitions.Tool</code>
+    </p>
+    <p class="indent">
+      Для прокрутки содержимого окна в вертикальном направлении служит полоска в левой части окна. Прокрутка вниз осуществляется левой кнопки мыши, а вверх – правой.  
+    </p>
+    <p class="indent">
+      Знак "<code>&#8593;</code>" означает, что при исполнении такой команды в качестве параметра на место знака подставляется текущий выделенный текст. В данном случае эквивалентной была бы команда <code>Edit.Open Partitions.Tool ~</code>
+    </p>
+    <p class="indent">В открытом окне находим и исполняем команду <code>Partitions.Show ~</code>
+    </p>
+    <p class="indent">
+    При этом открывается еще одно окно с перечнем всех доступных разделов, на всех устройствах.
+    </p>
+    <p class="center"> 
+     <img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/BBPartitionsFree.png" alt="Перечень доступных разделов">
+    </p>
+    <p class="indent">
+    Находим в этом перечне наш свободный раздел. В данном примере это будет раздел <code>IDE0#01</code>. Такая запись обозначает – раздел 1 на <b>IDE</b> устройcтве 0. О том, что раздел свободен говорит надпись "<code>(Free)</code>. 
+    </p>
+    <p class="indent">
+    Кроме того, в данном случае устройство <code>IDE0</code>, очевидно не содержит <b>MBR</b>. 
+    </p>
+    <p class="indent">
+      В окне <code>Partitions.Tool</code> находим, и внеся некоторые коррективы, исполняем команду <code>Partitions.WriteMBR IDE0#0 OBEMBR.BIN ~</code>
+    </p>
+    <p class="indent">
+      В окне <code>System.Log</code> в правой части экрана при этом должна появиться надпись:
+    </p>
+    <p class="indent">
+       <code>OBEMBR.BIN written to MBR</code>
+    </p>
+    <br><p class="indent">
+            
+			<b>Шаг 5.</b> Создаем раздел диска.
+    </p>
+    <p class="indent">
+      В окне <code>Partitions.Tool</code> находим, и внеся некоторые коррективы, исполняем команду <code>Partitions.Create IDE0#1 101MB ~</code>
+    </p>
+    <p class="indent">
+      В окне <code>System.Log</code> в правой части экрана при этом должна появиться надпись:
+    </p>
+    <p class="indent">
+       <code>Partition created, use Partitions.Show</code>
+    </p>
+    <p class="indent">
+      Если теперь закрыть окно <code>Partitions.Text</code>, исполнив команду <code>System.Close</code> в заголовке окна, и исполнить команду <code>Partitions.Show ~</code> мы увидим новый перечень разделов во вновь открывшемся окне <code>Partitions.Text</code>:
+    </p>
+    <p class="center"> 
+     <img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/BBPartitionsNew.png" alt="Созданный раздел в списке">
+    </p>
+		
+    <br><p class="indent">
+			<b>Шаг 6.</b> Активируем раздел.
+    </p>
+    <p class="indent">
+      Для того чтобы с нашего раздела происходила загрузка, необходимо его сделать активным. Если на этом устройстве уже имелся, ранее другой активный раздел его необходимо будет сделать неактивным. Для деактивации разделов служит команда <code>Partitions.Deactivate &#8593;</code>.
+    </p>
+    <p class="indent">
+      Убираем "<code>!</code>" перед командой <code>Partitions.Activate &#8593;</code> в окне <code>Partitions.Tool</code>, выделяем в окне <code>Partitions.Text</code> раздел <code>IDE0#01</code> и в окне <code>Partitions.Tool</code> исполняем команду <code>Partitions.Activate &#8593;</code>.
+    </p>
+    <p class="indent">
+      В окне <code>System.Log</code> при этом должна появиться надпись:
+    </p>
+    <p class="indent">
+       <code>IDE0#01 activated</code>
+    </p>		
+    <p class="indent">
+      Окно <code>Partitions.Tool</code> нам более не понадобится, закрываем его, исполнив в заголовке окна команду <code>System.Close</code>.
+    </p>
+		
+    <br><p class="indent">
+		  <b>Шаг 7.</b> Форматируем раздел.
+    </p>
+    <p class="indent">
+      Набираем в любом доступном месте следующее <code>AosInst.Tool</code>. Выделяем надпись <code>AosInst.Tool</code>. Находим в правой части экрана команду <code>Edit.Open &#8593;</code>, и выполняем ее.
+    </p>
+    <p class="indent">
+      Откроется окно текстового редактора 
+      <b>Edit</b>
+      с открытым в нем файлом 
+      <code>AosInst.Tool</code>
+    </p>
+    <p class="indent">
+      Находим в окне <code>AosInst.Tool</code> раздел "<b>2. Format an AosFS Partition</b>". Выполняем команду <code>Partitions.Show ~</code>, выделяем наш раздел в открывшемся окне <code>Partitions.Text</code> и исполняем команду <code>Partitions.Format &#8593;</code>.
+    </p>
+    <p class="indent">
+      В окне <code>System.Log</code> при этом наблюдаем процесс форматирования и проверки целостности раздела:
+    </p>
+    <p class="center"> 
+     <img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/BBPartitionsFormat.png" alt="Процесс форматирования и проверки целостности раздела">
+    </p>
+
+		
+    <br><p class="indent">
+      <b>Шаг 8.</b> Монтируем раздел.
+    </p>
+    <p class="indent">
+			Выделяем наш раздел в окне <code>Partitions.Text</code> и в окне <code>AosInst.Tool</code> находим и исполняем команду <code>OFSTools.Mount AOS AosFS &#8593;</code>.
+    </p>
+    <p class="indent">
+      В окне <code>System.Log</code> при этом должна появиться надпись:
+    </p>
+    <p class="indent">
+       <code>AOS: mounted</code>
+    </p>
+		
+    <br><p class="indent">
+      <b>Шаг 9.</b> Копируем файлы.
+    </p>
+    <p class="indent">
+			В окне <code>AosInst.Tool</code> находим и исполняем одну за другой команды для извлечения объектных файлов, исходных файлов и файлов сторонних разработчиков, соответственно:
+    </p>
+    <p class="indent">					
+			 <code>ZipTool.ExtractAll \p AOS: \o 
+	AosSys.zip AosApps.zip AosOberon.zip AosGad.zip AosDocu.zip AosOberonApps1.zip 
+	AosOberonApps2.zip AosBuild.zip Pr3Fonts.zip Pr6Fonts.zip ~</code>;
+    </p>
+    <p class="indent">			
+			 <code>ZipTool.ExtractAll \p AOS: \o
+	AosSysSrc.zip AosAppsSrc.zip AosOberonSrc.zip AosGadSrc.zip AosOberonAppsSrc.zip AosBuildSrc.zip ~</code>;
+    </p>
+    <p class="indent">
+			<code>ZipTool.ExtractAll \p AOS: \o
+	 AosContributions.zip AosContributionsSrc.zip ~</code>. 
+    </p>
+    <p class="indent">
+      В окне <code>System.Log</code> при этом должен отображаться ход распаковки файлов из архивов.
+    </p>
+    <br><p class="indent">
+      <b>Шаг 10.</b> Конфигурируем систему.
+    </p>
+    <p class="indent">
+			В окне <code>AosInst.Tool</code> находим и исполняем команду <code>ET.OpenAscii Aos.Par ~</code>.
+    </p>
+    <p class="indent">
+      Откроется окно текстового редактора 
+      <b>Edit</b>
+      с открытым в нем файлом 
+      <code>Aos.Par</code>.
+    </p>
+    <p class="indent">
+      Для нормальной загрузки <b>A2</b> самыми важными параметрами являются: <code>BootVol1</code>, <code>Boot</code> и <code>Init</code>. <code>BootVol1</code> - номер нашего раздела, с установленной системой. Boot - драйвер графического адаптера (по умолчанию используется драйвер <b>VESA 2.0 VBE</b> с использованием режма <b>linear frame buffer</b> (<b>LFB</b>) - <code>AosDisplayLinear</code>). <code>Init</code> - трехсимвольная строка, задающая графический режим, в котором запустится система (значение Init по умолчанию 117, что соответствует <b>VESA 2.0 VBE</b> режиму 1024*768*16). 
+    </p>
+    <p class="indent">
+      Ниже приводится пример конфигурации, подходящей для запуска <b>A2</b> в <b>VMWare</b>, с поддержкой сети. 
+    </p>
+    <p class="indent">
+      Символами <code>#</code> в файле конфигурации отмечены комментарии.
+    </p>
+    <p class="indent">
+      Запись конфигурации осуществляется исполнением команды <code>Partitions.SetConfig</code> в первой строке файла конфигурации. Предварительно нужно убрать знак комментария перед знаком <code>~</code> в конце файла.
+    </p>
+<div>
+<pre class="code">Partitions.SetConfig IDE0#01 
+  BootVol1="AOS AosFS IDE0#01"
+  AosFS="AosDiskVolumes.New AosDiskFS.NewFS"
+  Boot="AosDisplayLinear"
+  Init="117"
+  Boot1="AosKeyboard;AosMousePS2;
+AosUsbUhci.Init;AosUsb.Init;
+AosUsbMouse.Init;AosUsbKeyboard.Init"
+  Boot2="WindowManager.Install"
+  Boot3="AosLoopback.Install"
+  Boot4="AosAM79C970.Install"
+  IPForwarding="0"
+  EchoReply="1"
+  Boot5="AosInitNet.Init"
+  AutoNetConfig="1"
+  Boot9="Autostart.Run"
+  CacheSize="1000"
+  APM="0"
+~
+</pre>
+</div>
+<br>
+
+
+
+						
+					
+
+
+
+					
+					
+					
+
+					<p class="center"><small><b>
+
+					
+						Дата последнего обновления:&nbsp;
+					
+
+					
+						08.10.2008
+					
+
+
+					</b></small></p><br>
+				</td>
+
+				<td valign="top" class="width12">
+					&nbsp;
+				</td>
+		
+				<td valign="top" class="width180">
+					<p class="center" style="MARGIN-LEFT: 5px; MARGIN-RIGHT: 5px;">
+
+<!-- START OF ADDME LINK -->
+<a href="http://www.addme.com/">Search Engine Optimization - AddMe</a> 
+<!-- END OF ADDME LINK -->
+
+<br>
+<br>
+
+<a href="http://www4.clustrmaps.com/counter/maps.php?url=http://sage.com.ua/" id="clustrMapsLink"><img src="./SAGE's Homepage — Операционная система A2 (Bluebottle). Установка и конфигурирование_files/index2.php" style="border:0px;" alt="Locations of visitors to this page" title="Locations of visitors to this page" id="clustrMapsImg" onerror="this.onerror=null; this.src=&#39;http://www2.clustrmaps.com/images/clustrmaps-back-soon.jpg&#39;; document.getElementById(&#39;clustrMapsLink&#39;).href=&#39;http://www2.clustrmaps.com&#39;;">
+</a>
+
+</p>
+				</td>
+			</tr>
+
+			<tr>
+
+				<td colspan="5">
+
+					
+
+						<p class="center"><b>Copyright&nbsp;©&nbsp;2005-2008&nbsp;<a href="http://sage.com.ua/">SAGE</a>.&nbsp; All rights reserved.</b></p><p class="center"><b>Запрещено частичное или полное воспроизведение материалов сайта</b></p><p class="center"><b>без согласования с владельцем.</b></p>
+
+					
+
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" valign="top">
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" valign="top">
+					<p class="center">
+&nbsp;
+</p>
+				</td>
+			</tr>
+
+		</tbody></table>
+
+	
+
+
+</body></html>

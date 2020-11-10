@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<title>hscool ONLINE: Heap Sutra//Civil Hackers' School</title></head>
+
+
+<body alink="#0000ff" bgcolor="#ffffff" link="#0000ff" text="#000000" vlink="#0000ff">
+<table align="center" border="0" cellpadding="0" cellspacing="0" cols="3" frame="void" width="100%">
+  <tbody><tr>
+    <td valign="top" width="66">
+      <a href="http://hscool.net/index.html"><img src="heap_sutras_files/hackeroid.png" alt=" [Hackeroid] " border="0" height="50" width="66"></a>
+    </td>
+    <td>
+      <center><h2>Heap Sutra</h2></center>
+    </td>
+    <td width="66">
+      &nbsp;
+    </td>
+  </tr>
+</tbody></table><br>
+<center>
+<hr color="black" noshade="noshade" size="1">
+  <a href="http://hscool.net/index.html">main</a> | 
+  <a href="http://hscool.net/news/index.html">news</a> | 
+  <a href="http://hscool.net/about/index.html">about</a> | 
+  <a href="http://hscool.net/enter/index.html">entrance</a> |
+  <a href="http://hscool.net/levels.html">levels</a> | 
+  <a href="http://hscool.net/students.html">students</a> | 
+  <a href="http://hscool.net/online/index.html">online education</a> | 
+  <a href="http://hscool.net/groups.html">hacker groups</a> |
+  <a href="http://hscool.net/links.html">links</a><br>
+  
+  <a href="http://hscool.net/index.html">главная</a> | 
+  <a href="http://hscool.net/news/index.html">новости</a> | 
+  <a href="http://hscool.net/about/index.html">о школе</a> | 
+  <a href="http://hscool.net/enter/index.html">вступление</a> |
+  <a href="http://hscool.net/levels.html">уровни</a> | 
+  <a href="http://hscool.net/students.html">ученики</a> | 
+  <a href="http://hscool.net/online/index.html">обучение online</a> | 
+  <a href="http://hscool.net/groups.html">хэкерские группы</a> |
+  <a href="http://hscool.net/links.html">ссылки</a><br>
+<hr color="black" noshade="noshade" size="1">
+
+<a href="http://hscool.net/online/sutras.html">Back</a> |
+<a href="http://hscool.net/online/base.html">Base</a> |
+<a href="http://hscool.net/online/hacks.html">Hacks</a><br>
+<a href="http://hscool.net/online/sutras.html">Назад</a> |
+<a href="http://hscool.net/online/base.html">База</a> |
+<a href="http://hscool.net/online/hacks.html">Хэки</a><br>
+
+<hr color="black" noshade="noshade" size="1">
+</center>
+<pre>
+(* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * )
+( Heap.PAS      hscool sutra                                      Pascal )
+(                                                                        )
+( Heap sorting -- timing is _always_ .LE. N*log N                        )
+( * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *)
+
+Program Heap(Input,Output);
+Const
+  N_MAX=99;
+
+Type
+  TElement=Integer;
+
+Var
+  iNum,i: Integer;
+  elTemp: TElement;
+     elA: Array[1..N_MAX] of TElement; { Source array, tree and result }
+
+
+Procedure FixTree(iFrom,iTo: Integer);
+Var
+  elTop,elLeft,elRight: TElement;
+	    iFromTwice: Integer;
+	       flgDone: Boolean;
+Begin
+  elTop:=elA[iFrom];
+
+  Repeat
+    iFromTwice:=iFrom*2;
+    flgDone:=iFromTwice&gt;iTo;
+    If not flgDone then
+      Begin
+	elLeft:=elA[iFromTwice];
+	If iFromTwice=iTo then elRight:=elLeft
+			  else elRight:=elA[iFromTwice+1];
+
+	If (elRight&gt;elTop) and (elRight&gt;elLeft) then
+	  Begin
+	    elA[iFrom]:=elRight;  iFrom:=iFromTwice+1
+	  end
+	else If elLeft&gt;elTop then
+	  Begin
+	    elA[iFrom]:=elLeft;   iFrom:=iFromTwice
+	  end
+	else flgDone:=true
+
+      end
+  until flgDone;
+
+  elA[iFrom]:=elTop
+end;
+
+
+Begin
+  WriteLn;
+  WriteLn('Heap.  Array sorting by tree building.');
+
+  { Read unsorted array   }
+  iNum:=0;
+  Repeat
+    iNum:=iNum+1;  Read(elA[iNum])
+  until (iNum=N_MAX) or eof;
+  WriteLn;
+
+  { Build a sorting tree  }
+  For i:=iNum div 2 downto 1 do FixTree(i,iNum);
+
+  { Convert tree to array }
+  For i:=iNum downto 2 do Begin elTemp:=elA[1];
+				elA[1]:=elA[i];
+				elA[i]:=elTemp;
+				FixTree(1,i-1)
+			  end;
+
+  { Display the result    }
+  WriteLn('  * Sorted array *');
+  For i:=1 to iNum-1 do Write(elA[i]:1,' ');
+  WriteLn(elA[iNum]:1);
+  WriteLn('P.S. Thank you for using our software.')
+end.
+    </pre>
+<center>
+<hr color="black" noshade="noshade" size="1">
+  <a href="http://hscool.net/index.html">main</a> | 
+  <a href="http://hscool.net/news/index.html">news</a> | 
+  <a href="http://hscool.net/about/index.html">about</a> | 
+  <a href="http://hscool.net/enter/index.html">entrance</a> |
+  <a href="http://hscool.net/levels.html">levels</a> | 
+  <a href="http://hscool.net/students.html">students</a> | 
+  <a href="http://hscool.net/online/index.html">online education</a> | 
+  <a href="http://hscool.net/groups.html">hacker groups</a> |
+  <a href="http://hscool.net/links.html">links</a><br>
+  
+  <a href="http://hscool.net/index.html">главная</a> | 
+  <a href="http://hscool.net/news/index.html">новости</a> | 
+  <a href="http://hscool.net/about/index.html">о школе</a> | 
+  <a href="http://hscool.net/enter/index.html">вступление</a> |
+  <a href="http://hscool.net/levels.html">уровни</a> | 
+  <a href="http://hscool.net/students.html">ученики</a> | 
+  <a href="http://hscool.net/online/index.html">обучение online</a> | 
+  <a href="http://hscool.net/groups.html">хэкерские группы</a> |
+  <a href="http://hscool.net/links.html">ссылки</a><br>
+<hr color="black" noshade="noshade" size="1">
+</center>
+Copyright (C) 1996-2003 Ilya V. Vasilyev<br>
+Civil Hackers' School, <a href="mailto:hscool@netclub.ru">hscool@netclub.ru</a>,
++7(095)963-3916
+  </body></html>
