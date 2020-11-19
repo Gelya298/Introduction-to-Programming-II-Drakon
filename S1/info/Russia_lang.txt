@@ -2,6 +2,8 @@
 систем реального времени (СРВ) и языка реального времени ПРОЛ2
 язык СИПРОЛ, который является упрощенным вариантом языка ПРОЛ2
 язык RAISE (Rigorous Approach to Industrial Software Engineering)
+Ссылка для скачивания Drakon:
+https://drakon.su/drakon_editor
 
 Dipol (ДИПОЛЬ) was meant for development of the "groundware" used by Buran/Energia.
 Laks (ЛАКС), not Flocks -- was a modeling language.
